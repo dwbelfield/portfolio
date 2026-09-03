@@ -144,7 +144,7 @@ export default function Home() {
           <Reveal>
             {/* Heading shares the row grid: "chapters" starts in the name column,
                 so the logos below line up with its first letter. */}
-            <div className="mb-12 grid items-end gap-4 md:grid-cols-12 md:gap-8">
+            <div className="mb-12 md:grid md:grid-cols-12 md:items-end md:gap-8">
               <h2 className="contents text-4xl font-semibold tracking-tight md:text-6xl">
                 <span className="md:col-span-2">Four</span>
                 <span className="md:col-span-8">chapters</span>
