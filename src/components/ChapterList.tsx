@@ -37,8 +37,10 @@ export default function ChapterList({ heading }: { heading?: Heading }) {
                 className={`group grid gap-4 py-8 transition-colors md:py-10 ${sub}`}
               >
                 <div className="flex items-baseline justify-between md:block md:pr-6">
-                  <span className="readout text-2xl text-accent">{c.index}</span>
-                  <span className="readout md:mt-2 md:block">{c.period}</span>
+                  <span className="text-3xl font-semibold tracking-tight text-accent md:text-4xl">
+                    {c.index}
+                  </span>
+                  <span className="readout md:mt-3 md:block">{c.period}</span>
                 </div>
                 <div className="flex items-start gap-4 md:pr-8">
                   {c.logo && (
