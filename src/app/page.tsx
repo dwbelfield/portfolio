@@ -1,10 +1,19 @@
 import Image from "next/image";
 import ChaosField from "@/components/ChaosField";
 import ChapterVideo from "@/components/ChapterVideo";
+import RotatingTitle from "@/components/RotatingTitle";
 import ChapterList from "@/components/ChapterList";
 import { Button } from "@/components/Button";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { site, proof, principles } from "@/content/site";
+
+const titles = [
+  "Best-selling author",
+  "Program Manager",
+  "Chief of Staff",
+  "Chief Operating Officer",
+  "Co-founder & CEO",
+];
 
 export default function Home() {
   return (
@@ -91,6 +100,13 @@ export default function Home() {
                 sizes="(min-width: 768px) 45vw, 0px"
                 className="object-contain object-right-bottom [mask-image:linear-gradient(to_bottom,black_88%,transparent_100%)]"
               />
+              {/* Caption over the fade at the bottom of the portrait. */}
+              <div className="absolute inset-x-0 bottom-0 flex justify-end bg-[linear-gradient(to_top,var(--bg)_0%,transparent_100%)] px-2 pb-1 pt-10">
+                <div className="text-right">
+                  <p className="text-lg font-semibold text-fg">{site.name}</p>
+                  <RotatingTitle titles={titles} className="text-muted" />
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
