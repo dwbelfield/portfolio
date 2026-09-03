@@ -32,7 +32,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Before that I was COO of a payments company through a period of rapid scale,
-                  and before that I spent seven years in Marine Corps aviation logistics
+                  and before that I spent eight years in Marine Corps aviation logistics
                   replacing informal tracking with systems that hold. The digital tracking
                   rebuild I did there outlived my tenure and became the model adopted across
                   the Navy and Marine Corps.

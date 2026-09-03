@@ -14,7 +14,7 @@ export const site = {
   linkedinLabel: "linkedin.com/in/dwbelfield",
   url: "https://derekbelfield.com",
   intro:
-    "Seven years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build are still running long after I leave.",
+    "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build are still running long after I leave.",
   pullQuote:
     "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
 };
@@ -56,7 +56,7 @@ export const chapters: Chapter[] = [
     name: "United States Marine Corps",
     org: "USMC",
     descriptor: "Aviation logistics, maintenance & operations",
-    period: "2013 – 2020",
+    period: "2012 – 2020",
     location: "Okinawa, Japan · Craven County, NC",
     video: { src: "/media/usmc.mp4", alt: "Marine aviation maintenance footage" },
     accent: "marpat",
@@ -188,7 +188,7 @@ export const proof: Stat[] = [
   { value: 98.3, decimals: 1, suffix: "%", label: "Parts availability", from: "from 15.1%" },
   { value: 99, suffix: "%", label: "Fewer card-testing attacks" },
   { value: 6, label: "Production lines from an empty floor" },
-  { value: 0, label: "Failed audits or examinations", from: "in 13 years" },
+  { value: 0, label: "Failed audits or examinations", from: "in 14 years" },
 ];
 
 export const principles = [

@@ -84,7 +84,7 @@ export default function Home() {
           <Reveal>
             <div className="mb-12 flex items-end justify-between">
               <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">Four chapters</h2>
-              <span className="readout hidden md:block">2013 – present</span>
+              <span className="readout hidden md:block">2012 – present</span>
             </div>
           </Reveal>
           <ChapterList />

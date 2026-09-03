@@ -158,7 +158,7 @@ export const positions: Record<string, Position[]> = {
 /** Chapter-level notes that do not belong to a single position. */
 export const highlights: Record<string, string[]> = {
   "marine-corps": [
-    "Seven years, six months of service. Honorably discharged, June 2020.",
+    "Eight years of service, May 2012 to June 2020. Honorably discharged.",
     "Navy and Marine Corps Commendation Medal, twice.",
     "Programs owned: Aviation Life Support Systems, Maintenance Production Control, CBRN Protective Equipment, Ammunition & Explosives Certification, Lean Six Sigma Office.",
   ],
