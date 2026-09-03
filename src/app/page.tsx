@@ -139,14 +139,14 @@ export default function Home() {
       </section>
 
       {/* Chapters */}
-      <section className="border-t border-line">
+      <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
           <ChapterList heading={{ lead: "Four", rest: "chapters", meta: "2012 – present" }} />
         </div>
       </section>
 
       {/* Principles */}
-      <section className="grid-underlay border-t border-line bg-panel">
+      <section className="grid-underlay border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
           <Reveal>
             <span className="rule mb-4" />
