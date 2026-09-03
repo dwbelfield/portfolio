@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
 import CamoTiles from "@/components/CamoTiles";
+import RoleSelector from "@/components/RoleSelector";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters } from "@/content/site";
+import { positions, highlights } from "@/content/positions";
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ slug: c.slug }));
@@ -29,6 +31,8 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const prev = chapters[i - 1];
   const next = chapters[i + 1];
   const marpat = c.accent === "marpat";
+  const roles = positions[c.slug];
+  const notes = highlights[c.slug];
 
   return (
     <>
@@ -102,42 +106,41 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Detail */}
       <section className="grid-underlay border-t border-line">
         {marpat && <CamoTiles clusters={5} seed={5} />}
-        <div className="mx-auto grid w-full max-w-[1280px] gap-12 px-6 py-20 md:grid-cols-12 md:px-8 md:py-28">
-          <div className="md:col-span-4">
-            <Reveal>
-              <p className="label mb-4">Roles</p>
-              <ul className="space-y-1 text-fg">
-                {c.roles.map((r) => (
-                  <li key={r}>{r}</li>
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+          <Reveal>
+            <span className="rule mb-4" />
+            <p className="label mb-10">Roles</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            {roles ? (
+              <RoleSelector positions={roles} />
+            ) : (
+              <ul className="bullets space-y-5 text-lg text-fg">
+                {c.bullets.map((b, k) => (
+                  <li key={k}>{b}</li>
                 ))}
               </ul>
-              {c.link && (
-                <div className="mt-8">
-                  <p className="label mb-4">Visit</p>
-                  <a
-                    href={c.link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="link-draw text-fg"
-                  >
-                    {c.link.label}
-                  </a>
-                </div>
-              )}
+            )}
+          </Reveal>
+          {(notes || c.link) && (
+            <Reveal delay={0.2}>
+              <div className="mt-16 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
+                <p className="label md:col-span-4">Across the chapter</p>
+                <ul className="space-y-2 text-muted md:col-span-8">
+                  {notes?.map((n) => (
+                    <li key={n}>{n}</li>
+                  ))}
+                  {c.link && (
+                    <li>
+                      <a href={c.link.href} target="_blank" rel="noreferrer" className="link-draw text-fg">
+                        Visit {c.link.label}
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
             </Reveal>
-          </div>
-          <div className="md:col-span-8">
-            <Reveal>
-              <p className="label mb-6">What happened</p>
-            </Reveal>
-            <ul className="bullets space-y-5 text-lg text-fg">
-              {c.bullets.map((b, k) => (
-                <Reveal key={k} delay={k * 0.04}>
-                  <li>{b}</li>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
+          )}
         </div>
       </section>
 
