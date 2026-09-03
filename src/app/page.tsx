@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* Hero: chaos resolving onto the grid */}
-      <section className="relative flex min-h-svh flex-col justify-end overflow-hidden">
+      <section className="relative flex min-h-svh flex-col justify-end overflow-hidden md:min-h-0">
         <ChaosField className="absolute inset-0" />
         <div className="hero-fade absolute inset-0" />
 
@@ -28,7 +28,7 @@ export default function Home() {
           />
         </Reveal>
 
-        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-20">
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-20 md:pt-28">
           <Reveal delay={1.2} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
