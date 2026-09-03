@@ -89,29 +89,32 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, ease: ease.out }}
-          className="relative"
         >
-          {p.patch && (
-            <motion.div
-              className="mb-6 w-32 md:absolute md:right-0 md:top-0 md:mb-0 md:w-44"
-              initial={reduced ? false : { opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.15, ease: ease.out }}
-            >
-              <Image
-                src={p.patch.src}
-                alt={p.patch.alt}
-                width={p.patch.width}
-                height={p.patch.height}
-                className="h-auto w-full"
-              />
-            </motion.div>
-          )}
-          <h3 className="text-2xl font-semibold tracking-tight md:pr-52 md:text-3xl">{p.title}</h3>
-          <p className="readout mt-2">
-            {p.period}
-            {p.duration ? ` · ${p.duration}` : ""} · {p.location}
-          </p>
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+              <p className="readout mt-2">
+                {p.period}
+                {p.duration ? ` · ${p.duration}` : ""} · {p.location}
+              </p>
+            </div>
+            {p.patch && (
+              <motion.div
+                className="w-24 shrink-0 md:w-36"
+                initial={reduced ? false : { opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.15, ease: ease.out }}
+              >
+                <Image
+                  src={p.patch.src}
+                  alt={p.patch.alt}
+                  width={p.patch.width}
+                  height={p.patch.height}
+                  className="h-auto w-full"
+                />
+              </motion.div>
+            )}
+          </div>
           <ul className="bullets mt-8 space-y-4 text-lg text-fg">
             {p.bullets.map((b, k) => (
               <li key={k}>{b}</li>

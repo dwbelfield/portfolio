@@ -48,6 +48,7 @@ export const positions: Record<string, Position[]> = {
       period: "Jan 2017 – Nov 2017",
       duration: "11 mos",
       location: "Okinawa, Japan",
+      patch: { src: "/media/patches/mals-36.png", alt: "MALS-36 Blade Runner unit patch", width: 841, height: 900 },
       bullets: [
         "Developed data-driven inspection standards and trend analysis for process improvements.",
         "Served as Six Sigma Coach for three process improvement projects.",
