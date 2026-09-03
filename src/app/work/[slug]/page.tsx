@@ -105,20 +105,6 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
         </div>
       </section>
 
-      {/* Programs */}
-      {progs && (
-        <section className="grid-underlay border-t border-line">
-          {marpat && <CamoTiles clusters={4} seed={11} />}
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
-            <Reveal>
-              <span className="rule mb-4" />
-              <p className="label mb-12">Programs owned</p>
-            </Reveal>
-            <Programs programs={progs} />
-          </div>
-        </section>
-      )}
-
       {/* Detail */}
       <section className="grid-underlay border-t border-line">
         {marpat && <CamoTiles clusters={5} seed={5} />}
@@ -159,6 +145,20 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           )}
         </div>
       </section>
+
+      {/* Programs */}
+      {progs && (
+        <section className="grid-underlay border-t border-line">
+          {marpat && <CamoTiles clusters={4} seed={11} />}
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+            <Reveal>
+              <span className="rule mb-4" />
+              <p className="label mb-12">Programs owned</p>
+            </Reveal>
+            <Programs programs={progs} />
+          </div>
+        </section>
+      )}
 
       {/* Prev / next */}
       <section className="grid-underlay border-t border-line">
