@@ -4,13 +4,31 @@ import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
 
+type Props = {
+  src: string;
+  alt: string;
+  /** cover fills the box and crops; contain shows the whole frame. */
+  fit?: "cover" | "contain";
+  /** Screen-blend the video so its black background vanishes into the page. */
+  blend?: boolean;
+  /** Graphite gradient over the footage, for legibility under text. */
+  overlay?: boolean;
+  /** Opacity of the footage itself, 0–100. */
+  opacity?: number;
+};
+
 /**
- * Full-bleed looping background video for a chapter header.
- * Muted, inline, no controls. With reduced motion it shows the first frame
- * and never plays. A graphite gradient keeps the headline legible and blends
- * the footage into the page.
+ * Looping background video. Muted, inline, no controls. With reduced motion
+ * it shows the first frame and never plays.
  */
-export default function ChapterVideo({ src, alt }: { src: string; alt: string }) {
+export default function ChapterVideo({
+  src,
+  alt,
+  fit = "cover",
+  blend = false,
+  overlay = true,
+  opacity = 80,
+}: Props) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLVideoElement>(null);
 
@@ -21,7 +39,6 @@ export default function ChapterVideo({ src, alt }: { src: string; alt: string })
       v.pause();
       return;
     }
-    // Autoplay can be refused by the browser; ignore the rejection.
     v.play().catch(() => {});
   }, [reduced]);
 
@@ -42,10 +59,14 @@ export default function ChapterVideo({ src, alt }: { src: string; alt: string })
         preload="metadata"
         autoPlay={!reduced}
         title={alt}
-        className="h-full w-full object-cover opacity-80 grayscale-[25%]"
+        style={{ opacity: opacity / 100 }}
+        className={`h-full w-full ${fit === "cover" ? "object-cover grayscale-[25%]" : "object-contain"} ${
+          blend ? "mix-blend-screen" : ""
+        }`}
       />
-      {/* Darken and fade into the page background. */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(20,21,22,0.25)_0%,rgba(20,21,22,0.45)_55%,var(--bg)_100%)]" />
+      {overlay && (
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(20,21,22,0.25)_0%,rgba(20,21,22,0.45)_55%,var(--bg)_100%)]" />
+      )}
     </motion.div>
   );
 }

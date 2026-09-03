@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ChaosField from "@/components/ChaosField";
+import ChapterVideo from "@/components/ChapterVideo";
 import ChapterList from "@/components/ChapterList";
 import { Button } from "@/components/Button";
 import { Counter, Reveal, Words } from "@/components/primitives";
@@ -10,6 +11,15 @@ export default function Home() {
     <>
       {/* Hero: chaos resolving onto the grid */}
       <section className="relative flex min-h-svh flex-col justify-end overflow-hidden md:min-h-0">
+        {/* Chaos-to-order ring, ping-pong looped, screen-blended so only the lines show. */}
+        <ChapterVideo
+          src="/media/hero.mp4"
+          alt="A tangled ring of lines resolving into an ordered one, and back"
+          fit="contain"
+          blend
+          overlay={false}
+          opacity={45}
+        />
         <ChaosField className="absolute inset-0" />
         <div className="hero-fade absolute inset-0" />
 
