@@ -14,7 +14,7 @@ const base =
 
 const variants = {
   primary: "bg-fg text-panel hover:bg-accent",
-  ghost: "border border-line text-fg hover:border-fg",
+  ghost: "border border-line text-fg hover:border-accent hover:text-accent",
 };
 
 export function Button({ href, children, variant = "primary", external, className }: Props) {

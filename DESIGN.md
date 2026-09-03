@@ -27,9 +27,19 @@ Tailwind via `@theme`. Use semantic classes (`bg-bg`, `bg-panel`, `text-fg`,
    multiples of 8 and section rhythm on multiples of 32 (`grid` spacing token).
 4. **Amber under 5% of any page.** Accent is for one focal element per view,
    hover/focus states, and selection. Never for backgrounds or large fills.
+   Standing amber jobs: the `.rule` hairline that opens a section, chapter
+   index numbers, stat prefixes/suffixes (`%`, `$`, `K`), link underlines,
+   the Order panel's top edge, one word in the home headline, the footer motif.
 5. **Respect `prefers-reduced-motion`.** CSS transitions collapse globally.
    JS animations must gate through `useReducedMotion()` / `prefersReducedMotion()`
    in `src/lib/motion.ts` and fall back to a static end state.
+
+## Chapter accents
+
+The Marine Corps chapter may use small woodland MARPAT touches (generated in
+`src/components/Camo.tsx`): a 128×10 tape above the header label, a 6px strip
+on the Chaos panel, 12px chips before stat labels. Never larger than a hairline
+or a chip, never behind text. Other chapters have no pattern accent.
 
 ## Motion vocabulary
 

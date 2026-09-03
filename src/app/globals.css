@@ -193,3 +193,18 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+/* ------------------------------------------------------------------
+   Amber accents (kept to hairlines and glyphs; see DESIGN.md)
+   ------------------------------------------------------------------ */
+.link-draw::after {
+  background: var(--accent);
+}
+
+/* A short amber rule used to open a section. One grid unit wide. */
+.rule {
+  display: block;
+  width: var(--grid);
+  height: 2px;
+  background: var(--accent);
+}

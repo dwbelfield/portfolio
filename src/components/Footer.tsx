@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className="md:text-right">
           <span className="readout">© {new Date().getFullYear()} {site.name}</span>
-          <p className="readout mt-1">{site.motif}</p>
+          <p className="readout mt-1 text-accent">{site.motif}</p>
         </div>
       </div>
     </footer>

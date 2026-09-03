@@ -46,11 +46,14 @@ export function Words({
   delay = 0,
   stagger = 0.045,
   className,
+  accentWord,
 }: {
   text: string;
   delay?: number;
   stagger?: number;
   className?: string;
+  /** Index of a word to render in the accent colour. */
+  accentWord?: number;
 }) {
   const reduced = useReducedMotion();
   const words = text.split(" ");
@@ -65,7 +68,7 @@ export function Words({
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]" aria-hidden="true">
           <motion.span
-            className="inline-block"
+            className={`inline-block ${i === accentWord ? "text-accent" : ""}`}
             initial={reduced ? false : { y: "110%" }}
             animate={{ y: shown ? 0 : "110%" }}
             transition={{ duration: 0.8, delay: delay + i * stagger, ease: ease.out }}
@@ -115,9 +118,9 @@ export function Counter({
 
   return (
     <span ref={ref} className={className}>
-      {prefix}
+      {prefix && <span className="text-accent">{prefix}</span>}
       {shown.toFixed(decimals)}
-      {suffix}
+      {suffix && <span className="text-accent">{suffix}</span>}
     </span>
   );
 }

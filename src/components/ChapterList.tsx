@@ -13,7 +13,7 @@ export default function ChapterList() {
               className="group grid gap-4 py-8 transition-colors md:grid-cols-12 md:gap-8 md:py-10"
             >
               <div className="flex items-baseline justify-between md:col-span-2 md:block">
-                <span className="readout text-2xl transition-colors group-hover:text-accent">
+                <span className="readout text-2xl text-accent">
                   {c.index}
                 </span>
                 <span className="readout md:mt-2 md:block">{c.period}</span>

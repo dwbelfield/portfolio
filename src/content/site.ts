@@ -45,6 +45,8 @@ export type Chapter = {
   link?: { href: string; label: string };
   /** Optional looping background video for the chapter header (path under /public). */
   video?: { src: string; alt: string };
+  /** Optional chapter-specific decorative accent. */
+  accent?: "marpat";
 };
 
 export const chapters: Chapter[] = [
@@ -57,6 +59,7 @@ export const chapters: Chapter[] = [
     period: "2013 – 2020",
     location: "Okinawa, Japan · Craven County, NC",
     video: { src: "/media/usmc.mp4", alt: "Marine aviation maintenance footage" },
+    accent: "marpat",
     roles: [
       "Senior Operations Manager",
       "Senior Production Manager",

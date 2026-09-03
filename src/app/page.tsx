@@ -19,7 +19,7 @@ export default function Home() {
             </p>
           </Reveal>
           <h1 className="max-w-5xl text-[13vw] font-semibold leading-[0.95] tracking-tight md:text-[7.5rem]">
-            <Words text={site.motif} delay={1.4} stagger={0.12} />
+            <Words text={site.motif} delay={1.4} stagger={0.12} accentWord={1} />
           </h1>
           <Reveal delay={2.0}>
             <p className="mt-8 max-w-xl text-lg text-muted md:text-xl">{site.intro}</p>
@@ -39,6 +39,7 @@ export default function Home() {
       <section className="grid-underlay">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
           <Reveal>
+            <span className="rule mb-4" />
             <p className="label mb-10">Proof</p>
           </Reveal>
           <dl className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-4">
@@ -65,6 +66,9 @@ export default function Home() {
       {/* Pull quote */}
       <section className="border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-40">
+          <Reveal y={0}>
+            <span className="rule mb-8" />
+          </Reveal>
           <blockquote className="max-w-4xl text-3xl font-medium leading-tight tracking-tight md:text-5xl">
             <Words text={site.pullQuote} stagger={0.03} />
           </blockquote>
@@ -91,6 +95,7 @@ export default function Home() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
           <Reveal>
+            <span className="rule mb-4" />
             <p className="label mb-10">Principles</p>
           </Reveal>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">

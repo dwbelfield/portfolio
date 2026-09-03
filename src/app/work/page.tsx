@@ -13,7 +13,8 @@ export default function WorkPage() {
     <section className="grid-underlay">
       <div className="mx-auto w-full max-w-[1280px] px-6 pb-24 pt-32 md:px-8 md:pb-32 md:pt-40">
         <Reveal y={0}>
-          <p className="label mb-6">Work</p>
+          <span className="rule mb-4" />
+            <p className="label mb-6">Work</p>
         </Reveal>
         <h1 className="max-w-4xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
           <Words text="Four chapters. One pattern." delay={0.1} stagger={0.08} />

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
+import Camo from "@/components/Camo";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters } from "@/content/site";
 
@@ -27,14 +28,20 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const c = chapters[i];
   const prev = chapters[i - 1];
   const next = chapters[i + 1];
+  const marpat = c.accent === "marpat";
 
   return (
     <>
       {/* Header */}
-      <section className={c.video ? "relative min-h-[80svh] flex flex-col justify-end" : "grid-underlay"}>
+      <section className={c.video ? "relative flex min-h-[80svh] flex-col justify-end overflow-hidden" : "grid-underlay"}>
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} />}
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
           <Reveal y={0}>
+            {marpat ? (
+              <Camo width={128} height={10} cell={2} seed={3} className="mb-4 block rounded-[2px]" />
+            ) : (
+              <span className="rule mb-4" />
+            )}
             <p className="label mb-6">
               <span className="mr-3 text-accent">{c.index}</span>
               {c.period} · {c.location}
@@ -56,13 +63,18 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Chaos / Order */}
       <section className="border-t border-line">
         <div className="mx-auto grid w-full max-w-[1280px] gap-px bg-line md:grid-cols-2">
-          <Reveal className="bg-bg">
+          <Reveal className="relative bg-bg">
+            {marpat && (
+              <div className="absolute inset-y-0 left-0 w-1.5 overflow-hidden">
+                <Camo width={6} height={480} cell={2} seed={7} className="h-full w-full" />
+              </div>
+            )}
             <div className="px-6 py-12 md:px-8 md:py-16">
               <p className="label mb-4">Chaos</p>
               <p className="text-2xl leading-snug text-muted md:text-3xl">{c.chaos}</p>
             </div>
           </Reveal>
-          <Reveal delay={0.15} className="bg-panel">
+          <Reveal delay={0.15} className="border-t-2 border-accent bg-panel">
             <div className="px-6 py-12 md:px-8 md:py-16">
               <p className="label mb-4">
                 <span className="mr-2 text-accent">●</span>Order
@@ -87,7 +99,10 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
                     suffix={s.suffix}
                   />
                 </dd>
-                <dt className="mt-3 text-fg">{s.label}</dt>
+                <dt className="mt-3 flex items-center gap-2 text-fg">
+                  {marpat && <Camo width={12} height={12} cell={2} seed={20 + k} className="shrink-0 rounded-[2px]" />}
+                  {s.label}
+                </dt>
                 {s.from && <p className="readout mt-1">{s.from}</p>}
               </Reveal>
             ))}

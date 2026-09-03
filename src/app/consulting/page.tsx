@@ -50,6 +50,7 @@ export default function ConsultingPage() {
       <section className="border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
           <Reveal>
+            <span className="rule mb-4" />
             <p className="label mb-10">What I take on</p>
           </Reveal>
           <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
