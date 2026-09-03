@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ChaosField from "@/components/ChaosField";
 import ChapterVideo from "@/components/ChapterVideo";
 import RotatingTitle from "@/components/RotatingTitle";
 import ChapterList from "@/components/ChapterList";
@@ -18,14 +17,13 @@ const titles = [
 export default function Home() {
   return (
     <>
-      {/* Hero: chaos resolving onto the grid */}
+      {/* Hero */}
       <section className="relative flex min-h-svh flex-col justify-end overflow-hidden md:min-h-0">
-        <ChaosField className="absolute inset-0" />
-        <div className="hero-fade absolute inset-0" />
+        <div className="grid-underlay pointer-events-none absolute inset-0" aria-hidden="true" />
 
         {/* Portrait on small screens: top-right, behind the copy. */}
         <Reveal
-          delay={0.9}
+          delay={0.4}
           y={24}
           className="pointer-events-none absolute right-0 top-20 w-[58vw] max-w-[360px] md:hidden"
         >
@@ -39,7 +37,7 @@ export default function Home() {
         </Reveal>
 
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-20 md:pt-28">
-          <Reveal delay={1.2} y={0}>
+          <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
               Available for consulting · {site.location}
@@ -51,12 +49,12 @@ export default function Home() {
           <div className="md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-stretch md:gap-8">
             <div>
               <h1 className="text-[13vw] font-semibold leading-[0.95] tracking-tight md:text-[6.5rem] lg:text-[7.5rem]">
-                <Words text={site.motif} delay={1.4} stagger={0.12} accentWord={1} />
+                <Words text={site.motif} delay={0.2} stagger={0.1} accentWord={1} />
               </h1>
-              <Reveal delay={2.0}>
+              <Reveal delay={0.6}>
                 <p className="mt-8 max-w-xl text-lg text-muted md:text-xl">{site.intro}</p>
               </Reveal>
-              <Reveal delay={2.2}>
+              <Reveal delay={0.75}>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Button href="/work/">See the work</Button>
                   <Button href="/consulting/" variant="ghost">
@@ -66,7 +64,7 @@ export default function Home() {
               </Reveal>
             </div>
 
-            <Reveal delay={0.9} y={24} className="relative hidden md:block">
+            <Reveal delay={0.4} y={24} className="relative hidden md:block">
               {/* Chaos-to-order ring centred behind the portrait, screen-blended so only
                   the lines show. Slightly larger than the cell so it frames the photo. */}
               <div

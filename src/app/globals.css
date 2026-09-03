@@ -157,11 +157,6 @@ body {
   transform: scaleX(1);
 }
 
-/* Fades the hero canvas into the page background so the grid takes over. */
-.hero-fade {
-  background: linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
-}
-
 /* Prose block for chapter bullets. */
 .bullets li {
   position: relative;
