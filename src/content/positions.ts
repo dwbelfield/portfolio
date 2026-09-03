@@ -168,7 +168,7 @@ export const highlights: Record<string, string[]> = {
 export type Program = {
   name: string;
   blurb: string;
-  icon: "parachute" | "clipboard" | "respirator" | "shield" | "sigma";
+  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma";
 };
 
 export const programs: Record<string, Program[]> = {
@@ -191,7 +191,7 @@ export const programs: Record<string, Program[]> = {
     {
       name: "Ammunition & Explosives Certification",
       blurb: "Board seat as the only non-ordnance member. Sign-off authority for every technician.",
-      icon: "shield",
+      icon: "ordnance",
     },
     {
       name: "Lean Six Sigma Office",

@@ -1,8 +1,13 @@
 import type { Program } from "@/content/positions";
 import { Reveal } from "./primitives";
 
+/* Raster icons applied as a mask so they take currentColor like the line icons. */
+const masks: Partial<Record<Program["icon"], string>> = {
+  ordnance: "/media/icons/flaming-bomb.png",
+};
+
 /* Line icons, 24-unit grid, stroke inherits currentColor. */
-const icons: Record<Program["icon"], React.ReactNode> = {
+const icons: Partial<Record<Program["icon"], React.ReactNode>> = {
   parachute: (
     <>
       <path d="M3 11a9 9 0 0 1 18 0" />
@@ -24,12 +29,6 @@ const icons: Record<Program["icon"], React.ReactNode> = {
       <circle cx="8.5" cy="14" r="2" />
       <circle cx="15.5" cy="14" r="2" />
       <path d="M9.5 8.5h5" />
-    </>
-  ),
-  shield: (
-    <>
-      <path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z" />
-      <path d="M13 8l-3 5h4l-3 5" />
     </>
   ),
   sigma: (
@@ -58,18 +57,35 @@ export default function Programs({ programs }: { programs: Program[] }) {
                   className="transition-[stroke] duration-200 group-hover:[stroke:var(--accent)]"
                 />
               </svg>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="absolute inset-0 m-auto h-10 w-10 text-muted transition-colors duration-200 group-hover:text-fg"
-                aria-hidden="true"
-              >
-                {icons[p.icon]}
-              </svg>
+              {masks[p.icon] ? (
+                <span
+                  className="absolute inset-0 m-auto block h-10 w-10 bg-current text-muted transition-colors duration-200 group-hover:text-fg"
+                  style={{
+                    maskImage: `url(${masks[p.icon]})`,
+                    WebkitMaskImage: `url(${masks[p.icon]})`,
+                    maskSize: "contain",
+                    WebkitMaskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskPosition: "center",
+                    WebkitMaskPosition: "center",
+                  }}
+                  aria-hidden="true"
+                />
+              ) : (
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="absolute inset-0 m-auto h-10 w-10 text-muted transition-colors duration-200 group-hover:text-fg"
+                  aria-hidden="true"
+                >
+                  {icons[p.icon]}
+                </svg>
+              )}
             </div>
             <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight">{p.name}</h3>
             <p className="mt-2 text-sm text-muted">{p.blurb}</p>
