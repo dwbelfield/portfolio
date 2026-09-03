@@ -93,7 +93,7 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
         >
           {p.patch && (
             <motion.div
-              className="mb-6 w-24 md:absolute md:right-0 md:top-0 md:mb-0 md:w-28"
+              className="mb-6 w-32 md:absolute md:right-0 md:top-0 md:mb-0 md:w-44"
               initial={reduced ? false : { opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.15, ease: ease.out }}
@@ -103,11 +103,11 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
                 alt={p.patch.alt}
                 width={p.patch.width}
                 height={p.patch.height}
-                className="h-auto w-full opacity-90"
+                className="h-auto w-full"
               />
             </motion.div>
           )}
-          <h3 className="text-2xl font-semibold tracking-tight md:pr-36 md:text-3xl">{p.title}</h3>
+          <h3 className="text-2xl font-semibold tracking-tight md:pr-52 md:text-3xl">{p.title}</h3>
           <p className="readout mt-2">
             {p.period}
             {p.duration ? ` · ${p.duration}` : ""} · {p.location}
