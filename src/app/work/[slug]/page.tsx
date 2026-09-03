@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
+import ChapterVideo from "@/components/ChapterVideo";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters } from "@/content/site";
 
@@ -30,8 +31,9 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   return (
     <>
       {/* Header */}
-      <section className="grid-underlay">
-        <div className="mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
+      <section className={c.video ? "relative min-h-[80svh] flex flex-col justify-end" : "grid-underlay"}>
+        {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} />}
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
           <Reveal y={0}>
             <p className="label mb-6">
               <span className="mr-3 text-accent">{c.index}</span>

@@ -43,6 +43,8 @@ export type Chapter = {
   stats: Stat[];
   bullets: string[];
   link?: { href: string; label: string };
+  /** Optional looping background video for the chapter header (path under /public). */
+  video?: { src: string; alt: string };
 };
 
 export const chapters: Chapter[] = [
@@ -54,6 +56,7 @@ export const chapters: Chapter[] = [
     descriptor: "Aviation logistics, maintenance & operations",
     period: "2013 – 2020",
     location: "Okinawa, Japan · Craven County, NC",
+    video: { src: "/media/usmc.mp4", alt: "Marine aviation maintenance footage" },
     roles: [
       "Senior Operations Manager",
       "Senior Production Manager",
