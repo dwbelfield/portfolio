@@ -138,21 +138,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pull quote */}
-      <section className="border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-40">
-          <Reveal y={0}>
-            <span className="rule mb-8" />
-          </Reveal>
-          <blockquote className="max-w-4xl text-3xl font-medium leading-tight tracking-tight md:text-5xl">
-            <Words text={site.pullQuote} stagger={0.03} />
-          </blockquote>
-          <Reveal delay={0.4}>
-            <p className="label mt-8">How I operate</p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Chapters */}
       <section className="grid-underlay border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
