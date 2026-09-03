@@ -108,18 +108,18 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
         {marpat && <CamoTiles clusters={5} seed={5} />}
         <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
           <Reveal>
-            <span className="rule mb-4" />
-            <p className="label mb-10">Roles</p>
-          </Reveal>
-          <Reveal delay={0.1}>
             {roles ? (
               <RoleSelector positions={roles} />
             ) : (
-              <ul className="bullets space-y-5 text-lg text-fg">
-                {c.bullets.map((b, k) => (
-                  <li key={k}>{b}</li>
-                ))}
-              </ul>
+              <>
+                <span className="rule mb-4" />
+                <p className="label mb-10">What happened</p>
+                <ul className="bullets space-y-5 text-lg text-fg">
+                  {c.bullets.map((b, k) => (
+                    <li key={k}>{b}</li>
+                  ))}
+                </ul>
+              </>
             )}
           </Reveal>
           {(notes || c.link) && (

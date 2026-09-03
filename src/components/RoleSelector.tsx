@@ -7,15 +7,25 @@ import { useReducedMotion, ease } from "@/lib/motion";
 import type { Position } from "@/content/positions";
 
 /**
- * Roles on the left, the selected role's detail on the right.
+ * Roles on the left, the selected role's detail on the right, with the
+ * selected role's unit patch up in the header row beside the eyebrow.
+ *
+ * Every role's panel is rendered into the same grid cell, so the block is
+ * always as tall as the tallest role and the page never shifts on switch.
  * Accessible tabs: arrow keys move between roles, Home/End jump.
  */
-export default function RoleSelector({ positions }: { positions: Position[] }) {
+export default function RoleSelector({
+  positions,
+  eyebrow = "Roles",
+}: {
+  positions: Position[];
+  eyebrow?: string;
+}) {
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const id = useId();
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const p = positions[active];
+  const hasPatches = positions.some((p) => p.patch);
 
   function onKeyDown(e: React.KeyboardEvent) {
     const n = positions.length;
@@ -30,106 +40,128 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
     tabs.current[next]?.focus();
   }
 
-  return (
-    <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-      {/* Role list */}
-      <div
-        role="tablist"
-        aria-orientation="vertical"
-        aria-label="Roles"
-        onKeyDown={onKeyDown}
-        className="border-l border-line md:col-span-4"
-      >
-        {positions.map((pos, k) => {
-          const selected = k === active;
-          return (
-            <button
-              key={pos.title + pos.period}
-              ref={(el) => {
-                tabs.current[k] = el;
-              }}
-              role="tab"
-              id={`${id}-tab-${k}`}
-              aria-selected={selected}
-              aria-controls={`${id}-panel`}
-              tabIndex={selected ? 0 : -1}
-              onClick={() => setActive(k)}
-              className={`relative block w-full py-4 pl-6 pr-4 text-left transition-colors focus-visible:outline-none ${
-                selected ? "text-fg" : "text-muted hover:text-fg"
-              }`}
-            >
-              {selected && (
-                <motion.span
-                  layoutId={`${id}-marker`}
-                  className="absolute -left-px top-0 h-full w-0.5 bg-accent"
-                  transition={reduced ? { duration: 0 } : { duration: 0.35, ease: ease.out }}
-                />
-              )}
-              <span className="block font-medium">{pos.title}</span>
-              <span className="readout mt-1 block">
-                {pos.period}
-                {pos.duration ? ` · ${pos.duration}` : ""}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+  const fade = (on: boolean) =>
+    reduced ? { opacity: on ? 1 : 0 } : { opacity: on ? 1 : 0, y: on ? 0 : 12 };
 
-      {/* Detail */}
-      <div
-        role="tabpanel"
-        id={`${id}-panel`}
-        aria-labelledby={`${id}-tab-${active}`}
-        className="md:col-span-8"
-      >
-        {/* Keyed so each role mounts fresh and plays its enter animation; no exit
-            animation, so the swap is instant even if frames are throttled. */}
-        <motion.div
-          key={active}
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.28, ease: ease.out }}
-        >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
-              <p className="readout mt-2">
-                {p.period}
-                {p.duration ? ` · ${p.duration}` : ""} · {p.location}
-              </p>
-            </div>
-            {p.patch && (
-              <motion.div
-                className="w-24 shrink-0 md:w-36"
-                initial={reduced ? false : { opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.15, ease: ease.out }}
-              >
-                <Image
-                  src={p.patch.src}
-                  alt={p.patch.alt}
-                  width={p.patch.width}
-                  height={p.patch.height}
-                  className="h-auto w-full"
-                />
-              </motion.div>
+  return (
+    <div>
+      {/* Header row: eyebrow left, the selected role's patch right, tops aligned. */}
+      <span className="rule mb-4" />
+      <div className="mb-10 flex items-start justify-between gap-6">
+        <p className="label">{eyebrow}</p>
+        {hasPatches && (
+          <div className="grid w-28 shrink-0 md:w-36">
+            {positions.map((p, k) =>
+              p.patch ? (
+                <motion.div
+                  key={k}
+                  className="[grid-area:1/1]"
+                  initial={false}
+                  animate={
+                    reduced
+                      ? { opacity: k === active ? 1 : 0 }
+                      : { opacity: k === active ? 1 : 0, scale: k === active ? 1 : 0.94 }
+                  }
+                  transition={{ duration: 0.5, ease: ease.out }}
+                  aria-hidden={k !== active}
+                >
+                  <Image
+                    src={p.patch.src}
+                    alt={p.patch.alt}
+                    width={p.patch.width}
+                    height={p.patch.height}
+                    className="h-auto w-full"
+                  />
+                </motion.div>
+              ) : null,
             )}
           </div>
-          <ul className="bullets mt-8 space-y-4 text-lg text-fg">
-            {p.bullets.map((b, k) => (
-              <li key={k}>{b}</li>
-            ))}
-          </ul>
-          {p.tags && (
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Skills">
-              {p.tags.map((t) => (
-                <li key={t} className="label rounded-full border border-line px-3 py-1">
-                  {t}
-                </li>
-              ))}
-            </ul>
-          )}
-        </motion.div>
+        )}
+      </div>
+
+      <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+        {/* Role list */}
+        <div
+          role="tablist"
+          aria-orientation="vertical"
+          aria-label={eyebrow}
+          onKeyDown={onKeyDown}
+          className="self-start border-l border-line md:col-span-4"
+        >
+          {positions.map((pos, k) => {
+            const selected = k === active;
+            return (
+              <button
+                key={pos.title + pos.period}
+                ref={(el) => {
+                  tabs.current[k] = el;
+                }}
+                role="tab"
+                id={`${id}-tab-${k}`}
+                aria-selected={selected}
+                aria-controls={`${id}-panel-${k}`}
+                tabIndex={selected ? 0 : -1}
+                onClick={() => setActive(k)}
+                className={`relative block w-full py-4 pl-6 pr-4 text-left transition-colors focus-visible:outline-none ${
+                  selected ? "text-fg" : "text-muted hover:text-fg"
+                }`}
+              >
+                {selected && (
+                  <motion.span
+                    layoutId={`${id}-marker`}
+                    className="absolute -left-px top-0 h-full w-0.5 bg-accent"
+                    transition={reduced ? { duration: 0 } : { duration: 0.35, ease: ease.out }}
+                  />
+                )}
+                <span className="block font-medium">{pos.title}</span>
+                <span className="readout mt-1 block">
+                  {pos.period}
+                  {pos.duration ? ` · ${pos.duration}` : ""}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Detail: all panels stacked in one cell; only the active one is visible. */}
+        <div className="grid md:col-span-8">
+          {positions.map((p, k) => {
+            const on = k === active;
+            return (
+              <motion.div
+                key={k}
+                role="tabpanel"
+                id={`${id}-panel-${k}`}
+                aria-labelledby={`${id}-tab-${k}`}
+                aria-hidden={!on}
+                className={`[grid-area:1/1] ${on ? "" : "pointer-events-none invisible"}`}
+                initial={false}
+                animate={fade(on)}
+                transition={{ duration: 0.28, ease: ease.out }}
+              >
+                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+                <p className="readout mt-2">
+                  {p.period}
+                  {p.duration ? ` · ${p.duration}` : ""} · {p.location}
+                </p>
+                <ul className="bullets mt-8 space-y-4 text-lg text-fg">
+                  {p.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+                {p.tags && (
+                  <ul className="mt-8 flex flex-wrap gap-2" aria-label="Skills">
+                    {p.tags.map((t) => (
+                      <li key={t} className="label rounded-full border border-line px-3 py-1">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
