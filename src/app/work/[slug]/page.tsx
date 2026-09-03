@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
@@ -43,7 +44,17 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} />}
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
           <Reveal y={0}>
-            <span className="rule mb-4" />
+            {c.logo ? (
+              <Image
+                src={c.logo.src}
+                alt={c.logo.alt}
+                width={c.logo.width}
+                height={c.logo.height}
+                className="mb-6 h-14 w-auto opacity-90"
+              />
+            ) : (
+              <span className="rule mb-4" />
+            )}
             <p className="label mb-6">
               <span className="mr-3 text-accent">{c.index}</span>
               {c.period} · {c.location}

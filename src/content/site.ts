@@ -47,11 +47,14 @@ export type Chapter = {
   video?: { src: string; alt: string };
   /** Optional chapter-specific decorative accent. */
   accent?: "marpat";
+  /** Organisation logo, white on transparent (path under /public). */
+  logo?: { src: string; alt: string; width: number; height: number };
 };
 
 export const chapters: Chapter[] = [
   {
     slug: "marine-corps",
+    logo: { src: "/media/logos/usmc.png", alt: "United States Marine Corps eagle, globe, and anchor", width: 617, height: 640 },
     index: "01",
     name: "United States Marine Corps",
     org: "USMC",
@@ -93,6 +96,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "rallypay",
+    logo: { src: "/media/logos/rallypay.png", alt: "RallyPay mark", width: 474, height: 640 },
     index: "02",
     name: "RallyPay",
     org: "RallyPay",
@@ -157,6 +161,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "zenblis",
+    logo: { src: "/media/logos/zenblis.png", alt: "Zenblis mark", width: 638, height: 640 },
     index: "04",
     name: "Zenblis",
     org: "Zenblis",

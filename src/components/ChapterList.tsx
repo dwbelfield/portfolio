@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { chapters } from "@/content/site";
 import { Reveal } from "./primitives";
 
@@ -19,6 +20,15 @@ export default function ChapterList() {
                 <span className="readout md:mt-2 md:block">{c.period}</span>
               </div>
               <div className="md:col-span-5">
+                {c.logo && (
+                  <Image
+                    src={c.logo.src}
+                    alt={c.logo.alt}
+                    width={c.logo.width}
+                    height={c.logo.height}
+                    className="mb-4 h-10 w-auto opacity-90"
+                  />
+                )}
                 <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{c.name}</h3>
                 <p className="mt-1 text-muted">
                   {c.org !== c.name ? `${c.org} · ` : ""}
