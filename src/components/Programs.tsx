@@ -59,7 +59,7 @@ export default function Programs({ programs }: { programs: Program[] }) {
               </svg>
               {masks[p.icon] ? (
                 <span
-                  className="absolute inset-0 m-auto block h-10 w-10 bg-current text-muted transition-colors duration-200 group-hover:text-fg"
+                  className="absolute inset-0 m-auto block h-14 w-14 bg-current text-muted transition-colors duration-200 group-hover:text-fg"
                   style={{
                     maskImage: `url(${masks[p.icon]})`,
                     WebkitMaskImage: `url(${masks[p.icon]})`,
