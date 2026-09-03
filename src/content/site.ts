@@ -1,0 +1,254 @@
+/**
+ * Single source of truth for site copy. Facts here come from Derek's
+ * resumes (Chief of Staff and Technical Program Manager versions).
+ * Edit this file to change what the site says; components only render it.
+ */
+
+export const site = {
+  name: "Derek Belfield",
+  role: "Operator · Chief of Staff · Co-founder",
+  motif: "Bringing order to chaos.",
+  location: "Dallas, TX",
+  email: "dwbelfield@gmail.com",
+  linkedin: "https://linkedin.com/in/dwbelfield",
+  linkedinLabel: "linkedin.com/in/dwbelfield",
+  url: "https://derekbelfield.com",
+  intro:
+    "Seven years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build are still running long after I leave.",
+  pullQuote:
+    "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
+};
+
+export type Stat = {
+  value: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  from?: string;
+};
+
+export type Chapter = {
+  slug: string;
+  index: string;
+  name: string;
+  org: string;
+  descriptor: string;
+  period: string;
+  location: string;
+  roles: string[];
+  chaos: string;
+  order: string;
+  summary: string;
+  stats: Stat[];
+  bullets: string[];
+  link?: { href: string; label: string };
+};
+
+export const chapters: Chapter[] = [
+  {
+    slug: "marine-corps",
+    index: "01",
+    name: "United States Marine Corps",
+    org: "USMC",
+    descriptor: "Aviation logistics, maintenance & operations",
+    period: "2013 – 2020",
+    location: "Okinawa, Japan · Craven County, NC",
+    roles: [
+      "Senior Operations Manager",
+      "Senior Production Manager",
+      "Business Process Analyst",
+      "Technical Supervisor",
+      "Production Manager",
+    ],
+    chaos:
+      "Paper tracking. A three-year parts backlog. A shop coded priority 9 when the governing regulation specified priority 3.",
+    order:
+      "A digital tracking system that outlived my tenure and became the model adopted across the Navy and Marine Corps.",
+    summary:
+      "A decade of ownership over safety-critical programs: aviation life support systems, CBRN protective equipment, ammunition and explosives certification, and maintenance production control.",
+    stats: [
+      { value: 98.3, decimals: 1, suffix: "%", label: "Parts ready for issue", from: "from 15.1%" },
+      { value: 3, suffix: " mo", label: "Time to replenish", from: "from 36 months" },
+      { value: 7, suffix: " days", label: "International purchasing turnaround", from: "from 90 days" },
+      { value: 295, label: "Lean Six Sigma students trained", from: "across 13 courses" },
+    ],
+    bullets: [
+      "Cleared a three-year parts backlog after finding the shop coded priority 9 when the regulation specified priority 3. Parts availability went from 15.1% to 98.3% and replenishment time from 36 months to 3, eliminating a standing three-day customer downtime.",
+      "Built the digital tracking system that replaced paper for parts, status, and accountability. Recognized by the inspection team at two separate sites, then adopted as the model across the Navy and Marine Corps.",
+      "Rewrote the qualification standard for the entire trade at the Training & Readiness Working Group. Adopted service-wide.",
+      "Established the CBRN protective equipment program in Okinawa, bringing in-house four shipping containers of equipment that had previously been sent back to the United States for inspection every cycle.",
+      "Seated on the Ammunition & Explosives Certification Program Board as its only non-ordnance member, with sign-off authority on explosives-handling certification for every technician in the shops.",
+      "Relieved the maintenance sign-off bottleneck by training four quality assurance representatives and six inspectors.",
+      "Led 60 people across five divisions and $1.4M in assets. 46 direct reports in a later assignment.",
+      "Six Sigma coach on three improvement projects. Instructed 13 Lean Six Sigma Yellow and Green Belt courses, training 295 students.",
+      "Zero discrepancies across two organizational audits. Navy and Marine Corps Commendation Medal, twice.",
+    ],
+  },
+  {
+    slug: "rallypay",
+    index: "02",
+    name: "RallyPay",
+    org: "RallyPay",
+    descriptor: "Payments infrastructure",
+    period: "2020 – 2026",
+    location: "Dallas, TX",
+    roles: ["Director of Operations", "Chief Operating Officer", "Consultant"],
+    chaos:
+      "A payments company scaling fast. Inbound support volume up 400%. Card-testing attacks hammering the gateway. Compliance obligations across PCI, KYC/AML, NACHA, and the card networks.",
+    order:
+      "An operating cadence between decision and delivery, a compliance program that never failed an examination, and a security layer that cut attacks by 99%.",
+    summary:
+      "Nearly six years across three roles, from Director of Operations to COO, then retained by the CEO post-transition to advise on operations, risk, and compliance continuity.",
+    stats: [
+      { value: 99, suffix: "%", label: "Fewer card-testing attacks" },
+      { value: 32, suffix: "%", label: "Fewer chargebacks" },
+      { value: 45, suffix: "%", label: "Lower projected infrastructure cost" },
+      { value: 44, suffix: "%", label: "Same-day ticket resolution", from: "from 3.4%" },
+    ],
+    bullets: [
+      "Ran company operations reporting to the CEO. Owned the operating cadence and the accountability layer between decision and delivery.",
+      "Owner of record for PCI, KYC/AML, transaction monitoring, NACHA, and card network rules. Named on the filing for every merchant acquirer examination, with no failed examinations.",
+      "Deployed a payments security microservice that cut card-testing attacks 99% and chargebacks 32%.",
+      "Implemented a proprietary onboarding and underwriting microservice, reducing processing time 33%.",
+      "Led an architectural overhaul that cut projected infrastructure costs 45%.",
+      "Developed a multi-vendor gateway service, reducing COGS 5.6% and unlocking new strategic verticals.",
+      "Executed a pricing initiative that lifted card authorization rates 11% and gross profit 5.7%.",
+      "As Director of Operations, raised same-day support ticket resolution from 3.4% to 44% while inbound volume grew 400%.",
+      "Launched fraud prevention features and training that prevented $375.5K in fraud within six months.",
+      "Led a $1M UI/UX overhaul, delivered on time and under budget.",
+    ],
+  },
+  {
+    slug: "pmb-companies",
+    index: "03",
+    name: "Warehouse Distributor",
+    org: "PMB Companies",
+    descriptor: "16-brand consumer products group",
+    period: "2026 – Present",
+    location: "Salado, TX",
+    roles: ["Chief of Staff"],
+    chaos:
+      "Sixteen brands, hundreds of SKUs, two facilities, 30M subscribers. Six new production lines that did not exist yet: no SKUs, no pricing, no warehouse integration, and a few days of notice.",
+    order:
+      "Six divisions running from an empty floor, a safety and compliance program written from scratch, and four to six launches in flight at any given time.",
+    summary:
+      "Right hand to the owner. I own the follow-through on what he decides, from vendor negotiation to first production run.",
+    stats: [
+      { value: 6, label: "Production divisions stood up", from: "from an empty floor" },
+      { value: 16, label: "Brands in the portfolio" },
+      { value: 30, suffix: "M", label: "Subscribers" },
+      { value: 350, prefix: "$", suffix: "K", label: "Production equipment specified and installed" },
+    ],
+    bullets: [
+      "Stood up six new production divisions from a standing start: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",
+      "Run four to six concurrent launches at a time, most initiated on a few days of notice.",
+      "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
+      "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
+      "Wrote the company safety and compliance program from scratch: hazard communication, lockout/tagout, emergency action plans, PPE, respiratory protection. Drove adoption across every site.",
+      "Specified, sourced, and installed roughly $350K in production equipment across two facilities. Ran repair-versus-replace analysis on legacy equipment and retired an unprofitable line.",
+    ],
+  },
+  {
+    slug: "zenblis",
+    index: "04",
+    name: "Zenblis",
+    org: "Zenblis",
+    descriptor: "AI-native senior care marketplace",
+    period: "2026 – Present",
+    location: "Co-founder",
+    roles: ["Co-Founder"],
+    chaos:
+      "Families searching for senior care in a fragmented market, with no reliable way to find, compare, and reach the right facility.",
+    order:
+      "An AI-native marketplace and directory with a go-to-market motion, a content and SEO system, and a facility outreach engine.",
+    summary:
+      "Co-founded in 2026. Built the go-to-market motion, the content and SEO system, and the facility outreach engine. Partner-run day to day.",
+    stats: [
+      { value: 2026, label: "Co-founded" },
+      { value: 3, label: "Systems built: go-to-market, content and SEO, outreach" },
+    ],
+    bullets: [
+      "Built the go-to-market motion from zero.",
+      "Designed the content and SEO system that drives organic discovery.",
+      "Built the facility outreach engine that fills the supply side of the marketplace.",
+      "Partner-run day to day, with an ongoing co-founder role.",
+    ],
+    link: { href: "https://zenblis.com", label: "zenblis.com" },
+  },
+];
+
+export const proof: Stat[] = [
+  { value: 98.3, decimals: 1, suffix: "%", label: "Parts availability", from: "from 15.1%" },
+  { value: 99, suffix: "%", label: "Fewer card-testing attacks" },
+  { value: 6, label: "Production lines from an empty floor" },
+  { value: 0, label: "Failed audits or examinations", from: "in 13 years" },
+];
+
+export const principles = [
+  {
+    title: "Follow-through",
+    body: "I write down what got decided, who has it, and when it lands. Then I go get it. Things rarely fail because nobody knew. They fail because nobody was watching the date.",
+  },
+  {
+    title: "Systems that stick",
+    body: "Anyone can roll out a tracker. The test is whether it is still running in month six, after the novelty wears off and the first person tries to route around it. Mine have been.",
+  },
+  {
+    title: "Filtering",
+    body: "I handle what I can handle. If I am bringing it to you, there is a reason, and I will have already done the work to make the decision a short one.",
+  },
+  {
+    title: "Range",
+    body: "I read a P&L and a hazard communication plan with the same attention. Equally at home on a production floor and in a software engineering standup.",
+  },
+];
+
+export const services = [
+  {
+    title: "Operating cadence",
+    body: "The accountability layer between decision and delivery. Who owns what, when it lands, and the system that keeps it visible after the novelty wears off.",
+  },
+  {
+    title: "Compliance and safety programs",
+    body: "PCI, KYC/AML, NACHA, and card network rules on the payments side. Hazard communication, lockout/tagout, and emergency action plans on the floor. Built from scratch, adopted across sites.",
+  },
+  {
+    title: "Standing up new lines",
+    body: "From an empty floor to first production run: sourcing, equipment, layout, hiring, vendor contracts.",
+  },
+  {
+    title: "Process improvement",
+    body: "Lean Six Sigma Green Belt. Find the constraint holding the schedule and remove it.",
+  },
+];
+
+export const engagement = [
+  {
+    step: "01",
+    title: "A conversation",
+    body: "Thirty minutes on what is broken, what has been tried, and what a good outcome looks like. No deck.",
+  },
+  {
+    step: "02",
+    title: "A short written plan",
+    body: "What got decided, who has it, and when it lands. Short enough to read, specific enough to hold people to.",
+  },
+  {
+    step: "03",
+    title: "Execution and handoff",
+    body: "I do the work alongside your team and leave a system that is still running in month six.",
+  },
+];
+
+export const credentials = [
+  "B.A., Intelligence Studies, American Military University, cum laude",
+  "Lean Six Sigma Green Belt. Instructor for 13 Yellow and Green Belt courses",
+  "Navy and Marine Corps Commendation Medal, twice",
+  "Honorably discharged, United States Marine Corps",
+];
+
+export const alongside = [
+  "Three-time bestselling science fiction author, independently published and marketed to bestseller.",
+  "Tools: Jira, Asana, Monday, ClickUp, Notion, Google Workspace, AI-assisted operating workflows.",
+];
