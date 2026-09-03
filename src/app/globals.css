@@ -208,3 +208,21 @@ html.lenis body {
   height: 2px;
   background: var(--accent);
 }
+
+/* Camo tiles: sit on the grid underlay, beneath content. */
+.grid-underlay > .grid-tiles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.grid-tile {
+  position: absolute;
+  width: calc(var(--grid) - 1px);
+  height: calc(var(--grid) - 1px);
+  animation: tile-in var(--dur-base) var(--ease-out) both;
+}
+@keyframes tile-in {
+  from { transform: scale(0.6); opacity: 0; }
+}

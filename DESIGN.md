@@ -36,10 +36,10 @@ Tailwind via `@theme`. Use semantic classes (`bg-bg`, `bg-panel`, `text-fg`,
 
 ## Chapter accents
 
-The Marine Corps chapter may use small woodland MARPAT touches (generated in
-`src/components/Camo.tsx`): a 128×10 tape above the header label, a 6px strip
-on the Chaos panel, 12px chips before stat labels. Never larger than a hairline
-or a chip, never behind text. Other chapters have no pattern accent.
+The Marine Corps chapter carries a quiet woodland MARPAT nod: a handful of
+32px grid cells along the edges of its grid sections are filled with one of
+four camo colours, in small clusters (`src/components/CamoTiles.tsx`). No
+bars, chips, or patterned fills anywhere. Other chapters have no accent.
 
 ## Motion vocabulary
 
