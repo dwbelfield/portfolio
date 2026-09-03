@@ -15,6 +15,8 @@ type Props = {
   overlay?: boolean;
   /** Opacity of the footage itself, 0–100. */
   opacity?: number;
+  /** Playback speed multiplier; 1 is normal. */
+  rate?: number;
 };
 
 /**
@@ -28,6 +30,7 @@ export default function ChapterVideo({
   blend = false,
   overlay = true,
   opacity = 80,
+  rate = 1,
 }: Props) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLVideoElement>(null);
@@ -35,12 +38,13 @@ export default function ChapterVideo({
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
+    v.playbackRate = rate;
     if (reduced) {
       v.pause();
       return;
     }
     v.play().catch(() => {});
-  }, [reduced]);
+  }, [reduced, rate]);
 
   return (
     <motion.div

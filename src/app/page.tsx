@@ -18,7 +18,8 @@ export default function Home() {
           fit="contain"
           blend
           overlay={false}
-          opacity={45}
+          opacity={22}
+          rate={0.35}
         />
         <ChaosField className="absolute inset-0" />
         <div className="hero-fade absolute inset-0" />
