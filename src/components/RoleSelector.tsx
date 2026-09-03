@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
 import type { Position } from "@/content/positions";
@@ -88,8 +89,25 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, ease: ease.out }}
+          className="relative"
         >
-          <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+          {p.patch && (
+            <motion.div
+              className="mb-6 w-24 md:absolute md:right-0 md:top-0 md:mb-0 md:w-28"
+              initial={reduced ? false : { opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: ease.out }}
+            >
+              <Image
+                src={p.patch.src}
+                alt={p.patch.alt}
+                width={p.patch.width}
+                height={p.patch.height}
+                className="h-auto w-full opacity-90"
+              />
+            </motion.div>
+          )}
+          <h3 className="text-2xl font-semibold tracking-tight md:pr-36 md:text-3xl">{p.title}</h3>
           <p className="readout mt-2">
             {p.period}
             {p.duration ? ` · ${p.duration}` : ""} · {p.location}

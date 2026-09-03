@@ -11,6 +11,8 @@ export type Position = {
   location: string;
   bullets: string[];
   tags?: string[];
+  /** Unit patch shown in the top-right of the role detail (path under /public). */
+  patch?: { src: string; alt: string; width: number; height: number };
 };
 
 export const positions: Record<string, Position[]> = {
@@ -70,6 +72,7 @@ export const positions: Record<string, Position[]> = {
       period: "Jan 2013 – Jan 2015",
       duration: "2 yrs 1 mo",
       location: "Okinawa, Japan",
+      patch: { src: "/media/patches/mals-36.png", alt: "MALS-36 Blade Runner unit patch", width: 598, height: 640 },
       bullets: [
         "Supervised 30 employees across three divisions, managing $1.1M in assets.",
         "Streamlined international purchasing, reducing asset turnaround from 90 days to 7 days.",
