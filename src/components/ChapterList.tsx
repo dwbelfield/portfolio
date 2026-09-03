@@ -19,21 +19,23 @@ export default function ChapterList() {
                 </span>
                 <span className="readout md:mt-2 md:block">{c.period}</span>
               </div>
-              <div className="md:col-span-5">
+              <div className="flex items-start gap-4 md:col-span-5">
                 {c.logo && (
                   <Image
                     src={c.logo.src}
                     alt={c.logo.alt}
                     width={c.logo.width}
                     height={c.logo.height}
-                    className="mb-4 h-10 w-auto opacity-90"
+                    className="mt-1 h-9 w-9 shrink-0 object-contain opacity-90 md:h-10 md:w-10"
                   />
                 )}
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{c.name}</h3>
-                <p className="mt-1 text-muted">
-                  {c.org !== c.name ? `${c.org} · ` : ""}
-                  {c.descriptor}
-                </p>
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{c.name}</h3>
+                  <p className="mt-1 text-muted">
+                    {c.org !== c.name ? `${c.org} · ` : ""}
+                    {c.descriptor}
+                  </p>
+                </div>
               </div>
               <div className="md:col-span-5">
                 <p className="label mb-2">Chaos</p>

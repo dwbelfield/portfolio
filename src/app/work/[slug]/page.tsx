@@ -44,25 +44,28 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} />}
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
           <Reveal y={0}>
-            {c.logo ? (
-              <Image
-                src={c.logo.src}
-                alt={c.logo.alt}
-                width={c.logo.width}
-                height={c.logo.height}
-                className="mb-6 h-14 w-auto opacity-90"
-              />
-            ) : (
-              <span className="rule mb-4" />
-            )}
+            <span className="rule mb-4" />
             <p className="label mb-6">
               <span className="mr-3 text-accent">{c.index}</span>
               {c.period} · {c.location}
             </p>
           </Reveal>
-          <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
-            <Words text={c.name} delay={0.1} stagger={0.08} />
-          </h1>
+          <div className="flex items-center gap-5 md:gap-8">
+            {c.logo && (
+              <Reveal y={0} delay={0.05} className="shrink-0">
+                <Image
+                  src={c.logo.src}
+                  alt={c.logo.alt}
+                  width={c.logo.width}
+                  height={c.logo.height}
+                  className="h-14 w-14 object-contain opacity-90 md:h-24 md:w-24"
+                />
+              </Reveal>
+            )}
+            <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
+              <Words text={c.name} delay={0.1} stagger={0.08} />
+            </h1>
+          </div>
           <Reveal delay={0.4}>
             <p className="mt-6 text-xl text-muted md:text-2xl">
               {c.org !== c.name ? `${c.org} · ` : ""}
