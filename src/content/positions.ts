@@ -160,7 +160,43 @@ export const highlights: Record<string, string[]> = {
   "marine-corps": [
     "Eight years of service, May 2012 to June 2020. Honorably discharged.",
     "Navy and Marine Corps Commendation Medal, twice.",
-    "Programs owned: Aviation Life Support Systems, Maintenance Production Control, CBRN Protective Equipment, Ammunition & Explosives Certification, Lean Six Sigma Office.",
   ],
   rallypay: ["Five years, eleven months across three roles."],
+};
+
+/** Programs owned within a chapter, each rendered as a hexagon with an icon. */
+export type Program = {
+  name: string;
+  blurb: string;
+  icon: "parachute" | "clipboard" | "respirator" | "shield" | "sigma";
+};
+
+export const programs: Record<string, Program[]> = {
+  "marine-corps": [
+    {
+      name: "Aviation Life Support Systems",
+      blurb: "One division, four work centers. Repeated at a second site across two more.",
+      icon: "parachute",
+    },
+    {
+      name: "Maintenance Production Control",
+      blurb: "Priority, parts, and the backlog. Ready-for-issue from 15.1% to 98.3%.",
+      icon: "clipboard",
+    },
+    {
+      name: "CBRN Protective Equipment",
+      blurb: "Established the Okinawa program. Four containers of gear brought in-house.",
+      icon: "respirator",
+    },
+    {
+      name: "Ammunition & Explosives Certification",
+      blurb: "Board seat as the only non-ordnance member. Sign-off authority for every technician.",
+      icon: "shield",
+    },
+    {
+      name: "Lean Six Sigma Office",
+      blurb: "Coach on three projects. Thirteen courses taught, 295 students.",
+      icon: "sigma",
+    },
+  ],
 };

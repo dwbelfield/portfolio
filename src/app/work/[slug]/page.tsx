@@ -5,9 +5,10 @@ import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
 import CamoTiles from "@/components/CamoTiles";
 import RoleSelector from "@/components/RoleSelector";
+import Programs from "@/components/Programs";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters } from "@/content/site";
-import { positions, highlights } from "@/content/positions";
+import { positions, highlights, programs } from "@/content/positions";
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ slug: c.slug }));
@@ -33,6 +34,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const marpat = c.accent === "marpat";
   const roles = positions[c.slug];
   const notes = highlights[c.slug];
+  const progs = programs[c.slug];
 
   return (
     <>
@@ -102,6 +104,20 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           </dl>
         </div>
       </section>
+
+      {/* Programs */}
+      {progs && (
+        <section className="grid-underlay border-t border-line">
+          {marpat && <CamoTiles clusters={4} seed={11} />}
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+            <Reveal>
+              <span className="rule mb-4" />
+              <p className="label mb-12">Programs owned</p>
+            </Reveal>
+            <Programs programs={progs} />
+          </div>
+        </section>
+      )}
 
       {/* Detail */}
       <section className="grid-underlay border-t border-line">
