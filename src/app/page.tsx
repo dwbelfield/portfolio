@@ -141,18 +141,7 @@ export default function Home() {
       {/* Chapters */}
       <section className="grid-underlay border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
-          <Reveal>
-            {/* Heading shares the row grid: "chapters" starts in the name column,
-                so the logos below line up with its first letter. */}
-            <div className="mb-12 md:grid md:grid-cols-12 md:items-end md:gap-8">
-              <h2 className="contents text-4xl font-semibold tracking-tight md:text-6xl">
-                <span className="md:col-span-2">Four</span>
-                <span className="md:col-span-8">chapters</span>
-              </h2>
-              <span className="readout hidden md:col-span-2 md:block md:text-right">2012 – present</span>
-            </div>
-          </Reveal>
-          <ChapterList />
+          <ChapterList heading={{ lead: "Four", rest: "chapters", meta: "2012 – present" }} />
         </div>
       </section>
 
