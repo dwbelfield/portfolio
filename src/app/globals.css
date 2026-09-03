@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Palette (source of truth). Change values here, nowhere else.
+   ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --graphite: #141516;
+  --cool-white: #f5f6f7;
+  --steel: #6e7681;
+  --panel-black: #0b0d0f;
+  --amber: #e3a008;
+  --amber-deep: #b07a00;
+
+  /* Semantic roles */
+  --bg: var(--graphite);
+  --bg-panel: var(--panel-black);
+  --fg: var(--cool-white);
+  --fg-muted: var(--steel);
+  --accent: var(--amber);
+  --accent-deep: var(--amber-deep);
+  --line: color-mix(in oklab, var(--steel) 28%, transparent);
+
+  /* Layout */
+  --grid: 32px;
+  --grid-line: color-mix(in oklab, var(--steel) 10%, transparent);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
 }
 
+/* Expose tokens to Tailwind as utilities: bg-panel, text-muted, border-line, etc. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-graphite: var(--graphite);
+  --color-cool-white: var(--cool-white);
+  --color-steel: var(--steel);
+  --color-panel-black: var(--panel-black);
+  --color-amber: var(--amber);
+  --color-amber-deep: var(--amber-deep);
+
+  --color-bg: var(--bg);
+  --color-panel: var(--bg-panel);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-line: var(--line);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --spacing-grid: var(--grid);
+
+  --ease-out: var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+html {
+  color-scheme: dark;
+  background: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--panel-black);
+}
+
+/* Mono is reserved for labels and readouts (timestamps, indices, meta). */
+.label,
+.readout {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.readout {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 32px grid underlay. Apply to a full-bleed wrapper or <body>. */
+.grid-underlay {
+  position: relative;
+}
+.grid-underlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid) var(--grid);
+  mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+}
+.grid-underlay > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------
+   Motion: honour prefers-reduced-motion globally.
+   JS animations check this too (see lib/motion.ts).
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
