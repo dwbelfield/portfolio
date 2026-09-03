@@ -164,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="grid-underlay border-t border-line">
+      <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-40">
           <h2 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
             <Words text="Have a mess that needs a system?" stagger={0.05} />
