@@ -17,7 +17,7 @@ export default function Home() {
         <Reveal
           delay={0.9}
           y={24}
-          className="pointer-events-none absolute right-0 top-20 w-[58vw] max-w-[360px] md:top-auto md:bottom-0 md:w-[min(44vw,560px)] md:max-w-none"
+          className="pointer-events-none absolute right-0 top-20 w-[58vw] max-w-[360px] md:top-auto md:bottom-0 md:h-[min(86svh,960px)] md:w-auto md:max-w-[62vw]"
         >
           <Image
             src="/media/derek.png"
@@ -25,7 +25,7 @@ export default function Home() {
             width={1069}
             height={999}
             priority
-            className="h-auto w-full saturate-[.9] [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
+            className="h-auto w-full object-contain object-right-bottom md:h-full md:w-auto md:max-w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
           />
         </Reveal>
 
