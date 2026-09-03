@@ -11,16 +11,6 @@ export default function Home() {
     <>
       {/* Hero: chaos resolving onto the grid */}
       <section className="relative flex min-h-svh flex-col justify-end overflow-hidden md:min-h-0">
-        {/* Chaos-to-order ring, ping-pong looped, screen-blended so only the lines show. */}
-        <ChapterVideo
-          src="/media/hero.mp4"
-          alt="A tangled ring of lines resolving into an ordered one, and back"
-          fit="contain"
-          blend
-          overlay={false}
-          opacity={22}
-          rate={0.35}
-        />
         <ChaosField className="absolute inset-0" />
         <div className="hero-fade absolute inset-0" />
 
@@ -68,6 +58,19 @@ export default function Home() {
             </div>
 
             <Reveal delay={0.9} y={24} className="relative hidden md:block">
+              {/* Chaos-to-order ring centred behind the portrait, screen-blended so only
+                  the lines show. Slightly larger than the cell so it frames the photo. */}
+              <div className="pointer-events-none absolute -inset-[12%]">
+                <ChapterVideo
+                  src="/media/hero.mp4"
+                  alt="A tangled ring of lines resolving into an ordered one, and back"
+                  fit="contain"
+                  blend
+                  overlay={false}
+                  opacity={28}
+                  rate={0.35}
+                />
+              </div>
               <Image
                 src="/media/derek.png"
                 alt="Derek Belfield"
