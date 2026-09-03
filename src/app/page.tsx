@@ -104,7 +104,7 @@ export default function Home() {
               <div className="absolute inset-x-0 bottom-0 flex justify-end bg-[linear-gradient(to_top,var(--bg)_0%,transparent_100%)] px-2 pb-1 pt-10">
                 <div className="text-right">
                   <p className="text-lg font-semibold text-fg">{site.name}</p>
-                  <RotatingTitle titles={titles} className="text-muted" />
+                  <RotatingTitle titles={titles} className="text-accent" />
                 </div>
               </div>
             </Reveal>
