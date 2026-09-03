@@ -1,14 +1,12 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
 import type { Position } from "@/content/positions";
 
 /**
- * Roles on the left, the selected role's detail on the right, with the
- * selected role's unit patch up in the header row beside the eyebrow.
+ * Roles on the left, the selected role's detail on the right.
  *
  * Every role's panel is rendered into the same grid cell, so the block is
  * always as tall as the tallest role and the page never shifts on switch.
@@ -25,7 +23,6 @@ export default function RoleSelector({
   const reduced = useReducedMotion();
   const id = useId();
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const hasPatches = positions.some((p) => p.patch);
 
   function onKeyDown(e: React.KeyboardEvent) {
     const n = positions.length;
@@ -45,39 +42,8 @@ export default function RoleSelector({
 
   return (
     <div>
-      {/* Header row: eyebrow left, the selected role's patch right, tops aligned. */}
       <span className="rule mb-4" />
-      <div className="mb-10 flex items-start justify-between gap-6">
-        <p className="label">{eyebrow}</p>
-        {hasPatches && (
-          <div className="grid w-28 shrink-0 md:w-36">
-            {positions.map((p, k) =>
-              p.patch ? (
-                <motion.div
-                  key={k}
-                  className="[grid-area:1/1]"
-                  initial={false}
-                  animate={
-                    reduced
-                      ? { opacity: k === active ? 1 : 0 }
-                      : { opacity: k === active ? 1 : 0, scale: k === active ? 1 : 0.94 }
-                  }
-                  transition={{ duration: 0.5, ease: ease.out }}
-                  aria-hidden={k !== active}
-                >
-                  <Image
-                    src={p.patch.src}
-                    alt={p.patch.alt}
-                    width={p.patch.width}
-                    height={p.patch.height}
-                    className="h-auto w-full"
-                  />
-                </motion.div>
-              ) : null,
-            )}
-          </div>
-        )}
-      </div>
+      <p className="label mb-10">{eyebrow}</p>
 
       <div className="grid gap-10 md:grid-cols-12 md:gap-8">
         {/* Role list */}
