@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
 import type { Position } from "@/content/positions";
 
@@ -81,35 +81,34 @@ export default function RoleSelector({ positions }: { positions: Position[] }) {
         aria-labelledby={`${id}-tab-${active}`}
         className="md:col-span-8"
       >
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={active}
-            initial={reduced ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduced ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: ease.out }}
-          >
-            <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
-            <p className="readout mt-2">
-              {p.period}
-              {p.duration ? ` · ${p.duration}` : ""} · {p.location}
-            </p>
-            <ul className="bullets mt-8 space-y-4 text-lg text-fg">
-              {p.bullets.map((b, k) => (
-                <li key={k}>{b}</li>
+        {/* Keyed so each role mounts fresh and plays its enter animation; no exit
+            animation, so the swap is instant even if frames are throttled. */}
+        <motion.div
+          key={active}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.28, ease: ease.out }}
+        >
+          <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+          <p className="readout mt-2">
+            {p.period}
+            {p.duration ? ` · ${p.duration}` : ""} · {p.location}
+          </p>
+          <ul className="bullets mt-8 space-y-4 text-lg text-fg">
+            {p.bullets.map((b, k) => (
+              <li key={k}>{b}</li>
+            ))}
+          </ul>
+          {p.tags && (
+            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Skills">
+              {p.tags.map((t) => (
+                <li key={t} className="label rounded-full border border-line px-3 py-1">
+                  {t}
+                </li>
               ))}
             </ul>
-            {p.tags && (
-              <ul className="mt-8 flex flex-wrap gap-2" aria-label="Skills">
-                {p.tags.map((t) => (
-                  <li key={t} className="label rounded-full border border-line px-3 py-1">
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </motion.div>
-        </AnimatePresence>
+          )}
+        </motion.div>
       </div>
     </div>
   );
