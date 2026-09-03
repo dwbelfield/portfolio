@@ -132,7 +132,7 @@ export const chapters: Chapter[] = [
   {
     slug: "pmb-companies",
     index: "03",
-    name: "Warehouse Distributor",
+    name: "Wholesale Distributor",
     org: "PMB Companies",
     descriptor: "16-brand consumer products group",
     period: "2026 – Present",

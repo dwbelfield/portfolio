@@ -5,7 +5,7 @@ import { Reveal, Words } from "@/components/primitives";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Four chapters: the Marine Corps, RallyPay, Warehouse Distributor at PMB Companies, and co-founding Zenblis.",
+    "Four chapters: the Marine Corps, RallyPay, Wholesale Distributor at PMB Companies, and co-founding Zenblis.",
 };
 
 export default function WorkPage() {
