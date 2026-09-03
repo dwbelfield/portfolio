@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ChaosField from "@/components/ChaosField";
 import ChapterList from "@/components/ChapterList";
 import { Button } from "@/components/Button";
@@ -11,6 +12,23 @@ export default function Home() {
       <section className="relative flex min-h-svh flex-col justify-end overflow-hidden">
         <ChaosField className="absolute inset-0" />
         <div className="hero-fade absolute inset-0" />
+
+        {/* Portrait: bottom-right on desktop, top-right on small screens. */}
+        <Reveal
+          delay={0.9}
+          y={24}
+          className="pointer-events-none absolute right-0 top-20 w-[58vw] max-w-[360px] md:top-auto md:bottom-0 md:w-[min(44vw,560px)] md:max-w-none"
+        >
+          <Image
+            src="/media/derek.png"
+            alt="Derek Belfield"
+            width={1069}
+            height={999}
+            priority
+            className="h-auto w-full saturate-[.9] [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
+          />
+        </Reveal>
+
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-20">
           <Reveal delay={1.2} y={0}>
             <p className="label mb-6">
@@ -18,7 +36,7 @@ export default function Home() {
               Available for consulting · {site.location}
             </p>
           </Reveal>
-          <h1 className="max-w-5xl text-[13vw] font-semibold leading-[0.95] tracking-tight md:text-[7.5rem]">
+          <h1 className="max-w-5xl text-[13vw] font-semibold leading-[0.95] tracking-tight md:max-w-[60%] md:text-[6.5rem] lg:text-[7.5rem]">
             <Words text={site.motif} delay={1.4} stagger={0.12} accentWord={1} />
           </h1>
           <Reveal delay={2.0}>
