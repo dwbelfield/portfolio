@@ -60,7 +60,7 @@ export default function Home() {
             <Reveal delay={0.9} y={24} className="relative hidden md:block">
               {/* Chaos-to-order ring centred behind the portrait, screen-blended so only
                   the lines show. Slightly larger than the cell so it frames the photo. */}
-              <div className="pointer-events-none absolute -inset-[12%]">
+              <div className="pointer-events-none absolute -inset-[12%] [mask-image:linear-gradient(to_bottom,black_50%,transparent_86%)]">
                 <ChapterVideo
                   src="/media/hero.mp4"
                   alt="A tangled ring of lines resolving into an ordered one, and back"
