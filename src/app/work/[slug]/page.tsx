@@ -8,9 +8,10 @@ import CamoTiles from "@/components/CamoTiles";
 import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
 import EntityMap from "@/components/EntityMap";
+import Mandate from "@/components/Mandate";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters, site } from "@/content/site";
-import { positions, highlights, programs, programLabels, entityMaps } from "@/content/positions";
+import { positions, highlights, programs, programLabels, entityMaps, mandates } from "@/content/positions";
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ slug: c.slug }));
@@ -39,6 +40,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const notes = highlights[c.slug];
   const progs = programs[c.slug];
   const map = entityMaps[c.slug];
+  const mandate = mandates[c.slug];
 
   const body = (
     <>
@@ -121,11 +123,29 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
         </div>
       </section>
 
+      {/* Entity map: how the portfolio fits together */}
+      {map && (
+        <section className="border-t border-line">
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+            <Reveal>
+              <span className="rule mb-4" />
+              <p className="label mb-3">The portfolio</p>
+              <h2 className="mb-12 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+                How the pieces fit together
+              </h2>
+            </Reveal>
+            <EntityMap data={map} />
+          </div>
+        </section>
+      )}
+
       {/* Detail */}
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-20">
           <Reveal>
-            {roles ? (
+            {roles && mandate && roles.length === 1 ? (
+              <Mandate position={roles[0]} lanes={mandate} />
+            ) : roles ? (
               <RoleSelector positions={roles} />
             ) : (
               <>
@@ -170,22 +190,6 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           )}
         </div>
       </section>
-
-      {/* Entity map: how the portfolio fits together */}
-      {map && (
-        <section className="border-t border-line">
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
-            <Reveal>
-              <span className="rule mb-4" />
-              <p className="label mb-3">The portfolio</p>
-              <h2 className="mb-12 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-                How the pieces fit together
-              </h2>
-            </Reveal>
-            <EntityMap data={map} />
-          </div>
-        </section>
-      )}
 
       {/* Programs */}
       {progs && (

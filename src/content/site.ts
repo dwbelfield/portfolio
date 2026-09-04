@@ -148,16 +148,16 @@ export const chapters: Chapter[] = [
     location: "Salado, TX",
     roles: ["Chief of Staff"],
     chaos:
-      "Sixteen brands, hundreds of SKUs, two facilities, 30M subscribers. Six new production lines that did not exist yet: no SKUs, no pricing, no warehouse integration, and a few days of notice.",
+      "One owner, a dozen businesses, two facilities, four kinds of operation, and decisions that arrive on a few days' notice. Nothing between the decision and the floor except whoever picks it up.",
     order:
-      "Six divisions running from an empty floor, a safety and compliance program written from scratch, and four to six launches in flight at any given time.",
+      "A chief of staff who owns the follow-through: six production divisions built from an empty floor, a safety program adopted at every site, and four to six launches in flight at any time without the owner watching the date.",
     summary:
-      "Right hand to the owner across the portfolio: manufacturing and fulfillment, sixteen brands, and a family of storefronts. I own the follow-through on what he decides, from vendor negotiation to first production run.",
+      "Right hand to the owner of PMB Companies. I turn his decisions into shipped outcomes across manufacturing, brands, storefronts, and B2B services, from vendor contract to first production run.",
     stats: [
       { value: 6, label: "Production divisions stood up", from: "from an empty floor" },
-      { value: 16, label: "Brands in the portfolio" },
-      { value: 30, suffix: "M", label: "Subscribers" },
       { value: 350, prefix: "$", suffix: "K", label: "Production equipment specified and installed" },
+      { value: 6, label: "Launches in flight at any time", from: "four to six, most on days of notice" },
+      { value: 5, label: "Safety programs written from scratch", from: "adopted at every site" },
     ],
     bullets: [
       "Stood up six new production divisions from a standing start: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",

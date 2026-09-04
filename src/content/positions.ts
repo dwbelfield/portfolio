@@ -157,6 +157,10 @@ export const positions: Record<string, Position[]> = {
 /** Chapter-level notes that do not belong to a single position. Short lines
     render as a list; longer entries read as story paragraphs. */
 export const highlights: Record<string, string[]> = {
+  "pmb-companies": [
+    "I joined in April 2026 as Chief of Staff to the owner. The portfolio was already broad: manufacturing and import/export, sixteen media brands under Native Commerce, a family of storefronts, and B2B services. What it needed was someone to carry his decisions the last mile. The first stretch was building: six production divisions that did not exist, from chemical repackaging to fragrance blending, sourced, equipped, laid out, and staffed, on days of notice.",
+    "The second stretch was making it hold. A safety and compliance program written from scratch and adopted at every site. Vendor contracts, including suppliers who had refused to sell to us. B2B accounts that opened a third revenue channel. Go-to-market for Doodle Videos on the B2B side. At any given time there are four to six launches moving, and my job is that none of them fail because nobody was watching the date.",
+  ],
   "marine-corps": [
     "Eight years of service, May 2012 to June 2020. Honorably discharged.",
     "Navy and Marine Corps Commendation Medal, twice.",
@@ -266,18 +270,20 @@ export const programLabels: Record<string, string> = {
 
 /** How a portfolio chapter's entities fit together, for the entity map. */
 export type Entity = { name: string; note?: string; href?: string; children?: { name: string; href?: string }[] };
-export type EntityGroup = { name: string; blurb: string; entities: Entity[] };
-export type EntityMap = { parent: string; parentBlurb: string; parentHref?: string; groups: EntityGroup[] };
+export type EntityGroup = { name: string; blurb: string; work?: string; entities: Entity[] };
+export type EntityMap = { parent: string; parentBlurb: string; parentHref?: string; parentWork?: string; groups: EntityGroup[] };
 
 export const entityMaps: Record<string, EntityMap> = {
   "pmb-companies": {
     parent: "PMB Companies",
     parentHref: "https://perrybelcher.com/#about-perry",
-    parentBlurb: "Owner-led portfolio, two Central Texas facilities. I serve as Chief of Staff across all of it.",
+    parentBlurb: "Owner-led portfolio. Two Central Texas facilities, sixteen brands, thirty million readers.",
+    parentWork: "Chief of Staff across all of it: the operating cadence between the owner's decisions and delivery, and the safety and compliance program every site runs on.",
     groups: [
       {
         name: "Manufacturing, fulfillment & trade",
         blurb: "Sourcing, production floors, equipment, and shipping for the whole portfolio.",
+        work: "Six divisions from an empty floor. $350K in equipment specified and installed. Suppliers who had refused us, reopened.",
         entities: [
           { name: "Wholesale Distributor", note: "Import and export", href: "https://wholesaledistributor.com/" },
           { name: "Spin Up Brands", note: "Manufacturing and fulfillment", href: "https://spinupbrands.com/" },
@@ -311,6 +317,7 @@ export const entityMaps: Record<string, EntityMap> = {
       {
         name: "Storefronts",
         blurb: "Customer-facing businesses, each with its own trade and audience.",
+        work: "B2B accounts and partnerships that added a third revenue channel. Four to six launches in flight at any time.",
         entities: [
           { name: "Raven Steelworks", href: "https://ravensteelworks.com/" },
           { name: "Hotshot Laser", href: "https://hotshotlaser.com/" },
@@ -324,6 +331,7 @@ export const entityMaps: Record<string, EntityMap> = {
       {
         name: "B2B services",
         blurb: "Business-to-business operations that sit apart from the consumer storefronts.",
+        work: "Go-to-market for Doodle Videos.",
         entities: [
           {
             name: "Conventions.com",
@@ -332,11 +340,47 @@ export const entityMaps: Record<string, EntityMap> = {
           },
           {
             name: "Doodle Videos",
-            note: "AI-assisted animated videos for business owners. I helped with go-to-market.",
+            note: "AI-assisted animated videos for business owners",
             href: "https://doodlevideos.com/",
           },
         ],
       },
     ],
   },
+};
+
+/** A single-role chapter's mandate, shown in place of the role selector. */
+export type Mandate = { lane: string; lines: string[] };
+
+export const mandates: Record<string, Mandate[]> = {
+  "pmb-companies": [
+    {
+      lane: "Follow-through",
+      lines: [
+        "Own the follow-through on the owner's decisions, from vendor negotiation to first production run.",
+        "Run four to six concurrent launches at a time, most initiated on a few days of notice.",
+      ],
+    },
+    {
+      lane: "Build",
+      lines: [
+        "Stood up six production divisions from an empty floor: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",
+        "Specified, sourced, and installed roughly $350K in production equipment across two facilities. Retired an unprofitable line after a repair-versus-replace analysis.",
+      ],
+    },
+    {
+      lane: "Protect",
+      lines: [
+        "Wrote the company safety and compliance program from scratch: hazard communication, lockout/tagout, emergency action plans, PPE, respiratory protection. Drove adoption across every site.",
+      ],
+    },
+    {
+      lane: "Grow",
+      lines: [
+        "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
+        "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
+        "Go-to-market for Doodle Videos on the B2B side.",
+      ],
+    },
+  ],
 };

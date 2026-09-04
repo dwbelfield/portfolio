@@ -31,6 +31,12 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
             )}
           </p>
           <p className="mt-2 text-sm text-muted">{data.parentBlurb}</p>
+          {data.parentWork && (
+            <div className="mt-4 border-t border-line pt-4 text-left">
+              <p className="label mb-1 text-accent">My work here</p>
+              <p className="text-sm text-fg">{data.parentWork}</p>
+            </div>
+          )}
         </div>
       </Reveal>
 
@@ -61,7 +67,7 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                 </p>
                 <p className="text-sm text-muted">{g.blurb}</p>
               </div>
-              <ul className="flex flex-1 flex-col gap-px bg-line">
+              <ul className="flex flex-1 flex-col gap-px border-b border-line bg-line last:border-b-0">
                 {g.entities.map((e) => (
                   <li key={e.name} className="bg-bg px-5 py-3 last:flex-1">
                     <p className={`font-medium ${e.name === "and more" ? "text-muted" : "text-fg"}`}>
@@ -99,6 +105,12 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                   </li>
                 ))}
               </ul>
+              {g.work && (
+                <div className="border-t border-line px-5 py-4">
+                  <p className="label mb-1 text-accent">My work here</p>
+                  <p className="text-sm text-fg">{g.work}</p>
+                </div>
+              )}
             </div>
           </Reveal>
         ))}
