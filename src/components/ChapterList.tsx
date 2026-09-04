@@ -44,15 +44,8 @@ export default function ChapterList({ heading }: { heading?: Heading }) {
                 </div>
                 <div className="flex items-start gap-4 md:pr-8">
                   {c.logo && (
-                    <span
-                      className="mt-1 shrink-0 text-fg transition-colors duration-500"
-                      style={c.brand ? ({ "--hover": c.brand } as React.CSSProperties) : undefined}
-                    >
-                      <Logo
-                        src={c.logo.src}
-                        alt={c.logo.alt}
-                        className={`h-9 w-9 md:h-10 md:w-10 ${c.brand ? "group-hover:[color:var(--hover)]" : ""}`}
-                      />
+                    <span className="mt-1 shrink-0 text-fg">
+                      <Logo src={c.logo.src} alt={c.logo.alt} className="h-9 w-9 md:h-10 md:w-10" />
                     </span>
                   )}
                   <div>
