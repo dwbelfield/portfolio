@@ -298,7 +298,7 @@ export const entityMaps: Record<string, EntityMap> = {
               { name: "Garden Season", href: "https://gardenseason.com/" },
               { name: "Homemade Recipes", href: "https://homemaderecipes.com/" },
               { name: "Mighty Goodness", href: "https://mightygoodness.com/" },
-              { name: "The Capitalist" },
+              { name: "The Capitalist", href: "https://thecapitalist.com/" },
               { name: "Makeup Tutorials", href: "https://makeuptutorials.com/" },
               { name: "Cute Outfits", href: "https://cuteoutfits.com/" },
               { name: "Nail Designs", href: "https://naildesigns.com/" },
