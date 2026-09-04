@@ -311,7 +311,7 @@ export const entityMaps: Record<string, EntityMap> = {
         name: "Storefronts",
         blurb: "Customer-facing businesses, each with its own trade and audience.",
         entities: [
-          { name: "Raven Steelworks" },
+          { name: "Raven Steelworks", href: "https://ravensteelworks.com/" },
           { name: "Hotshot Laser", href: "https://hotshotlaser.com/" },
           { name: "Carbonless Forms" },
           { name: "Black Label Fragrances" },
