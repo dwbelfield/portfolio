@@ -47,7 +47,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const body = (
     <>
       {/* Header */}
-      <section className={c.video ? "relative flex min-h-[62svh] flex-col justify-end overflow-hidden" : "grid-underlay"}>
+      <section className={c.video ? "relative flex flex-col justify-end overflow-hidden md:min-h-[46svh]" : "grid-underlay"}>
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} />}
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-28 md:px-8 md:pb-24 md:pt-28">
           <Reveal y={0}>
