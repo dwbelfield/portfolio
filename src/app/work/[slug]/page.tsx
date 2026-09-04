@@ -212,7 +212,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
               </Link>
             )}
           </div>
-          <Button href="/consulting/">Start a conversation</Button>
+          <Button href="/consulting/">Get consulting</Button>
         </div>
       </section>
     </>

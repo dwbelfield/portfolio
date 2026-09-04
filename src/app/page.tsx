@@ -145,7 +145,7 @@ export default function Home() {
               after I leave.
             </p>
             <div className="mt-10">
-              <Button href="/consulting/">Start a conversation</Button>
+              <Button href="/consulting/">Get consulting</Button>
             </div>
           </Reveal>
         </div>
