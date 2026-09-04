@@ -59,7 +59,7 @@ export default function ChapterList({ heading }: { heading?: Heading }) {
                 <div>
                   <p className="label mb-2">Chaos</p>
                   <p className="text-muted">{c.chaos}</p>
-                  <p className="label mb-2 mt-4">Order</p>
+                  <p className="label mb-2 mt-4 text-accent">Order</p>
                   <p className="text-fg">{c.order}</p>
                   <span className="link-draw mt-5 inline-block text-sm text-fg">Read the chapter</span>
                 </div>

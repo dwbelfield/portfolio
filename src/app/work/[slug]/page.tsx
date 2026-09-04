@@ -101,9 +101,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           </Reveal>
           <Reveal delay={0.15} className="border-t-2 border-accent bg-panel">
             <div className="px-6 py-12 md:px-8 md:py-16">
-              <p className="label mb-4">
-                <span className="mr-2 text-accent">●</span>Order
-              </p>
+              <p className="label mb-4 text-accent">Order</p>
               <p className="text-2xl leading-snug text-fg md:text-3xl">{c.order}</p>
             </div>
           </Reveal>
