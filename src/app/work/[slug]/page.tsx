@@ -37,7 +37,8 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const progs = programs[c.slug];
 
   return (
-    <>
+    // A chapter with a brand colour uses it for every accent on its page.
+    <div style={c.brand ? ({ "--accent": c.brand } as React.CSSProperties) : undefined}>
       {/* Header */}
       <section className={c.video ? "relative flex min-h-[62svh] flex-col justify-end overflow-hidden" : "grid-underlay"}>
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} />}
@@ -197,6 +198,6 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           <Button href="/consulting/">Start a conversation</Button>
         </div>
       </section>
-    </>
+    </div>
   );
 }

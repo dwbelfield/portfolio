@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Chapter accents on the grid: a few of the 32px cells along the edges of a
- * `.grid-underlay` section, in small clusters. "marpat" fills cells with
- * woodland camo colours; "chevron" draws small RallyPay-red chevrons.
- * Place as a direct child of the section. Decorative only.
+ * A quiet nod to woodland MARPAT: a few of the 32px grid cells along the
+ * edges of a `.grid-underlay` section are filled with one of the four camo
+ * colours, in small clusters. Place as a direct child of the section.
+ * Decorative only; aria-hidden and pointer-events none.
  */
 
-export type TileVariant = "marpat" | "chevron";
+export type TileVariant = "marpat";
 
 const GRID = 32;
 // tan, green, dark green, near-black, with per-colour opacity so the tan
@@ -20,11 +20,6 @@ const PALETTES: Record<TileVariant, [string, number][]> = {
     ["#6f7c46", 0.55],
     ["#3f4a2f", 0.8],
     ["#262c22", 0.95],
-  ],
-  chevron: [
-    ["var(--rallypay)", 0.55],
-    ["var(--rallypay)", 0.35],
-    ["var(--rallypay-deep)", 0.7],
   ],
 };
 
@@ -107,31 +102,19 @@ export default function CamoTiles({
 
   return (
     <div ref={ref} className="grid-tiles" aria-hidden="true">
-      {tiles.map((t, i) =>
-        variant === "chevron" ? (
-          <svg
-            key={i}
-            className="grid-tile"
-            viewBox="0 0 32 32"
-            style={{ left: t.x + 1, top: t.y + 1, opacity: t.opacity, animationDelay: `${t.delay}ms` }}
-          >
-            {/* The chevron from the RallyPay mark, one grid cell wide. */}
-            <path d="M4 20 16 8l12 12v6L16 14 4 26z" fill={t.color} />
-          </svg>
-        ) : (
-          <span
-            key={i}
-            className="grid-tile"
-            style={{
-              left: t.x + 1,
-              top: t.y + 1,
-              background: t.color,
-              opacity: t.opacity,
-              animationDelay: `${t.delay}ms`,
-            }}
-          />
-        ),
-      )}
+      {tiles.map((t, i) => (
+        <span
+          key={i}
+          className="grid-tile"
+          style={{
+            left: t.x + 1,
+            top: t.y + 1,
+            background: t.color,
+            opacity: t.opacity,
+            animationDelay: `${t.delay}ms`,
+          }}
+        />
+      ))}
     </div>
   );
 }
