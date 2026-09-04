@@ -36,10 +36,13 @@ Tailwind via `@theme`. Use semantic classes (`bg-bg`, `bg-panel`, `text-fg`,
 
 ## Chapter accents
 
-The Marine Corps chapter carries a quiet woodland MARPAT nod: a handful of
-32px grid cells along the edges of its grid sections are filled with one of
-four camo colours, in small clusters (`src/components/CamoTiles.tsx`). No
-bars, chips, or patterned fills anywhere. Other chapters have no accent.
+Each chapter may carry one quiet accent on the grid, drawn by
+`src/components/CamoTiles.tsx` as a handful of 32px edge cells in small
+clusters. Marine Corps: woodland MARPAT colour cells. RallyPay: small
+RallyPay-red chevrons (`--rallypay`, `--rallypay-deep`). Never larger than a
+cell, never behind text. Organisation logos are colour masks (`.logo-mask`):
+white at rest, transitioning to the chapter's brand colour on the chapter
+page and on hover in the chapter list.
 
 ## Motion vocabulary
 

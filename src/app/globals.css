@@ -221,3 +221,22 @@ html.lenis body {
 @keyframes tile-in {
   from { transform: scale(0.6); opacity: 0; }
 }
+
+/* Brand colours used only inside their own chapter. */
+:root {
+  --rallypay: #d0262b;
+  --rallypay-deep: #8e1c1f;
+}
+
+/* Logo drawn as a mask in the current text colour, so it can transition. */
+.logo-mask {
+  display: inline-block;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: color var(--dur-base) var(--ease-out);
+}

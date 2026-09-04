@@ -46,7 +46,9 @@ export type Chapter = {
   /** Optional looping background video for the chapter header (path under /public). */
   video?: { src: string; alt: string; rate?: number };
   /** Optional chapter-specific decorative accent. */
-  accent?: "marpat";
+  accent?: "marpat" | "chevron";
+  /** Brand colour the logo transitions to (CSS colour). Defaults to no change. */
+  brand?: string;
   /** Organisation logo, white on transparent (path under /public). */
   logo?: { src: string; alt: string; width: number; height: number };
 };
@@ -96,6 +98,8 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "rallypay",
+    accent: "chevron",
+    brand: "var(--rallypay)",
     video: { src: "/media/rallypay.mp4", alt: "Abstract payments network footage", rate: 0.6 },
     logo: { src: "/media/logos/rallypay.png", alt: "RallyPay mark", width: 474, height: 640 },
     index: "02",

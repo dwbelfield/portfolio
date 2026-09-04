@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { chapters } from "@/content/site";
 import { Reveal } from "./primitives";
 
@@ -44,13 +44,16 @@ export default function ChapterList({ heading }: { heading?: Heading }) {
                 </div>
                 <div className="flex items-start gap-4 md:pr-8">
                   {c.logo && (
-                    <Image
-                      src={c.logo.src}
-                      alt={c.logo.alt}
-                      width={c.logo.width}
-                      height={c.logo.height}
-                      className="mt-1 h-9 w-9 shrink-0 object-contain opacity-90 md:h-10 md:w-10"
-                    />
+                    <span
+                      className="mt-1 shrink-0 text-fg transition-colors duration-500"
+                      style={c.brand ? ({ "--hover": c.brand } as React.CSSProperties) : undefined}
+                    >
+                      <Logo
+                        src={c.logo.src}
+                        alt={c.logo.alt}
+                        className={`h-9 w-9 md:h-10 md:w-10 ${c.brand ? "group-hover:[color:var(--hover)]" : ""}`}
+                      />
+                    </span>
                   )}
                   <div>
                     <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{c.name}</h3>

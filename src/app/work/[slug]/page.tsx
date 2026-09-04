@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "@/components/Logo";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
@@ -32,7 +32,6 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const c = chapters[i];
   const prev = chapters[i - 1];
   const next = chapters[i + 1];
-  const marpat = c.accent === "marpat";
   const roles = positions[c.slug];
   const notes = highlights[c.slug];
   const progs = programs[c.slug];
@@ -52,13 +51,12 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           </Reveal>
           <div className="flex items-center gap-5 md:gap-8">
             {c.logo && (
-              <Reveal y={0} delay={0.05} className="shrink-0">
-                <Image
+              <Reveal y={0} delay={0.05} className="shrink-0 text-fg">
+                <Logo
                   src={c.logo.src}
                   alt={c.logo.alt}
-                  width={c.logo.width}
-                  height={c.logo.height}
-                  className="h-14 w-14 object-contain opacity-90 md:h-24 md:w-24"
+                  to={c.brand}
+                  className="h-14 w-14 md:h-24 md:w-24"
                 />
               </Reveal>
             )}
@@ -98,7 +96,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
 
       {/* Stats */}
       <section className="grid-underlay border-t border-line">
-        {marpat && <CamoTiles clusters={6} seed={3} />}
+        {c.accent && <CamoTiles variant={c.accent} clusters={6} seed={3} />}
         <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
           <dl className={`grid gap-10 ${c.stats.length >= 4 ? "md:grid-cols-4" : c.stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
             {c.stats.map((s, k) => (
@@ -121,7 +119,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
 
       {/* Detail */}
       <section className="grid-underlay border-t border-line">
-        {marpat && <CamoTiles clusters={5} seed={5} />}
+        {c.accent && <CamoTiles variant={c.accent} clusters={5} seed={5} />}
         <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
           <Reveal>
             {roles ? (
@@ -163,7 +161,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Programs */}
       {progs && (
         <section className="grid-underlay border-t border-line">
-          {marpat && <CamoTiles clusters={4} seed={11} />}
+          {c.accent && <CamoTiles variant={c.accent} clusters={4} seed={11} />}
           <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
             <Reveal>
               <span className="rule mb-4" />
@@ -176,7 +174,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
 
       {/* Prev / next */}
       <section className="grid-underlay border-t border-line">
-        {marpat && <CamoTiles clusters={4} seed={9} />}
+        {c.accent && <CamoTiles variant={c.accent} clusters={4} seed={9} />}
         <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-6 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
           <div className="flex gap-10">
             {prev && (
