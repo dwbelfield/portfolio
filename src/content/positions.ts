@@ -168,7 +168,7 @@ export const highlights: Record<string, string[]> = {
 export type Program = {
   name: string;
   blurb: string;
-  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma";
+  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma" | "shield" | "badge" | "nodes" | "chart" | "funnel";
 };
 
 export const programs: Record<string, Program[]> = {
@@ -199,4 +199,36 @@ export const programs: Record<string, Program[]> = {
       icon: "sigma",
     },
   ],
+  rallypay: [
+    {
+      name: "Payments Security",
+      blurb: "Security microservice that cut card-testing attacks 99% and chargebacks 32%.",
+      icon: "shield",
+    },
+    {
+      name: "Compliance Program",
+      blurb: "Owner of record for PCI, KYC/AML, NACHA, and card network rules. No failed examinations.",
+      icon: "badge",
+    },
+    {
+      name: "Onboarding & Underwriting",
+      blurb: "Proprietary microservice that cut processing time 33%.",
+      icon: "funnel",
+    },
+    {
+      name: "Multi-vendor Gateway",
+      blurb: "Gateway service that cut COGS 5.6% and opened new strategic verticals.",
+      icon: "nodes",
+    },
+    {
+      name: "Pricing & Authorization",
+      blurb: "Pricing initiative that lifted authorization rates 11% and gross profit 5.7%.",
+      icon: "chart",
+    },
+  ],
+};
+
+/** Section label per chapter; defaults to "Programs owned". */
+export const programLabels: Record<string, string> = {
+  rallypay: "Initiatives owned",
 };

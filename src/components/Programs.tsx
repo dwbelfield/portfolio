@@ -36,6 +36,40 @@ const icons: Partial<Record<Program["icon"], React.ReactNode>> = {
       <path d="M17 6H7l5 6-5 6h10" />
     </>
   ),
+  shield: (
+    <>
+      <path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z" />
+      <path d="M9 12l2 2 4-4" />
+    </>
+  ),
+  badge: (
+    <>
+      <circle cx="12" cy="10" r="6" />
+      <path d="M9.5 10l1.75 1.75L14.5 8.5" />
+      <path d="M8.5 15.5L7 21l5-2 5 2-1.5-5.5" />
+    </>
+  ),
+  funnel: (
+    <>
+      <path d="M4 5h16l-6 7v6l-4 2v-8z" />
+    </>
+  ),
+  nodes: (
+    <>
+      <circle cx="12" cy="5" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="18" r="2" />
+      <circle cx="12" cy="13" r="2" />
+      <path d="M12 7v4M10.5 14.5L6.5 16.5M13.5 14.5l4 2" />
+    </>
+  ),
+  chart: (
+    <>
+      <path d="M4 19h16" />
+      <path d="M5 15l4-4 3 3 7-7" />
+      <path d="M15 7h4v4" />
+    </>
+  ),
 };
 
 /** Pointy-top hexagon in a 100-unit box. */

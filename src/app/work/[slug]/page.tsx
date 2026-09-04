@@ -9,7 +9,7 @@ import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters } from "@/content/site";
-import { positions, highlights, programs } from "@/content/positions";
+import { positions, highlights, programs, programLabels } from "@/content/positions";
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ slug: c.slug }));
@@ -167,7 +167,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
             <Reveal>
               <span className="rule mb-4" />
-              <p className="label mb-12">Programs owned</p>
+              <p className="label mb-12">{programLabels[c.slug] ?? "Programs owned"}</p>
             </Reveal>
             <Programs programs={progs} />
           </div>
