@@ -321,6 +321,17 @@ export const entityMaps: Record<string, EntityMap> = {
           { name: "and more" },
         ],
       },
+      {
+        name: "B2B services",
+        blurb: "Business-to-business operations that sit apart from the consumer storefronts.",
+        entities: [
+          {
+            name: "Conventions.com",
+            note: "Live-event planning for influencers and associations, on a revenue share",
+            href: "https://conventions.com/",
+          },
+        ],
+      },
     ],
   },
 };
