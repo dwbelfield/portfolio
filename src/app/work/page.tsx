@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <section className="grid-underlay">
-      <div className="mx-auto w-full max-w-[1280px] px-6 pb-24 pt-32 md:px-8 md:pb-32 md:pt-40">
+      <div className="mx-auto w-full max-w-[1280px] px-6 pb-16 pt-24 md:px-8 md:pb-32 md:pt-40">
         <Reveal y={0}>
           <span className="rule mb-4" />
             <p className="label mb-6">Work</p>
         </Reveal>
-        <h1 className="max-w-4xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
+        <h1 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
           <Words text="Four chapters. One pattern." delay={0.1} stagger={0.08} />
         </h1>
         <Reveal delay={0.5}>
@@ -26,7 +26,7 @@ export default function WorkPage() {
             still is. Different industries, same job.
           </p>
         </Reveal>
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
           <ChapterList />
         </div>
       </div>

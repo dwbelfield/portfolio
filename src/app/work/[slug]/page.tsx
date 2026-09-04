@@ -49,7 +49,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Header */}
       <section className={c.video ? "relative flex flex-col justify-end overflow-hidden md:min-h-[46svh]" : "grid-underlay"}>
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} />}
-        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-28 md:px-8 md:pb-24 md:pt-28">
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-12 pt-24 md:px-8 md:pb-24 md:pt-28">
           <Reveal y={0}>
             <span className="rule mb-4" />
             <p className="label mb-6">
@@ -71,16 +71,16 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
                 <Logo src={c.logo.src} alt={c.logo.alt} className="h-14 w-14 md:h-24 md:w-24" />
               </Reveal>
             )}
-            <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
+            <h1 className="max-w-5xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
               <Words text={c.name} delay={0.1} stagger={0.08} />
             </h1>
           </div>
           <Reveal delay={0.4}>
-            <p className="mt-6 text-xl text-muted md:text-2xl">
+            <p className="mt-4 text-lg text-muted md:mt-6 md:text-2xl">
               {c.org !== c.name ? `${c.org} · ` : ""}
               {c.descriptor}
             </p>
-            <p className="mt-8 max-w-2xl text-lg text-fg">{c.summary}</p>
+            <p className="mt-5 max-w-2xl text-base text-fg md:mt-8 md:text-lg">{c.summary}</p>
           </Reveal>
         </div>
       </section>
@@ -89,15 +89,15 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       <section className="border-t border-line">
         <div className="mx-auto grid w-full max-w-[1280px] gap-px bg-line md:grid-cols-2">
           <Reveal className="bg-bg">
-            <div className="px-6 py-12 md:px-8 md:py-16">
-              <p className="label mb-4">Chaos</p>
-              <p className="text-2xl leading-snug text-muted md:text-3xl">{c.chaos}</p>
+            <div className="px-6 py-8 md:px-8 md:py-16">
+              <p className="label mb-3 md:mb-4">Chaos</p>
+              <p className="text-lg leading-snug text-muted md:text-3xl">{c.chaos}</p>
             </div>
           </Reveal>
           <Reveal delay={0.15} className="border-t-2 border-accent bg-panel">
-            <div className="px-6 py-12 md:px-8 md:py-16">
-              <p className="label mb-4 text-accent">Order</p>
-              <p className="text-2xl leading-snug text-fg md:text-3xl">{c.order}</p>
+            <div className="px-6 py-8 md:px-8 md:py-16">
+              <p className="label mb-3 text-accent md:mb-4">Order</p>
+              <p className="text-lg leading-snug text-fg md:text-3xl">{c.order}</p>
             </div>
           </Reveal>
         </div>
@@ -106,11 +106,11 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Stats */}
       <section className="grid-underlay border-t border-line">
         {c.accent && <CamoTiles variant={c.accent} clusters={6} seed={3} />}
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
-          <dl className={`grid gap-10 ${c.stats.length >= 4 ? "md:grid-cols-4" : c.stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
+          <dl className={`grid grid-cols-2 gap-6 md:gap-10 ${c.stats.length >= 4 ? "md:grid-cols-4" : c.stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
             {c.stats.map((s, k) => (
               <Reveal key={s.label} delay={k * 0.08}>
-                <dd className="text-5xl font-semibold tracking-tight md:text-6xl">
+                <dd className="text-3xl font-semibold tracking-tight md:text-6xl">
                   <Counter
                     value={s.value}
                     decimals={s.decimals}
@@ -118,7 +118,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
                     suffix={s.suffix}
                   />
                 </dd>
-                <dt className="mt-3 text-fg">{s.label}</dt>
+                <dt className="mt-2 text-sm text-fg md:mt-3 md:text-base">{s.label}</dt>
                 {s.from && <p className="readout mt-1">{s.from}</p>}
               </Reveal>
             ))}
@@ -129,11 +129,11 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Entity map: how the portfolio fits together */}
       {map && (
         <section className="border-t border-line">
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
             <Reveal>
               <span className="rule mb-4" />
               <p className="label mb-3">The portfolio</p>
-              <h2 className="mb-12 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+              <h2 className="mb-8 max-w-2xl text-2xl font-semibold tracking-tight md:mb-12 md:text-4xl">
                 How the pieces fit together
               </h2>
             </Reveal>
@@ -144,7 +144,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
 
       {/* Detail */}
       <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-20">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-20">
           <Reveal>
             {roles && mandate && roles.length === 1 ? (
               <Mandate position={roles[0]} lanes={mandate} />
@@ -166,7 +166,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
             <Reveal delay={0.2}>
               <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
                 <p className="label md:col-span-4">The story</p>
-                <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-fg md:col-span-8">
+                <div className="max-w-2xl space-y-4 text-base leading-relaxed text-fg md:col-span-8 md:space-y-5 md:text-lg">
                   {notes!.map((n) => (
                     <p key={n}>{n}</p>
                   ))}
@@ -181,10 +181,10 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {progs && (
         <section className="grid-underlay border-t border-line">
           {c.accent && <CamoTiles variant={c.accent} clusters={4} seed={11} />}
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
             <Reveal>
               <span className="rule mb-4" />
-              <p className="label mb-12">{programLabels[c.slug] ?? "Programs owned"}</p>
+              <p className="label mb-8 md:mb-12">{programLabels[c.slug] ?? "Programs owned"}</p>
             </Reveal>
             <Programs programs={progs} />
           </div>

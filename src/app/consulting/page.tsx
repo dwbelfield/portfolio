@@ -20,17 +20,17 @@ export default function ConsultingPage() {
   return (
     <>
       <section className="grid-underlay">
-        <div className="mx-auto w-full max-w-[1280px] px-6 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+        <div className="mx-auto w-full max-w-[1280px] px-6 pb-14 pt-24 md:px-8 md:pb-28 md:pt-40">
           <Reveal y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>Consulting
             </p>
           </Reveal>
-          <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
+          <h1 className="max-w-5xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
             <Words text="Bring me the mess." delay={0.1} stagger={0.1} />
           </h1>
           <Reveal delay={0.5}>
-            <p className="mt-8 max-w-xl text-lg text-muted md:text-xl">
+            <p className="mt-6 max-w-xl text-base text-muted md:mt-8 md:text-xl">
               Founders and owners hire me for the part of the business that is not turning
               decisions into outcomes. Advisory, project, or fractional. The deliverable is an
               AI-first operating system that is still running in month six, with people still
@@ -50,17 +50,17 @@ export default function ConsultingPage() {
 
       {/* Services */}
       <section className="border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
           <Reveal>
             <span className="rule mb-4" />
-            <p className="label mb-10">What I take on</p>
+            <p className="label mb-8 md:mb-10">What I take on</p>
           </Reveal>
           <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.08} className="bg-panel">
-                <div className="p-8 md:p-10">
-                  <h3 className="text-2xl font-semibold tracking-tight">{s.title}</h3>
-                  <p className="mt-3 text-muted">{s.body}</p>
+                <div className="p-6 md:p-10">
+                  <h3 className="text-xl font-semibold tracking-tight md:text-2xl">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted md:mt-3 md:text-base">{s.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -70,9 +70,9 @@ export default function ConsultingPage() {
 
       {/* Engagement */}
       <section className="grid-underlay border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
           <Reveal>
-            <p className="label mb-10">How it works</p>
+            <p className="label mb-8 md:mb-10">How it works</p>
           </Reveal>
           <ol className="grid gap-10 md:grid-cols-3">
             {engagement.map((e, i) => (
@@ -90,8 +90,8 @@ export default function ConsultingPage() {
 
       {/* Contact */}
       <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-40">
-          <h2 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-40">
+          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight md:text-6xl">
             <Words text="Tell me what is not working." stagger={0.05} />
           </h2>
           <Reveal delay={0.4}>

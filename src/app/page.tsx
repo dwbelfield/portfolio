@@ -19,25 +19,20 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-svh flex-col justify-end overflow-hidden md:min-h-0">
+      <section className="relative flex flex-col justify-end overflow-hidden">
         <div className="grid-underlay pointer-events-none absolute inset-0" aria-hidden="true" />
 
-        {/* Portrait on small screens: top-right, behind the copy. */}
-        <Reveal
-          delay={0.4}
-          y={24}
-          className="pointer-events-none absolute right-0 top-20 w-[58vw] max-w-[360px] md:hidden"
-        >
-          <Image
-            src="/media/derek.png"
-            alt=""
-            width={1069}
-            height={999}
-            className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
-          />
-        </Reveal>
-
-        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-16 pt-32 md:px-8 md:pb-20 md:pt-28">
+        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-12 pt-20 md:px-8 md:pb-20 md:pt-28">
+          {/* Portrait on small screens: in flow, above the copy. */}
+          <Reveal delay={0.2} y={12} className="mb-6 flex justify-end md:hidden">
+            <Image
+              src="/media/derek.png"
+              alt="Derek Belfield"
+              width={1069}
+              height={999}
+              className="h-auto w-36 [mask-image:linear-gradient(to_bottom,black_78%,transparent_100%)]"
+            />
+          </Reveal>
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
@@ -49,14 +44,14 @@ export default function Home() {
               height, so its top meets the headline and its bottom meets the buttons. */}
           <div className="md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-stretch md:gap-8">
             <div>
-              <h1 className="text-[13vw] font-semibold leading-[0.95] tracking-tight md:text-[6.5rem] lg:text-[7.5rem]">
+              <h1 className="text-[12vw] font-semibold leading-[0.95] tracking-tight md:text-[6.5rem] lg:text-[7.5rem]">
                 <Words text={site.motif} delay={0.2} stagger={0.1} accentWord={1} />
               </h1>
               <Reveal delay={0.6}>
-                <p className="mt-8 max-w-xl text-lg text-muted md:text-xl">{site.intro}</p>
+                <p className="mt-6 max-w-xl text-base text-muted md:mt-8 md:text-xl">{site.intro}</p>
               </Reveal>
               <Reveal delay={0.75}>
-                <div className="mt-10 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
                   <Button href="/work/">See the work</Button>
                   <Button href="/consulting/" variant="ghost">
                     Start a conversation
@@ -113,10 +108,10 @@ export default function Home() {
 
       {/* What order looks like: before-and-after pairs */}
       <section className="grid-underlay">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
           <Reveal>
             <span className="rule mb-4" />
-            <p className="label mb-10">What order looks like</p>
+            <p className="label mb-8 md:mb-10">What order looks like</p>
           </Reveal>
           <Transformations />
         </div>
@@ -124,23 +119,23 @@ export default function Home() {
 
       {/* Chapters */}
       <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
           <ChapterList heading={{ lead: "Four", rest: "chapters", meta: "2012 – present" }} />
         </div>
       </section>
 
       {/* Principles */}
       <section className="grid-underlay border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
           <Reveal>
             <span className="rule mb-4" />
-            <p className="label mb-10">Principles</p>
+            <p className="label mb-8 md:mb-10">Principles</p>
           </Reveal>
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-5">
             {principles.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
                 <h3 className="text-xl font-semibold tracking-tight">{p.title}</h3>
-                <p className="mt-3 text-muted">{p.body}</p>
+                <p className="mt-2 text-sm text-muted md:mt-3 md:text-base">{p.body}</p>
               </Reveal>
             ))}
           </div>
@@ -149,8 +144,8 @@ export default function Home() {
 
       {/* CTA */}
       <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-40">
-          <h2 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-40">
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight md:text-6xl">
             <Words text="Have a mess that needs a system?" stagger={0.05} />
           </h2>
           <Reveal delay={0.4}>

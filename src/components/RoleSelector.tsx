@@ -45,14 +45,14 @@ export default function RoleSelector({
       <span className="rule mb-4" />
       <p className="label mb-10">{eyebrow}</p>
 
-      <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+      <div className="grid gap-6 md:grid-cols-12 md:gap-8">
         {/* Role list */}
         <div
           role="tablist"
           aria-orientation="vertical"
           aria-label={eyebrow}
           onKeyDown={onKeyDown}
-          className="self-start border-l border-line md:col-span-4"
+          className="-mx-6 flex gap-1 overflow-x-auto px-6 pb-2 md:mx-0 md:block md:self-start md:border-l md:border-line md:px-0 md:pb-0 md:col-span-4"
         >
           {positions.map((pos, k) => {
             const selected = k === active;
@@ -68,19 +68,19 @@ export default function RoleSelector({
                 aria-controls={`${id}-panel-${k}`}
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(k)}
-                className={`relative block w-full py-4 pl-6 pr-4 text-left transition-colors focus-visible:outline-none ${
-                  selected ? "text-fg" : "text-muted hover:text-fg"
+                className={`relative shrink-0 rounded-full border px-4 py-2 text-left transition-colors focus-visible:outline-none md:block md:w-full md:rounded-none md:border-0 md:py-4 md:pl-6 md:pr-4 ${
+                  selected ? "border-accent text-fg" : "border-line text-muted hover:text-fg"
                 }`}
               >
                 {selected && (
                   <motion.span
                     layoutId={`${id}-marker`}
-                    className="absolute -left-px top-0 h-full w-0.5 bg-accent"
+                    className="absolute -left-px top-0 hidden h-full w-0.5 bg-accent md:block"
                     transition={reduced ? { duration: 0 } : { duration: 0.35, ease: ease.out }}
                   />
                 )}
-                <span className="block font-medium">{pos.title}</span>
-                <span className="readout mt-1 block">
+                <span className="block whitespace-nowrap text-sm font-medium md:whitespace-normal md:text-base">{pos.title}</span>
+                <span className="readout mt-1 hidden md:block">
                   {pos.period}
                   {pos.duration ? ` · ${pos.duration}` : ""}
                 </span>
@@ -100,17 +100,17 @@ export default function RoleSelector({
                 id={`${id}-panel-${k}`}
                 aria-labelledby={`${id}-tab-${k}`}
                 aria-hidden={!on}
-                className={`[grid-area:1/1] ${on ? "" : "pointer-events-none invisible"}`}
+                className={`md:[grid-area:1/1] ${on ? "" : "pointer-events-none invisible max-md:hidden"}`}
                 initial={false}
                 animate={fade(on)}
                 transition={{ duration: 0.28, ease: ease.out }}
               >
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+                <h3 className="text-xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
                 <p className="readout mt-2">
                   {p.period}
                   {p.duration ? ` · ${p.duration}` : ""} · {p.location}
                 </p>
-                <ul className="bullets mt-6 space-y-3 text-base text-fg md:text-lg md:leading-snug">
+                <ul className="bullets mt-5 space-y-2.5 text-sm text-fg md:mt-6 md:space-y-3 md:text-lg md:leading-snug">
                   {p.bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}

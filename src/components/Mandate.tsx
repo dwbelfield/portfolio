@@ -22,7 +22,7 @@ export default function Mandate({
       <Reveal>
         <div className="grid gap-4 border-b border-line pb-8 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-4">
-            <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">{position.title}</h3>
+            <h3 className="text-xl font-semibold tracking-tight md:text-3xl">{position.title}</h3>
             <p className="readout mt-2">
               {position.period}
               {position.duration ? ` · ${position.duration}` : ""} · {position.location}
@@ -40,14 +40,14 @@ export default function Mandate({
         </div>
       </Reveal>
 
-      <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-x-12">
+      <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-2 md:gap-10 md:gap-x-12">
         {lanes.map((l, i) => (
           <Reveal key={l.lane} delay={0.08 * i}>
             <p className="label mb-4">
               <span className="mr-2 text-accent">{String(i + 1).padStart(2, "0")}</span>
               {l.lane}
             </p>
-            <ul className="bullets space-y-3 text-base text-fg md:text-lg md:leading-snug">
+            <ul className="bullets space-y-2.5 text-sm text-fg md:space-y-3 md:text-lg md:leading-snug">
               {l.lines.map((line) => (
                 <li key={line}>{line}</li>
               ))}

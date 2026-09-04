@@ -15,17 +15,17 @@ export default function AboutPage() {
   return (
     <>
       <section className="grid-underlay">
-        <div className="mx-auto w-full max-w-[1280px] px-6 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+        <div className="mx-auto w-full max-w-[1280px] px-6 pb-14 pt-24 md:px-8 md:pb-28 md:pt-40">
           <Reveal y={0}>
             <span className="rule mb-4" />
             <p className="label mb-6">About</p>
           </Reveal>
-          <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
+          <h1 className="max-w-5xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
             <Words text="The person who watches the date." delay={0.1} stagger={0.07} />
           </h1>
           <Reveal delay={0.5}>
             <div className="mt-10 grid gap-10 md:grid-cols-12">
-              <div className="space-y-5 text-lg text-fg md:col-span-7">
+              <div className="space-y-4 text-base text-fg md:col-span-7 md:space-y-5 md:text-lg">
                 <p>
                   I am Chief of Staff to the owner of a 16-brand consumer products group:
                   hundreds of SKUs, two manufacturing facilities, 30M subscribers. I make sure
@@ -61,15 +61,15 @@ export default function AboutPage() {
 
       {/* Timeline */}
       <section className="border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
           <Reveal>
-            <p className="label mb-10">Experience</p>
+            <p className="label mb-8 md:mb-10">Experience</p>
           </Reveal>
           <ol className="border-t border-line">
             {timeline.map((c, i) => (
               <li key={c.slug} className="border-b border-line">
                 <Reveal delay={i * 0.05}>
-                  <div className="grid gap-4 py-8 md:grid-cols-12 md:gap-8">
+                  <div className="grid gap-3 py-6 md:grid-cols-12 md:gap-8 md:py-8">
                     <div className="md:col-span-3">
                       <span className="readout">{c.period}</span>
                       <p className="readout">{c.location}</p>
@@ -101,11 +101,11 @@ export default function AboutPage() {
 
       {/* How I operate */}
       <section className="grid-underlay border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
           <Reveal>
-            <p className="label mb-10">How I operate</p>
+            <p className="label mb-8 md:mb-10">How I operate</p>
           </Reveal>
-          <div className="grid gap-10 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
             {principles.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.06}>
                 <h3 className="text-2xl font-semibold tracking-tight">{p.title}</h3>

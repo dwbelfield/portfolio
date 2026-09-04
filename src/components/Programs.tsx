@@ -103,11 +103,11 @@ const HEX = "50,3 92,26.5 92,73.5 50,97 8,73.5 8,26.5";
 
 export default function Programs({ programs }: { programs: Program[] }) {
   return (
-    <ul className="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-5">
       {programs.map((p, i) => (
         <Reveal key={p.name} delay={i * 0.08}>
           <li className="group">
-            <div className="relative h-28 w-28">
+            <div className="relative h-20 w-20 md:h-28 md:w-28">
               <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden="true">
                 <polygon
                   points={HEX}
@@ -119,7 +119,7 @@ export default function Programs({ programs }: { programs: Program[] }) {
               </svg>
               {masks[p.icon] ? (
                 <span
-                  className="absolute inset-0 m-auto block h-14 w-14 bg-current text-muted transition-colors duration-200 group-hover:text-fg"
+                  className="absolute inset-0 m-auto block h-10 w-10 bg-current text-muted transition-colors duration-200 group-hover:text-fg md:h-14 md:w-14"
                   style={{
                     maskImage: `url(${masks[p.icon]})`,
                     WebkitMaskImage: `url(${masks[p.icon]})`,
@@ -140,15 +140,15 @@ export default function Programs({ programs }: { programs: Program[] }) {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="absolute inset-0 m-auto h-10 w-10 text-muted transition-colors duration-200 group-hover:text-fg"
+                  className="absolute inset-0 m-auto h-8 w-8 text-muted transition-colors duration-200 group-hover:text-fg md:h-10 md:w-10"
                   aria-hidden="true"
                 >
                   {icons[p.icon]}
                 </svg>
               )}
             </div>
-            <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight">{p.name}</h3>
-            <p className="mt-2 text-sm text-muted">{p.blurb}</p>
+            <h3 className="mt-4 text-base font-semibold leading-snug tracking-tight md:mt-5 md:text-lg">{p.name}</h3>
+            <p className="mt-1.5 text-xs text-muted md:mt-2 md:text-sm">{p.blurb}</p>
           </li>
         </Reveal>
       ))}

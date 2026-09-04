@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
+import { useMediaQuery } from "@/lib/media";
 
 type Props = {
   src: string;
@@ -33,6 +34,9 @@ export default function ChapterVideo({
   rate = 1,
 }: Props) {
   const reduced = useReducedMotion();
+  // Phones get no video: it costs data and battery for a band of blurred
+  // pixels behind a title, and the layout is tighter without it.
+  const wide = useMediaQuery("(min-width: 768px)");
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -45,6 +49,8 @@ export default function ChapterVideo({
     }
     v.play().catch(() => {});
   }, [reduced, rate]);
+
+  if (!wide) return null;
 
   return (
     <motion.div
