@@ -119,8 +119,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       </section>
 
       {/* Detail */}
-      <section className="grid-underlay border-t border-line">
-        {c.accent && <CamoTiles variant={c.accent} clusters={5} seed={5} />}
+      <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-20">
           <Reveal>
             {roles ? (
@@ -184,8 +183,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       )}
 
       {/* Prev / next */}
-      <section className="grid-underlay border-t border-line">
-        {c.accent && <CamoTiles variant={c.accent} clusters={4} seed={9} />}
+      <section className="border-t border-line bg-panel">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-6 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
           <div className="flex gap-10">
             {prev && (
