@@ -29,7 +29,7 @@ export default function Mandate({
             </p>
           </div>
           {position.tags && (
-            <ul className="flex flex-wrap gap-2 md:col-span-8 md:justify-end" aria-label="Skills">
+            <ul className="flex flex-wrap content-start items-start gap-2 self-start md:col-span-8 md:justify-end" aria-label="Skills">
               {position.tags.map((t) => (
                 <li key={t} className="label rounded-full border border-line px-3 py-1.5 leading-none">
                   {t}

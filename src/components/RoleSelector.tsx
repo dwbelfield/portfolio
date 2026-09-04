@@ -116,7 +116,7 @@ export default function RoleSelector({
                   ))}
                 </ul>
                 {p.tags && (
-                  <ul className="mt-6 flex flex-wrap gap-2" aria-label="Skills">
+                  <ul className="mt-6 flex flex-wrap content-start items-start gap-2" aria-label="Skills">
                     {p.tags.map((t) => (
                       <li key={t} className="label rounded-full border border-line px-3 py-1.5 leading-none">
                         {t}
