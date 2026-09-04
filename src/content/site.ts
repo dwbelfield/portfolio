@@ -96,6 +96,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "rallypay",
+    video: { src: "/media/rallypay.mp4", alt: "Abstract payments network footage" },
     logo: { src: "/media/logos/rallypay.png", alt: "RallyPay mark", width: 474, height: 640 },
     index: "02",
     name: "RallyPay",
