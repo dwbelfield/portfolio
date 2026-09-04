@@ -147,7 +147,7 @@ export const positions: Record<string, Position[]> = {
         "Originated the business idea and co-founded the company.",
         "Designed the entire front-end UI and UX.",
         "Wrote the brand system: palette, brand guidelines, and brand voice.",
-        "Built the go-to-market motion from zero.",
+        "Built the go-to-market motion from zero and landed the first customers.",
         "Designed the content and SEO system that drives organic discovery.",
         "Built the facility outreach engine that fills the supply side of the marketplace.",
         "Partner-run day to day, with an ongoing co-founder role.",
@@ -165,8 +165,8 @@ export const highlights: Record<string, string[]> = {
     "The second stretch was making it hold. A safety and compliance program written from scratch and adopted at every site. Vendor contracts, including suppliers who had refused to sell to us. B2B accounts that opened a third revenue channel. Go-to-market for Doodle Videos on the B2B side. At any given time there are four to six launches moving, and my job is that none of them fail because nobody was watching the date.",
   ],
   "marine-corps": [
-    "Eight years of service, May 2012 to June 2020. Honorably discharged.",
-    "Navy and Marine Corps Commendation Medal, twice.",
+    "I enlisted in May 2012 and spent the first five years in Okinawa. As a production manager I had thirty people, three divisions, and an international purchasing pipeline that took ninety days to turn an asset around; by the time I left that job it took seven. As a technical supervisor I stood up the CBRN protective equipment program on the island, bringing in-house four containers of gear that had been shipped back to the States for inspection every cycle, and came through two organizational audits with zero discrepancies. As a business process analyst I ran the Lean Six Sigma office, coaching three improvement projects and teaching thirteen courses to 295 Marines.",
+    "The last three years were in Craven County, North Carolina. I took over production control for sixty people and $1.4M in assets, found the shop coding parts at priority 9 when the regulation said 3, and cleared a three-year backlog: ready-for-issue went from 15.1% to 98.3%, replenishment from 36 months to 3. The digital tracking system I built to replace paper outlived my tenure and was adopted across the Navy and Marine Corps. I finished as a senior operations manager with 46 direct reports, a seat on the Ammunition and Explosives Certification Program Board, and a rewritten qualification standard for my trade that the service adopted. Two Navy and Marine Corps Commendation Medals. Honorably discharged in June 2020.",
   ],
   rallypay: [
     "I came in as Director of Operations with two things on my plate: customer success and payment operations. Underneath them sat two legacy platforms, Piryx.org and Rally.org, each with its own codebase and its own way of doing everything. I spent that first stretch optimizing operations across both. Same-day resolution went from 3.4% to 44% while inbound volume grew 400%.",
@@ -372,7 +372,7 @@ export const mandates: Record<string, Mandate[]> = {
     {
       lane: "Go-to-market",
       lines: [
-        "Built the go-to-market motion from zero.",
+        "Built the go-to-market motion from zero and landed the first customers.",
         "Designed the content and SEO system that drives organic discovery.",
       ],
     },

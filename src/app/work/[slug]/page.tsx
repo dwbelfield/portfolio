@@ -38,6 +38,8 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const next = chapters[i + 1];
   const roles = positions[c.slug];
   const notes = highlights[c.slug];
+  // Only a real story earns the block; short notes are folded into roles instead.
+  const story = !!notes && notes.some((n) => n.length > 160);
   const progs = programs[c.slug];
   const map = entityMaps[c.slug];
   const mandate = mandates[c.slug];
@@ -53,6 +55,14 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
             <p className="label mb-6">
               <span className="mr-3 text-accent">{c.index}</span>
               {c.period} · {c.location}
+              {c.link && (
+                <>
+                  {" · "}
+                  <a href={c.link.href} target="_blank" rel="noreferrer" className="link-draw text-fg">
+                    {c.link.label}
+                  </a>
+                </>
+              )}
             </p>
           </Reveal>
           <div className="flex items-center gap-5 md:gap-8">
@@ -159,31 +169,14 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
               </>
             )}
           </Reveal>
-          {(notes || c.link) && (
+          {story && (
             <Reveal delay={0.2}>
               <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
-                <p className="label md:col-span-4">Across the chapter</p>
-                <div className="md:col-span-8">
-                  {notes && (notes.some((n) => n.length > 160) ? (
-                    <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-fg">
-                      {notes.map((n) => (
-                        <p key={n}>{n}</p>
-                      ))}
-                    </div>
-                  ) : (
-                    <ul className="bullets space-y-3 text-muted">
-                      {notes.map((n) => (
-                        <li key={n}>{n}</li>
-                      ))}
-                    </ul>
+                <p className="label md:col-span-4">The story</p>
+                <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-fg md:col-span-8">
+                  {notes!.map((n) => (
+                    <p key={n}>{n}</p>
                   ))}
-                  {c.link && (
-                    <p className="mt-6">
-                      <a href={c.link.href} target="_blank" rel="noreferrer" className="link-draw text-fg">
-                        Visit {c.link.label}
-                      </a>
-                    </p>
-                  )}
                 </div>
               </div>
             </Reveal>
