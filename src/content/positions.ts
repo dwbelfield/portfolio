@@ -155,17 +155,16 @@ export const positions: Record<string, Position[]> = {
   ],
 };
 
-/** Chapter-level notes that do not belong to a single position. */
+/** Chapter-level notes that do not belong to a single position. Short lines
+    render as a list; longer entries read as story paragraphs. */
 export const highlights: Record<string, string[]> = {
   "marine-corps": [
     "Eight years of service, May 2012 to June 2020. Honorably discharged.",
     "Navy and Marine Corps Commendation Medal, twice.",
   ],
   rallypay: [
-    "Five years, eleven months across three roles, reporting to the CEO throughout.",
-    "Named on the filing for every merchant acquirer examination. None failed.",
-    "Operating cadence tracked in Asana, with Slack carrying the day-to-day conversation.",
-    "Retained after the transition to advise on operations, risk, and compliance continuity.",
+    "I came in as Director of Operations with two things on my plate: customer success and payment operations. Underneath them sat two legacy platforms, Piryx.org and Rally.org, each with its own codebase and its own way of doing everything. I spent that first stretch optimizing operations across both. Same-day resolution went from 3.4% to 44% while inbound volume grew 400%.",
+    "That work is what earned the promotion. As COO I took on both engineering teams and the customer success team, owned the operating cadence between the CEO's decisions and delivery, and set the product roadmap going forward: the security microservice, onboarding and underwriting, the multi-vendor gateway, the pricing initiative. When the company transitioned, the CEO retained me to keep operations, risk, and compliance continuous.",
   ],
 };
 

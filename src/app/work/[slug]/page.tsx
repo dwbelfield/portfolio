@@ -141,18 +141,28 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
             <Reveal delay={0.2}>
               <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
                 <p className="label md:col-span-4">Across the chapter</p>
-                <ul className="bullets space-y-3 text-muted md:col-span-8">
-                  {notes?.map((n) => (
-                    <li key={n}>{n}</li>
+                <div className="md:col-span-8">
+                  {notes && (notes.some((n) => n.length > 160) ? (
+                    <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-fg">
+                      {notes.map((n) => (
+                        <p key={n}>{n}</p>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="bullets space-y-3 text-muted">
+                      {notes.map((n) => (
+                        <li key={n}>{n}</li>
+                      ))}
+                    </ul>
                   ))}
                   {c.link && (
-                    <li>
+                    <p className="mt-6">
                       <a href={c.link.href} target="_blank" rel="noreferrer" className="link-draw text-fg">
                         Visit {c.link.label}
                       </a>
-                    </li>
+                    </p>
                   )}
-                </ul>
+                </div>
               </div>
             </Reveal>
           )}
