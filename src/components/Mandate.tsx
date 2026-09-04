@@ -31,7 +31,7 @@ export default function Mandate({
           {position.tags && (
             <ul className="flex flex-wrap gap-2 md:col-span-8 md:justify-end" aria-label="Skills">
               {position.tags.map((t) => (
-                <li key={t} className="label rounded-full border border-line px-3 py-1">
+                <li key={t} className="label rounded-full border border-line px-3 py-1.5 leading-none">
                   {t}
                 </li>
               ))}

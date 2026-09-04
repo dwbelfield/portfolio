@@ -89,12 +89,12 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                                 href={c.href}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="label inline-block rounded-full border border-line px-2.5 py-0.5 text-[0.65rem] transition-colors hover:border-accent hover:text-fg"
+                                className="label inline-block rounded-full border border-line px-2.5 py-1 text-[0.65rem] leading-none transition-colors hover:border-accent hover:text-fg"
                               >
                                 {c.name}
                               </a>
                             ) : (
-                              <span className="label inline-block rounded-full border border-line px-2.5 py-0.5 text-[0.65rem]">
+                              <span className="label inline-block rounded-full border border-line px-2.5 py-1 text-[0.65rem] leading-none">
                                 {c.name}
                               </span>
                             )}
