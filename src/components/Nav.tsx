@@ -25,7 +25,7 @@ export default function Nav() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`label link-draw ${active ? "text-fg" : ""}`}
+                  className="label link-draw text-fg"
                   aria-current={active ? "page" : undefined}
                 >
                   {active && <span className="mr-2 text-accent">●</span>}

@@ -20,7 +20,7 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
       {/* Parent */}
       <Reveal>
         <div className="mx-auto max-w-md rounded-lg border border-accent/60 bg-panel px-6 py-5 text-center">
-          <p className="label mb-2 text-fg">Parent</p>
+          <p className="label mb-2">Parent</p>
           <p className="text-2xl font-semibold tracking-tight">
             {data.parentHref ? (
               <a href={data.parentHref} target="_blank" rel="noreferrer" className="link-draw">
@@ -55,7 +55,7 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
           <Reveal key={g.name} delay={0.1 + i * 0.08}>
             <div className="flex h-full flex-col rounded-lg border border-line bg-bg">
               <div className="border-b border-line px-5 py-4">
-                <p className="label mb-1 text-fg">
+                <p className="label mb-1">
                   <span className="mr-2 text-accent">{String(i + 1).padStart(2, "0")}</span>
                   {g.name}
                 </p>
