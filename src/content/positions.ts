@@ -278,8 +278,8 @@ export const entityMaps: Record<string, EntityMap> = {
         name: "Manufacturing, fulfillment & trade",
         blurb: "Sourcing, production floors, equipment, and shipping for the whole portfolio.",
         entities: [
-          { name: "Wholesale Distributor", note: "Import and export" },
-          { name: "Spin Up Brands", note: "Manufacturing and fulfillment" },
+          { name: "Wholesale Distributor", note: "Import and export", href: "https://wholesaledistributor.com/" },
+          { name: "Spin Up Brands", note: "Manufacturing and fulfillment", href: "https://spinupbrands.com/" },
         ],
       },
       {
@@ -312,10 +312,11 @@ export const entityMaps: Record<string, EntityMap> = {
         blurb: "Customer-facing businesses, each with its own trade and audience.",
         entities: [
           { name: "Raven Steelworks" },
-          { name: "Hotshot Laser" },
+          { name: "Hotshot Laser", href: "https://hotshotlaser.com/" },
           { name: "Carbonless Forms" },
           { name: "Black Label Fragrances" },
           { name: "Mother's Country Store" },
+          { name: "Custom Monogrammed", href: "https://custommonogrammed.com/" },
           { name: "and more" },
         ],
       },
