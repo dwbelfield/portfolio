@@ -170,6 +170,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "zenblis",
+    video: { src: "/media/zenblis-loop.mp4", alt: "Zenblis brand footage", rate: 0.7, opacity: 45 },
     logo: { src: "/media/logos/zenblis.png", alt: "Zenblis mark", width: 638, height: 640 },
     index: "04",
     name: "Zenblis",
