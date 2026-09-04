@@ -74,9 +74,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Selection stays neutral; it should not pick up a chapter's brand colour. */
 ::selection {
-  background: var(--accent);
-  color: var(--panel-black);
+  background: color-mix(in oklab, var(--steel) 45%, transparent);
+  color: var(--fg);
 }
 
 /* Mono is reserved for labels and readouts (timestamps, indices, meta). */
