@@ -265,7 +265,7 @@ export const programLabels: Record<string, string> = {
 };
 
 /** How a portfolio chapter's entities fit together, for the entity map. */
-export type Entity = { name: string; note?: string; href?: string; children?: string[] };
+export type Entity = { name: string; note?: string; href?: string; children?: { name: string; href?: string }[] };
 export type EntityGroup = { name: string; blurb: string; entities: Entity[] };
 export type EntityMap = { parent: string; parentBlurb: string; groups: EntityGroup[] };
 
@@ -291,18 +291,18 @@ export const entityMaps: Record<string, EntityMap> = {
             note: "Sixteen brands, thirty million readers",
             href: "https://nativecommerce.com/",
             children: [
-              "Homesteading",
-              "DIY Projects",
-              "Survival Life",
-              "Garden Season",
-              "Homemade Recipes",
-              "Mighty Goodness",
-              "The Capitalist",
-              "Makeup Tutorials",
-              "Cute Outfits",
-              "Nail Designs",
-              "Sewing.com",
-              "Gun Carrier",
+              { name: "Homesteading", href: "https://homesteading.com/" },
+              { name: "DIY Projects", href: "https://diyprojects.com/" },
+              { name: "Survival Life", href: "https://survivallife.com/" },
+              { name: "Garden Season", href: "https://gardenseason.com/" },
+              { name: "Homemade Recipes", href: "https://homemaderecipes.com/" },
+              { name: "Mighty Goodness", href: "https://mightygoodness.com/" },
+              { name: "The Capitalist" },
+              { name: "Makeup Tutorials", href: "https://makeuptutorials.com/" },
+              { name: "Cute Outfits", href: "https://cuteoutfits.com/" },
+              { name: "Nail Designs", href: "https://naildesigns.com/" },
+              { name: "Sewing.com", href: "https://sewing.com/" },
+              { name: "Gun Carrier", href: "https://guncarrier.com/" },
             ],
           },
         ],

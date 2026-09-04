@@ -69,8 +69,21 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                     {e.children && (
                       <ul className="mt-3 flex flex-wrap gap-1.5" aria-label={`${e.name} properties`}>
                         {e.children.map((c) => (
-                          <li key={c} className="label rounded-full border border-line px-2.5 py-0.5 text-[0.65rem]">
-                            {c}
+                          <li key={c.name}>
+                            {c.href ? (
+                              <a
+                                href={c.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="label inline-block rounded-full border border-line px-2.5 py-0.5 text-[0.65rem] transition-colors hover:border-accent hover:text-fg"
+                              >
+                                {c.name}
+                              </a>
+                            ) : (
+                              <span className="label inline-block rounded-full border border-line px-2.5 py-0.5 text-[0.65rem]">
+                                {c.name}
+                              </span>
+                            )}
                           </li>
                         ))}
                       </ul>
