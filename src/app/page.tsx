@@ -3,8 +3,9 @@ import ChapterVideo from "@/components/ChapterVideo";
 import RotatingTitle from "@/components/RotatingTitle";
 import ChapterList from "@/components/ChapterList";
 import { Button } from "@/components/Button";
-import { Counter, Reveal, Words } from "@/components/primitives";
-import { site, proof, principles } from "@/content/site";
+import { Reveal, Words } from "@/components/primitives";
+import Transformations from "@/components/Transformations";
+import { site, principles } from "@/content/site";
 
 const titles = [
   "Best-selling author",
@@ -110,31 +111,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Proof */}
+      {/* What order looks like: before-and-after pairs */}
       <section className="grid-underlay">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-24 md:px-8 md:py-32">
           <Reveal>
             <span className="rule mb-4" />
-            <p className="label mb-10">Proof</p>
+            <p className="label mb-10">What order looks like</p>
           </Reveal>
-          <dl className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-4">
-            {proof.map((s, i) => (
-              <Reveal key={s.label} delay={i * 0.08} className="bg-bg">
-                <div className="p-6 md:p-8">
-                  <dd className="text-5xl font-semibold tracking-tight md:text-6xl">
-                    <Counter
-                      value={s.value}
-                      decimals={s.decimals}
-                      prefix={s.prefix}
-                      suffix={s.suffix}
-                    />
-                  </dd>
-                  <dt className="mt-3 text-fg">{s.label}</dt>
-                  {s.from && <p className="readout mt-1">{s.from}</p>}
-                </div>
-              </Reveal>
-            ))}
-          </dl>
+          <Transformations />
         </div>
       </section>
 

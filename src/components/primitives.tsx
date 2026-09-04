@@ -87,12 +87,15 @@ export function Words({
    ------------------------------------------------------------------ */
 export function Counter({
   value,
+  from = 0,
   decimals = 0,
   prefix = "",
   suffix = "",
   className,
 }: {
   value: number;
+  /** Where the count starts; defaults to zero. */
+  from?: number;
   decimals?: number;
   prefix?: string;
   suffix?: string;
@@ -101,17 +104,17 @@ export function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -32px 0px" });
   const reduced = useReducedMotion();
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(from);
 
   useEffect(() => {
     if (!inView || reduced) return;
-    const controls = animate(0, value, {
+    const controls = animate(from, value, {
       duration: 1.6,
       ease: ease.out,
       onUpdate: (v) => setN(v),
     });
     return () => controls.stop();
-  }, [inView, reduced, value]);
+  }, [inView, reduced, value, from]);
 
   // With reduced motion the final value renders immediately, no animation.
   const shown = reduced ? value : n;

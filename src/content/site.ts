@@ -197,12 +197,31 @@ export const chapters: Chapter[] = [
   },
 ];
 
-export const proof: Stat[] = [
-  { value: 98.3, decimals: 1, suffix: "%", label: "Parts availability", from: "from 15.1%" },
-  { value: 99, suffix: "%", label: "Fewer card-testing attacks" },
-  { value: 6, label: "Production lines from an empty floor" },
-  { value: 0, label: "Failed audits or examinations", from: "in 14 years" },
+export type Transformation = {
+  /** Starting number, or a short phrase when there is no number to count from. */
+  from?: number;
+  fromText?: string;
+  to: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  note?: string;
+};
+
+/** Before-and-after pairs, all Derek's own outcomes. Counters run from -> to. */
+export const transformations: Transformation[] = [
+  { from: 15.1, to: 98.3, decimals: 1, suffix: "%", label: "Parts ready for issue" },
+  { from: 36, to: 3, suffix: " mo", label: "Time to replenish" },
+  { from: 90, to: 7, suffix: " days", label: "International purchasing turnaround" },
+  { from: 3.4, to: 44, decimals: 1, suffix: "%", label: "Same-day ticket resolution", note: "while inbound volume grew 400%" },
+  { fromText: "Under attack", to: 99, prefix: "−", suffix: "%", label: "Card-testing attacks", note: "chargebacks down 32% alongside" },
+  { fromText: "Empty floor", to: 6, label: "Production divisions stood up", note: "in under a year" },
 ];
+
+export const range =
+  "Eight years in Marine aviation logistics. Six running operations. One company co-founded. Three bestselling novels. Zero failed audits in fourteen years.";
+
 
 export const principles = [
   {
