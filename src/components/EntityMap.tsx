@@ -21,7 +21,15 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
       <Reveal>
         <div className="mx-auto max-w-md rounded-lg border border-accent/60 bg-panel px-6 py-5 text-center">
           <p className="label mb-2">Parent</p>
-          <p className="text-2xl font-semibold tracking-tight">{data.parent}</p>
+          <p className="text-2xl font-semibold tracking-tight">
+            {data.parentHref ? (
+              <a href={data.parentHref} target="_blank" rel="noreferrer" className="link-draw">
+                {data.parent}
+              </a>
+            ) : (
+              data.parent
+            )}
+          </p>
           <p className="mt-2 text-sm text-muted">{data.parentBlurb}</p>
         </div>
       </Reveal>

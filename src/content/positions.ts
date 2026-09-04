@@ -267,11 +267,12 @@ export const programLabels: Record<string, string> = {
 /** How a portfolio chapter's entities fit together, for the entity map. */
 export type Entity = { name: string; note?: string; href?: string; children?: { name: string; href?: string }[] };
 export type EntityGroup = { name: string; blurb: string; entities: Entity[] };
-export type EntityMap = { parent: string; parentBlurb: string; groups: EntityGroup[] };
+export type EntityMap = { parent: string; parentBlurb: string; parentHref?: string; groups: EntityGroup[] };
 
 export const entityMaps: Record<string, EntityMap> = {
   "pmb-companies": {
     parent: "PMB Companies",
+    parentHref: "https://perrybelcher.com/#about-perry",
     parentBlurb: "Owner-led portfolio, two Central Texas facilities. I serve as Chief of Staff across all of it.",
     groups: [
       {
