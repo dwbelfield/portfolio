@@ -26,7 +26,7 @@ at the bottom.
 
 ## Priority 2 — Entity decisions
 
-- [ ] Confirm the exact public wording for the current employer. The site uses **Wholesale Distributor** with **PMB Companies** as the parent. If the company prefers a different public name, or does not want to be named, say so.
+- [ ] Confirm the exact public wording for the current employer. The site now presents **PMB Companies** as a portfolio, with Wholesale Distributor, Spin Up Brands, Native Commerce, and the storefronts named on the chapter page. Confirm each entity may be named publicly and that the groupings are right.
 - [ ] Confirm Zenblis may be linked at zenblis.com and described as "AI-native senior care marketplace" with you as co-founder.
 - [ ] Confirm the RallyPay Crunchbase link is the right profile (crunchbase.com/organization/rally-org).
 - [ ] Confirm the claims register below. Each of these is on the site now and is the kind of claim engines and readers will test:

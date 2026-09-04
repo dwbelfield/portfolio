@@ -12,7 +12,7 @@ export function GET() {
   lines.push(`# ${site.name}`);
   lines.push("");
   lines.push(
-    `> ${site.name} is an operator based in ${site.location}: Chief of Staff at Wholesale Distributor (PMB Companies), co-founder of Zenblis, former Chief Operating Officer of RallyPay, and a United States Marine Corps veteran (aviation logistics, 2012–2020). He consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
+    `> ${site.name} is an operator based in ${site.location}: Chief of Staff at PMB Companies, a portfolio of manufacturing, brand, and storefront companies, co-founder of Zenblis, former Chief Operating Officer of RallyPay, and a United States Marine Corps veteran (aviation logistics, 2012–2020). He consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
   );
   lines.push("");
   lines.push("## About");

@@ -263,3 +263,41 @@ export const programs: Record<string, Program[]> = {
 export const programLabels: Record<string, string> = {
   rallypay: "Initiatives owned",
 };
+
+/** How a portfolio chapter's entities fit together, for the entity map. */
+export type EntityGroup = { name: string; blurb: string; entities: { name: string; note?: string }[] };
+export type EntityMap = { parent: string; parentBlurb: string; groups: EntityGroup[] };
+
+export const entityMaps: Record<string, EntityMap> = {
+  "pmb-companies": {
+    parent: "PMB Companies",
+    parentBlurb: "Owner-led portfolio, two Central Texas facilities. I serve as Chief of Staff across all of it.",
+    groups: [
+      {
+        name: "Manufacturing & fulfillment",
+        blurb: "Production floors, equipment, and shipping for the whole portfolio.",
+        entities: [
+          { name: "Wholesale Distributor", note: "Production and fulfillment" },
+          { name: "Spin Up Brands", note: "Production and fulfillment" },
+        ],
+      },
+      {
+        name: "Brands",
+        blurb: "The consumer brands, sold direct and through the storefronts.",
+        entities: [{ name: "Native Commerce", note: "Sixteen brands, 30M subscribers" }],
+      },
+      {
+        name: "Storefronts",
+        blurb: "Customer-facing businesses, each with its own trade and audience.",
+        entities: [
+          { name: "Raven Steelworks" },
+          { name: "Hotshot Laser" },
+          { name: "Carbonless Forms" },
+          { name: "Black Label Fragrances" },
+          { name: "Mother's Country Store" },
+          { name: "and more" },
+        ],
+      },
+    ],
+  },
+};

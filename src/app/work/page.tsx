@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work/" },
   title: "Work",
   description:
-    "Four chapters: the Marine Corps, RallyPay, Wholesale Distributor at PMB Companies, and co-founding Zenblis.",
+    "Four chapters: the Marine Corps, RallyPay, PMB Companies, and co-founding Zenblis.",
 };
 
 export default function WorkPage() {

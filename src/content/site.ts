@@ -141,9 +141,9 @@ export const chapters: Chapter[] = [
     slug: "pmb-companies",
     video: { src: "/media/pmb-loop.mp4", alt: "Warehouse and production floor footage", rate: 0.6, opacity: 35 },
     index: "03",
-    name: "Wholesale Distributor",
+    name: "PMB Companies",
     org: "PMB Companies",
-    descriptor: "16-brand consumer products group",
+    descriptor: "A portfolio of manufacturing, brand, and storefront companies",
     period: "2026 – Present",
     location: "Salado, TX",
     roles: ["Chief of Staff"],
@@ -152,7 +152,7 @@ export const chapters: Chapter[] = [
     order:
       "Six divisions running from an empty floor, a safety and compliance program written from scratch, and four to six launches in flight at any given time.",
     summary:
-      "Right hand to the owner. I own the follow-through on what he decides, from vendor negotiation to first production run.",
+      "Right hand to the owner across the portfolio: manufacturing and fulfillment, sixteen brands, and a family of storefronts. I own the follow-through on what he decides, from vendor negotiation to first production run.",
     stats: [
       { value: 6, label: "Production divisions stood up", from: "from an empty floor" },
       { value: 16, label: "Brands in the portfolio" },
