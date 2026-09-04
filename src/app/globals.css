@@ -80,19 +80,23 @@ body {
   color: var(--fg);
 }
 
-/* Mono is reserved for labels and readouts (timestamps, indices, meta). */
-.label,
-.readout {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-}
-.readout {
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
+/* Mono is reserved for labels and readouts (timestamps, indices, meta).
+   Declared in the components layer so Tailwind utilities (text-fg, text-accent)
+   can override the colour; unlayered CSS would always win over them. */
+@layer components {
+  .label,
+  .readout {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .readout {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 /* 32px grid underlay. Apply to a full-bleed wrapper or <body>. */
