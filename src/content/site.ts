@@ -44,7 +44,7 @@ export type Chapter = {
   bullets: string[];
   link?: { href: string; label: string };
   /** Optional looping background video for the chapter header (path under /public). */
-  video?: { src: string; alt: string; rate?: number };
+  video?: { src: string; alt: string; rate?: number; opacity?: number };
   /** Optional chapter-specific decorative accent. */
   accent?: "marpat";
   /** Brand colour (hex) the logo and page accents transition to after load. */
@@ -100,7 +100,7 @@ export const chapters: Chapter[] = [
     slug: "rallypay",
     brand: "#d0262b",
     link: { href: "https://www.crunchbase.com/organization/rally-org", label: "RallyPay on Crunchbase" },
-    video: { src: "/media/rallypay.mp4", alt: "Abstract payments network footage", rate: 0.6 },
+    video: { src: "/media/rallypay.mp4", alt: "Abstract payments network footage", rate: 0.6, opacity: 40 },
     logo: { src: "/media/logos/rallypay.png", alt: "RallyPay mark", width: 474, height: 640 },
     index: "02",
     name: "RallyPay",
