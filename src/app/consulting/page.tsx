@@ -6,7 +6,7 @@ import { site, services, engagement } from "@/content/site";
 export const metadata: Metadata = {
   title: "Consulting",
   description:
-    "Operating cadence, compliance and safety programs, standing up new lines, and process improvement for founders and owners.",
+    "AI-first operating cadence, compliance and safety programs, standing up new lines, and process improvement for founders and owners.",
 };
 
 const subject = encodeURIComponent("Consulting inquiry");
@@ -31,8 +31,9 @@ export default function ConsultingPage() {
           <Reveal delay={0.5}>
             <p className="mt-8 max-w-xl text-lg text-muted md:text-xl">
               Founders and owners hire me for the part of the business that is not turning
-              decisions into outcomes. Advisory, project, or fractional. The deliverable is a
-              system that is still running in month six.
+              decisions into outcomes. Advisory, project, or fractional. The deliverable is an
+              AI-first operating system that is still running in month six, with people still
+              accountable for it.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href={mailto} external>

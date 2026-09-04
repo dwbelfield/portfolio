@@ -14,7 +14,7 @@ export const site = {
   linkedinLabel: "linkedin.com/in/dwbelfield",
   url: "https://derekbelfield.com",
   intro:
-    "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build are still running long after I leave.",
+    "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build now are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:
     "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
 };
@@ -219,6 +219,10 @@ export const principles = [
     title: "Range",
     body: "I read a P&L and a hazard communication plan with the same attention. Equally at home on a production floor and in a software engineering standup.",
   },
+  {
+    title: "AI-first",
+    body: "Every system I build now assumes AI in the loop: intake, tracking, documentation, and the first pass on analysis. People make the decisions. The tooling keeps the date.",
+  },
 ];
 
 export const services = [
@@ -238,6 +242,14 @@ export const services = [
     title: "Process improvement",
     body: "Lean Six Sigma Green Belt. Find the constraint holding the schedule and remove it.",
   },
+  {
+    title: "AI-first operations",
+    body: "Rebuilding a team's operating cadence around AI-assisted workflows: intake, tracking, documentation, and the first draft of everything. Built so the people stay accountable and the tooling does the carrying.",
+  },
+  {
+    title: "Founder advisory",
+    body: "Ongoing counsel for founders and owners on operations, risk, and what to build next. Retainer or by the project.",
+  },
 ];
 
 export const engagement = [
@@ -254,7 +266,7 @@ export const engagement = [
   {
     step: "03",
     title: "Execution and handoff",
-    body: "I do the work alongside your team and leave a system that is still running in month six.",
+    body: "I do the work alongside your team and leave an AI-first system that is still running in month six.",
   },
 ];
 
@@ -267,5 +279,5 @@ export const credentials = [
 
 export const alongside = [
   "Three-time bestselling science fiction author, independently published and marketed to bestseller.",
-  "Tools: Jira, Asana, Monday, ClickUp, Notion, Google Workspace, AI-assisted operating workflows.",
+  "AI-first operator. Claude, Jira, Asana, Monday, ClickUp, Notion, and Google Workspace, wired into operating workflows rather than used one at a time.",
 ];

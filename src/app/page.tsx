@@ -152,7 +152,7 @@ export default function Home() {
             <span className="rule mb-4" />
             <p className="label mb-10">Principles</p>
           </Reveal>
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
             {principles.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
                 <h3 className="text-xl font-semibold tracking-tight">{p.title}</h3>

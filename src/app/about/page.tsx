@@ -40,7 +40,9 @@ export default function AboutPage() {
                 <p>
                   I have never failed an audit or a regulatory examination, in aviation safety
                   or in payments. I am equally at home on a production floor and in a software
-                  engineering standup.
+                  engineering standup, and the operating systems I build now are AI-first: the
+                  tracking, the documentation, and the first pass on analysis run on AI-assisted
+                  workflows, with people accountable for every decision.
                 </p>
               </div>
               <div className="md:col-span-4 md:col-start-9">
@@ -112,9 +114,9 @@ export default function AboutPage() {
             <Reveal delay={0.3}>
               <h3 className="text-2xl font-semibold tracking-tight">Method</h3>
               <p className="mt-3 max-w-lg text-muted">
-                Lean Six Sigma Green Belt. Agile delivery. Process design, trend analysis,
-                repair-versus-replace, vendor negotiation, compliance program build, safety
-                program build.
+                Lean Six Sigma Green Belt. Agile delivery. AI-first operating workflows.
+                Process design, trend analysis, repair-versus-replace, vendor negotiation,
+                compliance program build, safety program build.
               </p>
             </Reveal>
           </div>
