@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import AccentShift from "@/components/AccentShift";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
@@ -36,9 +37,8 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const notes = highlights[c.slug];
   const progs = programs[c.slug];
 
-  return (
-    // A chapter with a brand colour uses it for every accent on its page.
-    <div style={c.brand ? ({ "--accent": c.brand } as React.CSSProperties) : undefined}>
+  const body = (
+    <>
       {/* Header */}
       <section className={c.video ? "relative flex min-h-[62svh] flex-col justify-end overflow-hidden" : "grid-underlay"}>
         {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} />}
@@ -198,6 +198,10 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           <Button href="/consulting/">Start a conversation</Button>
         </div>
       </section>
-    </div>
+    </>
   );
+
+  // A chapter with a brand colour eases every accent from amber to it, in step
+  // with its logo going from white to the same colour.
+  return c.brand ? <AccentShift to={c.brand}>{body}</AccentShift> : body;
 }
