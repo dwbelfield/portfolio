@@ -160,6 +160,11 @@ export const positions: Record<string, Position[]> = {
 /** Chapter-level notes that do not belong to a single position. Short lines
     render as a list; longer entries read as story paragraphs. */
 export const highlights: Record<string, string[]> = {
+  zenblis: [
+    "My mom runs a senior care facility in Plano, Texas. A while back she was venting to me about something that seemed small. Her Google reviews and photos were years out of date. Worse, when families asked ChatGPT or Perplexity about her community, the AI would pull old complaints and repeat them as fact. One of the reviews dinging her was about a burned-out streetlight in a courtyard, from before she even worked there. She had no idea how to get any of it fixed. Who do you even call?",
+    "So I went looking for the Zillow of senior care. A place where a family could see accurate, current information and where a community could actually control its own presence. It didn't exist. What existed were referral agencies that get paid to point you somewhere, and thin directories that don't really help anyone.",
+    "That bugged me enough to build the thing. It's called Zenblis. My cofounder Matt and I served in the Marines together. He writes the software, I handle the business and design, and my mom is basically our whole reason for starting.",
+  ],
   "pmb-companies": [
     "I joined in April 2026 as Chief of Staff to the owner. The portfolio was already broad: manufacturing and import/export, sixteen media brands under Native Commerce, a family of storefronts, and B2B services. What it needed was someone to carry his decisions the last mile. The first stretch was building: six production divisions that did not exist, from chemical repackaging to fragrance blending, sourced, equipped, laid out, and staffed, on days of notice.",
     "The second stretch was making it hold. A safety and compliance program written from scratch and adopted at every site. Vendor contracts, including suppliers who had refused to sell to us. B2B accounts that opened a third revenue channel. Go-to-market for Doodle Videos on the B2B side. At any given time there are four to six launches moving, and my job is that none of them fail because nobody was watching the date.",

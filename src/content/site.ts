@@ -179,7 +179,7 @@ export const chapters: Chapter[] = [
     location: "Co-founder",
     roles: ["Co-Founder"],
     chaos:
-      "Families searching for senior care in a fragmented market, with no reliable way to find, compare, and reach the right facility.",
+      "Families asking ChatGPT about a community and getting years-old complaints repeated as fact. Referral agencies paid to point you somewhere. Directories too thin to help anyone.",
     order:
       "An AI-native marketplace and directory I conceived and designed end to end: the brand, the front-end experience, the go-to-market motion, the content and SEO system, and the facility outreach engine.",
     summary:
