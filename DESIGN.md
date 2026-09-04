@@ -39,8 +39,8 @@ Tailwind via `@theme`. Use semantic classes (`bg-bg`, `bg-panel`, `text-fg`,
 Each chapter may carry one quiet accent on the grid, drawn by
 `src/components/CamoTiles.tsx` as a handful of 32px edge cells in small
 clusters. Marine Corps: woodland MARPAT colour cells. Never larger than a cell, never
-behind text. A chapter with a brand colour (RallyPay: `--rallypay`) overrides
-`--accent` on its own page, so every amber job becomes the brand colour there. Organisation logos are colour masks (`.logo-mask`):
+behind text. Amber stays amber on every page; a chapter's brand colour (RallyPay:
+`--rallypay`) is used only by its logo transition. Organisation logos are colour masks (`.logo-mask`):
 white at rest, transitioning to the chapter's brand colour on the chapter
 page and on hover in the chapter list.
 

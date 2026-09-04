@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import AccentShift from "@/components/AccentShift";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
@@ -229,7 +228,5 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
     </>
   );
 
-  // A chapter with a brand colour eases every accent from amber to it, in step
-  // with its logo going from white to the same colour.
-  return c.brand ? <AccentShift to={c.brand}>{body}</AccentShift> : body;
+  return body;
 }
