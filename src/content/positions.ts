@@ -330,6 +330,11 @@ export const entityMaps: Record<string, EntityMap> = {
             note: "Live-event planning for influencers and associations, on a revenue share",
             href: "https://conventions.com/",
           },
+          {
+            name: "Doodle Videos",
+            note: "AI-assisted animated videos for business owners. I helped with go-to-market.",
+            href: "https://doodlevideos.com/",
+          },
         ],
       },
     ],
