@@ -144,12 +144,15 @@ export const positions: Record<string, Position[]> = {
       period: "2026 – Present",
       location: "Remote",
       bullets: [
+        "Originated the business idea and co-founded the company.",
+        "Designed the entire front-end UI and UX.",
+        "Wrote the brand system: palette, brand guidelines, and brand voice.",
         "Built the go-to-market motion from zero.",
         "Designed the content and SEO system that drives organic discovery.",
         "Built the facility outreach engine that fills the supply side of the marketplace.",
         "Partner-run day to day, with an ongoing co-founder role.",
       ],
-      tags: ["Go-to-Market", "Content & SEO", "Outreach", "Marketplace"],
+      tags: ["Product", "UI/UX", "Brand", "Go-to-Market", "Content & SEO", "Outreach"],
     },
   ],
 };
@@ -354,6 +357,33 @@ export const entityMaps: Record<string, EntityMap> = {
 export type Mandate = { lane: string; lines: string[] };
 
 export const mandates: Record<string, Mandate[]> = {
+  zenblis: [
+    {
+      lane: "Idea and product",
+      lines: [
+        "Originated the business idea: an AI-native marketplace and directory for senior care.",
+        "Designed the entire front-end UI and UX.",
+      ],
+    },
+    {
+      lane: "Brand",
+      lines: ["Wrote the brand system from scratch: palette, brand guidelines, and brand voice."],
+    },
+    {
+      lane: "Go-to-market",
+      lines: [
+        "Built the go-to-market motion from zero.",
+        "Designed the content and SEO system that drives organic discovery.",
+      ],
+    },
+    {
+      lane: "Supply side",
+      lines: [
+        "Built the facility outreach engine that fills the supply side of the marketplace.",
+        "Partner-run day to day, with an ongoing co-founder role.",
+      ],
+    },
+  ],
   "pmb-companies": [
     {
       lane: "Follow-through",

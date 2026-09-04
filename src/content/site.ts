@@ -181,12 +181,13 @@ export const chapters: Chapter[] = [
     chaos:
       "Families searching for senior care in a fragmented market, with no reliable way to find, compare, and reach the right facility.",
     order:
-      "An AI-native marketplace and directory with a go-to-market motion, a content and SEO system, and a facility outreach engine.",
+      "An AI-native marketplace and directory I conceived and designed end to end: the brand, the front-end experience, the go-to-market motion, the content and SEO system, and the facility outreach engine.",
     summary:
-      "Co-founded in 2026. Built the go-to-market motion, the content and SEO system, and the facility outreach engine. Partner-run day to day.",
+      "My idea, co-founded in 2026. I designed the entire front-end UI and UX, wrote the brand palette, guidelines, and voice, and built the go-to-market, content and SEO, and facility outreach systems. Partner-run day to day.",
     stats: [
-      { value: 2026, label: "Co-founded" },
-      { value: 3, label: "Systems built: go-to-market, content and SEO, outreach" },
+      { value: 2026, label: "Co-founded, from my idea" },
+      { value: 1, label: "Brand system: palette, guidelines, voice" },
+      { value: 3, label: "Growth systems: go-to-market, content and SEO, outreach" },
     ],
     bullets: [
       "Built the go-to-market motion from zero.",
