@@ -4,6 +4,7 @@ import { Reveal, Words } from "@/components/primitives";
 import { site, services, engagement } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/consulting/" },
   title: "Consulting",
   description:
     "AI-first operating cadence, compliance and safety programs, standing up new lines, and process improvement for founders and owners.",

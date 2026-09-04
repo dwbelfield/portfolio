@@ -5,6 +5,7 @@ import { Reveal, Words } from "@/components/primitives";
 import { site, chapters, principles, credentials, alongside } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about/" },
   title: "About",
   description: site.intro,
 };

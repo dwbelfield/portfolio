@@ -9,7 +9,7 @@ import CamoTiles from "@/components/CamoTiles";
 import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
 import { Counter, Reveal, Words } from "@/components/primitives";
-import { chapters } from "@/content/site";
+import { chapters, site } from "@/content/site";
 import { positions, highlights, programs, programLabels } from "@/content/positions";
 
 export function generateStaticParams() {
@@ -23,6 +23,8 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
   return {
     title: c.name,
     description: c.order,
+    alternates: { canonical: `/work/${c.slug}/` },
+    openGraph: { title: `${c.name} · ${site.name}`, description: c.order, url: `${site.url}/work/${c.slug}/` },
   };
 }
 

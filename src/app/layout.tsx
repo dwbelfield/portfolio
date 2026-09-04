@@ -22,14 +22,51 @@ export const metadata: Metadata = {
     default: `${site.name} · ${site.motif}`,
     template: `%s · ${site.name}`,
   },
-  description: site.intro,
+  description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: site.name,
     title: `${site.name} · ${site.motif}`,
-    description: site.intro,
+    description: site.description,
     url: site.url,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name}: ${site.motif}` }],
   },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
+};
+
+/** Entity data for search and answer engines, built from the content model. */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: site.name,
+      url: site.url,
+      email: site.email,
+      jobTitle: "Chief of Staff, Wholesale Distributor (PMB Companies); Co-founder, Zenblis",
+      description: site.description,
+      address: { "@type": "PostalAddress", addressLocality: "Dallas", addressRegion: "TX", addressCountry: "US" },
+      sameAs: [site.linkedin],
+      knowsAbout: [
+        "Operations management",
+        "Payments compliance (PCI, KYC/AML, NACHA)",
+        "Lean Six Sigma",
+        "Aviation logistics",
+        "Safety and compliance programs (OSHA)",
+        "AI-first operating workflows",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      publisher: { "@id": `${site.url}/#person` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -39,6 +76,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="flex min-h-svh flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SmoothScroll>
           <Nav />
           {children}

@@ -3,6 +3,7 @@ import ChapterList from "@/components/ChapterList";
 import { Reveal, Words } from "@/components/primitives";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/work/" },
   title: "Work",
   description:
     "Four chapters: the Marine Corps, RallyPay, Wholesale Distributor at PMB Companies, and co-founding Zenblis.",

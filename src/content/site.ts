@@ -13,6 +13,9 @@ export const site = {
   linkedin: "https://linkedin.com/in/dwbelfield",
   linkedinLabel: "linkedin.com/in/dwbelfield",
   url: "https://derekbelfield.com",
+  /** Under 155 characters; what engines quote when they have nothing better. */
+  description:
+    "Derek Belfield: Chief of Staff, former COO of RallyPay, Marine Corps veteran, Zenblis co-founder. AI-first operations consulting for founders and owners.",
   intro:
     "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build now are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:
