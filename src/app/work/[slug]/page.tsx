@@ -68,12 +68,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           <div className="flex items-center gap-5 md:gap-8">
             {c.logo && (
               <Reveal y={0} delay={0.05} className="shrink-0 text-fg">
-                <Logo
-                  src={c.logo.src}
-                  alt={c.logo.alt}
-                  to={c.brand}
-                  className="h-14 w-14 md:h-24 md:w-24"
-                />
+                <Logo src={c.logo.src} alt={c.logo.alt} className="h-14 w-14 md:h-24 md:w-24" />
               </Reveal>
             )}
             <h1 className="max-w-5xl text-5xl font-semibold leading-[1] tracking-tight md:text-8xl">
