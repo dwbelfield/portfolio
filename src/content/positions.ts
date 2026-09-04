@@ -274,11 +274,11 @@ export const entityMaps: Record<string, EntityMap> = {
     parentBlurb: "Owner-led portfolio, two Central Texas facilities. I serve as Chief of Staff across all of it.",
     groups: [
       {
-        name: "Manufacturing & fulfillment",
-        blurb: "Production floors, equipment, and shipping for the whole portfolio.",
+        name: "Manufacturing, fulfillment & trade",
+        blurb: "Sourcing, production floors, equipment, and shipping for the whole portfolio.",
         entities: [
-          { name: "Wholesale Distributor", note: "Production and fulfillment" },
-          { name: "Spin Up Brands", note: "Production and fulfillment" },
+          { name: "Wholesale Distributor", note: "Import and export" },
+          { name: "Spin Up Brands", note: "Manufacturing and fulfillment" },
         ],
       },
       {
