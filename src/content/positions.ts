@@ -161,7 +161,12 @@ export const highlights: Record<string, string[]> = {
     "Eight years of service, May 2012 to June 2020. Honorably discharged.",
     "Navy and Marine Corps Commendation Medal, twice.",
   ],
-  rallypay: ["Five years, eleven months across three roles."],
+  rallypay: [
+    "Five years, eleven months across three roles, reporting to the CEO throughout.",
+    "Named on the filing for every merchant acquirer examination. None failed.",
+    "Operating cadence tracked in Asana, with Slack carrying the day-to-day conversation.",
+    "Retained after the transition to advise on operations, risk, and compliance continuity.",
+  ],
 };
 
 /** Programs owned within a chapter, each rendered as a hexagon with an icon. */

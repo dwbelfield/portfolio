@@ -121,7 +121,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
       {/* Detail */}
       <section className="grid-underlay border-t border-line">
         {c.accent && <CamoTiles variant={c.accent} clusters={5} seed={5} />}
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-20 md:px-8 md:py-28">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-20">
           <Reveal>
             {roles ? (
               <RoleSelector positions={roles} />
@@ -139,9 +139,9 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           </Reveal>
           {(notes || c.link) && (
             <Reveal delay={0.2}>
-              <div className="mt-16 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
+              <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
                 <p className="label md:col-span-4">Across the chapter</p>
-                <ul className="space-y-2 text-muted md:col-span-8">
+                <ul className="bullets space-y-3 text-muted md:col-span-8">
                   {notes?.map((n) => (
                     <li key={n}>{n}</li>
                   ))}

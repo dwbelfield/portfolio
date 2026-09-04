@@ -110,13 +110,13 @@ export default function RoleSelector({
                   {p.period}
                   {p.duration ? ` · ${p.duration}` : ""} · {p.location}
                 </p>
-                <ul className="bullets mt-8 space-y-4 text-lg text-fg">
+                <ul className="bullets mt-6 space-y-3 text-base text-fg md:text-lg md:leading-snug">
                   {p.bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}
                 </ul>
                 {p.tags && (
-                  <ul className="mt-8 flex flex-wrap gap-2" aria-label="Skills">
+                  <ul className="mt-6 flex flex-wrap gap-2" aria-label="Skills">
                     {p.tags.map((t) => (
                       <li key={t} className="label rounded-full border border-line px-3 py-1">
                         {t}
