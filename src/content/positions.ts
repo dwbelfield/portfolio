@@ -265,7 +265,8 @@ export const programLabels: Record<string, string> = {
 };
 
 /** How a portfolio chapter's entities fit together, for the entity map. */
-export type EntityGroup = { name: string; blurb: string; entities: { name: string; note?: string }[] };
+export type Entity = { name: string; note?: string; href?: string; children?: string[] };
+export type EntityGroup = { name: string; blurb: string; entities: Entity[] };
 export type EntityMap = { parent: string; parentBlurb: string; groups: EntityGroup[] };
 
 export const entityMaps: Record<string, EntityMap> = {
@@ -284,7 +285,27 @@ export const entityMaps: Record<string, EntityMap> = {
       {
         name: "Brands",
         blurb: "The consumer brands, sold direct and through the storefronts.",
-        entities: [{ name: "Native Commerce", note: "Sixteen brands, 30M subscribers" }],
+        entities: [
+          {
+            name: "Native Commerce",
+            note: "Sixteen brands, thirty million readers",
+            href: "https://nativecommerce.com/",
+            children: [
+              "Homesteading",
+              "DIY Projects",
+              "Survival Life",
+              "Garden Season",
+              "Homemade Recipes",
+              "Mighty Goodness",
+              "The Capitalist",
+              "Makeup Tutorials",
+              "Cute Outfits",
+              "Nail Designs",
+              "Sewing.com",
+              "Gun Carrier",
+            ],
+          },
+        ],
       },
       {
         name: "Storefronts",

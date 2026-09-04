@@ -57,9 +57,24 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                 {g.entities.map((e) => (
                   <li key={e.name} className="bg-bg px-5 py-3 last:flex-1">
                     <p className={`font-medium ${e.name === "and more" ? "text-muted" : "text-fg"}`}>
-                      {e.name}
+                      {e.href ? (
+                        <a href={e.href} target="_blank" rel="noreferrer" className="link-draw">
+                          {e.name}
+                        </a>
+                      ) : (
+                        e.name
+                      )}
                     </p>
                     {e.note && <p className="readout mt-0.5">{e.note}</p>}
+                    {e.children && (
+                      <ul className="mt-3 flex flex-wrap gap-1.5" aria-label={`${e.name} properties`}>
+                        {e.children.map((c) => (
+                          <li key={c} className="label rounded-full border border-line px-2.5 py-0.5 text-[0.65rem]">
+                            {c}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
