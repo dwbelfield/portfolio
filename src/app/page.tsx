@@ -44,7 +44,7 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
                   <Button href="/work/">See the work</Button>
                   <Button href="/consulting/" variant="ghost">
-                    Start a conversation
+                    Get consulting
                   </Button>
                 </div>
               </Reveal>
