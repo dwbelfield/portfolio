@@ -136,6 +136,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "pmb-companies",
+    video: { src: "/media/pmb.mp4", alt: "Warehouse and production floor footage", rate: 0.7, opacity: 50 },
     index: "03",
     name: "Wholesale Distributor",
     org: "PMB Companies",
