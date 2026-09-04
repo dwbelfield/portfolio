@@ -292,6 +292,7 @@ export const entityMaps: Record<string, EntityMap> = {
       {
         name: "Brands",
         blurb: "The consumer brands, sold direct and through the storefronts.",
+        work: "Sourcing joint-venture deals to sell through the brands' lists.",
         entities: [
           {
             name: "Native Commerce",
@@ -379,6 +380,7 @@ export const mandates: Record<string, Mandate[]> = {
       lines: [
         "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
         "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
+        "Source joint-venture deals to sell through the Native Commerce lists.",
         "Go-to-market for Doodle Videos on the B2B side.",
       ],
     },
