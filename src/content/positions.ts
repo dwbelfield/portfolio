@@ -120,7 +120,6 @@ export const positions: Record<string, Position[]> = {
       tags: ["Operations", "Support", "Fraud Prevention", "Product"],
     },
   ],
-
   "pmb-companies": [
     {
       title: "Chief of Staff",
@@ -172,7 +171,7 @@ export const highlights: Record<string, string[]> = {
 export type Program = {
   name: string;
   blurb: string;
-  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma" | "shield" | "badge" | "nodes" | "chart" | "funnel";
+  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma" | "shield" | "badge" | "nodes" | "chart" | "funnel" | "hazard" | "lock" | "bell" | "hardhat";
 };
 
 export const programs: Record<string, Program[]> = {
@@ -228,6 +227,34 @@ export const programs: Record<string, Program[]> = {
       name: "Pricing & Authorization",
       blurb: "Pricing initiative that lifted authorization rates 11% and gross profit 5.7%.",
       icon: "chart",
+    },
+  ],
+
+  "pmb-companies": [
+    {
+      name: "Hazard Communication",
+      blurb: "Written from scratch for a business that repackages and blends chemicals. Adopted at every site.",
+      icon: "hazard",
+    },
+    {
+      name: "Lockout / Tagout",
+      blurb: "Energy-control procedures for the equipment behind six new production lines.",
+      icon: "lock",
+    },
+    {
+      name: "Emergency Action Plans",
+      blurb: "Evacuation, reporting, and roles for two Central Texas facilities.",
+      icon: "bell",
+    },
+    {
+      name: "Personal Protective Equipment",
+      blurb: "Hazard assessments and PPE standards for every workstation on the floor.",
+      icon: "hardhat",
+    },
+    {
+      name: "Respiratory Protection",
+      blurb: "Selection, fit, and clearance wherever chemical exposure calls for it.",
+      icon: "respirator",
     },
   ],
 };

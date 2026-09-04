@@ -70,6 +70,32 @@ const icons: Partial<Record<Program["icon"], React.ReactNode>> = {
       <path d="M15 7h4v4" />
     </>
   ),
+  hazard: (
+    <>
+      <path d="M12 4l9 16H3z" />
+      <path d="M12 10v4M12 17h.01" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+      <path d="M12 15v2" />
+    </>
+  ),
+  bell: (
+    <>
+      <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z" />
+      <path d="M10 21h4" />
+    </>
+  ),
+  hardhat: (
+    <>
+      <path d="M4 16a8 8 0 0 1 16 0" />
+      <path d="M3 16h18v2H3z" />
+      <path d="M10 8V5h4v3" />
+    </>
+  ),
 };
 
 /** Pointy-top hexagon in a 100-unit box. */
