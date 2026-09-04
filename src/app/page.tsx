@@ -23,16 +23,6 @@ export default function Home() {
         <div className="grid-underlay pointer-events-none absolute inset-0" aria-hidden="true" />
 
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-12 pt-20 md:px-8 md:pb-20 md:pt-28">
-          {/* Portrait on small screens: in flow, above the copy. */}
-          <Reveal delay={0.2} y={12} className="mb-6 flex justify-end md:hidden">
-            <Image
-              src="/media/derek.png"
-              alt="Derek Belfield"
-              width={1069}
-              height={999}
-              className="h-auto w-36 [mask-image:linear-gradient(to_bottom,black_78%,transparent_100%)]"
-            />
-          </Reveal>
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
