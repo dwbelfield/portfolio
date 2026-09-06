@@ -148,11 +148,13 @@ export const positions: Record<string, Position[]> = {
         "Designed the entire front-end UI and UX.",
         "Wrote the brand system: palette, brand guidelines, and brand voice.",
         "Built the go-to-market motion from zero and landed the first customers.",
-        "Designed the content and SEO system that drives organic discovery.",
+        "Established agent workflows across research, content and SEO, social media, and community outreach to support the go-to-market strategy.",
+        "Built shared tracking with persistent IDs, linked assets, pipeline stages, and performance records so agents can coordinate work across sessions.",
+        "Documented CMS publishing standards and reconciled historical social activity to give future agent work a traceable starting point.",
         "Built the facility outreach engine that fills the supply side of the marketplace.",
         "Partner-run day to day, with an ongoing co-founder role.",
       ],
-      tags: ["Product", "UI/UX", "Brand", "Go-to-Market", "Content & SEO", "Outreach"],
+      tags: ["Product", "UI/UX", "Brand", "Go-to-Market", "AI Agents", "Content & SEO", "Outreach"],
     },
   ],
 };
@@ -378,7 +380,21 @@ export const mandates: Record<string, Mandate[]> = {
       lane: "Go-to-market",
       lines: [
         "Built the go-to-market motion from zero and landed the first customers.",
-        "Designed the content and SEO system that drives organic discovery.",
+        "Set up workflows for autonomous agents across research, content and SEO, social media, and community outreach.",
+      ],
+    },
+    {
+      lane: "Agent coordination",
+      lines: [
+        "Built a shared operating system in Google Drive and Sheets: research queues, editorial pipelines, social calendars, asset records, community prospects, and outreach logs.",
+        "Defined persistent IDs and relationships so agents can match content to assets, preserve history, and check existing work before creating duplicates.",
+      ],
+    },
+    {
+      lane: "Publishing and measurement",
+      lines: [
+        "Documented CMS workflows covering template selection, audience placement, author attribution, citations, FAQs, and SEO metadata.",
+        "Audited historical social activity and backfilled post, engagement, asset, and performance records to establish a baseline for future experiments.",
       ],
     },
     {
