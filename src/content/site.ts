@@ -181,14 +181,14 @@ export const chapters: Chapter[] = [
     order:
       "An AI-native marketplace and directory I conceived and designed end to end: the brand, the front-end experience, the go-to-market motion, the content and SEO system, and the facility outreach engine.",
     summary:
-      "My idea, co-founded in 2026. I designed the entire front-end UI and UX, wrote the brand palette, guidelines, and voice, built the go-to-market, content and SEO, and facility outreach systems, and landed the first customers. Partner-run day to day.",
+      "My idea, co-founded in 2026. I designed the product experience and brand, landed the first customers, and built the operating foundation for autonomous agents across research, content, social media, and community outreach. Partner-run day to day, with my ongoing ownership of GTM systems.",
     stats: [
       { value: 2026, label: "Co-founded, from my idea" },
       { value: 1, label: "Brand system: palette, guidelines, voice" },
       { value: 3, label: "Growth systems: go-to-market, content and SEO, outreach" },
     ],
     bullets: [
-      "Built the go-to-market motion from zero.",
+      "Built the go-to-market motion from zero, with agent workflows spanning research, content production, social media, and community outreach.",
       "Designed the content and SEO system that drives organic discovery.",
       "Built the facility outreach engine that fills the supply side of the marketplace.",
       "Partner-run day to day, with an ongoing co-founder role.",
