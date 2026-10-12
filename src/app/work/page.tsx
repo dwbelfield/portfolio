@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work/" },
   title: "Work",
   description:
-    "Four chapters: the Marine Corps, RallyPay, PMB Companies, and co-founding Zenblis.",
+    "Three chapters: the Marine Corps, RallyPay, and PMB Companies. Two side projects: Zenblis and Mythener.",
 };
 
 export default function WorkPage() {
@@ -18,7 +18,7 @@ export default function WorkPage() {
             <p className="label mb-6">Work</p>
         </Reveal>
         <h1 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
-          <Words text="Four chapters. One pattern." delay={0.1} stagger={0.08} />
+          <Words text="Three chapters. One pattern." delay={0.1} stagger={0.08} />
         </h1>
         <Reveal delay={0.5}>
           <p className="mt-8 max-w-xl text-lg text-muted">
@@ -28,6 +28,9 @@ export default function WorkPage() {
         </Reveal>
         <div className="mt-12 md:mt-20">
           <ChapterList />
+        </div>
+        <div className="mt-16 md:mt-24">
+          <ChapterList kind="side" heading={{ lead: "Side", rest: "projects", meta: "founded 2026" }} />
         </div>
       </div>
     </section>

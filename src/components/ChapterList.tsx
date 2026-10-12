@@ -10,8 +10,15 @@ type Heading = { lead: string; rest: string; meta?: string };
  * subgrid: the first column is sized to the heading's first word, so the
  * logo-and-name column below starts exactly under the second word.
  */
-export default function ChapterList({ heading }: { heading?: Heading }) {
+export default function ChapterList({
+  heading,
+  kind = "chapter",
+}: {
+  heading?: Heading;
+  kind?: "chapter" | "side";
+}) {
   const sub = "md:col-span-3 md:grid md:grid-cols-subgrid";
+  const rows = chapters.filter((c) => (c.kind ?? "chapter") === kind);
   return (
     <div className="md:grid md:grid-cols-[auto_minmax(0,5fr)_minmax(0,5fr)] md:gap-x-4">
       {heading && (
@@ -29,7 +36,7 @@ export default function ChapterList({ heading }: { heading?: Heading }) {
       )}
 
       <ol className={`border-t border-line ${sub}`}>
-        {chapters.map((c, i) => (
+        {rows.map((c, i) => (
           <li key={c.slug} className={`border-b border-line ${sub}`}>
             <Reveal delay={i * 0.05} className={sub}>
               <Link

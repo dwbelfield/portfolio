@@ -11,7 +11,8 @@ const titles = [
   "Program Manager",
   "Chief of Staff",
   "Chief Operating Officer",
-  "Co-founder & CEO",
+  "Founder, Mythener",
+  "Co-founder, Zenblis",
 ];
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
-              Available for consulting · {site.location}
+              Open to new roles · {site.location}
             </p>
           </Reveal>
 
@@ -42,8 +43,8 @@ export default function Home() {
               <Reveal delay={0.75}>
                 <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
                   <Button href="/work/">See the work</Button>
-                  <Button href="/consulting/" variant="ghost">
-                    Get consulting
+                  <Button href={`mailto:${site.email}`} external variant="ghost">
+                    Get in touch
                   </Button>
                 </div>
               </Reveal>
@@ -84,7 +85,14 @@ export default function Home() {
       {/* Chapters */}
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
-          <ChapterList heading={{ lead: "Four", rest: "chapters", meta: "2012 – present" }} />
+          <ChapterList heading={{ lead: "Three", rest: "chapters", meta: "2012 – present" }} />
+        </div>
+      </section>
+
+      {/* Side projects */}
+      <section className="border-t border-line">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
+          <ChapterList kind="side" heading={{ lead: "Side", rest: "projects", meta: "founded 2026" }} />
         </div>
       </section>
 
@@ -110,16 +118,21 @@ export default function Home() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-40">
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight md:text-6xl">
-            <Words text="Have a mess that needs a system?" stagger={0.05} />
+            <Words text="Looking for an operator?" stagger={0.05} />
           </h2>
           <Reveal delay={0.4}>
             <p className="mt-6 max-w-xl text-lg text-muted">
-              Founders and owners bring me the part of the business that is not turning
-              decisions into outcomes. I build the thing that fixes it, and it keeps running
-              after I leave.
+              I am open to Chief of Staff, COO, and operations leadership roles, and I still
+              take consulting engagements. Either way, the deliverable is the same: decisions
+              that turn into shipped outcomes, and systems that keep running after I leave.
             </p>
-            <div className="mt-10">
-              <Button href="/consulting/">Get consulting</Button>
+            <div className="mt-10 flex flex-wrap gap-3 md:gap-4">
+              <Button href={`mailto:${site.email}`} external>
+                Get in touch
+              </Button>
+              <Button href="/consulting/" variant="ghost">
+                Consulting
+              </Button>
             </div>
           </Reveal>
         </div>

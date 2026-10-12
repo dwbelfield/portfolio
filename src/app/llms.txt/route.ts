@@ -12,7 +12,7 @@ export function GET() {
   lines.push(`# ${site.name}`);
   lines.push("");
   lines.push(
-    `> ${site.name} is an operator based in ${site.location}: Chief of Staff at PMB Companies, a portfolio of manufacturing, brand, and storefront companies, co-founder of Zenblis, former Chief Operating Officer of RallyPay, and a United States Marine Corps veteran (aviation logistics, 2012–2020). He consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
+    `> ${site.name} is an operator based in ${site.location}: Chief of Staff at PMB Companies, a portfolio of manufacturing, brand, and storefront companies; former Chief Operating Officer of RallyPay; founder of Mythener (mythener.com), a publishing platform for fiction authors; co-founder of Zenblis; and a United States Marine Corps veteran (aviation logistics, 2012–2020). He is open to Chief of Staff, COO, and operations leadership roles, and consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
   );
   lines.push("");
   lines.push("## About");
@@ -20,9 +20,14 @@ export function GET() {
   lines.push(`- Contact: ${site.email} · ${site.linkedinLabel}`);
   lines.push("");
   lines.push("## Work");
-  for (const c of chapters) {
+  for (const c of chapters.filter((x) => (x.kind ?? "chapter") === "chapter")) {
     const roles = (positions[c.slug] ?? []).map((p) => `${p.title} (${p.period})`).join("; ");
     lines.push(`- [${c.name}](${site.url}/work/${c.slug}/): ${c.descriptor}, ${c.period}. ${c.order}${roles ? ` Roles: ${roles}.` : ""}`);
+  }
+  lines.push("");
+  lines.push("## Side projects");
+  for (const c of chapters.filter((x) => x.kind === "side")) {
+    lines.push(`- [${c.name}](${site.url}/work/${c.slug}/): ${c.descriptor}, ${c.period}. ${c.order}`);
   }
   lines.push("");
   lines.push("## Consulting");

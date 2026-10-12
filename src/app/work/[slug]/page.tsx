@@ -31,11 +31,13 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
 
 export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const { slug } = await props.params;
-  const i = chapters.findIndex((x) => x.slug === slug);
-  if (i === -1) notFound();
-  const c = chapters[i];
-  const prev = chapters[i - 1];
-  const next = chapters[i + 1];
+  const c = chapters.find((x) => x.slug === slug);
+  if (!c) notFound();
+  // Previous and next stay within the same list: employers, or side projects.
+  const siblings = chapters.filter((x) => (x.kind ?? "chapter") === (c.kind ?? "chapter"));
+  const i = siblings.indexOf(c);
+  const prev = siblings[i - 1];
+  const next = siblings[i + 1];
   const roles = positions[c.slug];
   const notes = highlights[c.slug];
   // Only a real story earns the block; short notes are folded into roles instead.
@@ -212,7 +214,9 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
               </Link>
             )}
           </div>
-          <Button href="/consulting/">Get consulting</Button>
+          <Button href={`mailto:${site.email}`} external>
+            Get in touch
+          </Button>
         </div>
       </section>
     </>

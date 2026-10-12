@@ -96,6 +96,31 @@ const icons: Partial<Record<Program["icon"], React.ReactNode>> = {
       <path d="M10 8V5h4v3" />
     </>
   ),
+  pen: (
+    <>
+      <path d="M4 20l4-1 10-10-3-3L5 16z" />
+      <path d="M13 7l3 3" />
+    </>
+  ),
+  eye: (
+    <>
+      <path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  book: (
+    <>
+      <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
+      <path d="M4 19a2 2 0 0 1 2-2h13" />
+      <path d="M9 7h6" />
+    </>
+  ),
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" />
+    </>
+  ),
 };
 
 /** Pointy-top hexagon in a 100-unit box. */

@@ -6,16 +6,16 @@
 
 export const site = {
   name: "Derek Belfield",
-  role: "Operator · Chief of Staff · Co-founder",
+  role: "Operations leader · Founder · Marine Corps veteran",
   motif: "Bringing order to chaos.",
-  location: "Dallas, TX",
+  location: "Dallas–Fort Worth, TX",
   email: "dwbelfield@gmail.com",
   linkedin: "https://linkedin.com/in/dwbelfield",
   linkedinLabel: "linkedin.com/in/dwbelfield",
   url: "https://derekbelfield.com",
   /** Under 155 characters; what engines quote when they have nothing better. */
   description:
-    "Derek Belfield: Chief of Staff, former COO of RallyPay, Marine Corps veteran, Zenblis co-founder. AI-first operations consulting for founders and owners.",
+    "Derek Belfield: operations leader. Former COO of RallyPay, Chief of Staff at PMB Companies, Marine Corps veteran, founder of Mythener. Open to roles in Dallas–Fort Worth.",
   intro:
     "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build now are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:
@@ -46,6 +46,8 @@ export type Chapter = {
   stats: Stat[];
   bullets: string[];
   link?: { href: string; label: string };
+  /** "chapter" is an employer; "side" is a company or product of Derek's own. */
+  kind?: "chapter" | "side";
   /** Optional looping background video for the chapter header (path under /public). */
   video?: { src: string; alt: string; rate?: number; opacity?: number };
   /** Optional chapter-specific decorative accent. */
@@ -167,9 +169,10 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "zenblis",
+    kind: "side",
     video: { src: "/media/zenblis-loop.mp4", alt: "Zenblis brand footage", rate: 0.7, opacity: 45 },
     logo: { src: "/media/logos/zenblis.png", alt: "Zenblis mark", width: 638, height: 640 },
-    index: "04",
+    index: "01",
     name: "Zenblis",
     org: "Zenblis",
     descriptor: "AI-native senior care marketplace",
@@ -194,6 +197,37 @@ export const chapters: Chapter[] = [
       "Partner-run day to day, with an ongoing co-founder role.",
     ],
     link: { href: "https://zenblis.com", label: "zenblis.com" },
+  },
+  {
+    slug: "mythener",
+    kind: "side",
+    index: "02",
+    name: "Mythener",
+    org: "Mythener",
+    descriptor: "The OS of indie publishing",
+    period: "2026 – Present",
+    location: "Founder",
+    roles: ["Founder"],
+    logo: { src: "/media/logos/mythener.png", alt: "Mythener emblem", width: 640, height: 616 },
+    chaos:
+      "An author's manuscript, outline, story bible, editor notes, beta feedback, and publication files live in six tools that do not know about each other. Across a series, nobody can answer the only question that matters: what is true at this point in this story?",
+    order:
+      "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Live at mythener.com.",
+    summary:
+      "Founded from my own need as a series author. I wrote the product specification, set the design direction, and shipped the first release with AI coding agents on Cloudflare: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks on every manuscript.",
+    stats: [
+      { value: 7, label: "Modules, from world bible to print-ready paperback" },
+      { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },
+      { value: 74, label: "Numbered requirements in the product spec" },
+      { value: 2027, label: "Free for every author until January 1" },
+    ],
+    bullets: [
+      "Originated the product and wrote the full specification: 74 numbered requirements, domain contracts, acceptance scenarios, and a dependency-ordered implementation plan.",
+      "Set the visual direction, ancient Greece meets the future, and locked it as a platform design system with a drift guard in the build.",
+      "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
+      "Priced and launched it: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
+    ],
+    link: { href: "https://mythener.com", label: "mythener.com" },
   },
 ];
 
@@ -220,7 +254,7 @@ export const transformations: Transformation[] = [
 ];
 
 export const range =
-  "Eight years in Marine aviation logistics. Six running operations. One company co-founded. Three bestselling novels. Zero failed audits in fourteen years.";
+  "Eight years in Marine aviation logistics. Six running operations. Two companies founded. Three bestselling novels. Zero failed audits in fourteen years.";
 
 
 export const principles = [

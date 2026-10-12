@@ -138,6 +138,21 @@ export const positions: Record<string, Position[]> = {
     },
   ],
 
+  mythener: [
+    {
+      title: "Founder",
+      period: "2026 – Present",
+      location: "Remote",
+      bullets: [
+        "Originated the product from my own needs as a series author, and wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
+        "Set the visual direction and locked it as the platform design system, with a test that guards against styling drift.",
+        "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
+        "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks.",
+        "Priced and launched the product: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
+      ],
+      tags: ["Product", "Specification", "Design System", "AI Agents", "Cloudflare", "Go-to-Market"],
+    },
+  ],
   zenblis: [
     {
       title: "Co-Founder",
@@ -162,6 +177,10 @@ export const positions: Record<string, Position[]> = {
 /** Chapter-level notes that do not belong to a single position. Short lines
     render as a list; longer entries read as story paragraphs. */
 export const highlights: Record<string, string[]> = {
+  mythener: [
+    "I write science fiction under the name D. W. Belfield, and by the third book of a series I had the problem every series author has: the manuscript, the outline, the story bible, the editor's notes, the beta feedback, and the publication files were in six different tools, and none of them knew which version was true. Every tool on the market solved one piece. None of them solved the relationship between the pieces.",
+    "So I specified the one I wanted. Mythener keeps every character, world rule, and timeline in step across a series: the prose builds the story bible, the facts I confirm keep their authority, and the Delphi Engine checks a manuscript against all of it before a reader sees it. I wrote the requirements, set the design, and shipped the first release with AI coding agents working from the spec. It is live, and free for every author until the start of 2027.",
+  ],
   zenblis: [
     "My mom runs a senior care facility in Plano, Texas. A while back she was venting to me about something that seemed small. Her Google reviews and photos were years out of date. Worse, when families asked ChatGPT or Perplexity about her community, the AI would pull old complaints and repeat them as fact. One of the reviews dinging her was about a burned-out streetlight in a courtyard, from before she even worked there. She had no idea how to get any of it fixed. Who do you even call?",
     "So I went looking for the Zillow of senior care. A place where a family could see accurate, current information and where a community could actually control its own presence. It didn't exist. What existed were referral agencies that get paid to point you somewhere, and thin directories that don't really help anyone.",
@@ -185,7 +204,7 @@ export const highlights: Record<string, string[]> = {
 export type Program = {
   name: string;
   blurb: string;
-  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma" | "shield" | "badge" | "nodes" | "chart" | "funnel" | "hazard" | "lock" | "bell" | "hardhat";
+  icon: "parachute" | "clipboard" | "respirator" | "ordnance" | "sigma" | "shield" | "badge" | "nodes" | "chart" | "funnel" | "hazard" | "lock" | "bell" | "hardhat" | "pen" | "eye" | "book" | "globe";
 };
 
 export const programs: Record<string, Program[]> = {
@@ -271,11 +290,20 @@ export const programs: Record<string, Program[]> = {
       icon: "respirator",
     },
   ],
+  mythener: [
+    { name: "Build", blurb: "A shared world bible: characters, places, creatures, and rules, with voice profiles.", icon: "globe" },
+    { name: "Plan", blurb: "A canvas for acts, chapters, and beats, linked to the scenes that fulfil them.", icon: "clipboard" },
+    { name: "Write", blurb: "A drafting page that feeds what it discovers back into the world bible.", icon: "pen" },
+    { name: "Review", blurb: "The Delphi Engine: 12 reviews and 129 checks, tracked revisions, editor invites.", icon: "eye" },
+    { name: "Test", blurb: "Protected beta and ARC reading rounds, watermarked.", icon: "badge" },
+    { name: "Publish", blurb: "EPUB ebooks and print-ready paperbacks from a frozen edition.", icon: "book" },
+  ],
 };
 
 /** Section label per chapter; defaults to "Programs owned". */
 export const programLabels: Record<string, string> = {
   rallypay: "Initiatives owned",
+  mythener: "Modules shipped",
 };
 
 /** How a portfolio chapter's entities fit together, for the entity map. */
@@ -364,6 +392,35 @@ export const entityMaps: Record<string, EntityMap> = {
 export type Mandate = { lane: string; lines: string[] };
 
 export const mandates: Record<string, Mandate[]> = {
+  mythener: [
+    {
+      lane: "Idea and specification",
+      lines: [
+        "Originated the product from my own needs as a series author.",
+        "Wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
+      ],
+    },
+    {
+      lane: "Design",
+      lines: [
+        "Set the visual direction, ancient Greece meets the future, and locked it as the platform design system with a drift guard in the build.",
+      ],
+    },
+    {
+      lane: "Build and ship",
+      lines: [
+        "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
+        "Six modules live: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine at the centre.",
+      ],
+    },
+    {
+      lane: "Go-to-market",
+      lines: [
+        "Priced the product in author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
+        "Editors, beta readers, and admins join free, so an author's whole team can work inside it.",
+      ],
+    },
+  ],
   zenblis: [
     {
       lane: "Idea and product",
