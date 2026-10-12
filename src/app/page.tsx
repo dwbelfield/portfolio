@@ -85,7 +85,7 @@ export default function Home() {
       {/* Chapters */}
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
-          <ChapterList heading={{ lead: "Three", rest: "chapters", meta: "2012 – present" }} />
+          <ChapterList heading={{ lead: "Three", rest: "chapters", meta: "2012 – 2026" }} />
         </div>
       </section>
 

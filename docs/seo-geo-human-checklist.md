@@ -26,7 +26,7 @@ at the bottom.
 
 ## Priority 2 — Entity decisions
 
-- [ ] Confirm the exact public wording for the current employer. The site now presents **PMB Companies** as a portfolio, with Wholesale Distributor, Spin Up Brands, Native Commerce, and the storefronts named on the chapter page. Confirm each entity may be named publicly and that the groupings are right.
+- [ ] Confirm the exact public wording for the most recent employer. The site now presents **PMB Companies** as a portfolio, with Wholesale Distributor, Spin Up Brands, Native Commerce, and the storefronts named on the chapter page. Confirm each entity may be named publicly and that the groupings are right.
 - [ ] Confirm Zenblis may be linked at zenblis.com and described as "AI-native senior care marketplace" with you as co-founder.
 - [ ] Confirm the RallyPay Crunchbase link is the right profile (crunchbase.com/organization/rally-org).
 - [ ] Confirm the claims register below. Each of these is on the site now and is the kind of claim engines and readers will test:
@@ -40,7 +40,7 @@ at the bottom.
 
 ## Priority 3 — Citation consistency
 
-- [ ] **LinkedIn.** Make the headline, current role, dates, and company names match the site: Marine Corps May 2012 – Jun 2020; RallyPay May 2020 – Mar 2026 (Director of Operations, COO, Consultant); Wholesale Distributor / PMB Companies Apr 2026 – present; Zenblis 2026 – present. Add derekbelfield.com as the website.
+- [ ] **LinkedIn.** Make the headline, current role, dates, and company names match the site: Marine Corps May 2012 – Jun 2020; RallyPay May 2020 – Mar 2026 (Director of Operations, COO, Consultant); PMB Companies Apr 2026 – Oct 2026; Zenblis 2026 – present; Mythener 2026 – present. Add derekbelfield.com as the website.
 - [ ] **Crunchbase.** If you have a person profile, link the site and align titles.
 - [ ] **GitHub, X, author pages, Amazon author profile.** Wherever you have a public bio, use the same one-line entity statement and link the site. Record each in the citation registry below.
 - [ ] **Do not create** any profile for a company you do not own or represent.

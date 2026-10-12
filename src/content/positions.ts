@@ -123,12 +123,13 @@ export const positions: Record<string, Position[]> = {
   "pmb-companies": [
     {
       title: "Chief of Staff",
-      period: "Apr 2026 – Present",
+      period: "Apr 2026 – Oct 2026",
+      duration: "7 mos",
       location: "Salado, Texas · Hybrid",
       bullets: [
-        "Right hand to the owner across a portfolio of 16 brands and two facilities. Own the follow-through on the initiatives he decides, from vendor negotiation to first production run.",
+        "Right hand to the owner across a portfolio of 16 brands and two facilities. Owned the follow-through on the initiatives he decided, from vendor negotiation to first production run.",
         "Stood up six new production divisions from an empty floor: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",
-        "Run four to six concurrent launches at a time, most initiated on a few days of notice.",
+        "Ran four to six concurrent launches at a time, most initiated on a few days of notice.",
         "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
         "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
         "Wrote the company safety and compliance program from scratch: hazard communication, lockout/tagout, emergency action plans, PPE, respiratory protection. Drove adoption across every site.",
@@ -188,7 +189,7 @@ export const highlights: Record<string, string[]> = {
   ],
   "pmb-companies": [
     "I joined in April 2026 as Chief of Staff to the owner. The portfolio was already broad: manufacturing and import/export, sixteen media brands under Native Commerce, a family of storefronts, and B2B services. What it needed was someone to carry his decisions the last mile. The first stretch was building: six production divisions that did not exist, from chemical repackaging to fragrance blending, sourced, equipped, laid out, and staffed, on days of notice.",
-    "The second stretch was making it hold. A safety and compliance program written from scratch and adopted at every site. Vendor contracts, including suppliers who had refused to sell to us. B2B accounts that opened a third revenue channel. Go-to-market for Doodle Videos on the B2B side. At any given time there are four to six launches moving, and my job is that none of them fail because nobody was watching the date.",
+    "The second stretch was making it hold. A safety and compliance program written from scratch and adopted at every site. Vendor contracts, including suppliers who had refused to sell to us. B2B accounts that opened a third revenue channel. Go-to-market for Doodle Videos on the B2B side. At any given time there were four to six launches moving, and my job was that none of them failed because nobody was watching the date. My last day was in October 2026.",
   ],
   "marine-corps": [
     "I enlisted in May 2012 and spent the first five years in Okinawa. As a production manager I had thirty people, three divisions, and an international purchasing pipeline that took ninety days to turn an asset around; by the time I left that job it took seven. As a technical supervisor I stood up the CBRN protective equipment program on the island, bringing in-house four containers of gear that had been shipped back to the States for inspection every cycle, and came through two organizational audits with zero discrepancies. As a business process analyst I ran the Lean Six Sigma office, coaching three improvement projects and teaching thirteen courses to 295 Marines.",
@@ -330,7 +331,7 @@ export const entityMaps: Record<string, EntityMap> = {
       {
         name: "Brands",
         blurb: "The consumer brands, sold direct and through the storefronts.",
-        work: "Sourcing joint-venture deals to sell through the brands' lists.",
+        work: "Sourced joint-venture deals to sell through the brands' lists.",
         entities: [
           {
             name: "Native Commerce",
@@ -466,8 +467,8 @@ export const mandates: Record<string, Mandate[]> = {
     {
       lane: "Follow-through",
       lines: [
-        "Own the follow-through on the owner's decisions, from vendor negotiation to first production run.",
-        "Run four to six concurrent launches at a time, most initiated on a few days of notice.",
+        "Owned the follow-through on the owner's decisions, from vendor negotiation to first production run.",
+        "Ran four to six concurrent launches at a time, most initiated on a few days of notice.",
       ],
     },
     {
@@ -488,7 +489,7 @@ export const mandates: Record<string, Mandate[]> = {
       lines: [
         "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
         "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
-        "Source joint-venture deals to sell through the Native Commerce lists.",
+        "Sourced joint-venture deals to sell through the Native Commerce lists.",
         "Go-to-market for Doodle Videos on the B2B side.",
       ],
     },

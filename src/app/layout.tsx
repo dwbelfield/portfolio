@@ -46,7 +46,7 @@ const jsonLd = {
       name: site.name,
       url: site.url,
       email: site.email,
-      jobTitle: "Technical Program Manager; Chief of Staff, PMB Companies; Founder, Mythener; Co-founder, Zenblis",
+      jobTitle: "Technical Program Manager; former Chief of Staff, PMB Companies; Founder, Mythener; Co-founder, Zenblis",
       description: site.description,
       address: { "@type": "PostalAddress", addressLocality: "Dallas–Fort Worth", addressRegion: "TX", addressCountry: "US" },
       sameAs: [site.linkedin, "https://mythener.com", "https://zenblis.com"],

@@ -143,7 +143,7 @@ export const chapters: Chapter[] = [
     name: "PMB Companies",
     org: "PMB Companies",
     descriptor: "A portfolio of manufacturing, brand, and storefront companies",
-    period: "2026 – Present",
+    period: "Apr – Oct 2026",
     location: "Salado, TX",
     roles: ["Chief of Staff"],
     chaos:
@@ -151,7 +151,7 @@ export const chapters: Chapter[] = [
     order:
       "A chief of staff who owns the follow-through: six production divisions built from an empty floor, a safety program adopted at every site, and four to six launches in flight at any time without the owner watching the date.",
     summary:
-      "Right hand to the owner of PMB Companies. I turn his decisions into shipped outcomes across manufacturing, brands, storefronts, and B2B services, from vendor contract to first production run.",
+      "Right hand to the owner of PMB Companies for seven months in 2026. I turned his decisions into shipped outcomes across manufacturing, brands, storefronts, and B2B services, from vendor contract to first production run.",
     stats: [
       { value: 6, label: "Production divisions stood up", from: "from an empty floor" },
       { value: 350, prefix: "$", suffix: "K", label: "Production equipment specified and installed" },
@@ -160,7 +160,7 @@ export const chapters: Chapter[] = [
     ],
     bullets: [
       "Stood up six new production divisions from a standing start: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",
-      "Run four to six concurrent launches at a time, most initiated on a few days of notice.",
+      "Ran four to six concurrent launches at a time, most initiated on a few days of notice.",
       "Negotiated and closed vendor contracts across chemicals, feedstock, and equipment, including reopening suppliers who had previously refused to sell to us.",
       "Opened B2B accounts and closed partnerships that added a third revenue channel to the business.",
       "Wrote the company safety and compliance program from scratch: hazard communication, lockout/tagout, emergency action plans, PPE, respiratory protection. Drove adoption across every site.",
