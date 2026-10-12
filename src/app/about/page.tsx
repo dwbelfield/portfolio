@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Reveal, Words } from "@/components/primitives";
-import { site, chapters, principles, credentials, alongside } from "@/content/site";
+import { site, chapters, principles, credentials, alongside, author } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
@@ -101,7 +101,7 @@ export default function AboutPage() {
       </section>
 
       {/* How I operate */}
-      <section className="grid-underlay border-t border-line bg-panel">
+      <section className="grid-underlay border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
           <Reveal>
             <p className="label mb-8 md:mb-10">How I operate</p>
@@ -121,6 +121,57 @@ export default function AboutPage() {
                 compliance program build, safety program build.
               </p>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* The author journey */}
+      <section className="grid-underlay border-t border-line bg-panel">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
+          <Reveal>
+            <span className="rule mb-4" />
+            <p className="label mb-3">The author journey</p>
+            <h2 className="max-w-2xl text-2xl font-semibold tracking-tight md:text-4xl">
+              {author.series}, written as {author.penName}
+            </h2>
+          </Reveal>
+          <div className="mt-8 grid gap-10 md:mt-10 md:grid-cols-12">
+            <Reveal className="md:col-span-5">
+              <p className="text-base text-fg md:text-lg">{author.intro}</p>
+              <p className="mt-4 text-sm text-muted md:text-base">{author.seriesBlurb}</p>
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                {author.links.map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} target="_blank" rel="noreferrer" className="link-draw text-sm text-fg">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <div className="md:col-span-7">
+              <ol className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
+                {author.books.map((b, i) => (
+                  <Reveal key={b.title} delay={i * 0.05} className="bg-bg">
+                    <li className="flex h-full flex-col p-4 md:p-5">
+                      <span className="label">{b.number}</span>
+                      <span className="mt-2 text-xl font-semibold tracking-tight md:text-2xl">
+                        {b.href ? (
+                          <a href={b.href} target="_blank" rel="noreferrer" className="link-draw">
+                            {b.title}
+                          </a>
+                        ) : (
+                          b.title
+                        )}
+                      </span>
+                      <span className="rule my-3" />
+                      <span className="readout">{b.status}</span>
+                      {b.blurb && <span className="mt-1 text-xs text-accent">{b.blurb}</span>}
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
       </section>

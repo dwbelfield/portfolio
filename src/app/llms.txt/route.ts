@@ -1,4 +1,4 @@
-import { site, chapters, services } from "@/content/site";
+import { site, chapters, services, author } from "@/content/site";
 import { positions } from "@/content/positions";
 
 export const dynamic = "force-static";
@@ -29,6 +29,9 @@ export function GET() {
   for (const c of chapters.filter((x) => x.kind === "side")) {
     lines.push(`- [${c.name}](${site.url}/work/${c.slug}/): ${c.descriptor}, ${c.period}. ${c.order}`);
   }
+  lines.push("");
+  lines.push("## Writing");
+  lines.push(`- Writes dark LitRPG as ${author.penName}: ${author.series}, a twelve-book saga (${author.claim}). Author site: ${author.site}`);
   lines.push("");
   lines.push("## Consulting");
   lines.push(`- [Consulting](${site.url}/consulting/): ${services.map((s) => s.title).join(", ")}.`);

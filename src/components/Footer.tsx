@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import { site, author } from "@/content/site";
 
 export default function Footer() {
   return (
@@ -16,6 +16,9 @@ export default function Footer() {
             className="link-draw mt-1 block w-fit text-fg"
           >
             {site.linkedinLabel}
+          </a>
+          <a href={author.site} target="_blank" rel="noreferrer" className="link-draw mt-1 block w-fit text-fg">
+            {author.siteLabel} · the books
           </a>
         </div>
         <div>

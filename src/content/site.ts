@@ -325,6 +325,41 @@ export const engagement = [
   },
 ];
 
+export type Book = {
+  title: string;
+  number: string;
+  status: string;
+  blurb?: string;
+  href?: string;
+};
+
+/** Derek's fiction, published as D. W. Belfield. Facts from dwbelfield.com. */
+export const author = {
+  penName: "D. W. Belfield",
+  site: "https://dwbelfield.com",
+  siteLabel: "dwbelfield.com",
+  series: "The Scourge Wars",
+  seriesBlurb:
+    "A twelve-book dark LitRPG saga. A murdered politician is revived by an exiled goddess and must turn refugees into a predatory army.",
+  claim: "#1 Amazon Best Seller, Military Fiction",
+  intro:
+    "I write under the name D. W. Belfield. The Scourge Wars is a twelve-book saga; three of its books have hit the Amazon bestseller list, and the fourth arrives in November. The series is where the long-form muscle comes from, and where Mythener came from too: I built the tool I needed to keep a world of this size consistent.",
+  links: [
+    { label: "Author site", href: "https://dwbelfield.com" },
+    { label: "Amazon author page", href: "https://www.amazon.com/stores/Derek-Belfield/author/B07YVNVGZK" },
+    { label: "Goodreads", href: "https://www.goodreads.com/author/show/19622809.Derek_Belfield" },
+    { label: "Patreon", href: "https://www.patreon.com/cw/dwbelfield" },
+  ],
+  books: [
+    { title: "Evolve", number: "Book I", status: "Available", blurb: "#1 Amazon Best Seller, Military Fiction", href: "https://www.amazon.com/dp/B07YR5PY94" },
+    { title: "Adapt", number: "Book II", status: "Available" },
+    { title: "Resist", number: "Book III", status: "Available in print" },
+    { title: "Siege", number: "Book IV", status: "Pre-order · November 15", href: "https://www.amazon.com/dp/B0HMMCH29S" },
+    { title: "Breach", number: "Book V", status: "Drafting" },
+    { title: "Sunder", number: "Book VI", status: "Next" },
+  ] as Book[],
+};
+
 export const credentials = [
   "B.A., Intelligence Studies, American Military University, cum laude",
   "Lean Six Sigma Green Belt. Instructor for 13 Yellow and Green Belt courses",
@@ -333,6 +368,5 @@ export const credentials = [
 ];
 
 export const alongside = [
-  "Three-time bestselling science fiction author, independently published and marketed to bestseller.",
   "AI-first program manager. Jira, Asana, Monday, ClickUp, Notion, Google Workspace, and Claude, wired into operating workflows rather than used one at a time. Military maintenance and training systems: NALCOMIS and ASM.",
 ];

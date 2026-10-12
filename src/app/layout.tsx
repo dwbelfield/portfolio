@@ -49,7 +49,14 @@ const jsonLd = {
       jobTitle: "Technical Program Manager; former Chief of Staff, PMB Companies; Founder, Mythener; Co-founder, Zenblis",
       description: site.description,
       address: { "@type": "PostalAddress", addressLocality: "Dallas–Fort Worth", addressRegion: "TX", addressCountry: "US" },
-      sameAs: [site.linkedin, "https://mythener.com", "https://zenblis.com"],
+      sameAs: [
+        site.linkedin,
+        "https://dwbelfield.com",
+        "https://www.amazon.com/stores/Derek-Belfield/author/B07YVNVGZK",
+        "https://www.goodreads.com/author/show/19622809.Derek_Belfield",
+        "https://mythener.com",
+        "https://zenblis.com",
+      ],
       knowsAbout: [
         "Technical program management",
         "Operations management",
