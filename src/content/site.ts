@@ -15,7 +15,7 @@ export const site = {
   url: "https://derekbelfield.com",
   /** Under 155 characters; what engines quote when they have nothing better. */
   description:
-    "Derek Belfield, Technical Program Manager. Safety-critical programs in Marine aviation, payments compliance, and production. Open to roles in DFW.",
+    "Derek Belfield, Technical Program Manager. Safety-critical programs in Marine aviation, payments compliance, and production. Open to remote and relocation.",
   intro:
     "A decade owning safety-critical technical programs in Marine aviation, then six years running operations in payments and consumer products. I find the constraint holding the schedule and remove it, and the systems I build are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:

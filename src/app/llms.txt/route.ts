@@ -12,7 +12,7 @@ export function GET() {
   lines.push(`# ${site.name}`);
   lines.push("");
   lines.push(
-    `> ${site.name} is an operator based in ${site.location}: most recently Chief of Staff at PMB Companies (April to October 2026), a portfolio of manufacturing, brand, and storefront companies; former Chief Operating Officer of RallyPay; co-founder of Mythener (mythener.com), a publishing platform for fiction authors; co-founder of Zenblis; and a United States Marine Corps veteran (aviation logistics, 2012–2020). He is looking for a Technical Program Manager role in safety-critical or infrastructure programs, and consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
+    `> ${site.name} is an operator based in ${site.location}: most recently Chief of Staff at PMB Companies (April to October 2026), a portfolio of manufacturing, brand, and storefront companies; former Chief Operating Officer of RallyPay; co-founder of Mythener (mythener.com), a publishing platform for fiction authors; co-founder of Zenblis; and a United States Marine Corps veteran (aviation logistics, 2012–2020). He is looking for a Technical Program Manager role in safety-critical or infrastructure programs, remote or by relocation anywhere, and consults for founders and owners on operations, compliance, and AI-first operating systems. Motif: ${site.motif}`,
   );
   lines.push("");
   lines.push("## About");

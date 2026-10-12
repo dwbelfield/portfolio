@@ -26,7 +26,7 @@ export default function Home() {
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
-              Open to Technical Program Manager roles · {site.location}
+              Open to Technical Program Manager roles · Remote or relocation
             </p>
           </Reveal>
 
