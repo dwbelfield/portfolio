@@ -206,15 +206,15 @@ export const chapters: Chapter[] = [
     org: "Mythener",
     descriptor: "The OS of indie publishing",
     period: "2026 – Present",
-    location: "Founder",
-    roles: ["Founder"],
+    location: "Co-founder",
+    roles: ["Co-Founder"],
     logo: { src: "/media/logos/mythener.png", alt: "Mythener emblem", width: 640, height: 616 },
     chaos:
       "An author's manuscript, outline, story bible, editor notes, beta feedback, and publication files live in six tools that do not know about each other. Across a series, nobody can answer the only question that matters: what is true at this point in this story?",
     order:
       "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Live at mythener.com.",
     summary:
-      "Founded from my own need as a series author. I wrote the product specification, set the design direction, and shipped the first release with AI coding agents on Cloudflare: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks on every manuscript.",
+      "Co-founded from my own need as a series author. I wrote the product specification, set the design direction, and shipped the first release with AI coding agents on Cloudflare: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks on every manuscript.",
     stats: [
       { value: 7, label: "Modules, from world bible to print-ready paperback" },
       { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },

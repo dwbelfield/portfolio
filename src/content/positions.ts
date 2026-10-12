@@ -141,7 +141,7 @@ export const positions: Record<string, Position[]> = {
 
   mythener: [
     {
-      title: "Founder",
+      title: "Co-Founder",
       period: "2026 – Present",
       location: "Remote",
       bullets: [

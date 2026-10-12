@@ -10,7 +10,7 @@ const titles = [
   "Technical Program Manager",
   "Chief Operating Officer",
   "Chief of Staff",
-  "Founder, Mythener",
+  "Co-founder, Mythener",
   "Co-founder, Zenblis",
   "Best-selling author",
 ];
