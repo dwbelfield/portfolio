@@ -65,6 +65,7 @@ const jsonLd = {
         "Aviation logistics",
         "Safety and compliance programs (OSHA)",
         "AI-first operating workflows",
+        "AI system design (embedding retrieval, LLMs, decision models)",
       ],
     },
     {

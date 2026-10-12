@@ -146,12 +146,13 @@ export const positions: Record<string, Position[]> = {
       location: "Remote",
       bullets: [
         "Originated the product from my own needs as a series author, and wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
+        "Designed the Delphi Engine, the continuity-review system, iterating the architecture myself: embedding-based retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates findings. It runs 12 reviews and 129 checks per manuscript.",
         "Set the visual direction and locked it as the platform design system, with a test that guards against styling drift.",
         "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
         "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks.",
         "Priced and launched the product: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
       ],
-      tags: ["Product", "Specification", "Design System", "AI Agents", "Cloudflare", "Go-to-Market"],
+      tags: ["Product", "Specification", "AI System Design", "Design System", "AI Agents", "Cloudflare", "Go-to-Market"],
     },
   ],
   zenblis: [
@@ -295,7 +296,7 @@ export const programs: Record<string, Program[]> = {
     { name: "Build", blurb: "A shared world bible: characters, places, creatures, and rules, with voice profiles.", icon: "globe" },
     { name: "Plan", blurb: "A canvas for acts, chapters, and beats, linked to the scenes that fulfil them.", icon: "clipboard" },
     { name: "Write", blurb: "A drafting page that feeds what it discovers back into the world bible.", icon: "pen" },
-    { name: "Review", blurb: "The Delphi Engine: 12 reviews and 129 checks, tracked revisions, editor invites.", icon: "eye" },
+    { name: "Review", blurb: "The Delphi Engine: embeddings, LLM, and a decision model running 12 reviews and 129 checks. Tracked revisions, editor invites.", icon: "eye" },
     { name: "Test", blurb: "Protected beta and ARC reading rounds, watermarked.", icon: "badge" },
     { name: "Publish", blurb: "EPUB ebooks and print-ready paperbacks from a frozen edition.", icon: "book" },
   ],
@@ -402,8 +403,9 @@ export const mandates: Record<string, Mandate[]> = {
       ],
     },
     {
-      lane: "Design",
+      lane: "The Delphi Engine",
       lines: [
+        "Designed the continuity-review system myself, iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author. 12 reviews, 129 checks.",
         "Set the visual direction, ancient Greece meets the future, and locked it as the platform design system with a drift guard in the build.",
       ],
     },

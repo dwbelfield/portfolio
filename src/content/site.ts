@@ -214,7 +214,7 @@ export const chapters: Chapter[] = [
     order:
       "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Live at mythener.com.",
     summary:
-      "Co-founded from my own need as a series author. I wrote the product specification, set the design direction, and shipped the first release with AI coding agents on Cloudflare: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks on every manuscript.",
+      "Co-founded from my own need as a series author. I wrote the product specification, set the design direction, and designed the Delphi Engine myself: a continuity-review system that chains embedding retrieval, LLM analysis, and a decision model, iterated until it ran 12 reviews and 129 checks on every manuscript. AI coding agents built it from the spec, on Cloudflare.",
     stats: [
       { value: 7, label: "Modules, from world bible to print-ready paperback" },
       { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },
@@ -224,6 +224,7 @@ export const chapters: Chapter[] = [
     bullets: [
       "Originated the product and wrote the full specification: 74 numbered requirements, domain contracts, acceptance scenarios, and a dependency-ordered implementation plan.",
       "Set the visual direction, ancient Greece meets the future, and locked it as a platform design system with a drift guard in the build.",
+      "Designed the Delphi Engine iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author.",
       "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
       "Priced and launched it: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
     ],
