@@ -43,3 +43,6 @@ next-env.d.ts
 # local tooling
 .claude/launch.json
 .wrangler/
+
+# personal documents, not published
+docs/resume/
