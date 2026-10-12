@@ -7,12 +7,12 @@ import Transformations from "@/components/Transformations";
 import { site, principles } from "@/content/site";
 
 const titles = [
-  "Best-selling author",
-  "Program Manager",
-  "Chief of Staff",
+  "Technical Program Manager",
   "Chief Operating Officer",
+  "Chief of Staff",
   "Founder, Mythener",
   "Co-founder, Zenblis",
+  "Best-selling author",
 ];
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
-              Open to new roles · {site.location}
+              Open to Technical Program Manager roles · {site.location}
             </p>
           </Reveal>
 
@@ -118,13 +118,14 @@ export default function Home() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-40">
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight md:text-6xl">
-            <Words text="Looking for an operator?" stagger={0.05} />
+            <Words text="Looking for a program manager?" stagger={0.05} />
           </h2>
           <Reveal delay={0.4}>
             <p className="mt-6 max-w-xl text-lg text-muted">
-              I am open to Chief of Staff, COO, and operations leadership roles, and I still
-              take consulting engagements. Either way, the deliverable is the same: decisions
-              that turn into shipped outcomes, and systems that keep running after I leave.
+              I am looking for a Technical Program Manager role in safety-critical or
+              infrastructure programs, and I still take consulting engagements. Either way, the
+              deliverable is the same: a schedule that holds, decisions that turn into shipped
+              outcomes, and systems that keep running after I leave.
             </p>
             <div className="mt-10 flex flex-wrap gap-3 md:gap-4">
               <Button href={`mailto:${site.email}`} external>

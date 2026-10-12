@@ -27,16 +27,17 @@ export default function AboutPage() {
             <div className="mt-10 grid gap-10 md:grid-cols-12">
               <div className="space-y-4 text-base text-fg md:col-span-7 md:space-y-5 md:text-lg">
                 <p>
-                  I am Chief of Staff to the owner of a 16-brand consumer products group:
-                  hundreds of SKUs, two manufacturing facilities, 30M subscribers. I make sure
-                  the decisions he makes turn into shipped outcomes.
+                  I am a program manager with a decade of ownership over safety-critical
+                  technical programs: aviation life support systems, CBRN protective equipment,
+                  ammunition and explosives certification, and aviation maintenance production
+                  control. Two of the systems I built outlived my tenure and were adopted across
+                  the Navy and Marine Corps.
                 </p>
                 <p>
-                  Before that I was COO of a payments company through a period of rapid scale,
-                  and before that I spent eight years in Marine Corps aviation logistics
-                  replacing informal tracking with systems that hold. The digital tracking
-                  rebuild I did there outlived my tenure and became the model adopted across
-                  the Navy and Marine Corps.
+                  Since then I have run operations at a payments company through a period of
+                  rapid scale, and served as Chief of Staff to the owner of a 16-brand consumer
+                  products group with two manufacturing facilities. The job in every case was
+                  the same: find the constraint holding the schedule and remove it.
                 </p>
                 <p>
                   I have never failed an audit or a regulatory examination, in aviation safety

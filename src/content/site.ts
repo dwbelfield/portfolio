@@ -6,7 +6,7 @@
 
 export const site = {
   name: "Derek Belfield",
-  role: "Operations leader · Founder · Marine Corps veteran",
+  role: "Technical Program Manager · Operator · Marine Corps veteran",
   motif: "Bringing order to chaos.",
   location: "Dallas–Fort Worth, TX",
   email: "dwbelfield@gmail.com",
@@ -15,9 +15,9 @@ export const site = {
   url: "https://derekbelfield.com",
   /** Under 155 characters; what engines quote when they have nothing better. */
   description:
-    "Derek Belfield: operations leader, Marine Corps veteran. Former COO of RallyPay, Chief of Staff at PMB Companies, founder of Mythener. Open to roles in DFW.",
+    "Derek Belfield, Technical Program Manager. Safety-critical and infrastructure programs: Marine aviation, payments compliance, production lines. Open to roles in DFW.",
   intro:
-    "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build now are AI-first: they keep running, and keep getting faster, long after I leave.",
+    "A decade owning safety-critical technical programs in Marine aviation, then six years running operations in payments and consumer products. I find the constraint holding the schedule and remove it, and the systems I build are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:
     "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
 };
@@ -334,5 +334,5 @@ export const credentials = [
 
 export const alongside = [
   "Three-time bestselling science fiction author, independently published and marketed to bestseller.",
-  "AI-first operator. Claude, Jira, Asana, Monday, ClickUp, Notion, and Google Workspace, wired into operating workflows rather than used one at a time.",
+  "AI-first program manager. Jira, Asana, Monday, ClickUp, Notion, Google Workspace, and Claude, wired into operating workflows rather than used one at a time. Military maintenance and training systems: NALCOMIS and ASM.",
 ];
