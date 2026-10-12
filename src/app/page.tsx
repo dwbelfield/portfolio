@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ChapterVideo from "@/components/ChapterVideo";
 import RotatingTitle from "@/components/RotatingTitle";
 import ChapterList from "@/components/ChapterList";
 import { Button } from "@/components/Button";
@@ -51,31 +50,6 @@ export default function Home() {
             </div>
 
             <Reveal delay={0.4} y={24} className="relative hidden md:block">
-              {/* Chaos-to-order ring centred behind the portrait, screen-blended so only
-                  the lines show. Slightly larger than the cell so it frames the photo. */}
-              <div
-                className="pointer-events-none absolute -inset-[12%] mix-blend-screen"
-                style={{
-                  // Circular fade on every edge, intersected with a bottom cut-off so the
-                  // ring never shows below the portrait. Blend lives here, not on the
-                  // video: a mask isolates its element, which would defeat the blend.
-                  maskImage:
-                    "radial-gradient(closest-side, black 55%, transparent 100%), linear-gradient(to bottom, black 50%, transparent 86%)",
-                  WebkitMaskImage:
-                    "radial-gradient(closest-side, black 55%, transparent 100%), linear-gradient(to bottom, black 50%, transparent 86%)",
-                  maskComposite: "intersect",
-                  WebkitMaskComposite: "source-in",
-                }}
-              >
-                <ChapterVideo
-                  src="/media/hero.mp4"
-                  alt="A tangled ring of lines resolving into an ordered one, and back"
-                  fit="contain"
-                  overlay={false}
-                  opacity={28}
-                  rate={0.35}
-                />
-              </div>
               <Image
                 src="/media/derek.png"
                 alt="Derek Belfield"
