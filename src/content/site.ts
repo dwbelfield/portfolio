@@ -15,7 +15,7 @@ export const site = {
   url: "https://derekbelfield.com",
   /** Under 155 characters; what engines quote when they have nothing better. */
   description:
-    "Derek Belfield: operations leader. Former COO of RallyPay, Chief of Staff at PMB Companies, Marine Corps veteran, founder of Mythener. Open to roles in Dallas–Fort Worth.",
+    "Derek Belfield: operations leader and Marine Corps veteran. Former COO of RallyPay, Chief of Staff at PMB Companies, founder of Mythener. Open to roles in DFW.",
   intro:
     "Eight years in Marine aviation logistics. Six running operations in payments and consumer products. I am the person who makes sure decisions turn into shipped outcomes, and the systems I build now are AI-first: they keep running, and keep getting faster, long after I leave.",
   pullQuote:
