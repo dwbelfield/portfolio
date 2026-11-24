@@ -6,7 +6,7 @@
 
 export const site = {
   name: "Derek Belfield",
-  role: "Technical Program Manager · Operator · Marine Corps veteran",
+  role: "AI enablement · Technical Program Manager · Marine Corps veteran",
   motif: "Bringing order to chaos.",
   location: "Dallas–Fort Worth, TX",
   email: "dwbelfield@gmail.com",
@@ -15,9 +15,9 @@ export const site = {
   url: "https://derekbelfield.com",
   /** Under 155 characters; what engines quote when they have nothing better. */
   description:
-    "Derek Belfield, Technical Program Manager. Safety-critical programs in Marine aviation, payments compliance, and production. Open to remote and relocation.",
+    "Derek Belfield: AI enablement and technical program management. Ships production software with AI agents. Open to roles, remote or relocation.",
   intro:
-    "A decade owning safety-critical technical programs in Marine aviation, then six years running operations in payments and consumer products. I find the constraint holding the schedule and remove it, and the systems I build are AI-first: they keep running, and keep getting faster, long after I leave.",
+    "I put AI to work inside real operations. A decade owning safety-critical technical programs in Marine aviation, six years running operations in payments and consumer products, and a production software platform built by AI agents working from my specification. I find the constraint holding the schedule, remove it, and leave a team that can run the tooling without me.",
   pullQuote:
     "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
 };
@@ -29,6 +29,8 @@ export type Stat = {
   suffix?: string;
   label: string;
   from?: string;
+  /** Show a thousands separator. Leave off for years. */
+  grouped?: boolean;
 };
 
 export type Chapter = {
@@ -168,11 +170,44 @@ export const chapters: Chapter[] = [
     ],
   },
   {
+    slug: "mythener",
+    kind: "side",
+    index: "01",
+    name: "Mythener",
+    org: "Mythener",
+    descriptor: "The OS of indie publishing",
+    period: "2026 – Present",
+    location: "Co-founder",
+    roles: ["Co-Founder"],
+    logo: { src: "/media/logos/mythener.png", alt: "Mythener emblem", width: 640, height: 616 },
+    chaos:
+      "An author's manuscript, outline, story bible, editor notes, beta feedback, and publication files live in six tools that do not know about each other. Across a series, nobody can answer the only question that matters: what is true at this point in this story?",
+    order:
+      "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Built by AI coding agents from my specification, and live at mythener.com.",
+    summary:
+      "Co-founded from my own need as a series author, and the clearest example of how I work with AI. I wrote the product specification, set the design direction, and designed the Delphi Engine myself: a continuity-review system that chains embedding retrieval, LLM analysis, and a decision model, iterated until it ran 12 reviews and 129 checks on every manuscript. AI coding agents wrote the code from the spec: 705 pull requests and 1,754 automated tests, on Cloudflare.",
+    stats: [
+      { value: 705, label: "Pull requests by AI coding agents", from: "524 in the first four weeks" },
+      { value: 1754, grouped: true, label: "Automated tests in the codebase" },
+      { value: 74, label: "Numbered requirements in the product spec" },
+      { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },
+    ],
+    bullets: [
+      "Originated the product and wrote the full specification: 74 numbered requirements, domain contracts, acceptance scenarios, and a dependency-ordered implementation plan.",
+      "Set the visual direction, ancient Greece meets the future, and locked it as a platform design system with a drift guard in the build.",
+      "Designed the Delphi Engine iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author.",
+      "Shipped it with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
+      "Kept the agents honest with 1,754 automated tests and a check suite that runs on every pull request.",
+      "Priced and launched it: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
+    ],
+    link: { href: "https://mythener.com", label: "mythener.com" },
+  },
+  {
     slug: "zenblis",
     kind: "side",
     video: { src: "/media/zenblis-loop.mp4", alt: "Zenblis brand footage", rate: 0.7, opacity: 45 },
     logo: { src: "/media/logos/zenblis.png", alt: "Zenblis mark", width: 638, height: 640 },
-    index: "01",
+    index: "02",
     name: "Zenblis",
     org: "Zenblis",
     descriptor: "AI-native senior care marketplace",
@@ -197,38 +232,6 @@ export const chapters: Chapter[] = [
       "Partner-run day to day, with an ongoing co-founder role.",
     ],
     link: { href: "https://zenblis.com", label: "zenblis.com" },
-  },
-  {
-    slug: "mythener",
-    kind: "side",
-    index: "02",
-    name: "Mythener",
-    org: "Mythener",
-    descriptor: "The OS of indie publishing",
-    period: "2026 – Present",
-    location: "Co-founder",
-    roles: ["Co-Founder"],
-    logo: { src: "/media/logos/mythener.png", alt: "Mythener emblem", width: 640, height: 616 },
-    chaos:
-      "An author's manuscript, outline, story bible, editor notes, beta feedback, and publication files live in six tools that do not know about each other. Across a series, nobody can answer the only question that matters: what is true at this point in this story?",
-    order:
-      "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Live at mythener.com.",
-    summary:
-      "Co-founded from my own need as a series author. I wrote the product specification, set the design direction, and designed the Delphi Engine myself: a continuity-review system that chains embedding retrieval, LLM analysis, and a decision model, iterated until it ran 12 reviews and 129 checks on every manuscript. AI coding agents built it from the spec, on Cloudflare.",
-    stats: [
-      { value: 7, label: "Modules, from world bible to print-ready paperback" },
-      { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },
-      { value: 74, label: "Numbered requirements in the product spec" },
-      { value: 2027, label: "Free for every author until January 1" },
-    ],
-    bullets: [
-      "Originated the product and wrote the full specification: 74 numbered requirements, domain contracts, acceptance scenarios, and a dependency-ordered implementation plan.",
-      "Set the visual direction, ancient Greece meets the future, and locked it as a platform design system with a drift guard in the build.",
-      "Designed the Delphi Engine iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author.",
-      "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
-      "Priced and launched it: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
-    ],
-    link: { href: "https://mythener.com", label: "mythener.com" },
   },
 ];
 
@@ -283,28 +286,28 @@ export const principles = [
 
 export const services = [
   {
+    title: "AI readiness walkthrough",
+    body: "A walk through the business the way the work actually moves: intake, scheduling, quoting, follow-up, reporting. Lean Six Sigma first, AI second. You get a short list of where AI pays for itself now and where it does not belong yet.",
+  },
+  {
+    title: "Team training",
+    body: "Hands-on sessions built on your own documents and your own work, with no slide deck about prompts. I taught 13 Lean Six Sigma courses to 295 students. This is the same job with newer tools.",
+  },
+  {
+    title: "Workflow and agent builds",
+    body: "The repetitive work rebuilt as AI-assisted workflows and agents: intake, tracking, documentation, follow-up, and the first draft of everything. Built on the tools you already pay for wherever that works.",
+  },
+  {
+    title: "Guardrails and AI policy",
+    body: "What can go into a model, who reviews what comes out, and how you show it later. Written by someone who owned PCI, KYC/AML, and NACHA compliance and never failed an examination.",
+  },
+  {
     title: "Operating cadence",
     body: "The accountability layer between decision and delivery. Who owns what, when it lands, and the system that keeps it visible after the novelty wears off.",
   },
   {
-    title: "Compliance and safety programs",
-    body: "PCI, KYC/AML, NACHA, and card network rules on the payments side. Hazard communication, lockout/tagout, and emergency action plans on the floor. Built from scratch, adopted across sites.",
-  },
-  {
-    title: "Standing up new lines",
-    body: "From an empty floor to first production run: sourcing, equipment, layout, hiring, vendor contracts.",
-  },
-  {
-    title: "Process improvement",
-    body: "Lean Six Sigma Green Belt. Find the constraint holding the schedule and remove it.",
-  },
-  {
-    title: "AI-first operations",
-    body: "Rebuilding a team's operating cadence around AI-assisted workflows: intake, tracking, documentation, and the first draft of everything. Built so the people stay accountable and the tooling does the carrying.",
-  },
-  {
-    title: "Founder advisory",
-    body: "Ongoing counsel for founders and owners on operations, risk, and what to build next. Retainer or by the project.",
+    title: "Fractional AI lead",
+    body: "Ongoing counsel for founders and owners on what to automate next, what to buy, and what to leave alone. Retainer or by the project.",
   },
 ];
 

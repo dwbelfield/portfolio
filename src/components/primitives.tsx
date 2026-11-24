@@ -91,6 +91,7 @@ export function Counter({
   decimals = 0,
   prefix = "",
   suffix = "",
+  grouped = false,
   className,
 }: {
   value: number;
@@ -99,6 +100,8 @@ export function Counter({
   decimals?: number;
   prefix?: string;
   suffix?: string;
+  /** Show a thousands separator. Leave off for years. */
+  grouped?: boolean;
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -122,7 +125,9 @@ export function Counter({
   return (
     <span ref={ref} className={className}>
       {prefix && <span className="text-accent">{prefix}</span>}
-      {shown.toFixed(decimals)}
+      {grouped
+        ? shown.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+        : shown.toFixed(decimals)}
       {suffix && <span className="text-accent">{suffix}</span>}
     </span>
   );

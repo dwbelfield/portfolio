@@ -46,6 +46,13 @@ export default function AboutPage() {
                   tracking, the documentation, and the first pass on analysis run on AI-assisted
                   workflows, with people accountable for every decision.
                 </p>
+                <p>
+                  In 2026 I co-founded two companies that work that way. Mythener, a publishing
+                  platform, was built by AI coding agents from a specification I wrote: 705 pull
+                  requests and 1,754 automated tests. That is the work I do for other teams now.
+                  AI enablement, with the program discipline that keeps it running after the
+                  novelty wears off.
+                </p>
               </div>
               <div className="md:col-span-4 md:col-start-9">
                 <p className="label mb-4">Credentials</p>

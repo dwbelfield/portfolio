@@ -148,7 +148,8 @@ export const positions: Record<string, Position[]> = {
         "Originated the product from my own needs as a series author, and wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
         "Designed the Delphi Engine, the continuity-review system, iterating the architecture myself: embedding-based retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates findings. It runs 12 reviews and 129 checks per manuscript.",
         "Set the visual direction and locked it as the platform design system, with a test that guards against styling drift.",
-        "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
+        "Shipped it with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
+        "Kept the agents honest with 1,754 automated tests and a check suite that runs on every pull request.",
         "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks.",
         "Priced and launched the product: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
       ],
@@ -410,9 +411,10 @@ export const mandates: Record<string, Mandate[]> = {
       ],
     },
     {
-      lane: "Build and ship",
+      lane: "Built by AI agents",
       lines: [
-        "Shipped the first release with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2.",
+        "AI coding agents wrote the code from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
+        "1,754 automated tests and a check suite on every pull request hold the agents to the specification.",
         "Six modules live: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine at the centre.",
       ],
     },

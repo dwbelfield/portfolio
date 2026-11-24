@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work/" },
   title: "Work",
   description:
-    "Three chapters: the Marine Corps, RallyPay, and PMB Companies. Two side projects: Zenblis and Mythener.",
+    "Three chapters: the Marine Corps, RallyPay, and PMB Companies. Two companies built with AI agents: Mythener and Zenblis.",
 };
 
 export default function WorkPage() {
@@ -30,7 +30,7 @@ export default function WorkPage() {
           <ChapterList />
         </div>
         <div className="mt-16 md:mt-24">
-          <ChapterList kind="side" heading={{ lead: "Side", rest: "projects", meta: "founded 2026" }} />
+          <ChapterList kind="side" heading={{ lead: "Built", rest: "with AI", meta: "founded 2026" }} />
         </div>
       </div>
     </section>

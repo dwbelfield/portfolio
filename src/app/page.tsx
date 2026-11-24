@@ -7,6 +7,7 @@ import Transformations from "@/components/Transformations";
 import { site, principles } from "@/content/site";
 
 const titles = [
+  "AI Enablement",
   "Technical Program Manager",
   "Chief Operating Officer",
   "Chief of Staff",
@@ -26,7 +27,7 @@ export default function Home() {
           <Reveal delay={0.1} y={0}>
             <p className="label mb-6">
               <span className="mr-2 text-accent">●</span>
-              Open to Technical Program Manager roles · Remote or relocation
+              Open to AI enablement and technical program roles · Remote or relocation
             </p>
           </Reveal>
 
@@ -82,17 +83,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chapters */}
+      {/* Built with AI: the two companies that show the method */}
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
-          <ChapterList heading={{ lead: "Three", rest: "chapters", meta: "2012 – 2026" }} />
+          <Reveal>
+            <span className="rule mb-4" />
+            <p className="label mb-4">AI enablement in practice</p>
+            <p className="mb-10 max-w-2xl text-base text-muted md:mb-14 md:text-xl">
+              Two companies I co-founded in 2026. At Mythener, AI coding agents built the
+              platform from my specification. At Zenblis, agents run research, content, and
+              outreach inside an operating system I designed. I write the spec and the
+              guardrails. The agents do the carrying.
+            </p>
+          </Reveal>
+          <ChapterList kind="side" heading={{ lead: "Built", rest: "with AI", meta: "founded 2026" }} />
         </div>
       </section>
 
-      {/* Side projects */}
+      {/* Chapters */}
       <section className="border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
-          <ChapterList kind="side" heading={{ lead: "Side", rest: "projects", meta: "founded 2026" }} />
+          <ChapterList heading={{ lead: "Three", rest: "chapters", meta: "2012 – 2026" }} />
         </div>
       </section>
 
@@ -118,14 +129,14 @@ export default function Home() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-40">
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight md:text-6xl">
-            <Words text="Looking for a program manager?" stagger={0.05} />
+            <Words text="Putting AI to work?" stagger={0.05} />
           </h2>
           <Reveal delay={0.4}>
             <p className="mt-6 max-w-xl text-lg text-muted">
-              I am looking for a Technical Program Manager role in safety-critical or
-              infrastructure programs, and I still take consulting engagements. Either way, the
-              deliverable is the same: a schedule that holds, decisions that turn into shipped
-              outcomes, and systems that keep running after I leave.
+              I am looking for an AI enablement or Technical Program Manager role, and I take
+              AI enablement consulting engagements in Dallas–Fort Worth and remotely. Either
+              way, the deliverable is the same: a team that uses the tooling, decisions that
+              turn into shipped outcomes, and systems that keep running after I leave.
             </p>
             <div className="mt-10 flex flex-wrap gap-3 md:gap-4">
               <Button href={`mailto:${site.email}`} external>

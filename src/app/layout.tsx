@@ -46,7 +46,7 @@ const jsonLd = {
       name: site.name,
       url: site.url,
       email: site.email,
-      jobTitle: "Technical Program Manager; former Chief of Staff, PMB Companies; Co-founder, Mythener; Co-founder, Zenblis",
+      jobTitle: "AI enablement lead and Technical Program Manager; former Chief of Staff, PMB Companies; Co-founder, Mythener; Co-founder, Zenblis",
       description: site.description,
       address: { "@type": "PostalAddress", addressLocality: "Dallas–Fort Worth", addressRegion: "TX", addressCountry: "US" },
       sameAs: [
@@ -58,6 +58,9 @@ const jsonLd = {
         "https://zenblis.com",
       ],
       knowsAbout: [
+        "AI enablement",
+        "AI adoption and team training",
+        "AI agent workflows",
         "Technical program management",
         "Operations management",
         "Payments compliance (PCI, KYC/AML, NACHA)",

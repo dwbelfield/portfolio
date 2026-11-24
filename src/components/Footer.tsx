@@ -24,7 +24,7 @@ export default function Footer() {
         <div>
           <span className="label">Based in</span>
           <p className="mt-3 text-fg">{site.location}</p>
-          <p className="text-muted">Available for consulting and advisory work.</p>
+          <p className="text-muted">Available for AI enablement consulting and advisory work.</p>
         </div>
         <div className="md:text-right">
           <span className="readout">© {new Date().getFullYear()} {site.name}</span>

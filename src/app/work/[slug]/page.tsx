@@ -33,7 +33,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const { slug } = await props.params;
   const c = chapters.find((x) => x.slug === slug);
   if (!c) notFound();
-  // Previous and next stay within the same list: employers, or side projects.
+  // Previous and next stay within the same list: employers, or the AI-built companies.
   const siblings = chapters.filter((x) => (x.kind ?? "chapter") === (c.kind ?? "chapter"));
   const i = siblings.indexOf(c);
   const prev = siblings[i - 1];
@@ -118,6 +118,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
                     decimals={s.decimals}
                     prefix={s.prefix}
                     suffix={s.suffix}
+                    grouped={s.grouped}
                   />
                 </dd>
                 <dt className="mt-2 text-sm text-fg md:mt-3 md:text-base">{s.label}</dt>
