@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 import CredentialCarousel from "@/components/CredentialCarousel";
+import OutcomeCard, { type Outcome } from "@/components/OutcomeCard";
 import { Reveal } from "@/components/primitives";
 import { site, author } from "@/content/site";
 import { programs } from "@/content/positions";
@@ -9,21 +10,23 @@ import { programs } from "@/content/positions";
 // A variable font: one file covers every weight the page uses.
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
 
-/**
- * Eight outcomes as before-and-after pairs, each with the employer and the role he held.
- * Bar widths are percentages of the card. `size` places the card in the bento grid:
- * "hero" is two columns by two rows, "wide" is two columns, the rest are single cells.
- */
-type Outcome = { label: string; org: string; role: string; before: string; after: string; beforeWidth: number; afterWidth: number; size?: "hero" | "wide" };
+/** Employer marks used as card watermarks: white on transparent, drawn as CSS masks. */
+const marks = {
+  usmc: { src: "/media/logos/usmc.png" },
+  rallypay: { src: "/media/logos/rallypay.png" },
+  pmb: { src: "/media/logos/pmb.png", wide: true },
+};
+
+/** Eight outcomes as before-and-after pairs, each with the employer and the role he held there. */
 const outcomes: Outcome[] = [
-  { label: "Parts ready for issue", org: "Marine Corps", role: "Senior Production Manager", before: "15.1%", after: "98.3%", beforeWidth: 15.1, afterWidth: 98.3, size: "hero" },
-  { label: "Time to replenish", org: "Marine Corps", role: "Senior Production Manager", before: "36 months", after: "3 months", beforeWidth: 100, afterWidth: 8.3 },
-  { label: "International purchasing turnaround", org: "Marine Corps", role: "Production Manager", before: "90 days", after: "7 days", beforeWidth: 100, afterWidth: 7.8 },
-  { label: "Same-day ticket resolution", org: "RallyPay", role: "Director of Operations", before: "3.4%", after: "44%", beforeWidth: 3.4, afterWidth: 44 },
-  { label: "Chargebacks", org: "RallyPay", role: "COO", before: "Before", after: "−32%", beforeWidth: 100, afterWidth: 68 },
-  { label: "Card-testing attacks", org: "RallyPay", role: "COO", before: "Before", after: "−99%", beforeWidth: 100, afterWidth: 1.5, size: "wide" },
-  { label: "Projected infrastructure cost", org: "RallyPay", role: "COO", before: "Before", after: "−45%", beforeWidth: 100, afterWidth: 55 },
-  { label: "Production divisions stood up", org: "PMB Companies", role: "Chief of Staff", before: "Empty floor", after: "6", beforeWidth: 0, afterWidth: 100 },
+  { label: "Parts ready for issue", org: "Marine Corps", role: "Senior Production Manager", logo: marks.usmc, before: "15.1%", beforeWidth: 15.1, afterWidth: 98.3, count: { from: 15.1, to: 98.3, decimals: 1, suffix: "%" }, size: "hero" },
+  { label: "Time to replenish", org: "Marine Corps", role: "Senior Production Manager", logo: marks.usmc, before: "36 months", beforeWidth: 100, afterWidth: 8.3, count: { from: 36, to: 3, suffix: " months" } },
+  { label: "International purchasing turnaround", org: "Marine Corps", role: "Production Manager", logo: marks.usmc, before: "90 days", beforeWidth: 100, afterWidth: 7.8, count: { from: 90, to: 7, suffix: " days" } },
+  { label: "Same-day ticket resolution", org: "RallyPay", role: "Director of Operations", logo: marks.rallypay, before: "3.4%", beforeWidth: 3.4, afterWidth: 44, count: { from: 3, to: 44, suffix: "%" } },
+  { label: "Chargebacks", org: "RallyPay", role: "COO", logo: marks.rallypay, before: "Before", beforeWidth: 100, afterWidth: 68, count: { from: 0, to: 32, prefix: "−", suffix: "%" } },
+  { label: "Card-testing attacks", org: "RallyPay", role: "COO", logo: marks.rallypay, before: "Before", beforeWidth: 100, afterWidth: 1.5, count: { from: 0, to: 99, prefix: "−", suffix: "%" }, size: "wide" },
+  { label: "Projected infrastructure cost", org: "RallyPay", role: "COO", logo: marks.rallypay, before: "Before", beforeWidth: 100, afterWidth: 55, count: { from: 0, to: 45, prefix: "−", suffix: "%" } },
+  { label: "Production divisions stood up", org: "PMB Companies", role: "Chief of Staff", logo: marks.pmb, before: "Empty floor", beforeWidth: 0, afterWidth: 100, count: { from: 0, to: 6 } },
 ];
 
 /** The three employers: `span` is each one's share of the fourteen years, for the bar above the cards. */
@@ -147,42 +150,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Outcomes: eight before-and-after pairs in a bento grid, each with the employer and role */}
+      {/* Outcomes: eight animated before-and-after cards in a bento grid, watermarked with the employer's mark */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-2 pt-14 md:px-8 md:pt-20">
         <Reveal>
           <h2 className="home-display text-4xl font-bold leading-none md:text-5xl">Successful outcomes</h2>
         </Reveal>
         <ul className="mt-7 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
-          {outcomes.map((o, i) => {
-            const hero = o.size === "hero";
-            const big = hero || o.size === "wide";
-            return (
-              <li key={o.label} className={hero ? "col-span-2 lg:row-span-2" : big ? "col-span-2" : undefined}>
-                <Reveal delay={i * 0.05} className={`home-raised flex h-full flex-col gap-4 rounded-xl ${big ? "p-6 md:p-8" : "p-4 md:p-6"}`}>
-                  <div>
-                    <p className={`font-semibold leading-snug ${hero ? "text-xl md:text-2xl" : big ? "text-lg" : "text-[15px] md:text-base"}`}>{o.label}</p>
-                    <p className="mt-1 text-[12px] leading-snug text-[#9AA6B0] md:text-[13px]">
-                      {o.org} · {o.role}
-                    </p>
-                  </div>
-                  <div className="mt-auto flex flex-col gap-2.5">
-                    <div className="flex items-center gap-2.5">
-                      <span className={`min-w-1 rounded-sm bg-[#5B6772] ${hero ? "h-3.5" : "h-2.5"}`} style={{ width: `${o.beforeWidth}%` }} />
-                      <span className="shrink-0 font-mono text-[12px] text-[#9AA6B0] md:text-[13px]">
-                        <span className="sr-only">From </span>
-                        {o.before}
-                      </span>
-                    </div>
-                    <span className={`min-w-1 rounded-sm bg-accent ${hero ? "h-6" : "h-3.5"}`} style={{ width: `${o.afterWidth}%` }} />
-                    <p className={`home-display font-bold leading-none text-accent ${hero ? "text-6xl md:text-8xl" : big ? "text-5xl md:text-6xl" : "text-[28px] md:text-4xl"}`}>
-                      <span className="sr-only">to </span>
-                      {o.after}
-                    </p>
-                  </div>
-                </Reveal>
-              </li>
-            );
-          })}
+          {outcomes.map((o, i) => (
+            <li key={o.label} className={o.size === "hero" ? "col-span-2 lg:row-span-2" : o.size === "wide" ? "col-span-2" : undefined}>
+              <OutcomeCard outcome={o} index={i} />
+            </li>
+          ))}
         </ul>
       </section>
 

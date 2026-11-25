@@ -327,3 +327,7 @@ html.lenis body {
 .home-door-icy {
   background: radial-gradient(520px 300px at 100% 0%, rgba(145, 200, 217, 0.15), transparent 70%), linear-gradient(180deg, #20272d, #14181b);
 }
+/* A raised card that responds to the pointer: its edge catches the light as it lifts. */
+.home-lift:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
