@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
-import ChapterHero from "@/components/ChapterHero";
 import CredentialCarousel from "@/components/CredentialCarousel";
 import { Reveal } from "@/components/primitives";
 import { site, author } from "@/content/site";
@@ -212,7 +211,13 @@ export default function Home() {
           <Reveal>
             <Link href="/work/mythener/" className="home-raised group flex h-full flex-col overflow-hidden rounded-[14px]">
               <div className="relative mx-4 mt-4 h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]">
-                <ChapterHero scene="oracle" alt="A sphere of linked story facts, read by a sweeping ring" compact />
+                <Image
+                  src="/media/screens/mythener-dashboard.jpg"
+                  alt="The Mythener author dashboard: the current book, writing stats, a words-written chart, and Delphi Engine recommendations waiting"
+                  fill
+                  sizes="(min-width: 768px) 600px, 92vw"
+                  className="object-cover object-left-top"
+                />
               </div>
               <div className="flex flex-col gap-2 px-6 pb-6 pt-5">
                 <div className="flex items-center justify-between">
