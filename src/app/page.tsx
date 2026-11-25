@@ -72,7 +72,7 @@ export default function Home() {
               Programs that ship. <span className="text-accent">AI built in</span>.
             </h1>
             <p className="max-w-xl text-lg text-[#C9D1D8] md:text-[22px]">
-              I lead the people, run the plan, and build the AI that carries the load.
+              I lead the people, run the plan, and build the AI that provides real ROI.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/work/" className="home-button inline-flex min-h-[52px] items-center gap-3 rounded-md px-6 font-semibold">
