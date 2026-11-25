@@ -250,11 +250,11 @@ export const chapters: Chapter[] = [
   },
 ];
 
-/** The three employers: `span` is each one's share of the fourteen years, for the bar above the cards. */
+/** The three employers: `span` is each one's share of the fourteen years, for the bar on the home page; `scope` is who and what he led there. */
 export const career = [
-  { slug: "marine-corps", name: "Marine Corps", years: "2012 – 2020", roles: "Production Manager → Senior Operations Manager", color: "#8E9AA4", span: 8 },
-  { slug: "rallypay", name: "RallyPay", years: "2020 – 2026", roles: "Director of Operations → COO → Consultant", color: "#CF7954", span: 5.8 },
-  { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", color: "#91C8D9", span: 0.7 },
+  { slug: "marine-corps", name: "Marine Corps", years: "2012 – 2020", roles: "Production Manager → Senior Operations Manager", scope: "Led 60 people across five divisions and $1.4M in assets.", color: "#8E9AA4", span: 8 },
+  { slug: "rallypay", name: "RallyPay", years: "2020 – 2026", roles: "Director of Operations → COO → Consultant", scope: "Reported to the CEO. Led both engineering teams and customer success.", color: "#CF7954", span: 5.8 },
+  { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", scope: "Right hand to the owner across 16 brands and two facilities.", color: "#91C8D9", span: 0.7 },
 ];
 
 /** The two 2026 products: each card opens the live platform, and links to its chapter as a case study. */

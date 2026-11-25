@@ -25,7 +25,7 @@ export default function ProductCards() {
             </a>
             <div className="flex flex-1 flex-col gap-2 px-6 pb-5 pt-5">
               <div className="flex flex-wrap items-center justify-between gap-x-4">
-                <span className="home-display text-[28px] font-semibold">{product.name}</span>
+                <h3 className="home-display text-[28px] font-semibold">{product.name}</h3>
                 <a
                   href={product.site}
                   target="_blank"
