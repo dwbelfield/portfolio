@@ -3,8 +3,10 @@ import Link from "next/link";
 import CredentialCarousel from "@/components/CredentialCarousel";
 import RotatingTitle from "@/components/RotatingTitle";
 import OutcomeCard, { type Outcome } from "@/components/OutcomeCard";
+import Doors, { Arrow, outline } from "@/components/Doors";
+import ProductCards from "@/components/ProductCards";
 import { Reveal } from "@/components/primitives";
-import { site, author } from "@/content/site";
+import { site, author, career } from "@/content/site";
 import { programs } from "@/content/positions";
 
 /** The titles that rotate under the portrait: the roles he is after first, then the ones he has held. */
@@ -35,35 +37,6 @@ const outcomes: Outcome[] = [
   { label: "Card-testing attacks", org: "RallyPay", role: "COO", logo: marks.rallypay, before: "Before", beforeWidth: 100, afterWidth: 1.5, count: { from: 0, to: 99, prefix: "−", suffix: "%" }, size: "wide" },
   { label: "Projected infrastructure cost", org: "RallyPay", role: "COO", logo: marks.rallypay, before: "Before", beforeWidth: 100, afterWidth: 55, count: { from: 0, to: 45, prefix: "−", suffix: "%" } },
   { label: "Production divisions stood up", org: "PMB Companies", role: "Chief of Staff", logo: marks.pmb, before: "Empty floor", beforeWidth: 0, afterWidth: 100, count: { from: 0, to: 6 } },
-];
-
-/** The three employers: `span` is each one's share of the fourteen years, for the bar above the cards. */
-const career = [
-  { slug: "marine-corps", name: "Marine Corps", years: "2012 – 2020", roles: "Production Manager → Senior Operations Manager", color: "#8E9AA4", span: 8 },
-  { slug: "rallypay", name: "RallyPay", years: "2020 – 2026", roles: "Director of Operations → COO → Consultant", color: "#CF7954", span: 5.8 },
-  { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", color: "#91C8D9", span: 0.7 },
-];
-
-/** The two 2026 products: each card opens the live platform, and links to its chapter as a case study. */
-const products = [
-  {
-    name: "Mythener",
-    site: "https://mythener.com",
-    siteLabel: "mythener.com",
-    caseStudy: "/work/mythener/",
-    image: "/media/screens/mythener-dashboard.jpg",
-    alt: "The Mythener author dashboard: the current book, writing stats, a words-written chart, and Delphi Engine recommendations waiting",
-    blurb: "A publishing platform AI agents built from my spec. 705 pull requests, 1,754 tests.",
-  },
-  {
-    name: "Zenblis",
-    site: "https://zenblis.com",
-    siteLabel: "zenblis.com",
-    caseStudy: "/work/zenblis/",
-    image: "/media/screens/zenblis-home.jpg",
-    alt: "The Zenblis home page: a search for senior living over a map of rated communities",
-    blurb: "Built with a co-founder: he writes the software, I run go-to-market with an agent team.",
-  },
 ];
 
 /** Where to find him elsewhere. Icons are drawn inline; each link is named for screen readers. */
@@ -98,17 +71,6 @@ const profiles = [
     ),
   },
 ];
-
-function Arrow({ className = "h-[18px] w-[18px]" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-const outline =
-  "inline-flex min-h-[52px] items-center gap-3 rounded-md border border-[#5B6772] px-6 font-semibold text-fg transition-colors hover:border-accent hover:text-accent";
 
 export default function Home() {
   return (
@@ -254,79 +216,13 @@ export default function Home() {
         <Reveal>
           <h2 className="home-display text-4xl font-bold leading-none md:text-5xl">Now delivered with AI agents</h2>
         </Reveal>
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
-          {products.map((product, i) => (
-            <li key={product.name} className="flex">
-              <Reveal delay={i * 0.08} className="home-raised home-lift flex w-full flex-col overflow-hidden rounded-[14px] transition-[translate,border-color] duration-300 hover:-translate-y-1">
-                <a
-                  href={product.site}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Open ${product.siteLabel} (opens in a new tab)`}
-                  className="relative mx-4 mt-4 block h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]"
-                >
-                  <Image src={product.image} alt={product.alt} fill sizes="(min-width: 768px) 600px, 92vw" className="object-cover object-left-top" />
-                </a>
-                <div className="flex flex-1 flex-col gap-2 px-6 pb-5 pt-5">
-                  <div className="flex flex-wrap items-center justify-between gap-x-4">
-                    <span className="home-display text-[28px] font-semibold">{product.name}</span>
-                    <a
-                      href={product.site}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex min-h-11 items-center gap-1.5 font-mono text-[13px] text-accent underline-offset-4 hover:underline"
-                    >
-                      {product.siteLabel}
-                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
-                        <path d="M7 17L17 7M9 7h8v8" />
-                      </svg>
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
-                  </div>
-                  <span className="text-[#9AA6B0]">{product.blurb}</span>
-                  <Link href={product.caseStudy} className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 pt-2 font-semibold text-fg transition-colors hover:text-accent">
-                    Case study <Arrow />
-                  </Link>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-8">
+          <ProductCards />
+        </div>
       </section>
 
       {/* Two doors: one per audience */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pb-24 md:px-8">
-        <div className="grid gap-5 md:grid-cols-2">
-          <Reveal className="home-raised home-door-amber flex flex-col gap-4 rounded-2xl px-7 py-10 md:px-12 md:py-14">
-            <h2 className="home-display text-5xl font-bold leading-none md:text-[56px]">
-              Hiring<span className="text-accent">?</span>
-            </h2>
-            <p className="text-[19px] text-[#C9D1D8]">Looking for program management or AI-related roles.</p>
-            <div className="mt-1 flex flex-wrap gap-3">
-              <a href={`mailto:${site.email}`} className="home-button inline-flex min-h-12 items-center rounded-md px-5 font-semibold">
-                Email
-              </a>
-              <a href={site.linkedin} target="_blank" rel="noreferrer" className={`${outline} min-h-12 px-5`}>
-                LinkedIn
-              </a>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08} className="home-raised home-door-icy flex flex-col gap-4 rounded-2xl px-7 py-10 md:px-12 md:py-14">
-            <h2 className="home-display text-5xl font-bold leading-none md:text-[56px]">
-              Own a business in DFW<span className="text-[#91C8D9]">?</span>
-            </h2>
-            <p className="text-[19px] text-[#C9D1D8]">Bring me the mess.</p>
-            <div className="mt-1 flex flex-wrap gap-3">
-              <Link
-                href="/consulting/"
-                className="inline-flex min-h-12 items-center gap-2.5 rounded-md border border-[#91C8D9] px-5 font-semibold text-[#91C8D9] transition-colors hover:bg-[#91C8D9] hover:text-[#111315]"
-              >
-                See consulting <Arrow />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <Doors />
     </div>
   );
 }

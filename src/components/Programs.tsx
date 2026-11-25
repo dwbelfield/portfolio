@@ -127,16 +127,23 @@ const icons: Partial<Record<Program["icon"], React.ReactNode>> = {
 const HEX = "50,3 92,26.5 92,73.5 50,97 8,73.5 8,26.5";
 
 export default function Programs({ programs }: { programs: Program[] }) {
+  // No card is left alone on a last row: two columns up to desktop, where an odd last card
+  // spans both, then a column count that divides the number of programs evenly.
+  const n = programs.length;
+  const cols = n % 5 === 0 ? "lg:grid-cols-5" : n % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3";
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-x-6 md:gap-y-12 lg:grid-cols-5">
+    <ul className={`grid grid-cols-2 gap-3 md:gap-5 ${cols}`}>
       {programs.map((p, i) => (
-        <Reveal key={p.name} delay={i * 0.08}>
-          <li className="group">
-            <div className="relative h-20 w-20 md:h-28 md:w-28">
+        <li key={p.name} className={`flex ${n % 2 === 1 && i === n - 1 ? "col-span-2 lg:col-span-1" : ""}`}>
+          <Reveal
+            delay={i * 0.08}
+            className="home-raised home-lift group w-full rounded-xl p-4 transition-[translate,border-color] duration-300 hover:-translate-y-1 md:p-5"
+          >
+            <div className="relative h-16 w-16 md:h-20 md:w-20">
               <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden="true">
                 <polygon
                   points={HEX}
-                  fill="var(--bg-panel)"
+                  fill="rgba(0,0,0,0.28)"
                   stroke="var(--line)"
                   strokeWidth="1.5"
                   className="transition-[stroke] duration-200 group-hover:[stroke:var(--accent)]"
@@ -144,7 +151,7 @@ export default function Programs({ programs }: { programs: Program[] }) {
               </svg>
               {masks[p.icon] ? (
                 <span
-                  className="absolute inset-0 m-auto block h-10 w-10 bg-current text-muted transition-colors duration-200 group-hover:text-fg md:h-14 md:w-14"
+                  className="absolute inset-0 m-auto block h-8 w-8 bg-current text-accent transition-colors duration-200 group-hover:text-fg md:h-10 md:w-10"
                   style={{
                     maskImage: `url(${masks[p.icon]})`,
                     WebkitMaskImage: `url(${masks[p.icon]})`,
@@ -165,17 +172,17 @@ export default function Programs({ programs }: { programs: Program[] }) {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="absolute inset-0 m-auto h-8 w-8 text-muted transition-colors duration-200 group-hover:text-fg md:h-10 md:w-10"
+                  className="absolute inset-0 m-auto h-7 w-7 text-accent transition-colors duration-200 group-hover:text-fg md:h-8 md:w-8"
                   aria-hidden="true"
                 >
                   {icons[p.icon]}
                 </svg>
               )}
             </div>
-            <h3 className="mt-4 text-base font-semibold leading-snug tracking-tight md:mt-5 md:text-lg">{p.name}</h3>
+            <h3 className="mt-3 text-[15px] font-semibold leading-snug tracking-tight md:mt-4 md:text-lg">{p.name}</h3>
             <p className="mt-1.5 text-xs text-muted md:mt-2 md:text-sm">{p.blurb}</p>
-          </li>
-        </Reveal>
+          </Reveal>
+        </li>
       ))}
     </ul>
   );

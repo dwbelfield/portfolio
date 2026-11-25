@@ -5,9 +5,11 @@ export const dynamic = "force-static";
 
 /** A number as the pages show it once their counters finish: prefix, value, suffix. */
 function num(value: number, o: { decimals?: number; prefix?: string; suffix?: string; grouped?: boolean } = {}) {
+  // A whole number stays whole even where its pair carries a decimal: "from 3.4% to 44%".
+  const places = Number.isInteger(value) ? 0 : (o.decimals ?? 0);
   const body = o.grouped
-    ? value.toLocaleString("en-US", { minimumFractionDigits: o.decimals ?? 0, maximumFractionDigits: o.decimals ?? 0 })
-    : value.toFixed(o.decimals ?? 0);
+    ? value.toLocaleString("en-US", { minimumFractionDigits: places, maximumFractionDigits: places })
+    : value.toFixed(places);
   return `${o.prefix ?? ""}${body}${o.suffix ?? ""}`;
 }
 
@@ -24,7 +26,7 @@ const stepKinds: Record<StepKind, string> = {
 
 /** One chapter's headline numbers as indented sub-bullets. */
 function statLines(stats: Stat[]) {
-  return stats.map((s) => `  - ${num(s.value, s)}: ${s.label}${s.from ? ` (${s.from})` : ""}`);
+  return stats.map((s) => `  - ${s.text ?? num(s.value, s)}: ${s.label}${s.from ? ` (${s.from})` : ""}`);
 }
 
 /**

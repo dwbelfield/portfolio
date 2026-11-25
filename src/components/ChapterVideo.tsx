@@ -18,6 +18,8 @@ type Props = {
   opacity?: number;
   /** Playback speed multiplier; 1 is normal. */
   rate?: number;
+  /** A still of the footage (path under /public): shown on phones, and while the video loads. */
+  poster?: string;
 };
 
 /**
@@ -32,6 +34,7 @@ export default function ChapterVideo({
   overlay = true,
   opacity = 80,
   rate = 1,
+  poster,
 }: Props) {
   const reduced = useReducedMotion();
   // Phones get no video: it costs data and battery for a band of blurred
@@ -50,7 +53,17 @@ export default function ChapterVideo({
     v.play().catch(() => {});
   }, [reduced, rate]);
 
-  if (!wide) return null;
+  // Phones get the still where there is one, held to the top of the header so the title sits below it.
+  if (!wide) {
+    if (!poster) return null;
+    return (
+      <div className="absolute inset-x-0 top-14 h-56 overflow-hidden" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={poster} alt="" className="h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--bg)_100%)]" />
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -67,6 +80,7 @@ export default function ChapterVideo({
         loop
         playsInline
         preload="metadata"
+        poster={poster}
         autoPlay={!reduced}
         title={alt}
         style={{ opacity: opacity / 100 }}

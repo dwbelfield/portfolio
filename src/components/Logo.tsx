@@ -21,6 +21,9 @@ type Props = {
 export default function Logo({ src, alt, className, to, delay = 1.2 }: Props) {
   const reduced = useReducedMotion();
   const style = { maskImage: `url(${src})`, WebkitMaskImage: `url(${src})` };
+  if (!alt) {
+    return <span aria-hidden="true" className={`logo-mask ${className ?? ""}`} style={style} />;
+  }
   if (!to) {
     return <span role="img" aria-label={alt} className={`logo-mask ${className ?? ""}`} style={style} />;
   }

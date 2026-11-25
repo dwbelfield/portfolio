@@ -19,9 +19,8 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
     <div>
       {/* Parent */}
       <Reveal>
-        <div className="mx-auto max-w-md rounded-lg border border-accent/60 bg-panel px-5 py-4 text-center md:px-6 md:py-5">
-          <p className="label mb-2">Parent</p>
-          <p className="text-2xl font-semibold tracking-tight">
+        <div className="home-raised home-door-amber home-after mx-auto max-w-md rounded-xl px-5 py-4 text-center md:px-6 md:py-5">
+          <p className="home-display text-2xl font-semibold">
             {data.parentHref ? (
               <a href={data.parentHref} target="_blank" rel="noreferrer" className="link-draw">
                 {data.parent}
@@ -33,7 +32,7 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
           <p className="mt-2 text-sm text-muted">{data.parentBlurb}</p>
           {data.parentWork && (
             <div className="mt-4 border-t border-line pt-4 text-left">
-              <p className="label mb-1 text-accent">My work here</p>
+              <p className="mb-1 text-sm font-semibold text-accent">My work here</p>
               <p className="text-sm text-fg">{data.parentWork}</p>
             </div>
           )}
@@ -59,17 +58,14 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
       <div className={`mt-6 grid gap-4 sm:grid-cols-2 md:mt-0 md:gap-8 ${colClass}`}>
         {data.groups.map((g, i) => (
           <Reveal key={g.name} delay={0.1 + i * 0.08}>
-            <div className="flex h-full flex-col rounded-lg border border-line bg-bg">
+            <div className="home-raised flex h-full flex-col overflow-hidden rounded-xl">
               <div className="border-b border-line px-4 py-3 md:px-5 md:py-4">
-                <p className="label mb-1">
-                  <span className="mr-2 text-accent">{String(i + 1).padStart(2, "0")}</span>
-                  {g.name}
-                </p>
+                <h3 className="home-display mb-1 text-xl font-semibold">{g.name}</h3>
                 <p className="text-xs text-muted md:text-sm">{g.blurb}</p>
               </div>
-              <ul className="flex flex-1 flex-col gap-px border-b border-line bg-line last:border-b-0">
+              <ul className="flex flex-1 flex-col divide-y divide-line">
                 {g.entities.map((e) => (
-                  <li key={e.name} className="bg-bg px-4 py-2.5 last:flex-1 md:px-5 md:py-3">
+                  <li key={e.name} className="px-4 py-2.5 last:flex-1 md:px-5 md:py-3">
                     <p className={`font-medium ${e.name === "and more" ? "text-muted" : "text-fg"}`}>
                       {e.href ? (
                         <a href={e.href} target="_blank" rel="noreferrer" className="link-draw">
@@ -89,12 +85,12 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                                 href={c.href}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="label inline-block rounded-full border border-line px-2.5 py-1 text-[0.65rem] leading-none transition-colors hover:border-accent hover:text-fg"
+                                className="inline-flex min-h-8 items-center rounded-full border border-line px-3 text-[13px] text-[#C9D1D8] transition-colors hover:border-accent hover:text-fg"
                               >
                                 {c.name}
                               </a>
                             ) : (
-                              <span className="label inline-block rounded-full border border-line px-2.5 py-1 text-[0.65rem] leading-none">
+                              <span className="inline-flex min-h-8 items-center rounded-full border border-line px-3 text-[13px] text-[#C9D1D8]">
                                 {c.name}
                               </span>
                             )}
@@ -106,8 +102,8 @@ export default function EntityMap({ data }: { data: EntityMapData }) {
                 ))}
               </ul>
               {g.work && (
-                <div className="border-t border-line px-4 py-3 md:px-5 md:py-4">
-                  <p className="label mb-1 text-accent">My work here</p>
+                <div className="border-t border-line bg-black/20 px-4 py-3 md:px-5 md:py-4">
+                  <p className="mb-1 text-sm font-semibold text-accent">My work here</p>
                   <p className="text-xs text-fg md:text-sm">{g.work}</p>
                 </div>
               )}

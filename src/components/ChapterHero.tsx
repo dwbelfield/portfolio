@@ -100,6 +100,8 @@ export default function ChapterHero({ scene, alt, compact = false }: { scene: He
     });
     seen.observe(canvas);
     const move = (e: PointerEvent) => {
+      // In a card the scene just runs: several sit side by side, and none should follow the pointer.
+      if (compact) return;
       const box = canvas.getBoundingClientRect();
       pointer.x = e.clientX - box.left;
       pointer.y = e.clientY - box.top;
@@ -123,7 +125,7 @@ export default function ChapterHero({ scene, alt, compact = false }: { scene: He
 
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <canvas ref={ref} title={alt} className="h-full w-full" />
+      <canvas ref={ref} title={compact ? undefined : alt} className="h-full w-full" />
       {!compact && (
         <>
           {/* Legibility: quiet behind the title on the left, and a fade into the page below. */}

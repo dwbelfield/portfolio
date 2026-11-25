@@ -286,10 +286,15 @@ html.lenis body {
 
 /* ------------------------------------------------------------------
    Home: a lit background and raised surfaces, so sections sit in
-   front of the page instead of flat against it. The colours beyond
-   amber (icy blue, copper) are used on the home page only.
+   front of the page instead of flat against it. Every page sits on
+   this surface; icy blue and copper join amber as second accents.
    ------------------------------------------------------------------ */
 .home-surface {
+  /* Inside the lit surface, secondary text and hairlines are a step brighter than on the old flat pages. */
+  --fg-muted: #9aa6b0;
+  --line: rgba(255, 255, 255, 0.1);
+  /* What a hero scene or the footage fades into at its foot: the top of this surface. */
+  --bg: #131619;
   background:
     linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px) 0 0 / 48px 48px,
     linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px) 0 0 / 48px 48px,
@@ -297,6 +302,20 @@ html.lenis body {
     radial-gradient(900px 760px at -12% 32%, rgba(145, 200, 217, 0.1), transparent 62%),
     radial-gradient(1000px 820px at 104% 78%, rgba(207, 121, 84, 0.08), transparent 62%),
     linear-gradient(#131619, #0a0c0e);
+}
+/* Keyboard focus on the lit surface: one amber ring for links, buttons and disclosures. */
+.home-surface :is(a, button, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+/* List markers on the lit surface are the small amber square, not the old hairline dash. */
+.home-surface .bullets li::before {
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--accent);
 }
 .home-display {
   font-family: var(--font-display), var(--font-sans);
@@ -330,4 +349,29 @@ html.lenis body {
 /* A raised card that responds to the pointer: its edge catches the light as it lifts. */
 .home-lift:hover {
   border-color: rgba(255, 255, 255, 0.2);
+}
+/* A rule that fades out before it reaches the page edges. */
+.home-rule {
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #3a444d 20%, #3a444d 80%, transparent);
+}
+/* A disclosure: the marker is drawn by the summary itself. */
+.home-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.home-details > summary::-webkit-details-marker {
+  display: none;
+}
+.home-details[open] > summary .home-details-chevron {
+  rotate: 180deg;
+}
+/* A block with an amber left edge, for a short list of facts. */
+.home-accent-edge {
+  border-left: 3px solid var(--accent);
+}
+/* The "after" panel on a chapter: the raised surface with an amber top edge. */
+.home-after {
+  border-top: 3px solid var(--accent);
 }

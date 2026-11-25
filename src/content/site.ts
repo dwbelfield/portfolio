@@ -17,7 +17,7 @@ export const site = {
   description:
     "Derek Belfield: AI enablement and technical program management. Ships production software with AI agents. Open to roles, remote or relocation.",
   intro:
-    "I put AI to work inside real operations. A decade owning safety-critical technical programs in Marine aviation, six years running operations in payments and consumer products, and a production software platform built by AI agents working from my specification. I find the constraint holding the schedule, remove it, and leave a team that can run the tooling without me.",
+    "I put AI to work inside real operations. Eight years owning safety-critical technical programs in Marine aviation, six years running operations in payments and consumer products, and a production software platform built by AI agents working from my specification. I find the constraint holding the schedule, remove it, and leave a team that can run the tooling without me.",
   pullQuote:
     "Things rarely fail because nobody knew. They fail because nobody was watching the date.",
 };
@@ -29,6 +29,8 @@ export type Stat = {
   suffix?: string;
   label: string;
   from?: string;
+  /** Shown in place of the counted value where the figure is a range, such as "4–6". */
+  text?: string;
   /** Show a thousands separator. Leave off for years. */
   grouped?: boolean;
 };
@@ -56,11 +58,11 @@ export type Chapter = {
   /** Optional live-drawn header. Takes the place of the video when both are set. */
   hero?: { scene: HeroScene; alt: string };
   /** Optional looping background video for the chapter header (path under /public). */
-  video?: { src: string; alt: string; rate?: number; opacity?: number };
-  /** Optional chapter-specific decorative accent. */
-  accent?: "marpat";
+  video?: { src: string; alt: string; rate?: number; opacity?: number; poster?: string };
   /** Organisation logo, white on transparent (path under /public). */
   logo?: { src: string; alt: string; width: number; height: number };
+  /** One line under the descriptor saying who built what, where the work was shared. */
+  credit?: string;
 };
 
 export const chapters: Chapter[] = [
@@ -73,8 +75,11 @@ export const chapters: Chapter[] = [
     descriptor: "Aviation logistics, maintenance & operations",
     period: "2012 – 2020",
     location: "Okinawa, Japan · Craven County, NC",
-    video: { src: "/media/usmc-v22-1440.mp4", alt: "Wireframe MV-22B Osprey of VMM-265 in a hover, rotors turning" },
-    accent: "marpat",
+    video: {
+      src: "/media/usmc-v22-1440.mp4",
+      alt: "Wireframe MV-22B Osprey of VMM-265 in a hover, rotors turning",
+      poster: "/media/usmc-v22-still.jpg",
+    },
     roles: [
       "Senior Operations Manager",
       "Senior Production Manager",
@@ -87,7 +92,7 @@ export const chapters: Chapter[] = [
     order:
       "A digital tracking system that outlived my tenure and became the model adopted across the Navy and Marine Corps.",
     summary:
-      "A decade of ownership over safety-critical programs: aviation life support systems, CBRN protective equipment, ammunition and explosives certification, and maintenance production control.",
+      "Eight years of ownership over safety-critical programs: aviation life support systems, CBRN protective equipment, ammunition and explosives certification, and maintenance production control.",
     stats: [
       { value: 98.3, decimals: 1, suffix: "%", label: "Parts ready for issue", from: "from 15.1%" },
       { value: 3, suffix: " mo", label: "Time to replenish", from: "from 36 months" },
@@ -163,9 +168,9 @@ export const chapters: Chapter[] = [
       "Right hand to the owner of PMB Companies for seven months in 2026. I turned his decisions into shipped outcomes across manufacturing, brands, storefronts, and B2B services, from vendor contract to first production run.",
     stats: [
       { value: 6, label: "Production divisions stood up", from: "from an empty floor" },
-      { value: 350, prefix: "$", suffix: "K", label: "Production equipment specified and installed" },
-      { value: 6, label: "Launches in flight at any time", from: "four to six, most on days of notice" },
-      { value: 5, label: "Safety programs written from scratch", from: "adopted at every site" },
+      { value: 350, prefix: "~$", suffix: "K", label: "Production equipment specified and installed" },
+      { value: 6, text: "4–6", label: "Launches in flight at any time", from: "most on days of notice" },
+      { value: 5, label: "Parts of the safety program, written from scratch", from: "adopted at every site" },
     ],
     bullets: [
       "Stood up six new production divisions from a standing start: chemical repackaging, spin-cast metal and metal customization, apparel customization, wide-format print, fragrance blending, and soil amendments. Sourced raw materials, bought and installed equipment, laid out workstations, hired the staff.",
@@ -220,6 +225,7 @@ export const chapters: Chapter[] = [
     name: "Zenblis",
     org: "Zenblis",
     descriptor: "AI-native senior care marketplace",
+    credit: "Built with a co-founder I served with in the Marines: he leads the engineering, I run design, brand, and go-to-market.",
     period: "2026 – Present",
     location: "Co-founder",
     roles: ["Co-Founder"],
@@ -230,9 +236,9 @@ export const chapters: Chapter[] = [
     summary:
       "My idea, co-founded in 2026. I designed the product experience and brand, landed the first customers, and built the operating foundation for autonomous agents across research, content, social media, and community outreach. Partner-run day to day, with my ongoing ownership of GTM systems.",
     stats: [
-      { value: 2026, label: "Co-founded, from my idea" },
-      { value: 1, label: "Brand system: palette, guidelines, voice" },
-      { value: 3, label: "Growth systems: go-to-market, content and SEO, outreach" },
+      { value: 5, label: "AI agents on the go-to-market team", from: "four specialists and a chief of staff" },
+      { value: 33, label: "Sections in the agents' operating rules", from: "version 1.0, since September 2026" },
+      { value: 0, prefix: "$", label: "Spending an agent can authorize", from: "they recommend, a person decides" },
     ],
     bullets: [
       "Built the go-to-market motion from zero, with agent workflows spanning research, content production, social media, and community outreach.",
@@ -241,6 +247,35 @@ export const chapters: Chapter[] = [
       "Partner-run day to day, with an ongoing co-founder role.",
     ],
     link: { href: "https://zenblis.com", label: "zenblis.com" },
+  },
+];
+
+/** The three employers: `span` is each one's share of the fourteen years, for the bar above the cards. */
+export const career = [
+  { slug: "marine-corps", name: "Marine Corps", years: "2012 – 2020", roles: "Production Manager → Senior Operations Manager", color: "#8E9AA4", span: 8 },
+  { slug: "rallypay", name: "RallyPay", years: "2020 – 2026", roles: "Director of Operations → COO → Consultant", color: "#CF7954", span: 5.8 },
+  { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", color: "#91C8D9", span: 0.7 },
+];
+
+/** The two 2026 products: each card opens the live platform, and links to its chapter as a case study. */
+export const products = [
+  {
+    name: "Mythener",
+    site: "https://mythener.com",
+    siteLabel: "mythener.com",
+    caseStudy: "/work/mythener/",
+    image: "/media/screens/mythener-dashboard.jpg",
+    alt: "The Mythener author dashboard: the current book, writing stats, a words-written chart, and Delphi Engine recommendations waiting",
+    blurb: "A publishing platform AI agents built from my spec. 705 pull requests, 1,754 tests.",
+  },
+  {
+    name: "Zenblis",
+    site: "https://zenblis.com",
+    siteLabel: "zenblis.com",
+    caseStudy: "/work/zenblis/",
+    image: "/media/screens/zenblis-home.jpg",
+    alt: "The Zenblis home page: a search for senior living over a map of rated communities",
+    blurb: "Built with a co-founder: he leads the engineering, I run go-to-market with an agent team.",
   },
 ];
 
@@ -259,15 +294,12 @@ export type Transformation = {
 /** Before-and-after pairs, all Derek's own outcomes. Counters run from -> to. */
 export const transformations: Transformation[] = [
   { from: 15.1, to: 98.3, decimals: 1, suffix: "%", label: "Parts ready for issue" },
-  { from: 36, to: 3, suffix: " mo", label: "Time to replenish" },
+  { from: 36, to: 3, suffix: " months", label: "Time to replenish" },
   { from: 90, to: 7, suffix: " days", label: "International purchasing turnaround" },
   { from: 3.4, to: 44, decimals: 1, suffix: "%", label: "Same-day ticket resolution", note: "while inbound volume grew 400%" },
   { fromText: "Under attack", to: 99, prefix: "−", suffix: "%", label: "Card-testing attacks", note: "chargebacks down 32% alongside" },
   { fromText: "Empty floor", to: 6, label: "Production divisions stood up", note: "in under a year" },
 ];
-
-export const range =
-  "Eight years in Marine aviation logistics. Six running operations. Two companies founded. Three bestselling novels. Zero failed audits in fourteen years.";
 
 
 export const principles = [
@@ -356,7 +388,7 @@ export const author = {
     "A twelve-book dark LitRPG saga. A murdered politician is revived by an exiled goddess and must turn refugees into a predatory army.",
   claim: "#1 Amazon Best Seller, Military Fiction",
   intro:
-    "I write under the name D. W. Belfield. The Scourge Wars is a twelve-book saga; three of its books have hit the Amazon bestseller list, and the fourth arrives in November. The series is where the long-form muscle comes from, and where Mythener came from too: I built the tool I needed to keep a world of this size consistent.",
+    "I write under the name D. W. Belfield. The Scourge Wars is a twelve-book saga; three of its books have hit the Amazon bestseller list, the fourth came out in November, and the fifth follows in December. The series is where the long-form muscle comes from, and where Mythener came from too: I built the tool I needed to keep a world of this size consistent.",
   links: [
     { label: "Author site", href: "https://dwbelfield.com" },
     { label: "Amazon author page", href: "https://www.amazon.com/stores/Derek-Belfield/author/B07YVNVGZK" },
@@ -367,8 +399,8 @@ export const author = {
     { title: "Evolve", number: "Book I", status: "Available", blurb: "#1 Amazon Best Seller, Military Fiction", href: "https://www.amazon.com/dp/B07YR5PY94" },
     { title: "Adapt", number: "Book II", status: "Available" },
     { title: "Resist", number: "Book III", status: "Available in print" },
-    { title: "Siege", number: "Book IV", status: "Pre-order · November 15", href: "https://www.amazon.com/dp/B0HMMCH29S" },
-    { title: "Breach", number: "Book V", status: "Drafting" },
+    { title: "Siege", number: "Book IV", status: "Available", href: "https://www.amazon.com/dp/B0HMMCH29S" },
+    { title: "Breach", number: "Book V", status: "Pre-order · December 15" },
     { title: "Sunder", number: "Book VI", status: "Next" },
   ] as Book[],
 };
@@ -490,6 +522,10 @@ export const training: Training[] = [
   },
 ];
 
+/** The tools he works in, shown as chips on the About page: AI and delivery tooling, then the military systems. */
+export const tools = ["Claude", "Jira", "Asana", "Monday", "ClickUp", "Notion", "Google Workspace", "NALCOMIS", "ASM"];
+
+/** Read by the old About page until its redesign lands. */
 export const alongside = [
   "AI-first program manager. Jira, Asana, Monday, ClickUp, Notion, Google Workspace, and Claude, wired into operating workflows rather than used one at a time. Military maintenance and training systems: NALCOMIS and ASM.",
 ];

@@ -97,7 +97,7 @@ export const positions: Record<string, Position[]> = {
       duration: "3 yrs 8 mos",
       location: "Dallas, Texas",
       bullets: [
-        "Ran company operations reporting directly to the CEO. Owned the operating cadence and the accountability layer between decision and delivery.",
+        "Ran company operations reporting directly to the CEO, leading both engineering teams and the customer success team. Owned the operating cadence and the accountability layer between decision and delivery.",
         "Owner of record for PCI, KYC/AML, transaction monitoring, NACHA, and card network rules. Named on the filing for every merchant acquirer examination, with no failed examinations.",
         "Deployed a payments security microservice that cut card-testing attacks 99% and chargebacks 32%.",
         "Implemented a proprietary onboarding and underwriting microservice, reducing processing time 33%.",
@@ -150,7 +150,7 @@ export const positions: Record<string, Position[]> = {
         "Set the visual direction and locked it as the platform design system, with a test that guards against styling drift.",
         "Shipped it with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
         "Kept the agents honest with 1,754 automated tests and a check suite that every release build has to pass.",
-        "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 145 checks.",
+        "Defined the modules authors see: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 145 checks.",
         "Priced and launched the product: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
       ],
       tags: ["Product", "Specification", "AI System Design", "Design System", "AI Agents", "Cloudflare", "Go-to-Market"],
@@ -305,6 +305,7 @@ export const programs: Record<string, Program[]> = {
 
 /** Section label per chapter; defaults to "Programs owned". */
 export const programLabels: Record<string, string> = {
+  "pmb-companies": "The safety program",
   rallypay: "Initiatives owned",
   mythener: "Modules shipped",
 };
@@ -571,13 +572,13 @@ export const mandates: Record<string, Mandate[]> = {
       lines: [
         "Originated the product from my own needs as a series author.",
         "Wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
+        "Set the visual direction, ancient Greece meets the future, and locked it as the platform design system with a drift guard in the build.",
       ],
     },
     {
       lane: "The Delphi Engine",
       lines: [
         "Designed the continuity-review system myself, iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author. 12 reviews, 145 checks.",
-        "Set the visual direction, ancient Greece meets the future, and locked it as the platform design system with a drift guard in the build.",
       ],
     },
     {
@@ -643,6 +644,7 @@ export const mandates: Record<string, Mandate[]> = {
       lines: [
         "Owned the follow-through on the owner's decisions, from vendor negotiation to first production run.",
         "Ran four to six concurrent launches at a time, most initiated on a few days of notice.",
+        "Automated intake, status reporting, and documentation with AI, so a two-person office could carry the load.",
       ],
     },
     {

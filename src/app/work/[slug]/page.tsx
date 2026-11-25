@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import { notFound } from "next/navigation";
-import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
 import ChapterHero from "@/components/ChapterHero";
-import CamoTiles from "@/components/CamoTiles";
 import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
 import EntityMap from "@/components/EntityMap";
 import Mandate from "@/components/Mandate";
 import Architecture from "@/components/Architecture";
-import { Counter, Reveal, Words } from "@/components/primitives";
+import StatCard from "@/components/StatCard";
+import Doors, { Arrow } from "@/components/Doors";
+import { Reveal, Words } from "@/components/primitives";
 import { chapters, site } from "@/content/site";
 import { positions, highlights, programs, programLabels, entityMaps, mandates, architectures } from "@/content/positions";
 
@@ -49,195 +49,173 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const mandate = mandates[c.slug];
   const architecture = architectures[c.slug];
 
-  const body = (
-    <>
-      {/* Header */}
-      <section className={c.hero ? "relative flex flex-col justify-end overflow-hidden md:min-h-[58svh]" : c.video ? "relative flex flex-col justify-end overflow-hidden md:min-h-[46svh]" : "grid-underlay"}>
+  const side = c.kind === "side";
+  const heading = "home-display text-4xl font-bold leading-none md:text-5xl";
+
+  return (
+    <div className="home-surface">
+      {/* Header: the live scene or the footage, the name, one line, and where it happened */}
+      <section className="relative flex flex-col justify-end overflow-hidden md:min-h-[58svh]">
         {c.hero ? (
           <ChapterHero scene={c.hero.scene} alt={c.hero.alt} />
         ) : (
-          c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} />
+          c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} poster={c.video.poster} />
         )}
-        <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-12 pt-24 md:px-8 md:pb-24 md:pt-28">
-          <Reveal y={0}>
-            <span className="rule mb-4" />
-            <p className="label mb-6">
-              <span className="mr-3 text-accent">{c.index}</span>
-              {c.period} · {c.location}
-              {c.link && (
-                <>
-                  {" · "}
-                  <a href={c.link.href} target="_blank" rel="noreferrer" className="link-draw text-fg">
-                    {c.link.label}
-                  </a>
-                </>
-              )}
-            </p>
-          </Reveal>
+        <div className={`relative mx-auto w-full max-w-[1280px] px-6 pb-10 md:px-8 md:pb-16 md:pt-32 ${c.video?.poster && !c.hero ? "pt-64" : "pt-28"}`}>
           <div className="flex items-center gap-5 md:gap-8">
             {c.logo && (
               <Reveal y={0} delay={0.05} className="shrink-0 text-fg">
                 <Logo src={c.logo.src} alt={c.logo.alt} className="h-14 w-14 md:h-24 md:w-24" />
               </Reveal>
             )}
-            <h1 className="max-w-5xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
+            <h1 className="home-display max-w-5xl text-[11vw] font-bold leading-[0.98] sm:text-6xl lg:text-[5.5rem]">
               <Words text={c.name} delay={0.1} stagger={0.08} />
             </h1>
           </div>
           <Reveal delay={0.4}>
-            <p className="mt-4 text-lg text-muted md:mt-6 md:text-2xl">
-              {c.org !== c.name ? `${c.org} · ` : ""}
-              {c.descriptor}
+            <p className="mt-4 text-lg text-[#C9D1D8] md:mt-6 md:text-2xl">{c.descriptor}</p>
+            {c.credit && <p className="mt-2 max-w-2xl text-base text-[#C9D1D8] md:text-lg">{c.credit}</p>}
+            <p className="mt-2 font-mono text-[13px] text-[#9AA6B0]">
+              {c.period} · {c.location}
+              {c.link && !side && (
+                <>
+                  {" · "}
+                  <a href={c.link.href} target="_blank" rel="noreferrer" className="text-[#C9D1D8] underline underline-offset-4 transition-colors hover:text-accent">
+                    {c.link.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </>
+              )}
             </p>
-            <p className="mt-5 max-w-2xl text-base text-fg md:mt-8 md:text-lg">{c.summary}</p>
+            {c.link && side && (
+              <div className="mt-6">
+                <a
+                  href={c.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="home-button inline-flex min-h-[52px] items-center gap-3 rounded-md px-6 font-semibold"
+                >
+                  Open {c.link.label}
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                    <path d="M7 17L17 7M9 7h8v8" />
+                  </svg>
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </div>
+            )}
           </Reveal>
         </div>
       </section>
 
-      {/* Chaos / Order */}
-      <section className="border-t border-line">
-        <div className="mx-auto grid w-full max-w-[1280px] gap-px bg-line md:grid-cols-2">
-          <Reveal className="bg-bg">
-            <div className="px-6 py-8 md:px-8 md:py-16">
-              <p className="label mb-3 md:mb-4">Chaos</p>
-              <p className="text-lg leading-snug text-muted md:text-3xl">{c.chaos}</p>
-            </div>
+      {/* The figures, on raised cards watermarked with the organisation's mark */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-10 md:px-8 md:pt-14">
+        <h2 className="sr-only">{side ? "By the numbers" : "Outcomes"}</h2>
+        <dl className={`grid grid-cols-2 gap-3 md:gap-5 ${c.stats.length >= 4 ? "lg:grid-cols-4" : "md:grid-cols-3"}`}>
+          {c.stats.map((s, k) => (
+            <StatCard key={s.label} stat={s} index={k} mark={c.logo?.src} className={c.stats.length === 3 && k === 2 ? "col-span-2 md:col-span-1" : ""} />
+          ))}
+        </dl>
+      </section>
+
+      {/* Before and after: what was there, and what was left behind */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-5 md:px-8">
+        <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-5">
+          <Reveal className="rounded-xl border border-white/[0.07] bg-black/20 px-6 py-6 md:px-8 md:py-8">
+            <h2 className="home-display text-xl font-semibold text-[#9AA6B0]">{side ? "The problem" : "Before"}</h2>
+            <p className="mt-3 text-base leading-relaxed text-[#9AA6B0] md:text-lg">{c.chaos}</p>
           </Reveal>
-          <Reveal delay={0.15} className="border-t-2 border-accent bg-panel">
-            <div className="px-6 py-8 md:px-8 md:py-16">
-              <p className="label mb-3 text-accent md:mb-4">Order</p>
-              <p className="text-lg leading-snug text-fg md:text-3xl">{c.order}</p>
-            </div>
+          <span aria-hidden="true" className="hidden items-center text-accent md:flex">
+            <Arrow className="h-7 w-7" />
+          </span>
+          <Reveal delay={0.12} className="home-raised home-door-amber home-after rounded-xl px-6 py-6 md:px-8 md:py-8">
+            <h2 className="home-display text-xl font-semibold text-accent">{side ? "What I built" : "After"}</h2>
+            <p className="mt-3 text-base leading-relaxed text-fg md:text-lg">{c.order}</p>
           </Reveal>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="grid-underlay border-t border-line">
-        {c.accent && <CamoTiles variant={c.accent} clusters={6} seed={3} />}
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-          <dl className={`grid grid-cols-2 gap-6 md:gap-10 ${c.stats.length >= 4 ? "md:grid-cols-4" : c.stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
-            {c.stats.map((s, k) => (
-              <Reveal key={s.label} delay={k * 0.08}>
-                <dd className="text-3xl font-semibold tracking-tight md:text-6xl">
-                  <Counter
-                    value={s.value}
-                    decimals={s.decimals}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                    grouped={s.grouped}
-                  />
-                </dd>
-                <dt className="mt-2 text-sm text-fg md:mt-3 md:text-base">{s.label}</dt>
-                {s.from && <p className="readout mt-1">{s.from}</p>}
-              </Reveal>
-            ))}
-          </dl>
-        </div>
+      {/* Roles: what he owned, role by role, with the longer story folded away */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+        <Reveal>
+          <h2 className={`${heading} mb-7`}>{roles && roles.length > 1 ? "Roles" : side ? "My part" : "The role"}</h2>
+        </Reveal>
+        <Reveal className="home-raised rounded-2xl px-6 py-7 md:px-10 md:py-10">
+          {roles && mandate && roles.length === 1 ? (
+            <Mandate position={roles[0]} lanes={mandate} />
+          ) : (
+            roles && <RoleSelector positions={roles} />
+          )}
+        </Reveal>
+        {story && (
+          <details className="home-details mt-4 rounded-xl border border-white/[0.07] bg-black/20">
+            <summary className="flex min-h-14 items-center justify-between gap-4 px-6 font-semibold text-fg transition-colors hover:text-accent md:px-8">
+              The story, in my words
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="home-details-chevron h-5 w-5 shrink-0 transition-[rotate] duration-200">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <div className="max-w-3xl space-y-4 px-6 pb-7 text-base leading-relaxed text-[#C9D1D8] md:px-8 md:text-lg">
+              {notes!.map((n) => (
+                <p key={n}>{n}</p>
+              ))}
+            </div>
+          </details>
+        )}
       </section>
 
       {/* Entity map: how the portfolio fits together */}
       {map && (
-        <section className="border-t border-line">
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-            <Reveal>
-              <span className="rule mb-4" />
-              <p className="label mb-3">The portfolio</p>
-              <h2 className="mb-8 max-w-2xl text-2xl font-semibold tracking-tight md:mb-12 md:text-4xl">
-                How the pieces fit together
-              </h2>
-            </Reveal>
-            <EntityMap data={map} />
-          </div>
+        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+          <Reveal>
+            <h2 className={`${heading} mb-8 md:mb-10`}>How the pieces fit together</h2>
+          </Reveal>
+          <EntityMap data={map} />
         </section>
       )}
 
-      {/* Detail */}
-      <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-20">
-          <Reveal>
-            {roles && mandate && roles.length === 1 ? (
-              <Mandate position={roles[0]} lanes={mandate} />
-            ) : roles ? (
-              <RoleSelector positions={roles} />
-            ) : (
-              <>
-                <span className="rule mb-4" />
-                <p className="label mb-10">What happened</p>
-                <ul className="bullets space-y-5 text-lg text-fg">
-                  {c.bullets.map((b, k) => (
-                    <li key={k}>{b}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </Reveal>
-          {story && (
-            <Reveal delay={0.2}>
-              <div className="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-12">
-                <p className="label md:col-span-4">The story</p>
-                <div className="max-w-2xl space-y-4 text-base leading-relaxed text-fg md:col-span-8 md:space-y-5 md:text-lg">
-                  {notes!.map((n) => (
-                    <p key={n}>{n}</p>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          )}
-        </div>
-      </section>
-
       {/* Architecture: how the AI system works, step by step */}
       {architecture && (
-        <section className="border-t border-line">
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-            <Architecture data={architecture} />
-          </div>
+        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+          <Architecture data={architecture} />
         </section>
       )}
 
       {/* Programs */}
       {progs && (
-        <section className="grid-underlay border-t border-line">
-          {c.accent && <CamoTiles variant={c.accent} clusters={4} seed={11} />}
-          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-            <Reveal>
-              <span className="rule mb-4" />
-              <p className="label mb-8 md:mb-12">{programLabels[c.slug] ?? "Programs owned"}</p>
-            </Reveal>
-            <Programs programs={progs} />
-          </div>
+        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+          <Reveal>
+            <h2 className={`${heading} mb-7`}>{programLabels[c.slug] ?? "Programs owned"}</h2>
+          </Reveal>
+          <Programs programs={progs} />
         </section>
       )}
 
-      {/* Prev / next */}
-      <section className="border-t border-line bg-panel">
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-6 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
-          <div className="flex gap-10">
-            {prev && (
-              <Link href={`/work/${prev.slug}/`} className="group">
-                <span className="label">Previous</span>
-                <span className="link-draw mt-2 block text-fg">
-                  {prev.index} {prev.name}
+      {/* Previous and next, within the same list */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pb-5 pt-16 md:px-8 md:pt-24">
+        <span aria-hidden="true" className="home-rule mb-10 md:mb-14" />
+        <nav aria-label={side ? "More built with AI" : "More chapters"} className="grid gap-3 md:grid-cols-2 md:gap-5">
+          {[prev, next].map((x, k) =>
+            x ? (
+              <Link
+                key={x.slug}
+                href={`/work/${x.slug}/`}
+                className={`home-block home-lift flex min-h-20 items-center gap-4 rounded-xl border border-transparent px-6 py-5 transition-[translate,border-color] duration-300 hover:-translate-y-1 ${
+                  k === 1 ? "justify-between md:col-start-2" : ""
+                }`}
+              >
+                {k === 0 && <Arrow className="h-5 w-5 shrink-0 rotate-180 text-accent" />}
+                <span>
+                  <span className="block text-sm text-[#9AA6B0]">{k === 0 ? "Previous" : "Next"}</span>
+                  <span className="home-display block text-2xl font-semibold">{x.name}</span>
                 </span>
+                {k === 1 && <Arrow className="h-5 w-5 shrink-0 text-accent" />}
               </Link>
-            )}
-            {next && (
-              <Link href={`/work/${next.slug}/`} className="group">
-                <span className="label">Next</span>
-                <span className="link-draw mt-2 block text-fg">
-                  {next.index} {next.name}
-                </span>
-              </Link>
-            )}
-          </div>
-          <Button href={`mailto:${site.email}`} external>
-            Get in touch
-          </Button>
-        </div>
+            ) : null,
+          )}
+        </nav>
       </section>
-    </>
-  );
 
-  return body;
+      <Doors />
+    </div>
+  );
 }

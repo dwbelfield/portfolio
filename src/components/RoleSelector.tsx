@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useReducedMotion, ease } from "@/lib/motion";
+import { useMediaQuery } from "@/lib/media";
 import type { Position } from "@/content/positions";
 
 /**
@@ -14,12 +15,16 @@ import type { Position } from "@/content/positions";
  */
 export default function RoleSelector({
   positions,
-  eyebrow = "Roles",
+  label = "Roles",
 }: {
   positions: Position[];
-  eyebrow?: string;
+  /** The accessible name of the tab list. */
+  label?: string;
 }) {
-  const [active, setActive] = useState(0);
+  // The list is a column beside the detail on wide screens and a wrapping row of pills on phones.
+  const wide = useMediaQuery("(min-width: 768px)");
+  // Open on the most recent role that has real detail, so a one-line advisory role does not lead.
+  const [active, setActive] = useState(() => Math.max(0, positions.findIndex((p) => p.bullets.length >= 3)));
   const reduced = useReducedMotion();
   const id = useId();
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -42,17 +47,14 @@ export default function RoleSelector({
 
   return (
     <div>
-      <span className="rule mb-4" />
-      <p className="label mb-10">{eyebrow}</p>
-
       <div className="grid gap-6 md:grid-cols-12 md:gap-8">
         {/* Role list */}
         <div
           role="tablist"
-          aria-orientation="vertical"
-          aria-label={eyebrow}
+          aria-orientation={wide ? "vertical" : "horizontal"}
+          aria-label={label}
           onKeyDown={onKeyDown}
-          className="-mx-6 flex gap-1 overflow-x-auto px-6 pb-2 md:mx-0 md:block md:self-start md:border-l md:border-line md:px-0 md:pb-0 md:col-span-4"
+          className="flex flex-wrap gap-2 md:block md:self-start md:border-l md:border-line md:col-span-4"
         >
           {positions.map((pos, k) => {
             const selected = k === active;
@@ -68,7 +70,7 @@ export default function RoleSelector({
                 aria-controls={`${id}-panel-${k}`}
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(k)}
-                className={`relative shrink-0 rounded-full border px-4 py-2 text-left transition-colors focus-visible:outline-none md:block md:w-full md:rounded-none md:border-0 md:py-4 md:pl-6 md:pr-4 ${
+                className={`relative min-h-11 shrink-0 rounded-full border px-4 py-2 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:block md:w-full md:rounded-none md:border-0 md:py-4 md:pl-6 md:pr-4 ${
                   selected ? "border-accent text-fg" : "border-line text-muted hover:text-fg"
                 }`}
               >
@@ -100,30 +102,22 @@ export default function RoleSelector({
                 id={`${id}-panel-${k}`}
                 aria-labelledby={`${id}-tab-${k}`}
                 aria-hidden={!on}
-                className={`md:[grid-area:1/1] ${on ? "" : "pointer-events-none invisible max-md:hidden"}`}
+                tabIndex={on ? 0 : -1}
+                className={`focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:[grid-area:1/1] ${on ? "" : "pointer-events-none invisible max-md:hidden"}`}
                 initial={false}
                 animate={fade(on)}
                 transition={{ duration: 0.28, ease: ease.out }}
               >
-                <h3 className="text-xl font-semibold tracking-tight md:text-3xl">{p.title}</h3>
+                <h3 className="home-display text-2xl font-semibold md:text-3xl">{p.title}</h3>
                 <p className="readout mt-2">
                   {p.period}
                   {p.duration ? ` · ${p.duration}` : ""} · {p.location}
                 </p>
-                <ul className="bullets mt-5 space-y-2.5 text-sm text-fg md:mt-6 md:space-y-3 md:text-lg md:leading-snug">
+                <ul className="bullets mt-5 space-y-2.5 text-sm text-[#C9D1D8] md:mt-6 md:space-y-3 md:text-base md:leading-snug">
                   {p.bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}
                 </ul>
-                {p.tags && (
-                  <ul className="mt-6 flex flex-wrap content-start items-start gap-2" aria-label="Skills">
-                    {p.tags.map((t) => (
-                      <li key={t} className="label rounded-full border border-line px-3 py-1.5 leading-none">
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </motion.div>
             );
           })}
