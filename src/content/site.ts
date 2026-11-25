@@ -371,6 +371,34 @@ export const credentials = [
   "Honorably discharged, United States Marine Corps",
 ];
 
+export type Training = {
+  name: string;
+  issuer: string;
+  kind: string;
+  date: string;
+  /** The issuer's public verification page: the proof the badge links to. */
+  href: string;
+  /** Badge artwork as issued (path under /public). */
+  image?: { src: string; alt: string; width: number; height: number };
+};
+
+/** AI courses completed, each with its public verification link. Add one only once it is earned. */
+export const training: Training[] = [
+  {
+    name: "AI Fluency for Small Businesses",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/24488c4f3592e265ca4dff551380ad14",
+    image: {
+      src: "/media/badges/claude-academy-ai-fluency-small-businesses.png",
+      alt: "Claude Academy course completion badge: AI Fluency for small businesses, presented to Derek, issued November 25, 2026",
+      width: 1100,
+      height: 750,
+    },
+  },
+];
+
 export const alongside = [
   "AI-first program manager. Jira, Asana, Monday, ClickUp, Notion, Google Workspace, and Claude, wired into operating workflows rather than used one at a time. Military maintenance and training systems: NALCOMIS and ASM.",
 ];

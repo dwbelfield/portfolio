@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { site } from "@/content/site";
+import { site, training } from "@/content/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -57,6 +57,13 @@ const jsonLd = {
         "https://mythener.com",
         "https://zenblis.com",
       ],
+      hasCredential: training.map((t) => ({
+        "@type": "EducationalOccupationalCredential",
+        name: t.name,
+        credentialCategory: t.kind,
+        url: t.href,
+        recognizedBy: { "@type": "Organization", name: t.issuer },
+      })),
       knowsAbout: [
         "AI enablement",
         "AI adoption and team training",

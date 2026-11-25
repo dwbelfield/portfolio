@@ -1,6 +1,7 @@
 import Image from "next/image";
 import RotatingTitle from "@/components/RotatingTitle";
 import ChapterList from "@/components/ChapterList";
+import CredentialCarousel from "@/components/CredentialCarousel";
 import { Button } from "@/components/Button";
 import { Reveal, Words } from "@/components/primitives";
 import Transformations from "@/components/Transformations";
@@ -72,8 +73,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI credentials: each badge links to its proof */}
+      <section className="border-t border-line bg-panel">
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-12 md:px-8 md:py-20">
+          <Reveal>
+            <CredentialCarousel />
+          </Reveal>
+        </div>
+      </section>
+
       {/* What order looks like: before-and-after pairs */}
-      <section className="grid-underlay">
+      <section className="grid-underlay border-t border-line">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-16 md:px-8 md:py-32">
           <Reveal>
             <span className="rule mb-4" />

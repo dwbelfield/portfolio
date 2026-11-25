@@ -1,4 +1,4 @@
-import { site, chapters, services, author } from "@/content/site";
+import { site, chapters, services, author, training } from "@/content/site";
 import { positions } from "@/content/positions";
 
 export const dynamic = "force-static";
@@ -35,6 +35,11 @@ export function GET() {
   lines.push("");
   lines.push("## Consulting");
   lines.push(`- [Consulting](${site.url}/consulting/): ${services.map((s) => s.title).join(", ")}.`);
+  lines.push("");
+  lines.push("## AI training");
+  for (const t of training) {
+    lines.push(`- [${t.name}](${t.href}): ${t.kind}, ${t.issuer}, ${t.date}.`);
+  }
   lines.push("");
   lines.push("## Pages");
   lines.push(`- [Home](${site.url}/)`);

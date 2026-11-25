@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Reveal, Words } from "@/components/primitives";
-import { site, chapters, principles, credentials, alongside, author } from "@/content/site";
+import { site, chapters, principles, credentials, training, alongside, author } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
@@ -59,6 +59,19 @@ export default function AboutPage() {
                 <ul className="space-y-3 text-fg">
                   {credentials.map((c) => (
                     <li key={c}>{c}</li>
+                  ))}
+                </ul>
+                <p className="label mb-4 mt-10">AI training</p>
+                <ul className="space-y-3 text-fg">
+                  {training.map((t) => (
+                    <li key={t.href}>
+                      <a href={t.href} target="_blank" rel="noreferrer" className="link-draw">
+                        {t.name}
+                      </a>
+                      <span className="mt-1 block text-sm text-muted">
+                        {t.issuer} · {t.kind} · {t.date}
+                      </span>
+                    </li>
                   ))}
                 </ul>
               </div>

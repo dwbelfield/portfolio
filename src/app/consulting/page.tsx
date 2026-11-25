@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/Button";
 import { Reveal, Words } from "@/components/primitives";
-import { site, services, engagement } from "@/content/site";
+import { site, services, engagement, training } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/consulting/" },
@@ -75,6 +75,19 @@ export default function ConsultingPage() {
           <Reveal className="md:col-span-4">
             <span className="rule mb-4" />
             <p className="label">The case study</p>
+            <p className="label mb-3 mt-10">AI training</p>
+            <ul className="space-y-3 text-fg">
+              {training.map((t) => (
+                <li key={t.href}>
+                  <a href={t.href} target="_blank" rel="noreferrer" className="link-draw">
+                    {t.name}
+                  </a>
+                  <span className="mt-1 block text-sm text-muted">
+                    {t.issuer} · {t.date}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </Reveal>
           <Reveal delay={0.1} className="md:col-span-8">
             <h2 className="max-w-2xl text-2xl font-semibold tracking-tight md:text-4xl">
