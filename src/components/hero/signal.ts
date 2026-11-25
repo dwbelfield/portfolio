@@ -19,7 +19,8 @@ type Dot = { x: number; y: number; fresh: number };
 type Community = { fx: number; fy: number; x: number; y: number; wave: number; rest: number; ping: number; near: number[] };
 type Family = { x: number; y: number; target: number; age: number; from: [number, number] };
 
-export function createSignal(): Scene {
+/** `compact` spreads the map across the whole box and drops the left-hand fade, for use inside a card. */
+export function createSignal(compact = false): Scene {
   let w = 0;
   let h = 0;
   let reach = REACH;
@@ -30,7 +31,7 @@ export function createSignal(): Scene {
 
   // Place the communities once, as fractions of the box, keeping them apart.
   while (communities.length < COMMUNITIES) {
-    const fx = 0.4 + rand() * 0.56;
+    const fx = compact ? 0.08 + rand() * 0.84 : 0.4 + rand() * 0.56;
     const fy = 0.12 + rand() * 0.76;
     if (communities.every((c) => Math.hypot((c.fx - fx) * 2.4, c.fy - fy) > 0.27)) {
       communities.push({ fx, fy, x: 0, y: 0, wave: -1, rest: rand() * 7, ping: 0, near: [] });
@@ -61,7 +62,7 @@ export function createSignal(): Scene {
   }
 
   function arrive(f: Family) {
-    f.x = w * (0.3 + rand() * 0.72);
+    f.x = compact ? w * (-0.02 + rand() * 1.04) : w * (0.3 + rand() * 0.72);
     f.y = h * (-0.05 + rand() * 1.1);
     f.from = [f.x, f.y];
     f.target = nearest(f.x, f.y);
@@ -82,7 +83,7 @@ export function createSignal(): Scene {
       const rowGap = GAP * 0.866;
       let row = 0;
       for (let y = -GAP; y < h + GAP; y += rowGap, row++) {
-        for (let x = w * 0.22 + (row % 2 ? GAP / 2 : 0); x < w + GAP; x += GAP) {
+        for (let x = (compact ? 0 : w * 0.22) + (row % 2 ? GAP / 2 : 0); x < w + GAP; x += GAP) {
           const c = communities[nearest(x, y)];
           const dist = Math.hypot(c.x - x, c.y - y);
           dots.push({ x, y, fresh: Math.max(STALE, 0.8 - 0.75 * (dist / reach)) });
@@ -142,7 +143,7 @@ export function createSignal(): Scene {
     },
 
     draw(ctx) {
-      const calm = (x: number) => smoothstep(w * 0.2, w * 0.52, x);
+      const calm = (x: number) => (compact ? 1 : smoothstep(w * 0.2, w * 0.52, x));
 
       // The field: stale dots are small and dim, fresh ones larger and bright.
       for (const d of dots) {

@@ -11,7 +11,7 @@ import { createOracle } from "./hero/oracle";
 import { createSignal } from "./hero/signal";
 
 /** The scenes a chapter can ask for by name in the content model. */
-const scenes: Record<HeroScene, () => Scene> = {
+const scenes: Record<HeroScene, (compact?: boolean) => Scene> = {
   payments: createPayments,
   floor: createFloor,
   oracle: createOracle,
@@ -27,10 +27,15 @@ const STEP = 1 / 30;
  * it is sharp at any size and reacts to the pointer. It pauses when scrolled
  * out of view or when the tab is hidden; with reduced motion it paints one
  * still frame. Like the videos it replaces, it is left out on phones.
+ *
+ * `compact` is for a scene shown inside a card: the subject is centred, it
+ * fills the whole box, it shows at every width, and there is no title to
+ * keep clear, so the legibility fades are left off.
  */
-export default function ChapterHero({ scene, alt }: { scene: HeroScene; alt: string }) {
+export default function ChapterHero({ scene, alt, compact = false }: { scene: HeroScene; alt: string; compact?: boolean }) {
   const reduced = useReducedMotion();
-  const wide = useMediaQuery("(min-width: 768px)");
+  const desktop = useMediaQuery("(min-width: 768px)");
+  const wide = compact || desktop;
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -39,7 +44,7 @@ export default function ChapterHero({ scene, alt }: { scene: HeroScene; alt: str
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const sim = scenes[scene]();
+    const sim = scenes[scene](compact);
     const pointer: Pointer = { x: 0, y: 0, active: false };
     let width = 0;
     let height = 0;
@@ -112,16 +117,20 @@ export default function ChapterHero({ scene, alt }: { scene: HeroScene; alt: str
       window.removeEventListener("pointermove", move);
       document.removeEventListener("visibilitychange", run);
     };
-  }, [scene, reduced, wide]);
+  }, [scene, reduced, wide, compact]);
 
   if (!wide) return null;
 
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
       <canvas ref={ref} title={alt} className="h-full w-full" />
-      {/* Legibility: quiet behind the title on the left, and a fade into the page below. */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--bg)_0%,rgba(20,21,22,0.72)_30%,transparent_58%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_62%,var(--bg)_100%)]" />
+      {!compact && (
+        <>
+          {/* Legibility: quiet behind the title on the left, and a fade into the page below. */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--bg)_0%,rgba(20,21,22,0.72)_30%,transparent_58%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_62%,var(--bg)_100%)]" />
+        </>
+      )}
     </div>
   );
 }

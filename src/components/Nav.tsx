@@ -13,7 +13,7 @@ const links = [
 export default function Nav() {
   const path = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 bg-[rgba(17,19,21,0.72)] backdrop-blur-md">
       <nav className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-6 md:px-8">
         <Link href="/" className="label link-draw text-fg">
           {site.name}

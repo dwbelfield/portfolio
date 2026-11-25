@@ -16,7 +16,8 @@ const BAND = 0.055; // half-width of the reading ring, in sphere units
 type Fact = { x: number; y: number; z: number; glow: number; flag: number; inBand: boolean };
 type Vec = [number, number, number];
 
-export function createOracle(): Scene {
+/** `compact` centres the sphere and drops the left-hand fade, for use inside a card. */
+export function createOracle(compact = false): Scene {
   let w = 0;
   let h = 0;
   let cx = 0;
@@ -73,8 +74,8 @@ export function createOracle(): Scene {
     resize(width, height) {
       w = width;
       h = height;
-      radius = Math.min(h * 0.4, w * 0.19);
-      cx = w * 0.71;
+      radius = compact ? Math.min(h * 0.36, w * 0.3) : Math.min(h * 0.4, w * 0.19);
+      cx = compact ? w * 0.5 : w * 0.71;
       cy = h * 0.5;
     },
 
@@ -102,7 +103,7 @@ export function createOracle(): Scene {
 
     draw(ctx) {
       const angle = spin + lean;
-      const calm = (x: number) => smoothstep(w * 0.14, w * 0.48, x);
+      const calm = (x: number) => (compact ? 1 : smoothstep(w * 0.14, w * 0.48, x));
       const at = facts.map((f) => project(f.x, f.y, f.z, angle));
 
       // Two orbits, drawn first so the sphere sits in front of their far sides.
