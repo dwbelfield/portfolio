@@ -4,6 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import CredentialCarousel from "@/components/CredentialCarousel";
 import { Reveal } from "@/components/primitives";
 import { site, author } from "@/content/site";
+import { programs } from "@/content/positions";
 
 // A variable font: one file covers every weight the page uses.
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
@@ -14,6 +15,13 @@ const results = [
   { label: "Time to replenish", org: "Marine Corps", before: "36 months", after: "3 months", beforeWidth: 100, afterWidth: 8.3 },
   { label: "Same-day ticket resolution", org: "RallyPay", before: "3.4%", after: "44%", beforeWidth: 3.4, afterWidth: 44 },
   { label: "Card-testing attacks", org: "RallyPay", before: "Before", after: "−99%", beforeWidth: 100, afterWidth: 1.5 },
+];
+
+/** The three employers: `span` is each one's share of the fourteen years, for the bar above the cards. */
+const career = [
+  { slug: "marine-corps", name: "Marine Corps", years: "2012 – 2020", roles: "Production Manager → Senior Operations Manager", color: "#8E9AA4", span: 8 },
+  { slug: "rallypay", name: "RallyPay", years: "2020 – 2026", roles: "Director of Operations → COO → Consultant", color: "#CF7954", span: 5.8 },
+  { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", color: "#91C8D9", span: 0.7 },
 ];
 
 /** Where to find him elsewhere. Icons are drawn inline; each link is named for screen readers. */
@@ -159,47 +167,52 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Career as one timeline: fourteen years inside teams */}
+      {/* Career: one proportional bar for the fourteen years, then the programs owned at each employer */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-6 pt-16 md:px-8 md:pt-20">
         <Reveal>
-          <h2 className="home-display text-4xl font-bold leading-none md:text-5xl">Fourteen years inside teams</h2>
+          <h2 className="home-display text-4xl font-bold leading-none md:text-5xl">14 years inside highly regulated industries</h2>
         </Reveal>
         <Reveal delay={0.1} className="mt-7 flex flex-col gap-2.5">
-          <div className="hidden justify-between font-mono text-xs text-[#9AA6B0] md:flex" aria-hidden="true">
-            {["2012", "2014", "2016", "2018", "2020", "2022", "2024", "2026"].map((y) => (
-              <span key={y}>{y}</span>
+          <div className="flex justify-between font-mono text-xs text-[#9AA6B0]" aria-hidden="true">
+            {["2012", "2014", "2016", "2018", "2020", "2022", "2024", "2026"].map((y, i) => (
+              <span key={y} className={i > 0 && i < 7 ? "hidden md:inline" : undefined}>
+                {y}
+              </span>
             ))}
           </div>
-          <div className="flex flex-col gap-1 md:flex-row">
-            <Link href="/work/marine-corps/" className="home-block flex flex-col gap-1.5 border-t-[3px] border-[#8E9AA4] px-5 py-[18px] md:flex-[8_1_0%]">
-              <span className="home-display text-[22px] font-semibold">Marine Corps</span>
-              <span className="text-sm text-[#9AA6B0]">Production Manager → Senior Operations Manager</span>
-              <span className="font-mono text-[13px] text-accent">Led 60 people · parts ready 15.1% → 98.3%</span>
-            </Link>
-            <Link href="/work/rallypay/" className="home-block flex flex-col gap-1.5 border-t-[3px] border-[#CF7954] px-5 py-[18px] md:flex-[5.8_1_0%]">
-              <span className="home-display text-[22px] font-semibold">RallyPay</span>
-              <span className="text-sm text-[#9AA6B0]">Director of Operations → COO → Consultant</span>
-              <span className="font-mono text-[13px] text-accent">Ran two engineering teams · 99% fewer card-testing attacks</span>
-            </Link>
-            <Link
-              href="/work/pmb-companies/"
-              aria-label="PMB Companies, Chief of Staff, April to October 2026"
-              className="home-block flex flex-col gap-1.5 border-t-[3px] border-[#91C8D9] px-5 py-[18px] md:min-w-11 md:flex-[0.7_1_0%] md:p-0"
-            >
-              <span className="home-display text-[22px] font-semibold md:hidden">PMB Companies</span>
-              <span className="text-sm text-[#9AA6B0] md:hidden">Chief of Staff · Apr–Oct 2026</span>
-              <span className="font-mono text-[13px] text-accent md:hidden">6 production divisions from an empty floor</span>
-            </Link>
-          </div>
-          <div className="flex flex-wrap justify-end gap-x-7 gap-y-1 text-sm text-[#9AA6B0]">
-            <span className="hidden md:inline">
-              <span className="text-[#91C8D9]">▍</span> PMB Companies · Chief of Staff · Apr–Oct 2026 · 6 production divisions
-            </span>
-            <span>
-              <span className="text-accent">▍</span> 2026: co-founded Mythener and Zenblis
-            </span>
+          <div className="flex h-1.5 gap-1" aria-hidden="true">
+            {career.map((c) => (
+              <span key={c.slug} className="min-w-2 rounded-full" style={{ flex: `${c.span} 1 0%`, background: c.color }} />
+            ))}
           </div>
         </Reveal>
+        <ul className="mt-5 grid gap-4 md:grid-cols-3">
+          {career.map((c, i) => (
+            <li key={c.slug}>
+              <Reveal delay={0.1 + i * 0.06} className="h-full">
+                <Link
+                  href={`/work/${c.slug}/`}
+                  className="home-block flex h-full flex-col gap-1.5 rounded-xl border-t-[3px] px-6 py-6"
+                  style={{ borderTopColor: c.color }}
+                >
+                  <span className="flex flex-wrap items-baseline justify-between gap-x-4">
+                    <span className="home-display text-2xl font-semibold">{c.name}</span>
+                    <span className="font-mono text-xs text-[#9AA6B0]">{c.years}</span>
+                  </span>
+                  <span className="text-sm text-[#9AA6B0]">{c.roles}</span>
+                  <ul className="mt-3 flex flex-col gap-2">
+                    {(programs[c.slug] ?? []).map((program) => (
+                      <li key={program.name} className="flex items-center gap-3 text-[15px]">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-[1px]" style={{ background: c.color }} aria-hidden="true" />
+                        {program.name}
+                      </li>
+                    ))}
+                  </ul>
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* The two products, shown as how he delivers now */}
