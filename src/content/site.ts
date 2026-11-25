@@ -391,7 +391,7 @@ export const training: Training[] = [
     date: "November 2026",
     href: "https://academy.claude.com/verify/24488c4f3592e265ca4dff551380ad14",
     image: {
-      src: "/media/badges/claude-academy-ai-fluency-small-businesses.png",
+      src: "/media/badges/claude-academy-ai-fluency-small-businesses-badge.png",
       alt: "Claude Academy course completion badge: AI Fluency for small businesses, presented to Derek, issued November 25, 2026",
       width: 640,
       height: 643,
@@ -406,6 +406,19 @@ export const training: Training[] = [
     image: {
       src: "/media/badges/claude-academy-ai-fluency-nonprofits.png",
       alt: "Claude Academy course completion badge: AI Fluency for nonprofits, presented to Derek, issued November 25, 2026",
+      width: 640,
+      height: 643,
+    },
+  },
+  {
+    name: "AI Capabilities and Limitations",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/0d522715dcf288a4f72a339a26ac9df4",
+    image: {
+      src: "/media/badges/claude-academy-ai-capabilities-and-limitations.png",
+      alt: "Claude Academy course completion badge: AI capabilities and limitations, presented to Derek, issued November 25, 2026",
       width: 640,
       height: 643,
     },
