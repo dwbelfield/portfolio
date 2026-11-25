@@ -307,11 +307,6 @@ html.lenis body {
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 26px 50px -26px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
-.home-panel {
-  background: linear-gradient(180deg, rgba(42, 51, 59, 0.94), rgba(23, 27, 31, 0.94));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 36px 80px -28px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
 .home-block {
   background: linear-gradient(180deg, #2b343c, #1a2025);
   box-shadow: 0 24px 46px -24px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.07);

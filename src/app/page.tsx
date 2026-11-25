@@ -66,8 +66,8 @@ export default function Home() {
     <div className={`home-surface ${display.variable}`}>
       {/* Hero: portrait, one headline, one line, two buttons */}
       <section className="overflow-hidden">
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col px-6 pt-24 md:flex-row md:items-end md:gap-10 md:px-8 md:pt-32">
-          <div className="flex flex-col gap-6 md:flex-1 md:pb-32">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col px-6 pt-24 md:flex-row md:items-center md:gap-10 md:px-8 md:pb-14 md:pt-28">
+          <div className="flex flex-col gap-6 md:flex-1">
             <h1 className="home-display text-[13vw] font-bold leading-[0.98] sm:text-7xl lg:text-[5.5rem]">
               Programs that ship. <span className="text-accent">AI built in</span>.
             </h1>
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
 
           {/* The portrait stands off the page: a shadow below it and a thin rim of light, nothing over it. */}
-          <div className="relative mx-auto mt-6 aspect-[48/52] w-[84%] max-w-[480px] md:mx-0 md:mt-0 md:w-[42%]">
+          <div className="relative mx-auto mb-4 mt-6 aspect-[48/52] w-[84%] max-w-[480px] md:mx-0 md:my-0 md:w-[42%]">
             <div className="absolute -inset-x-[8%] -top-[4%] bottom-[30%] bg-[radial-gradient(closest-side,rgba(245,246,247,0.07),transparent_72%)] blur-xl" />
             <Image
               src="/media/derek.png"
@@ -122,9 +122,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credentials: a raised panel that overlaps the bottom edge of the hero */}
-      <section className="relative z-10 -mt-12 px-4 md:-mt-14 md:px-8">
-        <div className="home-panel mx-auto w-full max-w-[1216px] rounded-2xl px-3 py-5 md:px-8 md:py-7">
+      {/* Credentials: a flat strip, set off from the hero and the results by a rule above and below */}
+      <section className="border-y border-[#2A3239]">
+        <div className="mx-auto w-full max-w-[1280px] px-2 py-6 md:px-8 md:py-8">
           <CredentialCarousel />
         </div>
       </section>
