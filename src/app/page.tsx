@@ -268,7 +268,7 @@ export default function Home() {
             <h2 className="home-display text-5xl font-bold leading-none md:text-[56px]">
               Hiring<span className="text-accent">?</span>
             </h2>
-            <p className="text-[19px] text-[#C9D1D8]">AI enablement or technical program roles.</p>
+            <p className="text-[19px] text-[#C9D1D8]">Looking for program management or AI-related roles.</p>
             <div className="mt-1 flex flex-wrap gap-3">
               <a href={`mailto:${site.email}`} className="home-button inline-flex min-h-12 items-center rounded-md px-5 font-semibold">
                 Email
