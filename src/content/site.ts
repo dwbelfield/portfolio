@@ -73,7 +73,7 @@ export const chapters: Chapter[] = [
     descriptor: "Aviation logistics, maintenance & operations",
     period: "2012 – 2020",
     location: "Okinawa, Japan · Craven County, NC",
-    video: { src: "/media/usmc.mp4", alt: "Marine aviation maintenance footage" },
+    video: { src: "/media/usmc-v22-1440.mp4", alt: "Wireframe MV-22B Osprey of VMM-265 in a hover, rotors turning" },
     accent: "marpat",
     roles: [
       "Senior Operations Manager",
