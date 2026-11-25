@@ -1,14 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Space_Grotesk } from "next/font/google";
 import CredentialCarousel from "@/components/CredentialCarousel";
+import RotatingTitle from "@/components/RotatingTitle";
 import OutcomeCard, { type Outcome } from "@/components/OutcomeCard";
 import { Reveal } from "@/components/primitives";
 import { site, author } from "@/content/site";
 import { programs } from "@/content/positions";
 
-// A variable font: one file covers every weight the page uses.
-const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
+/** The titles that rotate under the portrait: the roles he is after first, then the ones he has held. */
+const titles = [
+  "Technical Program Manager",
+  "AI Enablement",
+  "Chief Operating Officer",
+  "Chief of Staff",
+  "Co-founder, Mythener",
+  "Co-founder, Zenblis",
+  "Best-selling author",
+];
 
 /** Employer marks used as card watermarks: white on transparent, drawn as CSS masks. */
 const marks = {
@@ -104,7 +112,7 @@ const outline =
 
 export default function Home() {
   return (
-    <div className={`home-surface ${display.variable}`}>
+    <div className="home-surface">
       {/* Hero: portrait, one headline, one line, two buttons */}
       <section className="overflow-hidden">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col px-6 pt-24 md:flex-row md:items-center md:gap-10 md:px-8 md:pb-14 md:pt-28">
@@ -159,6 +167,13 @@ export default function Home() {
                   "drop-shadow(0 34px 44px rgba(0,0,0,0.78)) drop-shadow(-5px 0 10px rgba(227,160,8,0.3)) drop-shadow(5px 0 10px rgba(145,200,217,0.22))",
               }}
             />
+            {/* His name and a rotating title, over the fade at the foot of the portrait. */}
+            <div className="absolute inset-x-0 bottom-0 flex justify-center md:justify-end">
+              <div className="text-center md:text-right">
+                <p className="text-lg font-semibold text-fg">{site.name}</p>
+                <RotatingTitle titles={titles} className="text-accent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
