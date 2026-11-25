@@ -36,6 +36,28 @@ const career = [
   { slug: "pmb-companies", name: "PMB Companies", years: "Apr – Oct 2026", roles: "Chief of Staff", color: "#91C8D9", span: 0.7 },
 ];
 
+/** The two 2026 products: each card opens the live platform, and links to its chapter as a case study. */
+const products = [
+  {
+    name: "Mythener",
+    site: "https://mythener.com",
+    siteLabel: "mythener.com",
+    caseStudy: "/work/mythener/",
+    image: "/media/screens/mythener-dashboard.jpg",
+    alt: "The Mythener author dashboard: the current book, writing stats, a words-written chart, and Delphi Engine recommendations waiting",
+    blurb: "A publishing platform AI agents built from my spec. 705 pull requests, 1,754 tests.",
+  },
+  {
+    name: "Zenblis",
+    site: "https://zenblis.com",
+    siteLabel: "zenblis.com",
+    caseStudy: "/work/zenblis/",
+    image: "/media/screens/zenblis-home.jpg",
+    alt: "The Zenblis home page: a search for senior living over a map of rated communities",
+    blurb: "Built with a co-founder: he writes the software, I run go-to-market with an agent team.",
+  },
+];
+
 /** Where to find him elsewhere. Icons are drawn inline; each link is named for screen readers. */
 const profiles = [
   {
@@ -212,53 +234,49 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* The two products, shown as how he delivers now */}
+      {/* The two products, shown as how he delivers now. The screenshot and the address open the live platform; "Case study" opens the chapter. */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-20 pt-14 md:px-8">
         <Reveal>
           <h2 className="home-display text-4xl font-bold leading-none md:text-5xl">Now delivered with AI agents</h2>
         </Reveal>
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
-          <Reveal>
-            <Link href="/work/mythener/" className="home-raised group flex h-full flex-col overflow-hidden rounded-[14px]">
-              <div className="relative mx-4 mt-4 h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]">
-                <Image
-                  src="/media/screens/mythener-dashboard.jpg"
-                  alt="The Mythener author dashboard: the current book, writing stats, a words-written chart, and Delphi Engine recommendations waiting"
-                  fill
-                  sizes="(min-width: 768px) 600px, 92vw"
-                  className="object-cover object-left-top"
-                />
-              </div>
-              <div className="flex flex-col gap-2 px-6 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                  <span className="home-display text-[28px] font-semibold">Mythener</span>
-                  <Arrow className="h-[22px] w-[22px] text-accent transition-transform group-hover:translate-x-1" />
+        <ul className="mt-8 grid gap-5 md:grid-cols-2">
+          {products.map((product, i) => (
+            <li key={product.name} className="flex">
+              <Reveal delay={i * 0.08} className="home-raised home-lift flex w-full flex-col overflow-hidden rounded-[14px] transition-[translate,border-color] duration-300 hover:-translate-y-1">
+                <a
+                  href={product.site}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${product.siteLabel} (opens in a new tab)`}
+                  className="relative mx-4 mt-4 block h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]"
+                >
+                  <Image src={product.image} alt={product.alt} fill sizes="(min-width: 768px) 600px, 92vw" className="object-cover object-left-top" />
+                </a>
+                <div className="flex flex-1 flex-col gap-2 px-6 pb-5 pt-5">
+                  <div className="flex flex-wrap items-center justify-between gap-x-4">
+                    <span className="home-display text-[28px] font-semibold">{product.name}</span>
+                    <a
+                      href={product.site}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-11 items-center gap-1.5 font-mono text-[13px] text-accent underline-offset-4 hover:underline"
+                    >
+                      {product.siteLabel}
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
+                        <path d="M7 17L17 7M9 7h8v8" />
+                      </svg>
+                      <span className="sr-only">(opens in a new tab)</span>
+                    </a>
+                  </div>
+                  <span className="text-[#9AA6B0]">{product.blurb}</span>
+                  <Link href={product.caseStudy} className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 pt-2 font-semibold text-fg transition-colors hover:text-accent">
+                    Case study <Arrow />
+                  </Link>
                 </div>
-                <span className="text-[#9AA6B0]">A publishing platform AI agents built from my spec. 705 pull requests, 1,754 tests.</span>
-              </div>
-            </Link>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <Link href="/work/zenblis/" className="home-raised group flex h-full flex-col overflow-hidden rounded-[14px]">
-              <div className="relative mx-4 mt-4 h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]">
-                <Image
-                  src="/media/screens/zenblis-home.jpg"
-                  alt="The Zenblis home page: a search for senior living over a map of rated communities"
-                  fill
-                  sizes="(min-width: 768px) 600px, 92vw"
-                  className="object-cover object-left-top"
-                />
-              </div>
-              <div className="flex flex-col gap-2 px-6 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                  <span className="home-display text-[28px] font-semibold">Zenblis</span>
-                  <Arrow className="h-[22px] w-[22px] text-accent transition-transform group-hover:translate-x-1" />
-                </div>
-                <span className="text-[#9AA6B0]">Built with a co-founder: he writes the software, I run go-to-market with an agent team.</span>
-              </div>
-            </Link>
-          </Reveal>
-        </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Two doors: one per audience */}
