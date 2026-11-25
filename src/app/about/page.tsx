@@ -1,223 +1,159 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/Button";
-import { Reveal, Words } from "@/components/primitives";
-import { site, chapters, principles, credentials, training, alongside, author } from "@/content/site";
+import CredentialCarousel from "@/components/CredentialCarousel";
+import StatCard from "@/components/StatCard";
+import Doors, { Arrow } from "@/components/Doors";
+import { Reveal } from "@/components/primitives";
+import { site, chapters, career, facts, principles, credentials, tools, author } from "@/content/site";
+
+const description =
+  "Derek Belfield: fourteen years of programs in Marine aviation, payments, and manufacturing. No failed audits. Now delivering with AI agents.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
   title: "About",
-  description: site.intro,
+  description,
+  openGraph: { title: `About · ${site.name}`, description, url: `${site.url}/about/` },
 };
 
+const heading = "home-display text-4xl font-bold leading-none md:text-5xl";
+
 export default function AboutPage() {
-  const timeline = [...chapters].reverse();
+  // Employers first, newest to oldest, then the two products: the fourteen years inside teams lead.
+  const employers = chapters.filter((c) => c.kind !== "side").reverse();
+  const timeline = [...employers, ...chapters.filter((c) => c.kind === "side")];
   return (
-    <>
-      <section className="grid-underlay">
-        <div className="mx-auto w-full max-w-[1280px] px-6 pb-14 pt-24 md:px-8 md:pb-28 md:pt-40">
-          <Reveal y={0}>
-            <span className="rule mb-4" />
-            <p className="label mb-6">About</p>
-          </Reveal>
-          <h1 className="max-w-5xl text-4xl font-semibold leading-[1] tracking-tight md:text-8xl">
-            <Words text="The person who watches the date." delay={0.1} stagger={0.07} />
-          </h1>
-          <Reveal delay={0.5}>
-            <div className="mt-10 grid gap-10 md:grid-cols-12">
-              <div className="space-y-4 text-base text-fg md:col-span-7 md:space-y-5 md:text-lg">
-                <p>
-                  I am a program manager with a decade of ownership over safety-critical
-                  technical programs: aviation life support systems, CBRN protective equipment,
-                  ammunition and explosives certification, and aviation maintenance production
-                  control. Two of the systems I built outlived my tenure and were adopted across
-                  the Navy and Marine Corps.
-                </p>
-                <p>
-                  Since then I have run operations at a payments company through a period of
-                  rapid scale, and served as Chief of Staff to the owner of a 16-brand consumer
-                  products group with two manufacturing facilities. The job in every case was
-                  the same: find the constraint holding the schedule and remove it.
-                </p>
-                <p>
-                  I have never failed an audit or a regulatory examination, in aviation safety
-                  or in payments. I am equally at home on a production floor and in a software
-                  engineering standup, and the operating systems I build now are AI-first: the
-                  tracking, the documentation, and the first pass on analysis run on AI-assisted
-                  workflows, with people accountable for every decision.
-                </p>
-                <p>
-                  In 2026 I co-founded two companies that work that way. Mythener, a publishing
-                  platform, was built by AI coding agents from a specification I wrote: 705 pull
-                  requests and 1,754 automated tests. That is the work I do for other teams now.
-                  AI enablement, with the program discipline that keeps it running after the
-                  novelty wears off.
-                </p>
-              </div>
-              <div className="md:col-span-4 md:col-start-9">
-                <p className="label mb-4">Credentials</p>
-                <ul className="space-y-3 text-fg">
-                  {credentials.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-                <p className="label mb-4 mt-10">AI training</p>
-                <ul className="space-y-3 text-fg">
-                  {training.map((t) => (
-                    <li key={t.href}>
-                      <a href={t.href} target="_blank" rel="noreferrer" className="link-draw">
-                        {t.name}
-                      </a>
-                      <span className="mt-1 block text-sm text-muted">
-                        {t.issuer} · {t.kind} · {t.date}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
+    <div className="home-surface">
+      {/* One headline, one line, then the career in six figures */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-28 md:px-8 md:pt-36">
+        <h1 className="home-display max-w-5xl text-[13vw] font-bold leading-[0.98] sm:text-7xl lg:text-[5.5rem]">
+          The person who <span className="text-accent">watches the date</span>.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg text-[#C9D1D8] md:text-[22px]">
+          I find the constraint holding the schedule, remove it, and leave a team that can run the tooling without me.
+        </p>
+        <dl className="mt-10 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3">
+          {facts.map((f, i) => (
+            <StatCard key={f.label} stat={f} index={i} />
+          ))}
+        </dl>
+      </section>
+
+      {/* Credentials: the four on paper, then the course badges between two fading rules */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+        <Reveal>
+          <h2 className={heading}>Credentials</h2>
+        </Reveal>
+        <ul className="mt-7 grid gap-3 sm:grid-cols-2 md:gap-5 lg:grid-cols-4">
+          {credentials.map((c, i) => (
+            <li key={c} className="flex">
+              <Reveal delay={i * 0.06} className="home-block home-accent-edge w-full rounded-xl px-5 py-5 text-[15px] font-semibold leading-snug md:text-base">
+                {c}
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+        <div className="relative mx-auto mt-8 w-full max-w-[1216px] py-6 md:py-8">
+          <span aria-hidden="true" className="home-rule absolute inset-x-0 top-0" />
+          <CredentialCarousel level="h3" />
+          <span aria-hidden="true" className="home-rule absolute inset-x-0 bottom-0" />
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-          <Reveal>
-            <p className="label mb-8 md:mb-10">Experience</p>
-          </Reveal>
-          <ol className="border-t border-line">
-            {timeline.map((c, i) => (
-              <li key={c.slug} className="border-b border-line">
-                <Reveal delay={i * 0.05}>
-                  <div className="grid gap-3 py-6 md:grid-cols-12 md:gap-8 md:py-8">
-                    <div className="md:col-span-3">
-                      <span className="readout">{c.period}</span>
-                      <p className="readout">{c.location}</p>
-                    </div>
-                    <div className="md:col-span-5">
-                      <h3 className="text-xl font-semibold tracking-tight">
-                        {c.org !== c.name ? `${c.name} · ${c.org}` : c.name}
-                      </h3>
-                      <p className="text-muted">{c.descriptor}</p>
-                      <ul className="mt-3 space-y-0.5 text-fg">
-                        {c.roles.map((r) => (
-                          <li key={r}>{r}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="md:col-span-4">
-                      <p className="text-muted">{c.summary}</p>
-                      <Link href={`/work/${c.slug}/`} className="link-draw mt-4 inline-block text-sm text-fg">
-                        Read the chapter
-                      </Link>
-                    </div>
-                  </div>
-                </Reveal>
+      {/* Experience: the three employers, then the two products, each a link */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+        <Reveal>
+          <h2 className={heading}>Experience</h2>
+        </Reveal>
+        <ol className="mt-7 grid gap-3">
+          {timeline.map((c, i) => (
+            <li key={c.slug}>
+              <Reveal delay={i * 0.05}>
+                <Link
+                  href={`/work/${c.slug}/`}
+                  className="home-raised home-lift group grid items-center gap-x-6 gap-y-1 rounded-xl px-6 py-5 transition-[translate,border-color] duration-300 hover:-translate-y-1 md:grid-cols-[150px_minmax(0,1fr)_minmax(0,1.4fr)_auto]"
+                >
+                  <span className="font-mono text-xs text-[#9AA6B0]">{c.period}</span>
+                  <span className="home-display text-2xl font-semibold leading-tight">{c.name}</span>
+                  {/* The employers show the progression, oldest role to newest, as on the home page. */}
+                  <span className="text-sm text-[#C9D1D8]">{career.find((e) => e.slug === c.slug)?.roles ?? c.roles.join(" · ")}</span>
+                  <Arrow className="hidden h-5 w-5 text-accent transition-transform group-hover:translate-x-1 md:block" />
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* How I operate: five principles and the method, then the tools */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 md:px-8 md:pt-24">
+        <Reveal>
+          <h2 className={heading}>How I operate</h2>
+        </Reveal>
+        <ul className="mt-7 grid gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+          {principles.map((p, i) => (
+            <li key={p.title} className="flex">
+              <Reveal delay={i * 0.05} className="home-raised w-full rounded-xl px-6 py-6">
+                <h3 className="home-display text-2xl font-semibold">{p.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#C9D1D8]">{p.body}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+        <h3 className="sr-only">Tools</h3>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {tools.map((t) => (
+            <li key={t} className="rounded-full border border-white/10 bg-black/20 px-3.5 py-1.5 font-mono text-[13px] text-[#C9D1D8]">
+              {t}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* The books */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pb-20 pt-16 md:px-8 md:pt-24">
+        <Reveal className="home-raised home-door-icy grid gap-8 rounded-2xl px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-5">
+            <h2 className={heading}>{author.series}</h2>
+            <p className="mt-2 font-mono text-[13px] text-[#91C8D9]">
+              {author.penName} · {author.claim}
+            </p>
+            <p className="mt-5 text-base text-[#C9D1D8]">{author.intro}</p>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-1">
+              {author.links.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-semibold text-fg underline-offset-4 transition-colors hover:text-[#91C8D9] hover:underline">
+                    {l.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <ol className="grid grid-cols-2 gap-3 self-start sm:grid-cols-3 lg:col-span-7">
+            {author.books.map((b) => (
+              <li key={b.title} className="relative flex flex-col rounded-xl border border-white/[0.07] bg-black/25 p-4 transition-colors hover:border-white/20 md:p-5">
+                <span className="font-mono text-xs text-[#9AA6B0]">{b.number}</span>
+                <span className="home-display mt-1 text-2xl font-semibold">
+                  {b.href ? (
+                    // The whole tile opens the book's store page.
+                    <a href={b.href} target="_blank" rel="noreferrer" className="underline decoration-white/25 underline-offset-4 after:absolute after:inset-0 after:content-[''] hover:decoration-[#91C8D9]">
+                      {b.title}
+                      <span className="sr-only"> on Amazon (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    b.title
+                  )}
+                </span>
+                <span className="mt-2 text-[13px] text-[#C9D1D8]">{b.status}</span>
+                {b.blurb && <span className="mt-1 text-xs text-accent">{b.blurb}</span>}
               </li>
             ))}
           </ol>
-        </div>
+        </Reveal>
       </section>
 
-      {/* How I operate */}
-      <section className="grid-underlay border-t border-line">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-          <Reveal>
-            <p className="label mb-8 md:mb-10">How I operate</p>
-          </Reveal>
-          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-            {principles.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.06}>
-                <h3 className="text-2xl font-semibold tracking-tight">{p.title}</h3>
-                <p className="mt-3 max-w-lg text-muted">{p.body}</p>
-              </Reveal>
-            ))}
-            <Reveal delay={0.3}>
-              <h3 className="text-2xl font-semibold tracking-tight">Method</h3>
-              <p className="mt-3 max-w-lg text-muted">
-                Lean Six Sigma Green Belt. Agile delivery. AI-first operating workflows.
-                Process design, trend analysis, repair-versus-replace, vendor negotiation,
-                compliance program build, safety program build.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* The author journey */}
-      <section className="grid-underlay border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
-          <Reveal>
-            <span className="rule mb-4" />
-            <p className="label mb-3">The author journey</p>
-            <h2 className="max-w-2xl text-2xl font-semibold tracking-tight md:text-4xl">
-              {author.series}, written as {author.penName}
-            </h2>
-          </Reveal>
-          <div className="mt-8 grid gap-10 md:mt-10 md:grid-cols-12">
-            <Reveal className="md:col-span-5">
-              <p className="text-base text-fg md:text-lg">{author.intro}</p>
-              <p className="mt-4 text-sm text-muted md:text-base">{author.seriesBlurb}</p>
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                {author.links.map((l) => (
-                  <li key={l.href}>
-                    <a href={l.href} target="_blank" rel="noreferrer" className="link-draw text-sm text-fg">
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <div className="md:col-span-7">
-              <ol className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
-                {author.books.map((b, i) => (
-                  <Reveal key={b.title} delay={i * 0.05} className="bg-bg">
-                    <li className="flex h-full flex-col p-4 md:p-5">
-                      <span className="label">{b.number}</span>
-                      <span className="mt-2 text-xl font-semibold tracking-tight md:text-2xl">
-                        {b.href ? (
-                          <a href={b.href} target="_blank" rel="noreferrer" className="link-draw">
-                            {b.title}
-                          </a>
-                        ) : (
-                          b.title
-                        )}
-                      </span>
-                      <span className="rule my-3" />
-                      <span className="readout">{b.status}</span>
-                      {b.blurb && <span className="mt-1 text-xs text-accent">{b.blurb}</span>}
-                    </li>
-                  </Reveal>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Alongside */}
-      <section className="border-t border-line">
-        <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-6 py-20 md:grid-cols-12 md:px-8 md:py-28">
-          <div className="md:col-span-4">
-            <Reveal>
-              <p className="label">Alongside</p>
-            </Reveal>
-          </div>
-          <div className="space-y-4 text-lg text-fg md:col-span-8">
-            {alongside.map((a, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <p>{a}</p>
-              </Reveal>
-            ))}
-            <Reveal delay={0.2}>
-              <div className="pt-6">
-                <Button href="/consulting/">Work with me</Button>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-    </>
+      <Doors />
+    </div>
   );
 }

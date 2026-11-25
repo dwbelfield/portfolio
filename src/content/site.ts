@@ -302,6 +302,16 @@ export const transformations: Transformation[] = [
 ];
 
 
+/** The career in six figures, for the top of the About page. Each is stated in full on a chapter page. */
+export const facts: Stat[] = [
+  { value: 14, label: "Years inside highly regulated industries", from: "aviation, payments, manufacturing" },
+  { value: 0, label: "Failed audits or examinations", from: "aviation safety and payments" },
+  { value: 60, label: "Largest team led", from: "five divisions, $1.4M in assets" },
+  { value: 295, label: "Lean Six Sigma students trained", from: "across 13 courses" },
+  { value: 2, label: "Systems adopted across the Navy and Marine Corps", from: "both outlived my tenure" },
+  { value: 705, label: "Pull requests shipped by AI agents", from: "from a specification I wrote" },
+];
+
 export const principles = [
   {
     title: "Follow-through",
@@ -322,6 +332,10 @@ export const principles = [
   {
     title: "AI-first",
     body: "Every system I build now assumes AI in the loop: intake, tracking, documentation, and the first pass on analysis. People make the decisions. The tooling keeps the date.",
+  },
+  {
+    title: "Method",
+    body: "Lean Six Sigma Green Belt. Agile delivery. AI-first operating workflows. Process design, trend analysis, repair-versus-replace, vendor negotiation, compliance program build, safety program build.",
   },
 ];
 
@@ -388,7 +402,7 @@ export const author = {
     "A twelve-book dark LitRPG saga. A murdered politician is revived by an exiled goddess and must turn refugees into a predatory army.",
   claim: "#1 Amazon Best Seller, Military Fiction",
   intro:
-    "I write under the name D. W. Belfield. The Scourge Wars is a twelve-book saga; three of its books have hit the Amazon bestseller list, the fourth came out in November, and the fifth follows in December. The series is where the long-form muscle comes from, and where Mythener came from too: I built the tool I needed to keep a world of this size consistent.",
+    "I write under the name D. W. Belfield. The Scourge Wars is a twelve-book saga; three of its books have hit the Amazon bestseller list, and books four and five arrive in late 2026. The series is where the long-form muscle comes from, and where Mythener came from too: I built the tool I needed to keep a world of this size consistent.",
   links: [
     { label: "Author site", href: "https://dwbelfield.com" },
     { label: "Amazon author page", href: "https://www.amazon.com/stores/Derek-Belfield/author/B07YVNVGZK" },
@@ -397,10 +411,10 @@ export const author = {
   ],
   books: [
     { title: "Evolve", number: "Book I", status: "Available", blurb: "#1 Amazon Best Seller, Military Fiction", href: "https://www.amazon.com/dp/B07YR5PY94" },
-    { title: "Adapt", number: "Book II", status: "Available" },
-    { title: "Resist", number: "Book III", status: "Available in print" },
+    { title: "Adapt", number: "Book II", status: "Available", href: "https://www.amazon.com/dp/B07ZR43NKM" },
+    { title: "Resist", number: "Book III", status: "Available", href: "https://www.amazon.com/dp/B082QW5LW5" },
     { title: "Siege", number: "Book IV", status: "Available", href: "https://www.amazon.com/dp/B0HMMCH29S" },
-    { title: "Breach", number: "Book V", status: "Pre-order · December 15" },
+    { title: "Breach", number: "Book V", status: "Pre-order · December 15", href: "https://www.amazon.com/dp/B0HRB6SD4N" },
     { title: "Sunder", number: "Book VI", status: "Next" },
   ] as Book[],
 };
@@ -524,8 +538,3 @@ export const training: Training[] = [
 
 /** The tools he works in, shown as chips on the About page: AI and delivery tooling, then the military systems. */
 export const tools = ["Claude", "Jira", "Asana", "Monday", "ClickUp", "Notion", "Google Workspace", "NALCOMIS", "ASM"];
-
-/** Read by the old About page until its redesign lands. */
-export const alongside = [
-  "AI-first program manager. Jira, Asana, Monday, ClickUp, Notion, Google Workspace, and Claude, wired into operating workflows rather than used one at a time. Military maintenance and training systems: NALCOMIS and ASM.",
-];

@@ -16,7 +16,7 @@ const SECONDS_PER_BADGE = 5;
  * it pauses on hover or keyboard focus. With reduced motion it becomes a
  * plain row you scroll by hand (see .marquee in globals.css).
  */
-export default function CredentialCarousel() {
+export default function CredentialCarousel({ level: Heading = "h2" }: { level?: "h2" | "h3" }) {
   const badges = training.filter((t): t is Badge => Boolean(t.image));
   if (badges.length === 0) return null;
 
@@ -27,7 +27,7 @@ export default function CredentialCarousel() {
 
   return (
     <div className="marquee">
-      <h2 className="sr-only">AI credentials</h2>
+      <Heading className="sr-only">AI credentials</Heading>
       <ul className="marquee-track py-2" style={style}>
         {track.map((t, i) => {
           // Only the first copy of each badge is exposed to keyboards and screen readers.

@@ -95,7 +95,7 @@ export function GET() {
   lines.push("## Pages");
   lines.push(`- [Home](${site.url}/)`);
   lines.push(`- [Work](${site.url}/work/)`);
-  lines.push(`- [About](${site.url}/about/): resume-level detail, credentials, how he operates.`);
+  lines.push(`- [About](${site.url}/about/): the career in six figures, credentials, experience, and how he operates.`);
   lines.push(`- [Consulting](${site.url}/consulting/): what he takes on and how an engagement works.`);
   lines.push("");
   return new Response(lines.join("\n") + "\n", {
