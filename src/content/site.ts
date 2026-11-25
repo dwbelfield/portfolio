@@ -423,6 +423,20 @@ export const training: Training[] = [
       height: 643,
     },
   },
+  {
+    // Issued November 25, 2026; the credential expires May 25, 2027.
+    name: "AI Foundations",
+    issuer: "OpenAI Academy",
+    kind: "Course badge, assessment passed",
+    date: "November 2026",
+    href: "https://oaiacademy.credential.net/83748e7a-4b45-4118-be83-5715f625aac1",
+    image: {
+      src: "/media/badges/openai-academy-ai-foundations.png",
+      alt: "OpenAI Academy badge: AI Foundations",
+      width: 480,
+      height: 480,
+    },
+  },
 ];
 
 export const alongside = [

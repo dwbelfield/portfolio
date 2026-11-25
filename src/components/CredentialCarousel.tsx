@@ -36,7 +36,8 @@ export default function CredentialCarousel() {
     const el = track.current;
     if (!el) return;
     const card = el.querySelector("li");
-    const width = card ? card.getBoundingClientRect().width + 40 : el.clientWidth;
+    const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+    const width = card ? card.getBoundingClientRect().width + gap : el.clientWidth;
     el.scrollBy({ left: dir * width, behavior: prefersReducedMotion() ? "auto" : "smooth" });
   };
 
@@ -66,12 +67,12 @@ export default function CredentialCarousel() {
       <ul
         ref={track}
         aria-label="AI credentials"
-        className="flex snap-x snap-mandatory items-center gap-6 overflow-x-auto px-1 py-2 [scrollbar-width:none] md:col-span-8 md:gap-10 [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory items-center gap-6 overflow-x-auto px-1 py-2 [scrollbar-width:none] md:col-span-8 md:gap-8 [&::-webkit-scrollbar]:hidden"
       >
         {training.map(
           (t) =>
             t.image && (
-              <li key={t.href} className="w-[150px] shrink-0 snap-start md:w-[190px]">
+              <li key={t.href} className="w-[150px] shrink-0 snap-start md:w-[170px]">
                 <a
                   href={t.href}
                   target="_blank"
