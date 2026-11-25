@@ -122,10 +122,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credentials: a flat strip, set off from the hero and the results by a rule above and below */}
-      <section className="border-y border-[#2A3239]">
-        <div className="mx-auto w-full max-w-[1280px] px-2 py-6 md:px-8 md:py-8">
+      {/* Credentials: a flat strip between two rules that fade out toward the page edges */}
+      <section className="px-6 md:px-8">
+        <div className="relative mx-auto w-full max-w-[1216px] py-6 md:py-8">
+          <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(to_right,transparent,#3A444D_20%,#3A444D_80%,transparent)]" />
           <CredentialCarousel />
+          <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(to_right,transparent,#3A444D_20%,#3A444D_80%,transparent)]" />
         </div>
       </section>
 
