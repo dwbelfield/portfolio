@@ -4,6 +4,7 @@ import Logo from "@/components/Logo";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import ChapterVideo from "@/components/ChapterVideo";
+import ChapterHero from "@/components/ChapterHero";
 import CamoTiles from "@/components/CamoTiles";
 import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
@@ -51,8 +52,12 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const body = (
     <>
       {/* Header */}
-      <section className={c.video ? "relative flex flex-col justify-end overflow-hidden md:min-h-[46svh]" : "grid-underlay"}>
-        {c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} />}
+      <section className={c.hero ? "relative flex flex-col justify-end overflow-hidden md:min-h-[58svh]" : c.video ? "relative flex flex-col justify-end overflow-hidden md:min-h-[46svh]" : "grid-underlay"}>
+        {c.hero ? (
+          <ChapterHero scene={c.hero.scene} alt={c.hero.alt} />
+        ) : (
+          c.video && <ChapterVideo src={c.video.src} alt={c.video.alt} rate={c.video.rate} opacity={c.video.opacity} />
+        )}
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-12 pt-24 md:px-8 md:pb-24 md:pt-28">
           <Reveal y={0}>
             <span className="rule mb-4" />

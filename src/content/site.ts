@@ -33,6 +33,9 @@ export type Stat = {
   grouped?: boolean;
 };
 
+/** Chapter headers drawn live on a canvas (see components/hero). */
+export type HeroScene = "payments" | "floor" | "oracle" | "signal";
+
 export type Chapter = {
   slug: string;
   index: string;
@@ -50,6 +53,8 @@ export type Chapter = {
   link?: { href: string; label: string };
   /** "chapter" is an employer; "side" is a company or product of Derek's own. */
   kind?: "chapter" | "side";
+  /** Optional live-drawn header. Takes the place of the video when both are set. */
+  hero?: { scene: HeroScene; alt: string };
   /** Optional looping background video for the chapter header (path under /public). */
   video?: { src: string; alt: string; rate?: number; opacity?: number };
   /** Optional chapter-specific decorative accent. */
@@ -104,6 +109,7 @@ export const chapters: Chapter[] = [
   {
     slug: "rallypay",
     link: { href: "https://www.crunchbase.com/organization/rally-org", label: "RallyPay on Crunchbase" },
+    hero: { scene: "payments", alt: "Transactions streaming through a payment gateway, with attacks stopped at the gate" },
     video: { src: "/media/rallypay.mp4", alt: "Abstract payments network footage", rate: 0.6, opacity: 40 },
     logo: { src: "/media/logos/rallypay.png", alt: "RallyPay mark", width: 474, height: 640 },
     index: "02",
@@ -140,6 +146,7 @@ export const chapters: Chapter[] = [
   },
   {
     slug: "pmb-companies",
+    hero: { scene: "floor", alt: "A production floor where six divisions run and one is always being rebuilt" },
     video: { src: "/media/pmb-loop.mp4", alt: "Warehouse and production floor footage", rate: 0.6, opacity: 35 },
     index: "03",
     name: "PMB Companies",
@@ -172,6 +179,7 @@ export const chapters: Chapter[] = [
   {
     slug: "mythener",
     kind: "side",
+    hero: { scene: "oracle", alt: "A sphere of linked story facts, read by a sweeping ring that flags and resolves contradictions" },
     index: "01",
     name: "Mythener",
     org: "Mythener",
@@ -205,6 +213,7 @@ export const chapters: Chapter[] = [
   {
     slug: "zenblis",
     kind: "side",
+    hero: { scene: "signal", alt: "A map of dots that go stale and are refreshed by waves from each care community" },
     video: { src: "/media/zenblis-loop.mp4", alt: "Zenblis brand footage", rate: 0.7, opacity: 45 },
     logo: { src: "/media/logos/zenblis.png", alt: "Zenblis mark", width: 638, height: 640 },
     index: "02",
