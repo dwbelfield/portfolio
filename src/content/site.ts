@@ -451,6 +451,20 @@ export const training: Training[] = [
       height: 480,
     },
   },
+  {
+    // Issued November 25, 2026; the credential expires May 25, 2027.
+    name: "Agents and Workflows",
+    issuer: "OpenAI Academy",
+    kind: "Course badge, assessment passed",
+    date: "November 2026",
+    href: "https://oaiacademy.credential.net/b8ae443f-bd3d-4a59-8910-4c5c21e9d457",
+    image: {
+      src: "/media/badges/openai-academy-agents-and-workflows.png",
+      alt: "OpenAI Academy badge: Agents and Workflows",
+      width: 480,
+      height: 480,
+    },
+  },
 ];
 
 export const alongside = [
