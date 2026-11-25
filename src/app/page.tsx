@@ -224,7 +224,13 @@ export default function Home() {
           <Reveal delay={0.08}>
             <Link href="/work/zenblis/" className="home-raised group flex h-full flex-col overflow-hidden rounded-[14px]">
               <div className="relative mx-4 mt-4 h-[220px] overflow-hidden rounded-lg shadow-[inset_0_10px_30px_rgba(0,0,0,0.6)] md:h-[300px]">
-                <ChapterHero scene="signal" alt="A map of dots refreshed by waves from each care community" compact />
+                <Image
+                  src="/media/screens/zenblis-home.jpg"
+                  alt="The Zenblis home page: a search for senior living over a map of rated communities"
+                  fill
+                  sizes="(min-width: 768px) 600px, 92vw"
+                  className="object-cover object-left-top"
+                />
               </div>
               <div className="flex flex-col gap-2 px-6 pb-6 pt-5">
                 <div className="flex items-center justify-between">
