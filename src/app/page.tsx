@@ -75,8 +75,8 @@ export default function Home() {
 
       {/* AI credentials: each badge links to its proof */}
       <section className="border-t border-line bg-panel">
-        <div className="mx-auto w-full max-w-[1280px] px-6 py-12 md:px-8 md:py-20">
-          <Reveal>
+        <div className="mx-auto w-full max-w-[1280px] px-6 py-8 md:px-8 md:py-12">
+          <Reveal y={0}>
             <CredentialCarousel />
           </Reveal>
         </div>

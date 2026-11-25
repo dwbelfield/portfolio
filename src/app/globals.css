@@ -136,6 +136,44 @@ body {
 }
 
 /* ------------------------------------------------------------------
+   Marquee: the track holds its row twice and slides exactly one
+   row-width, so the loop is seamless. Pauses on hover and focus.
+   With reduced motion it is a plain row, scrolled by hand, and the
+   repeated copies are dropped.
+   ------------------------------------------------------------------ */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee var(--marquee-dur, 40s) linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-copy {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
    Interaction helpers
    ------------------------------------------------------------------ */
 
