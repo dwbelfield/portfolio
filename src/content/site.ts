@@ -378,7 +378,7 @@ export type Training = {
   date: string;
   /** The issuer's public verification page: the proof the badge links to. */
   href: string;
-  /** Badge artwork as issued (path under /public). */
+  /** The badge shape alone on a transparent background, made with scripts/cut-badge.py (path under /public). */
   image?: { src: string; alt: string; width: number; height: number };
 };
 
@@ -393,8 +393,21 @@ export const training: Training[] = [
     image: {
       src: "/media/badges/claude-academy-ai-fluency-small-businesses.png",
       alt: "Claude Academy course completion badge: AI Fluency for small businesses, presented to Derek, issued November 25, 2026",
-      width: 1100,
-      height: 750,
+      width: 640,
+      height: 643,
+    },
+  },
+  {
+    name: "AI Fluency for Nonprofits",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/b02b10cbd292e2f6a9b60b9665b01d5d",
+    image: {
+      src: "/media/badges/claude-academy-ai-fluency-nonprofits.png",
+      alt: "Claude Academy course completion badge: AI Fluency for nonprofits, presented to Derek, issued November 25, 2026",
+      width: 640,
+      height: 643,
     },
   },
 ];
