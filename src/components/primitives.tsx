@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   motion,
   animate,
@@ -84,7 +84,17 @@ export function Words({
 
 /* ------------------------------------------------------------------
    Counter: number that counts up when it enters the viewport.
+   The server-rendered markup carries the final value, so anything that
+   reads the page without running it (crawlers, AI agents, no-JS) gets
+   the real number. The browser swaps in the start value on hydration,
+   before the counter is on screen, then animates as before.
    ------------------------------------------------------------------ */
+const subscribeNever = () => () => {};
+/** False on the server and during hydration, true once the client has taken over. */
+function useHydrated(): boolean {
+  return useSyncExternalStore(subscribeNever, () => true, () => false);
+}
+
 export function Counter({
   value,
   from = 0,
@@ -107,6 +117,7 @@ export function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -32px 0px" });
   const reduced = useReducedMotion();
+  const hydrated = useHydrated();
   const [n, setN] = useState(from);
 
   useEffect(() => {
@@ -119,8 +130,8 @@ export function Counter({
     return () => controls.stop();
   }, [inView, reduced, value, from]);
 
-  // With reduced motion the final value renders immediately, no animation.
-  const shown = reduced ? value : n;
+  // The final value renders in the static markup, and with reduced motion.
+  const shown = !hydrated || reduced ? value : n;
 
   return (
     <span ref={ref} className={className}>

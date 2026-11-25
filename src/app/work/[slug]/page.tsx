@@ -9,9 +9,10 @@ import RoleSelector from "@/components/RoleSelector";
 import Programs from "@/components/Programs";
 import EntityMap from "@/components/EntityMap";
 import Mandate from "@/components/Mandate";
+import Architecture from "@/components/Architecture";
 import { Counter, Reveal, Words } from "@/components/primitives";
 import { chapters, site } from "@/content/site";
-import { positions, highlights, programs, programLabels, entityMaps, mandates } from "@/content/positions";
+import { positions, highlights, programs, programLabels, entityMaps, mandates, architectures } from "@/content/positions";
 
 export function generateStaticParams() {
   return chapters.map((c) => ({ slug: c.slug }));
@@ -45,6 +46,7 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
   const progs = programs[c.slug];
   const map = entityMaps[c.slug];
   const mandate = mandates[c.slug];
+  const architecture = architectures[c.slug];
 
   const body = (
     <>
@@ -179,6 +181,15 @@ export default async function ChapterPage(props: PageProps<"/work/[slug]">) {
           )}
         </div>
       </section>
+
+      {/* Architecture: how the AI system works, step by step */}
+      {architecture && (
+        <section className="border-t border-line">
+          <div className="mx-auto w-full max-w-[1280px] px-6 py-14 md:px-8 md:py-28">
+            <Architecture data={architecture} />
+          </div>
+        </section>
+      )}
 
       {/* Programs */}
       {progs && (

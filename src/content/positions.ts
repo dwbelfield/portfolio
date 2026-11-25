@@ -146,11 +146,11 @@ export const positions: Record<string, Position[]> = {
       location: "Remote",
       bullets: [
         "Originated the product from my own needs as a series author, and wrote the specification: 74 numbered requirements, domain contracts, acceptance scenarios, and an implementation plan in dependency order.",
-        "Designed the Delphi Engine, the continuity-review system, iterating the architecture myself: embedding-based retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates findings. It runs 12 reviews and 129 checks per manuscript.",
+        "Designed the Delphi Engine, the continuity-review system, iterating the architecture myself: embedding-based retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates findings. It runs 12 reviews and 145 checks per manuscript.",
         "Set the visual direction and locked it as the platform design system, with a test that guards against styling drift.",
         "Shipped it with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
-        "Kept the agents honest with 1,754 automated tests and a check suite that runs on every pull request.",
-        "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 129 checks.",
+        "Kept the agents honest with 1,754 automated tests and a check suite that every release build has to pass.",
+        "Defined the modules authors see: Workspace, Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine running 12 reviews and 145 checks.",
         "Priced and launched the product: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
       ],
       tags: ["Product", "Specification", "AI System Design", "Design System", "AI Agents", "Cloudflare", "Go-to-Market"],
@@ -297,7 +297,7 @@ export const programs: Record<string, Program[]> = {
     { name: "Build", blurb: "A shared world bible: characters, places, creatures, and rules, with voice profiles.", icon: "globe" },
     { name: "Plan", blurb: "A canvas for acts, chapters, and beats, linked to the scenes that fulfil them.", icon: "clipboard" },
     { name: "Write", blurb: "A drafting page that feeds what it discovers back into the world bible.", icon: "pen" },
-    { name: "Review", blurb: "The Delphi Engine: embeddings, LLM, and a decision model running 12 reviews and 129 checks. Tracked revisions, editor invites.", icon: "eye" },
+    { name: "Review", blurb: "The Delphi Engine: embeddings, LLM, and a decision model running 12 reviews and 145 checks. Tracked revisions, editor invites.", icon: "eye" },
     { name: "Test", blurb: "Protected beta and ARC reading rounds, watermarked.", icon: "badge" },
     { name: "Publish", blurb: "EPUB ebooks and print-ready paperbacks from a frozen edition.", icon: "book" },
   ],
@@ -307,6 +307,176 @@ export const programs: Record<string, Program[]> = {
 export const programLabels: Record<string, string> = {
   rallypay: "Initiatives owned",
   mythener: "Modules shipped",
+};
+
+/** What does the work at a step: this is what the architecture view colours by. */
+export type StepKind = "code" | "retrieval" | "model" | "llm" | "agent" | "record" | "human";
+export type ArchStep = { name: string; kind: StepKind; body: string };
+export type Architecture = {
+  title: string;
+  intro: string;
+  /** Heading over the steps; defaults to "The pipeline". */
+  pipelineLabel?: string;
+  steps: ArchStep[];
+  guardrails: { name: string; body: string }[];
+  note?: string;
+};
+
+/**
+ * How the AI systems in a chapter actually work: the steps in order, who or
+ * what does each one, and the guardrails. Facts come from the systems' own
+ * design documents, kept to what is safe to say in public.
+ */
+export const architectures: Record<string, Architecture> = {
+  mythener: {
+    title: "The Delphi Engine: language models raise findings, code and a second model check them",
+    intro:
+      "A manuscript review that an author can trust has to be wrong rarely and never invent. So the engine I designed splits the work: language models read and raise findings, deterministic code and a separate decision model check every one against the text, and the author makes the final call.",
+    steps: [
+      {
+        name: "Read the book",
+        kind: "llm",
+        body: "A fast model reads each section and notes what it moves, sets up, and pays off.",
+      },
+      {
+        name: "Map it",
+        kind: "code",
+        body: "Code builds the book map with no model involved: a line pass, the house style, running ledgers, and prose statistics, plus 52 deterministic rules.",
+      },
+      {
+        name: "Run the reviews",
+        kind: "llm",
+        body: "Twelve reviews work through the manuscript in units of about 3,500 words, one call per review per unit, each keeping an evidence ledger.",
+      },
+      {
+        name: "Follow every thread",
+        kind: "llm",
+        body: "Setups, payoffs, and contradictions are traced across chapters and inside them, so a finding is about the book and not one page of it.",
+      },
+      {
+        name: "Ground every finding",
+        kind: "code",
+        body: "A finding has to quote the manuscript exactly. If the quote does not match the source, the finding is dropped.",
+      },
+      {
+        name: "Search for counter-evidence",
+        kind: "retrieval",
+        body: "A claim that something is missing or inconsistent triggers a search of the rest of the book, by wording and by meaning, for the passage that would disprove it.",
+      },
+      {
+        name: "Ask the decision model",
+        kind: "model",
+        body: "A separate model answers typed questions about each finding. Is it supported? Is there a better explanation? Is it established elsewhere? It returns probabilities, and findings below the line are set aside.",
+      },
+      {
+        name: "Weigh and rank",
+        kind: "llm",
+        body: "A stronger model groups duplicates, makes the last machine call on what is kept, and ranks what remains.",
+      },
+      {
+        name: "The author decides",
+        kind: "human",
+        body: "Findings appear in the editor. The author adds one to their notes or ignores it.",
+      },
+    ],
+    guardrails: [
+      {
+        name: "Exact quotes or nothing",
+        body: "Every finding is anchored to a verbatim passage. No grounded passage, no finding.",
+      },
+      {
+        name: "Set aside, not hidden",
+        body: "A finding the engine rejects stays visible under Set aside, with the reason, so the author can audit the engine.",
+      },
+      {
+        name: "Learns from the author, trains no model",
+        body: "Answers carry into later scans: a check the author keeps dismissing goes quiet, one they keep accepting is trusted. Nothing here trains an AI model.",
+      },
+      {
+        name: "Suggested until confirmed",
+        body: "The author states the genre and the choices to protect. Facts the engine extracts stay suggested until the author confirms them.",
+      },
+      {
+        name: "Metered, cached, and backed off",
+        body: "Each scan is capped by word count, unchanged work is reused from a cache keyed by content hash, and capacity errors back off instead of retrying blindly.",
+      },
+      {
+        name: "Tested without the model",
+        body: "A regression suite replays known cases with zero live model calls, so a change to the engine is checked before it ships.",
+      },
+    ],
+    note: "As of November 2026: 12 reviews and 145 checks on every scan.",
+  },
+  zenblis: {
+    title: "An agent team that works from a written constitution",
+    intro:
+      "I set up the Zenblis go-to-market to run on a small team of AI agents: research, content, social, and outreach, coordinated by a chief-of-staff agent. They work from operating rules I wrote. Routine, reversible work is theirs. Anything costly, consequential, or new stops for a person.",
+    pipelineLabel: "The loop",
+    steps: [
+      {
+        name: "Spot the work",
+        kind: "agent",
+        body: "A specialist agent notices a trigger, such as a question families keep asking or an article that has gone stale, and opens a task for the agent that should handle it.",
+      },
+      {
+        name: "Hand off with an ID",
+        kind: "record",
+        body: "Every handoff is logged with its source, destination, object ID, reason, priority, and evidence. No chains of work that cannot be explained later.",
+      },
+      {
+        name: "Check the index first",
+        kind: "record",
+        body: "Before acting, the agent reads the smallest authoritative record: content ID, to the tracker, to the research library. It does not search everything, and it does not act on ambiguous state.",
+      },
+      {
+        name: "Do the work",
+        kind: "agent",
+        body: "Research from primary sources, then draft, design, and schedule. Accuracy is a hard constraint: what is unknown stays unknown until it is verified.",
+      },
+      {
+        name: "Gate by consequence",
+        kind: "human",
+        body: "Routine work proceeds. Spending, contracts, pricing, legal or reputational risk, and anything without precedent come to me with the facts, the options, and a recommendation.",
+      },
+      {
+        name: "Record and measure",
+        kind: "record",
+        body: "Planned, ready, scheduled, and published are separate states, each backed by evidence such as a live link. Results and audience questions feed the next round of research.",
+      },
+      {
+        name: "Improve under review",
+        kind: "agent",
+        body: "Agents test one variable at a time and propose rule changes from the evidence. The chief-of-staff agent reviews them. No agent rewrites its own rules.",
+      },
+    ],
+    guardrails: [
+      {
+        name: "A $0 spending limit",
+        body: "Agents can recommend an expense. They cannot authorize one.",
+      },
+      {
+        name: "Duplicate-action protection",
+        body: "Before any email, post, or publication, the agent verifies the current state, so nothing goes out twice.",
+      },
+      {
+        name: "New means escalate, once",
+        body: "A situation with no rule and no precedent goes to a person. The decision is recorded as precedent, so the system needs me less over time.",
+      },
+      {
+        name: "No self-grading",
+        body: "An agent cannot change the rules that govern it. Rule changes are reviewed, versioned, and carry a rollback condition.",
+      },
+      {
+        name: "Ranked sources, no invention",
+        body: "Government records and original research outrank secondary reporting. Fabricated facts, statistics, quotes, and links are prohibited outright.",
+      },
+      {
+        name: "Fail once, then surface",
+        body: "A failed action is checked, retried once, then recorded and raised. No hammering, and no retry that could duplicate an outside action.",
+      },
+    ],
+    note: "Operating rules: 33 sections, version 1.0, in force since September 2026.",
+  },
 };
 
 /** How a portfolio chapter's entities fit together, for the entity map. */
@@ -406,7 +576,7 @@ export const mandates: Record<string, Mandate[]> = {
     {
       lane: "The Delphi Engine",
       lines: [
-        "Designed the continuity-review system myself, iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author. 12 reviews, 129 checks.",
+        "Designed the continuity-review system myself, iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author. 12 reviews, 145 checks.",
         "Set the visual direction, ancient Greece meets the future, and locked it as the platform design system with a drift guard in the build.",
       ],
     },
@@ -414,7 +584,7 @@ export const mandates: Record<string, Mandate[]> = {
       lane: "Built by AI agents",
       lines: [
         "AI coding agents wrote the code from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
-        "1,754 automated tests and a check suite on every pull request hold the agents to the specification.",
+        "1,754 automated tests and a check suite that every release build has to pass hold the agents to the specification.",
         "Six modules live: Build, Plan, Write, Review, Test, and Publish, with the Delphi Engine at the centre.",
       ],
     },

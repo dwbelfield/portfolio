@@ -44,8 +44,7 @@ export default function CredentialCarousel() {
                 rel="noreferrer"
                 tabIndex={copy ? -1 : undefined}
                 title={`${t.name} · ${t.issuer} · ${t.date}`}
-                aria-label={`${t.name}, ${t.issuer}, ${t.date}. See the proof (opens in a new tab)`}
-                className="group block rounded-full outline-offset-4 focus-visible:outline-2 focus-visible:outline-accent"
+                className="group relative block rounded-full outline-offset-4 focus-visible:outline-2 focus-visible:outline-accent"
               >
                 <Image
                   src={t.image.src}
@@ -54,6 +53,12 @@ export default function CredentialCarousel() {
                   height={t.image.height}
                   className="h-auto w-full transition-transform duration-300 group-hover:scale-[1.04]"
                 />
+                {/* The badge's name as real text, for screen readers and anything reading the markup. */}
+                {!copy && (
+                  <span className="sr-only">
+                    {t.name}, {t.issuer}, {t.kind.toLowerCase()}, {t.date}. See the proof (opens in a new tab).
+                  </span>
+                )}
               </a>
             </li>
           );

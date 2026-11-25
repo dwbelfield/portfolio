@@ -185,19 +185,19 @@ export const chapters: Chapter[] = [
     order:
       "One workspace where the prose builds the story bible, confirmed facts keep their authority, and a continuity engine checks the manuscript before a reader ever sees it. Built by AI coding agents from my specification, and live at mythener.com.",
     summary:
-      "Co-founded from my own need as a series author, and the clearest example of how I work with AI. I wrote the product specification, set the design direction, and designed the Delphi Engine myself: a continuity-review system that chains embedding retrieval, LLM analysis, and a decision model, iterated until it ran 12 reviews and 129 checks on every manuscript. AI coding agents wrote the code from the spec: 705 pull requests and 1,754 automated tests, on Cloudflare.",
+      "Co-founded from my own need as a series author, and the clearest example of how I work with AI. I wrote the product specification, set the design direction, and designed the Delphi Engine myself: a continuity-review system that chains embedding retrieval, LLM analysis, and a decision model, iterated until it ran 12 reviews and 145 checks on every manuscript. AI coding agents wrote the code from the spec: 705 pull requests and 1,754 automated tests, on Cloudflare.",
     stats: [
       { value: 705, label: "Pull requests by AI coding agents", from: "524 in the first four weeks" },
       { value: 1754, grouped: true, label: "Automated tests in the codebase" },
       { value: 74, label: "Numbered requirements in the product spec" },
-      { value: 129, label: "Continuity checks in the Delphi Engine", from: "across 12 reviews" },
+      { value: 145, label: "Checks in the Delphi Engine", from: "across 12 reviews" },
     ],
     bullets: [
       "Originated the product and wrote the full specification: 74 numbered requirements, domain contracts, acceptance scenarios, and a dependency-ordered implementation plan.",
       "Set the visual direction, ancient Greece meets the future, and locked it as a platform design system with a drift guard in the build.",
       "Designed the Delphi Engine iteratively: embedding retrieval over the manuscript and story bible, LLM analysis, and a decision model that gates what reaches the author.",
       "Shipped it with AI coding agents working from the spec, on Cloudflare Workers, D1, and R2: 705 pull requests and 2,049 commits, 524 of those pull requests in the first four weeks.",
-      "Kept the agents honest with 1,754 automated tests and a check suite that runs on every pull request.",
+      "Kept the agents honest with 1,754 automated tests and a check suite that every release build has to pass.",
       "Priced and launched it: author, press, house, and enterprise tiers, free for every author until January 1, 2027.",
     ],
     link: { href: "https://mythener.com", label: "mythener.com" },

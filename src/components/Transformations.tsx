@@ -14,10 +14,12 @@ export default function Transformations() {
             <div className="flex h-full flex-col p-4 md:p-8">
               <dt className="label">{t.label}</dt>
               <p className="readout mt-3 text-muted md:mt-4">
+                <span className="sr-only">From </span>
                 {t.fromText ?? `${t.prefix ?? ""}${t.from?.toFixed(t.decimals ?? 0)}${t.suffix ?? ""}`}
               </p>
               <span className="rule my-2 md:my-3" />
               <dd className="text-3xl font-semibold tracking-tight md:text-6xl">
+                <span className="sr-only">to </span>
                 <Counter
                   value={t.to}
                   from={t.from ?? 0}

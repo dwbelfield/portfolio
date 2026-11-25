@@ -95,6 +95,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="flex min-h-svh flex-col">
+        {/* Points agents at the plain-text version of the site; React hoists it into the head. */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title={`${site.name}: plain-text summary for AI agents`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
