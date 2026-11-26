@@ -479,6 +479,19 @@ export const training: Training[] = [
     },
   },
   {
+    name: "AI Fluency for Builders",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/51155a46f4d6a12a441653e8fc46966e",
+    image: {
+      src: "/media/badges/claude-academy-ai-fluency-builders.png",
+      alt: "Claude Academy course completion badge: AI Fluency for builders, presented to Derek, issued November 26, 2026",
+      width: 640,
+      height: 643,
+    },
+  },
+  {
     // Issued November 25, 2026; the credential expires May 25, 2027.
     name: "AI Foundations",
     issuer: "OpenAI Academy",
