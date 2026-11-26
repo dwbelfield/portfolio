@@ -492,6 +492,20 @@ export const training: Training[] = [
     },
   },
   {
+    // The course was in beta when the badge was issued, and the badge says so.
+    name: "Building Effective Human-Agent Teams (beta)",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/b675ac79ce7ef83b71ff38ff1780c2a2",
+    image: {
+      src: "/media/badges/claude-academy-building-effective-human-agent-teams.png",
+      alt: "Claude Academy course completion badge: Building effective human-agent teams (beta), presented to Derek, issued November 26, 2026",
+      width: 640,
+      height: 643,
+    },
+  },
+  {
     // Issued November 25, 2026; the credential expires May 25, 2027.
     name: "AI Foundations",
     issuer: "OpenAI Academy",
