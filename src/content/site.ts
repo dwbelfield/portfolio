@@ -574,6 +574,20 @@ export const training: Training[] = [
       height: 480,
     },
   },
+  {
+    // Issued November 26, 2026; the credential expires May 26, 2027.
+    name: "Scope AI Solutions",
+    issuer: "OpenAI Academy",
+    kind: "Course badge, assessment passed",
+    date: "November 2026",
+    href: "https://oaiacademy.credential.net/5ae45613-8629-48e0-a1c2-3108d8e57697",
+    image: {
+      src: "/media/badges/openai-academy-scope-ai-solutions.png",
+      alt: "OpenAI Academy badge: Scope AI Solutions",
+      width: 480,
+      height: 480,
+    },
+  },
 ];
 
 /** The tools he works in, shown as chips on the About page: AI and delivery tooling, then the military systems. */
