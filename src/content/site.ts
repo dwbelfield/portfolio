@@ -506,6 +506,19 @@ export const training: Training[] = [
     },
   },
   {
+    name: "Deploying Claude Enterprise with Confidence: The Five Decisions That Shape Your Rollout",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/506b70f93ee65617d02a0068aec3bb4c",
+    image: {
+      src: "/media/badges/claude-academy-deploying-claude-enterprise-with-confidence.png",
+      alt: "Claude Academy course completion badge: Deploying Claude Enterprise with confidence, the five decisions that shape your rollout, presented to Derek, issued November 26, 2026",
+      width: 640,
+      height: 643,
+    },
+  },
+  {
     // Issued November 25, 2026; the credential expires May 25, 2027.
     name: "AI Foundations",
     issuer: "OpenAI Academy",
