@@ -239,38 +239,6 @@ html.lenis body {
   background: var(--accent);
 }
 
-/* A short amber rule used to open a section. One grid unit wide. */
-.rule {
-  display: block;
-  width: var(--grid);
-  height: 2px;
-  background: var(--accent);
-}
-
-/* Camo tiles: sit on the grid underlay, beneath content. */
-.grid-underlay > .grid-tiles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.grid-tile {
-  position: absolute;
-  width: calc(var(--grid) - 1px);
-  height: calc(var(--grid) - 1px);
-  animation: tile-in var(--dur-base) var(--ease-out) both;
-}
-@keyframes tile-in {
-  from { transform: scale(0.6); opacity: 0; }
-}
-
-/* Brand colours used only inside their own chapter. */
-:root {
-  --rallypay: #d0262b;
-  --rallypay-deep: #8e1c1f;
-}
-
 /* Logo drawn as a mask in the current text colour, so it can transition. */
 .logo-mask {
   display: inline-block;
@@ -370,6 +338,10 @@ html.lenis body {
 /* A block with an amber left edge, for a short list of facts. */
 .home-accent-edge {
   border-left: 3px solid var(--accent);
+}
+/* The same block with an icy edge, on the consulting page. */
+.home-icy-edge {
+  border-left: 3px solid #91c8d9;
 }
 /* The "after" panel on a chapter: the raised surface with an amber top edge. */
 .home-after {

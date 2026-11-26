@@ -1,5 +1,14 @@
 # Design rules
 
+> **Superseded in part, November 2026.** Every page now sits on the lit surface
+> introduced on the home page: `.home-surface` with raised cards (`.home-raised`,
+> `.home-block`), Space Grotesk headings (`.home-display`), amber for the one
+> primary action and for figures, and icy blue and copper as second accents.
+> Those classes are at the end of `src/app/globals.css`, and `src/app/page.tsx`
+> is the reference. No eyebrow labels or helper text, short copy, graphics over
+> prose. Where the rules below disagree (panel-black cards, `.rule` section
+> openers, chapter index numbers, the 32px grid, amber under 5%), the home page wins.
+
 Source of truth for the visual system. Every component follows these.
 
 ## Palette

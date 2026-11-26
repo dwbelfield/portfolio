@@ -5,8 +5,6 @@ import {
   motion,
   animate,
   useInView,
-  useMotionValue,
-  useSpring,
 } from "motion/react";
 import { useReducedMotion, ease, dur } from "@/lib/motion";
 
@@ -141,70 +139,5 @@ export function Counter({
         : shown.toFixed(decimals)}
       {suffix && <span className="text-accent">{suffix}</span>}
     </span>
-  );
-}
-
-/* ------------------------------------------------------------------
-   Magnetic: children drift toward the pointer and spring back.
-   ------------------------------------------------------------------ */
-export function Magnetic({
-  children,
-  strength = 0.3,
-  className,
-}: {
-  children: React.ReactNode;
-  strength?: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 260, damping: 20, mass: 0.5 });
-  const sy = useSpring(y, { stiffness: 260, damping: 20, mass: 0.5 });
-
-  function onMove(e: React.PointerEvent<HTMLDivElement>) {
-    if (reduced || e.pointerType !== "mouse") return;
-    const r = ref.current!.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width / 2)) * strength);
-    y.set((e.clientY - (r.top + r.height / 2)) * strength);
-  }
-  function onLeave() {
-    x.set(0);
-    y.set(0);
-  }
-
-  return (
-    <motion.div
-      ref={ref}
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-      style={{ x: sx, y: sy }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/* ------------------------------------------------------------------
-   Lift: subtle hover lift for cards.
-   ------------------------------------------------------------------ */
-export function Lift({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const reduced = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      whileHover={reduced ? undefined : { y: -4 }}
-      transition={{ duration: dur.fast, ease: ease.out }}
-    >
-      {children}
-    </motion.div>
   );
 }

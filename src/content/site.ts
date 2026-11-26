@@ -342,27 +342,27 @@ export const principles = [
 export const services = [
   {
     title: "AI readiness walkthrough",
-    body: "A walk through the business the way the work actually moves: intake, scheduling, quoting, follow-up, reporting. Lean Six Sigma first, AI second. You get a short list of where AI pays for itself now and where it does not belong yet.",
+    body: "I walk your intake, scheduling, quoting, and follow-up, and hand you a short list of where AI pays for itself now.",
   },
   {
     title: "Team training",
-    body: "Hands-on sessions built on your own documents and your own work, with no slide deck about prompts. I taught 13 Lean Six Sigma courses to 295 students. This is the same job with newer tools.",
+    body: "Hands-on sessions on your own documents. I taught 13 Lean Six Sigma courses to 295 students the same way.",
   },
   {
     title: "Workflow and agent builds",
-    body: "The repetitive work rebuilt as AI-assisted workflows and agents: intake, tracking, documentation, follow-up, and the first draft of everything. Built on the tools you already pay for wherever that works.",
+    body: "Intake, follow-up, paperwork, and first drafts, rebuilt on the tools you already pay for.",
   },
   {
     title: "Guardrails and AI policy",
-    body: "What can go into a model, who reviews what comes out, and how you show it later. Written by someone who owned PCI, KYC/AML, and NACHA compliance and never failed an examination.",
+    body: "What can go into a model and who checks what comes out, from someone who owned payments compliance and never failed an examination.",
   },
   {
     title: "Operating cadence",
-    body: "The accountability layer between decision and delivery. Who owns what, when it lands, and the system that keeps it visible after the novelty wears off.",
+    body: "Who owns what, when it lands, and a system that keeps it visible after the novelty wears off.",
   },
   {
     title: "Fractional AI lead",
-    body: "Ongoing counsel for founders and owners on what to automate next, what to buy, and what to leave alone. Retainer or by the project.",
+    body: "Ongoing advice on what to automate, what to buy, and what to leave alone. Retainer or by the project.",
   },
 ];
 
@@ -380,7 +380,7 @@ export const engagement = [
   {
     step: "03",
     title: "Execution and handoff",
-    body: "I do the work alongside your team and leave an AI-first system that is still running in month six.",
+    body: "I do the work alongside your team and hand off a system built to still be running in month six.",
   },
 ];
 
