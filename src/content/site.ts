@@ -615,6 +615,20 @@ export const training: Training[] = [
       height: 480,
     },
   },
+  {
+    // Issued November 27, 2026; the credential expires May 27, 2027.
+    name: "Design and Build Agentic Systems",
+    issuer: "OpenAI Academy",
+    kind: "Course badge, assessment passed",
+    date: "November 2026",
+    href: "https://oaiacademy.credential.net/5eb3aed3-cd9e-4137-8089-f06aa720fa61",
+    image: {
+      src: "/media/badges/openai-academy-design-and-build-agentic-systems.png",
+      alt: "OpenAI Academy badge: Design and Build Agentic Systems",
+      width: 480,
+      height: 480,
+    },
+  },
 ];
 
 /** The tools he works in, shown as chips on the About page: AI and delivery tooling, then the military systems. */
