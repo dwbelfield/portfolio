@@ -588,6 +588,20 @@ export const training: Training[] = [
       height: 480,
     },
   },
+  {
+    // Issued November 27, 2026; the credential expires May 27, 2027.
+    name: "Evaluate AI Applications",
+    issuer: "OpenAI Academy",
+    kind: "Course badge, assessment passed",
+    date: "November 2026",
+    href: "https://oaiacademy.credential.net/ca5dc5cc-3f4f-4b6d-9985-d29de670e22f",
+    image: {
+      src: "/media/badges/openai-academy-evaluate-ai-applications.png",
+      alt: "OpenAI Academy badge: Evaluate AI Applications",
+      width: 480,
+      height: 480,
+    },
+  },
 ];
 
 /** The tools he works in, shown as chips on the About page: AI and delivery tooling, then the military systems. */
