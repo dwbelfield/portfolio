@@ -519,6 +519,19 @@ export const training: Training[] = [
     },
   },
   {
+    name: "Introduction to Model Context Protocol",
+    issuer: "Claude Academy (Anthropic)",
+    kind: "Course completion badge",
+    date: "November 2026",
+    href: "https://academy.claude.com/verify/2c85ea8439d5e37fb84a7178b5a87895",
+    image: {
+      src: "/media/badges/claude-academy-introduction-to-model-context-protocol.png",
+      alt: "Claude Academy course completion badge: Introduction to Model Context Protocol, presented to Derek, issued November 27, 2026",
+      width: 640,
+      height: 643,
+    },
+  },
+  {
     // Issued November 25, 2026; the credential expires May 25, 2027.
     name: "AI Foundations",
     issuer: "OpenAI Academy",
