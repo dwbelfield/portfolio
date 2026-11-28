@@ -1,5 +1,6 @@
 import { site, chapters, services, author, training, transformations, type Stat } from "@/content/site";
 import { positions, architectures, type StepKind } from "@/content/positions";
+import { essays } from "@/content/writing";
 
 export const dynamic = "force-static";
 
@@ -83,6 +84,7 @@ export function GET() {
   lines.push("");
   lines.push("## Writing");
   lines.push(`- Writes dark LitRPG as ${author.penName}: ${author.series}, a twelve-book saga (${author.claim}). Author site: ${author.site}`);
+  for (const e of essays) lines.push(`- [${e.title}](${site.url}/writing/${e.slug}/): essay, ${e.published}. ${e.description}`);
   lines.push("");
   lines.push("## Consulting");
   lines.push(`- [Consulting](${site.url}/consulting/): ${services.map((s) => s.title).join(", ")}.`);
@@ -96,6 +98,7 @@ export function GET() {
   lines.push(`- [Home](${site.url}/)`);
   lines.push(`- [Work](${site.url}/work/)`);
   lines.push(`- [About](${site.url}/about/): the career in six figures, credentials, experience, and how he operates.`);
+  lines.push(`- [Writing](${site.url}/writing/): essays.`);
   lines.push(`- [Consulting](${site.url}/consulting/): what he takes on and how an engagement works.`);
   lines.push("");
   return new Response(lines.join("\n") + "\n", {

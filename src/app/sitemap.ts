@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { site, chapters } from "@/content/site";
+import { essays } from "@/content/writing";
 
 export const dynamic = "force-static";
 
 /** Built from the route list and the content model so it cannot drift from the site. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const top = ["/", "/work/", "/about/", "/consulting/"].map((path, i) => ({
+  const top = ["/", "/work/", "/about/", "/writing/", "/consulting/"].map((path, i) => ({
     url: `${site.url}${path}`,
     lastModified,
     changeFrequency: "monthly" as const,
@@ -18,5 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
-  return [...top, ...work];
+  const writing = essays.map((e) => ({
+    url: `${site.url}/writing/${e.slug}/`,
+    lastModified: new Date(`${e.published}T12:00:00Z`),
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+  return [...top, ...work, ...writing];
 }
