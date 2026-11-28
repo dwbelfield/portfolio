@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 const links = [
   { href: "/work/", label: "Work" },
   { href: "/about/", label: "About" },
-  { href: "/writing/", label: "Writing" },
+  { href: "/blog/", label: "Blog" },
   { href: "/consulting/", label: "Consulting" },
 ];
 

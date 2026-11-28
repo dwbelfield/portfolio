@@ -2,31 +2,31 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/primitives";
 import { Arrow } from "@/components/Doors";
-import { essays, formatDate } from "@/content/writing";
+import { essays, formatDate } from "@/content/blog";
 import { site } from "@/content/site";
 
 const description = "Essays by Derek Belfield on AI, work, and raising kids in the age of AI.";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/writing/" },
-  title: "Writing",
+  alternates: { canonical: "/blog/" },
+  title: "Blog",
   description,
-  openGraph: { title: `Writing · ${site.name}`, description, url: `${site.url}/writing/` },
+  openGraph: { title: `Blog · ${site.name}`, description, url: `${site.url}/blog/` },
 };
 
-export default function WritingPage() {
+export default function BlogPage() {
   // Newest first.
   const list = [...essays].sort((a, b) => b.published.localeCompare(a.published));
   return (
     <div className="home-surface">
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-20 pt-28 md:px-8 md:pt-36">
-        <h1 className="home-display text-[13vw] font-bold leading-[0.98] sm:text-7xl lg:text-[5.5rem]">Writing</h1>
+        <h1 className="home-display text-[13vw] font-bold leading-[0.98] sm:text-7xl lg:text-[5.5rem]">Blog</h1>
         <ol className="mt-10 grid gap-5 md:mt-14">
           {list.map((e, i) => (
             <li key={e.slug}>
               <Reveal delay={i * 0.05}>
                 <Link
-                  href={`/writing/${e.slug}/`}
+                  href={`/blog/${e.slug}/`}
                   className="home-raised home-lift group grid overflow-hidden rounded-2xl transition-[translate,border-color] duration-300 hover:-translate-y-1 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element -- static export serves images as-is */}

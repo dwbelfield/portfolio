@@ -1,7 +1,7 @@
 /**
  * Essays. Each section is a heading and its paragraphs; a paragraph may carry
  * links written as [text](https://…), which the page renders as anchors.
- * Edit the words here; app/writing renders them.
+ * Edit the words here; app/blog renders them.
  */
 
 export type Essay = {
@@ -12,12 +12,20 @@ export type Essay = {
   published: string;
   /** Under 155 characters. */
   description: string;
-  /** 5:2 header image, no text (path under /public). */
-  cover: { src: string; alt: string; width: number; height: number };
-  /** The same image with the title, for social cards. */
+  /**
+   * 5:2 header image (path under /public). When the title is part of the
+   * artwork, set `titled`: the page then leads with the image and keeps the
+   * typed title for phones, where the lettering in the image is too small.
+   */
+  cover: { src: string; alt: string; width: number; height: number; titled?: boolean };
+  /** The cover cropped to 1200 by 630, for social cards. */
   ogImage: string;
-  sections: { heading: string; paragraphs: string[] }[];
+  /** A section may carry figures, each placed after the paragraph at index `after`. */
+  sections: { heading: string; paragraphs: string[]; figures?: { id: FigureId; after: number }[] }[];
 };
+
+/** The charts and scenes an essay can place between paragraphs (components/essay/Figures). */
+export type FigureId = "door" | "playbook" | "cheats" | "growth" | "filter" | "distance" | "wall";
 
 export const essays: Essay[] = [
   {
@@ -28,12 +36,13 @@ export const essays: Essay[] = [
     description:
       "AI is taking the walls off childhood. A father’s grief, and the case for the walls our children have to build for themselves.",
     cover: {
-      src: "/media/writing/the-last-frontier.png",
-      alt: "A father and son stand on the curve of the Earth at night beside a house with one lit window; the boy points at Mars.",
-      width: 2000,
-      height: 800,
+      src: "/media/blog/the-last-frontier.jpg",
+      alt: "A father holds the hands of his two young sons, the three in silhouette under a tree. Behind them the Earth glows at sunrise; ahead, a red desert runs out to a launch pad under Mars. Lettering reads: The Last Frontier, a parent’s grief in the age of AI.",
+      width: 1983,
+      height: 793,
+      titled: true,
     },
-    ogImage: "/media/writing/the-last-frontier-og.png",
+    ogImage: "/media/blog/the-last-frontier-og.jpg",
     sections: [
       {
         heading: "A Defensive War",
@@ -48,6 +57,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "Through the Back Door",
+        figures: [{ id: "door", after: 0 }],
         paragraphs: [
           "But AI won’t stay outside our carefully curated home. It’s coming in the back door as the helpful tutor, the digital companion and the patient voice baked into every app, system, or product.",
           "The worst part? It’s going to be really good at those roles. Maybe better than any human. Likely better than any parent.",
@@ -58,6 +68,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "The Broken Playbook",
+        figures: [{ id: "playbook", after: 1 }],
         paragraphs: [
           "Protecting my sons is only half my job as their father. The other half is preparing them, and that’s where I find myself adrift. My parents knew what to do even if it wasn’t perfect: a good school district, then maybe a few years in uniform (naturally, the USMC), finally a trade or a degree. Do those things, and you’d have a reasonably successful middle-class life.",
           "Sure, the path could be hard (made easier by the right decisions, the right timing, and a helping of luck or prayer), but you could see where it ended. My boys are now 3 and 4, and despite my love of SciFi and AI, I can’t see where any path ends.",
@@ -70,6 +81,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "Cheat Codes On",
+        figures: [{ id: "cheats", after: 1 }],
         paragraphs: [
           "Their game of life is one where all the cheat codes are on. Where a brain-machine interface allows them to offload all their cognitive labor to a helpful AI. They get to play life with their own personal Cortana. It’s a beautiful, tragic future.",
           "Any gamer who has played with the cheat codes on knows how that story ends. For twenty minutes, it’s great. Unlimited power and optionality is at your fingertips. It’s a cocaine rush of fun…until it isn’t. Eventually, you stop playing the game, not because the game was difficult, but because it stopped meaning anything. Sometimes, you don’t even return to the game—you’ve mined it for the maximum benefit until it’s nothing but a vague memory in your Steam library.",
@@ -78,6 +90,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "Bread and Circuses",
+        figures: [{ id: "growth", after: 1 }, { id: "filter", after: 5 }],
         paragraphs: [
           "Governments can see the transformation coming too, and they’re doing what governments know how to do: write checks and talk around the problem without actually doing anything. To be fair, I’m not sure they can do anything. Chekhov’s gun is on the mantel, and if we don’t pick it up, a rival power will.",
           "As of this summer, American babies born between 2025 and 2028 can get [$1,000 in a Trump Account](https://www.nbcnews.com/business/business-news/trump-accounts-baby-qualify-1000-rcna247135), invested in the stock market until they turn 18. SpaceX’s president has already [given a share to two million kids](https://semafor.com/article/07/06/2026/spacex-no-2-exec-donates-320-million-of-stock-to-trump-accounts), and Elon Musk has [pledged a SpaceX share to every child in America](https://www.semafor.com/article/10/19/2026/musk-to-gift-spacex-shares-to-american-children) next year, calling it “the first of many.” By the time my children are ready to retire (if that even means anything in the not too distant future) their generation could have a small fortune waiting in those accounts.",
@@ -89,6 +102,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "The Last Frontier",
+        figures: [{ id: "distance", after: 1 }],
         paragraphs: [
           "I find myself arguing for the progress I dread most. I believe that AI has, or soon will, solve all the mysteries of the Earth. Next, it will help my sons solve the mysteries of the heavens, riding along in their heads as synthetic passengers on the human journey. It’ll be Cortana for everyone.",
           "The heavens will still be cold and alien. Mars will kill you if you’re careless. Physics and natural laws care little for the frailty of humanity and the distance between stars doesn’t shrink no matter how intelligent your copilot is. Space is the last place where the limits are real and no one can vote, legislate, or code them away.",
@@ -99,6 +113,7 @@ export const essays: Essay[] = [
       },
       {
         heading: "Walls We Build Ourselves",
+        figures: [{ id: "wall", after: 2 }],
         paragraphs: [
           "But grief isn’t a plan, and navel-gazing isn’t a purpose. I can’t wait for a trip to Mars to teach them that limitations are a gift.",
           "So, in my house, we start small. They wash their own dishes, they put away their toys, they make their beds. They don’t get to eat sweets before they eat their dinner. They rarely if ever get to watch TV. We read books, we put together puzzles, we play logic games, and we eat dinner as a family with no electronics in sight.",
